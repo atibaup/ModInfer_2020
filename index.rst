@@ -21,7 +21,8 @@ Continguts
       :maxdepth: 1
       :numbered:
 
-      0_Intro/0_0_Intro
+      0_Intro/0_0_Intro_curs
+      0_Intro/0_1_Intro_stats
 
 
    © Arnau Tibau Puig, 2020
