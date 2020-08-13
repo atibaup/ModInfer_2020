@@ -161,6 +161,17 @@ Intro a l'inferència estadística
 
     **Exercici**: Altres exemples d'estadístics?
 
+.. slide:: Altres exemples d'estadístics
+   :level: 3
+
+    * Mediana
+    * Percentil
+    * Max/min (extrems)
+    * Coeficient de correlació
+    * Histograma
+    * Entropía
+
+
 .. slide:: Estimadors i paràmetres: definició
    :level: 3
 
