@@ -24,7 +24,12 @@ Intro a l'inferència estadística
 .. slide:: Exemple I: Volem estimar la prevalència d'anticossos de SARS-COV-2 en la població espanyola
    :level: 3
 
-   Suposem
+   * Tenim una *població finita* de ~47M d'habitants
+   * Sel.leccionem aleatòriament :math:`N` individus d'entre els 47M
+   * :math:`X_i \sim \mbox{Bernouilli}\left(p\right)` indica si l'individu :math:`i` té anticossos
+   * :math:`p` indica la prevalència real d'anticossos en la població
+   * Volem estimar :math:`p` a partir de la mostra :math:`\left\{x_1,\cdots,x_N\right\}`
+   * **Pregunta**: Quan gran ha de ser :math:`N`?
 
 
 .. slide:: Exemple II: Volem caracteritzar ... [TBD]
@@ -42,10 +47,11 @@ Intro a l'inferència estadística
 
     * Un conjunt *finit* però *"gran"* d'elements dels quals mesurem una quantitat real. Exemple: les mesures dels sèpals i pètals de les diferents espècies d'*Iris*
 
-    * Una abstracció que caracteritza el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Per exemple:
+    * Una *abstracció* representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Exemple: obtenir 4 asos al repartir 4 cartes d'una baralla de 52 cartes
 
-    ps: A efectes pràctics, l'únic que ens interessa és si al mostrejar una població, l'efecte de mostrejar canvia
-    la distirbució de la mesura o no
+    .. rst-class:: note
+
+        A efectes pràctics, l'únic que ens interessa és si l'acte de mostrejar impacta la distribució de la mostra o no
 
 
 .. slide:: Mostreig
@@ -55,7 +61,7 @@ Intro a l'inferència estadística
 
     El mostreig més simple és l'aleatori: escollim un membre de la població a l'atzar, i en mesurem l'atribut.
 
-    En poblacions infinites, l'acte de mostrejar no afecta la distribució de les següents mostres.
+    En poblacions infinites (o finites però suficientment grans), l'acte de mostrejar no afecta la distribució de les següents mostres.
 
     En poblacions finites, un mostreig aleatori *sense remplaçament* sí que impacta la distribució de les mostres
     subsegüents (exercici)
@@ -71,7 +77,7 @@ Intro a l'inferència estadística
         **Definició**: Les variables aleatòries :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són una mostra aleatòria d'una població
         caracteritzada per una *fdp* :math:`f(x)`, si :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són **mutualment independents** i :math:`X_i \sim f(x)`.
 
-    Alternativament :math:`\left\{X_0, \cdots, X_{n-1}\right\}` s'anomenen **independents i idènticament distribuïdes** (abreviat *iid*)
+    Alternativament :math:`\left\{X_0, \cdots, X_{n-1}\right\}` s'anomenen **independents i idènticament distribuïdes** (abreviat **iid**)
 
 
 .. slide:: Exemple de mostres *iid*: Aplicació d'inferència
@@ -89,12 +95,12 @@ Intro a l'inferència estadística
         P\left(X_1 \geq 2, \cdots, X_N \geq 2\right) &= \int_{2}^{\infty}\cdots\int_{2}^{\infty}\frac{1}{\beta^n}e^{\frac{-\sum_i x_i}{\beta}} dx_1\cdots dx_N \\
                                                      &= e^{-\frac{2n}{\beta}}
 
-.. slide:: Exemple de mostres **no** *iid*: Població finita
+.. slide:: Exemple de mostres **no-iid**: Població finita
    :level: 3
 
     Tenim una població de n=30 persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
 
-    :math:`X_i`: alçada de la :math:`i`-ena persona sel.leccionada aleatòriament entre les 30. Si :math:`x_i\neq x_j, \forall i\neq j`, tenim:
+    :math:`X_i`: alçada de la :math:`i`-ena persona. Si :math:`x_i\neq x_j, \forall i\neq j`, tenim:
 
     .. math::
 
@@ -107,25 +113,29 @@ Intro a l'inferència estadística
 
     **Exercici**: Què passa si mostregem cada persona *amb remplaçament*?
 
-    .. [*] Suposant que :math:`x_i\neq x_j, \forall i,j`
 
-
-.. slide:: Exemple de mostres **no** *iid*: Biaix de sel.lecció
+.. slide:: Exemple de mostres **no-iid**: Biaix de sel.lecció
    :level: 3
 
-    Mesurem el percentatge de pacients que requereixen hospitalització durant la pandèmia de COVID-19:
+    Volem estimar la proporció :math:`p` de pacients que requereixen hospitalització durant la pandèmia de COVID-19:
 
-    * P_i: nombre de persones detectades positives el dia i
-    * H_i: nombre de persones positives el dia i que van requerir hospitalització (en alguns dels T dies següents)
+    * :math:`T_i`: nombre tests realitzats el dia :math:`i`
+    * :math:`P_i`: nombre de persones detectades positives el dia :math:`i`
+    * :math:`H_i`: nombre de persones positives el dia :math:`i` que van requerir hospitalització (en alguns dels T dies següents)
 
     [Mostrar gràfica nombre de tests]
 
-    * Periòde 1: i entre Gener i Maig: P_i | Política de PCR 1
-    * Periòde 2: i entre Maig i Juliol: P_i | Política de PCR 2
 
-    -> Per tant P_i no és iid!
+.. slide:: Exemple de mostres **no-iid**: Biaix de sel.lecció (II)
+   :level: 3
 
-    **Exercici**: Quina seria una manera simple d'ajustar els valors del periòde 1 per tal de simular una situació id?
+    Sol.lució naïf: Estimar :math:`p` com el promig dels valors :math:`\frac{H_i}{P_i}`...
+
+    .. rst-class:: note
+
+        **Problema**: :math:`P_i` depèn de :math:`T_i`, i :math:`T_i` ha canviat... Per tant les mostres :math:`P_i` no segueixen la mateixa distribució
+
+    **Exercici**: Se us acudeix una manera simple d'ajustar els valors de :math:`\frac{H_i}{P_i}`?
 
 
 .. slide:: Estadístics i estimadors
@@ -134,30 +144,32 @@ Intro a l'inferència estadística
 .. slide:: Estadístics: mitja i variança
    :level: 3
 
-    Si ens donen un conjunt de dades i volem descriurel abreviadament, el més comú es calcular-ne:
+    Si ens donen un conjunt de dades i volem descriure'l abreviadament, el més comú es calcular-ne:
 
     * La mitja: :math:`\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i`
 
     * La variança: :math:`S^2 = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2`
 
-    Amb la mitja i la variança ja podem fer inferència:
+    Amb aquestes dues quantitats ja podem fer inferència:
 
-    - Podem predir un valor no observat
-    - Podem estimar com de rara és una observació
+    - Podem predir el valor d'una nova observació
+    - Podem estimar com de rara és una nova observació
 
-    La mitja i la variança són dos exemples d'un **estadístic**
+    La mitja i la variança són dos exemples d'un **estadístic**.
 
 
 .. slide:: Estadístics: definició
    :level: 3
 
-    Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` d'un espai mostral :math:`\Omega`
+    .. rst-class:: note
 
-    Un estadístic és una funció :math:`T: \Omega^N \subset D \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
+        **Definició:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` d'un espai mostral :math:`\Omega`,
+        un estadístic és una funció :math:`T: D \subset \Omega^N \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
 
     * La mitja i la variança de mostres reals són estadístics amb p=1.
     * La matriu de covariança de mostres formades per vectors és un estadístic amb p=d*(d-1)/2
-    * Com que T és una funció de variables o vectors aleatòries, és també una variable o vector aleatori
+
+    Com que T és una funció de variables o vectors aleatòries, és també una variable o vector aleatori
 
     **Exercici**: Altres exemples d'estadístics?
 
@@ -171,11 +183,60 @@ Intro a l'inferència estadística
     * Histograma
     * Entropía
 
-
-.. slide:: Estimadors i paràmetres: definició
+.. slide:: Estimadors i paràmetres: Exemple en població finita
    :level: 3
 
-    * normalment els estimadors son funcions d'un estadístic.
+    Tenim una població de :math:`n=47 \times 10ˆ6 persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
+
+    Podem definir un **paràmetre** que caracteritza la població, per exemple la seva mitja aritmètica:
+
+    :math:`\mu = \frac{1}{n} \sum_{i=1}ˆn x_i`
+
+    Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar l'alçada de 47M de persones.
+
+    Enlloc d'això, podem construïr un **estimador** del paràmetre, a partir d'una mostra finita de N=1000 mostres,
+    per exemple, la mitjana empírica:
+
+    :math:`\hat{\mu} = \frac{1}{N} \sum_{i=1}ˆN x_i`
+
+
+
+.. slide:: Estimadors i paràmetres: Exemple en població infinita
+   :level: 3
+
+    Tenim una població de n=30 persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
+
+    Podem definir un **paràmetre** que caracteritza la població, per exemple la seva mitja aritmètica:
+
+    :math:`\mu = \frac{1}{N} \sum_{i=1}ˆ30 x_i`
+
+
+.. slide:: Paràmetres: definició
+   :level: 3
+
+    .. rst-class:: note
+
+        **Definició (informal):** Un **paràmetre** d'una població, és un valor (escalar o vector) que caracteritza
+        únicament la distribució de les mostres de la població
+
+    *Exemples*:
+
+    * La mitja i matriu de covariança d'una variable multivariada normal
+    * La prevalència real d'anticossos SARS-COV-2 en la població espanyola
+    *
+
+.. slide:: Estimadors: definició
+   :level: 3
+
+    .. rst-class:: note
+
+        **Definició (informal):** Un estimador és una funció d'una mostra que
+
+    *Exemples*:
+
+    * La mitja aritmètica de les mostres iid d'una normal multivariada és un estimador del paràmetre mitja
+    * La divisió del nombre de positius entre el nombre de mostres és un estimador de la prevalència real d'anticossos
+    *
 
 .. slide:: Relació entre estadístics, estimadors i paràmetres
    :level: 3
