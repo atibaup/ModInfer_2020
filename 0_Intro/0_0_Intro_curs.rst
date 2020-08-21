@@ -205,16 +205,6 @@ Recordatori de Probabilitat
 
     **Recomano** donar una ullada al Kendall per una intro no tècnica a les :math:`\sigma`-àlgebres
 
-.. slide:: Mesura de probabilitat: exercicis
-   :level: 3
-
-    Practiquem amb els axiomes per demostrar que:
-
-    1. :math:`P\left(\emptyset\right)=0`
-
-    2. :math:`P\left(A^c\right)=1-P\left(A\right)`
-
-    3. :math:`P\left(A \cup B \right)= P\left(A\right) + P\left(B\right) - P\left(A \cap B\right)`
 
 
 .. slide:: Espai de probabilitat: Dau de 6 cares

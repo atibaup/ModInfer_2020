@@ -64,7 +64,7 @@ Intro a l'inferència estadística
     En poblacions infinites (o finites però suficientment grans), l'acte de mostrejar no afecta la distribució de les següents mostres.
 
     En poblacions finites, un mostreig aleatori *sense remplaçament* sí que impacta la distribució de les mostres
-    subsegüents (exercici)
+    subsegüents (vegeu exemple a continuació)
 
 .. slide:: Mostra *iid*: Definició
    :level: 3
@@ -117,25 +117,25 @@ Intro a l'inferència estadística
 .. slide:: Exemple de mostres **no-iid**: Biaix de sel.lecció
    :level: 3
 
-    Volem estimar la proporció :math:`p` de pacients que requereixen hospitalització durant la pandèmia de COVID-19:
+    Volem estimar l'edat mitjana dels casos de COVID-19. Prenem mostres:
 
-    * :math:`T_i`: nombre tests realitzats el dia :math:`i`
-    * :math:`P_i`: nombre de persones detectades positives el dia :math:`i`
-    * :math:`H_i`: nombre de persones positives el dia :math:`i` que van requerir hospitalització (en alguns dels T dies següents)
+    * :math:`T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}`: variable indicativa de test efectuat a l'individu :math:`i`
+    * :math:`A_i \in \left(0, \infty\right)`: edat de l'individu :math:`i`
 
-    [Mostrar gràfica nombre de tests]
+    Problema: criteri de sel.lecció no és el mateix per les mostres :math:`\left\{1, \cdots, N_A\right\}`
+    que per les mostres :math:`\left\{N_A + 1, \cdots, N_B\right\}`! (Per exemple: només es testeja gent que arriva a
+    l'hospital vs. cribatge generalitzat)
 
 
 .. slide:: Exemple de mostres **no-iid**: Biaix de sel.lecció (II)
    :level: 3
 
-    Sol.lució naïf: Estimar :math:`p` com el promig dels valors :math:`\frac{H_i}{P_i}`...
+    [Diagrama de Venn?]
 
-    .. rst-class:: note
+    **Exercici**:
 
-        **Problema**: :math:`P_i` depèn de :math:`T_i`, i :math:`T_i` ha canviat... Per tant les mostres :math:`P_i` no segueixen la mateixa distribució
-
-    **Exercici**: Se us acudeix una manera simple d'ajustar els valors de :math:`\frac{H_i}{P_i}`?
+    * Se us acudeix una manera simple d'ajustar els valors de :math:`A_i` (veure Problemes)?
+    * A la pràctica farem un ajust de les dades d'edat de COVID basat en l'*inverse probability weighting*
 
 
 .. slide:: Estadístics i estimadors
@@ -169,7 +169,7 @@ Intro a l'inferència estadística
     * La mitja i la variança de mostres reals són estadístics amb p=1.
     * La matriu de covariança de mostres formades per vectors és un estadístic amb p=d*(d-1)/2
 
-    Com que T és una funció de variables o vectors aleatòries, és també una variable o vector aleatori
+    Com que `:math:`T` és una funció de variables o vectors aleatòries, :math:`T és també una variable o vector aleatori
 
     **Exercici**: Altres exemples d'estadístics?
 
@@ -186,69 +186,80 @@ Intro a l'inferència estadística
 .. slide:: Estimadors i paràmetres: Exemple en població finita
    :level: 3
 
-    Tenim una població de :math:`n=47 \times 10ˆ6 persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
+    Tenim una població de :math:`n=47 \times 10ˆ6` persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
 
     Podem definir un **paràmetre** que caracteritza la població, per exemple la seva mitja aritmètica:
 
-    :math:`\mu = \frac{1}{n} \sum_{i=1}ˆn x_i`
+    :math:`\mu = \frac{1}{n}\sum_{i=1}^n x_i`
 
     Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar l'alçada de 47M de persones.
 
-    Enlloc d'això, podem construïr un **estimador** del paràmetre, a partir d'una mostra finita de N=1000 mostres,
+.. slide:: Estimadors i paràmetres: Exemple en població finita (II)
+   :level: 3
+
+    Enlloc d'això, podem construïr un **estimador** d'aquest **paràmetre**, a partir d'una mostra finita amb N=1000,
     per exemple, la mitjana empírica:
 
-    :math:`\hat{\mu} = \frac{1}{N} \sum_{i=1}ˆN x_i`
+    :math:`\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i`
 
+    Noteu que :math:`X_i` representen la v.a. corresponent a mostrejar :math:`\left\{x_i\right\}`
+
+    Preguntes:
+
+    * Com de bé aproxima :math:`\hat{\mu}` a :math:`\mu`?
+    * :math:`\hat{\mu}` és una variable aleatòria... quina distribució té?
 
 
 .. slide:: Estimadors i paràmetres: Exemple en població infinita
    :level: 3
 
-    Tenim una població de n=30 persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
+    En el cas d'una població infinita, normalment **assumim** que la mateixa
+    està caracteritzada per una distribució de probabilitat parameteritzada per
+    una sèrie de paràmetres (a vegades als paràmetres genèrics s'els denota per
+    un vector :math:`\mathbf{\theta}`)
 
-    Podem definir un **paràmetre** que caracteritza la població, per exemple la seva mitja aritmètica:
+    Exemples:
 
-    :math:`\mu = \frac{1}{N} \sum_{i=1}ˆ30 x_i`
+    * En el nostre exemple anterior, la vida útil d'un circuit estava carateritzada per una exponencial amb paràmetre :math:`\beta`
+
+    * Una mostra iid d'una població normal està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigmaˆ2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma \right]`
+
+    * El nombre de cares al llençar una moneda N vegades són mostres d'una població binomial amb paràmetre p
 
 
-.. slide:: Paràmetres: definició
+.. slide:: Estimadors i estadístics
    :level: 3
 
-    .. rst-class:: note
+    * En general (no sempre!) els estimadors són funcions d'estadístics
+    * Fins ara em vist estimadors que són identitats d'estadístics (mitja, variança)
+    * Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d'estadístics de les dades
 
-        **Definició (informal):** Un **paràmetre** d'una població, és un valor (escalar o vector) que caracteritza
-        únicament la distribució de les mostres de la població
+    En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
 
-    *Exemples*:
-
-    * La mitja i matriu de covariança d'una variable multivariada normal
-    * La prevalència real d'anticossos SARS-COV-2 en la població espanyola
-    *
-
-.. slide:: Estimadors: definició
+.. slide:: Distribució d'un estadístic: cas general
    :level: 3
 
-    .. rst-class:: note
+    Caracterització a través del Jacobià
 
-        **Definició (informal):** Un estimador és una funció d'una mostra que
-
-    *Exemples*:
-
-    * La mitja aritmètica de les mostres iid d'una normal multivariada és un estimador del paràmetre mitja
-    * La divisió del nombre de positius entre el nombre de mostres és un estimador de la prevalència real d'anticossos
-    *
-
-.. slide:: Relació entre estadístics, estimadors i paràmetres
+.. slide:: Distribució d'un estadístic: sumes d'iid
    :level: 3
 
-    El més freqüent és que utilitzem **estadístics** per generar un **estimador** d'un **paràmetre** de la població
-
-    *Exemple*: Estimador de l'alçada mitja d'una població normal
-
-    * mitja aritmètica: estadístic i estimador del paràmetre mitja de la població
+    Propietats de les sumes d'iid
 
 
-.. slide:: Caracterització dels estimadors
+.. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita
+   :level: 3
+
+    Llei dels grans nombres
+
+
+.. slide:: Distribució d'un estadístic: asimptòtics de funcions de sumes d'iid amb variança finita
+   :level: 3
+
+    Delta method
+
+
+.. slide:: Propietats d'un estimador
    :level: 3
 
     Cualsevol nombre pot ser un estimador.
@@ -262,7 +273,7 @@ Intro a l'inferència estadística
     Quin és millor?
 
 
-.. slide:: Caracterització dels estimadors (II)
+.. slide:: Propietats d'un estimador (II)
    :level: 3
 
     * els estimadors són també variables aleatòries
@@ -272,5 +283,15 @@ Intro a l'inferència estadística
         - error quadràtic mitjà
         - la seva distribució de probabilitat
 
+
+.. slide:: Propietats dels estimadors de la mitja i la variança
+    :level: 3
+    * derivació propietats mitja
+
+
+.. slide:: Propietats dels estimadors de la mitja i la variança
+    :level: 3
+    * derivació propietats variança
+    * independència mitja i variança
 
 

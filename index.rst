@@ -23,7 +23,8 @@ Continguts
 
       0_Intro/0_0_Intro_curs
       0_Intro/0_1_Intro_stats
-
+      0_Intro/0_2_Problemes
+      0_Intro/0_3_Practica
 
    © Arnau Tibau Puig, 2020
 
