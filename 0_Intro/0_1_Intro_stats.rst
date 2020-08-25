@@ -164,12 +164,12 @@ Intro a l'inferència estadística
     .. rst-class:: note
 
         **Definició:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` d'un espai mostral :math:`\Omega`,
-        un estadístic és una funció :math:`T: D \subset \Omega^N \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
+        un estadístic és una funció :math:`T: D \subseteq \Omega^N \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
 
     * La mitja i la variança de mostres reals són estadístics amb p=1.
     * La matriu de covariança de mostres formades per vectors és un estadístic amb p=d*(d-1)/2
 
-    Com que `:math:`T` és una funció de variables o vectors aleatòries, :math:`T és també una variable o vector aleatori
+    Com que :math:`T` és una funció de variables o vectors aleatòries, :math:`T` és també una variable o vector aleatori
 
     **Exercici**: Altres exemples d'estadístics?
 
@@ -202,9 +202,9 @@ Intro a l'inferència estadística
 
     :math:`\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i`
 
-    Noteu que :math:`X_i` representen la v.a. corresponent a mostrejar :math:`\left\{x_i\right\}`
+    Noteu que :math:`X_i` representen la v.a. corresponent a mostrejar la població :math:`\left\{x_i\right\}` (amb remplaçament)
 
-    Preguntes:
+    Questions d'inferència:
 
     * Com de bé aproxima :math:`\hat{\mu}` a :math:`\mu`?
     * :math:`\hat{\mu}` és una variable aleatòria... quina distribució té?
@@ -220,11 +220,11 @@ Intro a l'inferència estadística
 
     Exemples:
 
-    * En el nostre exemple anterior, la vida útil d'un circuit estava carateritzada per una exponencial amb paràmetre :math:`\beta`
+    * La vida útil d'un circuit estava carateritzada per una exponencial amb paràmetre :math:`\beta`
 
-    * Una mostra iid d'una població normal està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigmaˆ2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma \right]`
+    * Una mostra iid d'una població normal està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigma^2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma^2 \right]`
 
-    * El nombre de cares al llençar una moneda N vegades són mostres d'una població binomial amb paràmetre p
+    * El nombre de cares al llençar una moneda N vegades són mostres d'una població binomial amb paràmetre :math:`p`
 
 
 .. slide:: Estimadors i estadístics
@@ -236,10 +236,16 @@ Intro a l'inferència estadística
 
     En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
 
-.. slide:: Distribució d'un estadístic: cas general
+
+.. slide:: Caracterització d'estadístics i estimadors
+   :level: 2
+
+
+.. slide:: Distribució d'un estadístic: funció diferenciable
    :level: 3
 
-    Caracterització a través del Jacobià
+   Caracterització a través del Jacobià
+    En general
 
 .. slide:: Distribució d'un estadístic: sumes d'iid
    :level: 3
@@ -295,3 +301,5 @@ Intro a l'inferència estadística
     * independència mitja i variança
 
 
+.. slide:: Estadístics d'ordre
+   :level: 2

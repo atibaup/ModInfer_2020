@@ -130,14 +130,32 @@ Benvinguts a `104392 - Modelització i Inferència`
     * 10 anys d'experiència com a `Data Scientist` a l'indústria
     * Phd en EE
 
-.. slide:: Funcionament del curs i evaluació
+.. slide:: Funcionament del curs
    :level: 3
-
-    NOTA: Aquest curs és la primera vegada que l'ensenyo: necessitaré la vostra ajuda :)
 
     * Classes de teoria: estadística matemàtica
     * Resolució de problemes proposats com a deures
     * Classes pràctiques amb programari (R/Python)
+
+
+.. slide:: Avaluació
+   :level: 3
+
+    * Classes de teoria: estadística matemàtica
+    * Resolució de problemes proposats com a deures
+    * Classes pràctiques amb programari (R/Python)
+
+
+.. slide:: Coses a tenir en compte
+   :level: 3
+
+    Aquest curs és la primera vegada que l´ensenyo:
+
+    * Pot haver-hi alguna errada a les slides/apunts
+    * Termes anglès català
+
+    Necessitaré la vostra col.laboració!
+
 
 .. slide:: Temari i guia docent
    :level: 3
