@@ -180,6 +180,7 @@ Intro a l'inferència estadística
     * Percentil
     * Max/min (extrems)
     * Coeficient de correlació
+    * Risc relatiu (*odds ratio*)
     * Histograma
     * Entropía
 
@@ -230,27 +231,132 @@ Intro a l'inferència estadística
 .. slide:: Estimadors i estadístics
    :level: 3
 
-    * En general (no sempre!) els estimadors són funcions d'estadístics
+    * En general els estimadors són estadístics
     * Fins ara em vist estimadors que són identitats d'estadístics (mitja, variança)
     * Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d'estadístics de les dades
 
     En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
 
 
-.. slide:: Caracterització d'estadístics i estimadors
+.. slide:: Exercici de recapitulació
+   :level: 3
+
+    * Definim :math:`T:` bla bla: és un estadístic?
+    * Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
+    * Quan es fa una enquesta d´intenció de vot, quin tipus de població i mostres tenim?
+
+
+.. slide:: Caracterització d'estadístics
    :level: 2
 
-
-.. slide:: Distribució d'un estadístic: funció diferenciable
+.. slide:: Caracterització d'un estadístic
    :level: 3
 
-   Caracterització a través del Jacobià
-    En general
+    La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
+    no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament
 
-.. slide:: Distribució d'un estadístic: sumes d'iid
+    Haurem de fer doncs asssumpcions addicionals per caracteritzar-los analíticament:
+
+    * tipus de funció (ex: mitja, variança, funció contínua i diferenciable)
+    * distribució de les mostres (ex: mostres normals)
+    * comportament asimptòtic (quan el nombre mostres tendeix a l'infinit)
+
+    o bé utilitzar eines computacionals:
+
+    * bootstrap
+    * simulació
+
+    Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança
+
+
+.. slide:: Caracterització dels estadístics mitjana i variança
    :level: 3
 
-    Propietats de les sumes d'iid
+    Comencem per un resultat auxiliar important:
+
+    .. rst-class:: note
+
+        **Lemma 5.2.5:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança finita, i una funció
+        arbitrària :math:`g` tenim que:
+
+        * :math:`E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)`
+        * :math:`\mbox{Var}\left(\sum_{i=1}^N g\left(X_i\right)\right) = N \mbox{Var}\left(g\left(X\right)\right)`
+
+    Demostració (exercici). Recordeu:
+
+    * Linearitat de l´esperança
+    * Covariança de v.a. independents
+
+
+.. slide:: Caracterització dels estadístics mitjana i variança (II)
+   :level: 3
+
+    Com a corolari del darrer Lemma, tenim:
+
+    .. rst-class:: note
+
+        **Teorema 5.2.6:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança :math:`\mu` i variança :math:`\sigma^2`
+        tenim:
+        * :math:`E\left(\bar{X}\right) = \mu`
+        * :math:`\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2`
+        * :math:`E\left(S^2\right) = \sigma^2`
+
+    Demostració (exercici).
+
+    * Els estadístics :math:`\bar{X}` i :math:`S^2` son **estimadors sense biaix** dels paràmetres :math:`\mu` i :math:`\sigma^2`
+
+    * Només hem asumit moments d'ordre 2 i ja podem caracteritzar estadísticament :math:`\bar{X}` fins als moments de 2on ordre
+
+    * Sense el factor :math:`\frac{1}{N-1}`, :math:`S^2` tindria biaix
+
+.. slide:: Caracterització de la mitjana mitjantçant la funció generatriu de moments
+   :level: 3
+
+    En alguns casos, podem anar encara més enllà en la caracterització de la
+    distribució de :math:`\bar{X}`. El primer cas que tractarem és a través
+    de la funció generatriu de moments:
+
+    .. rst-class:: note
+
+        **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
+        generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
+
+    Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
+    amb f.g.m coneguda, per exemple:
+
+    * normal
+    * gamma
+
+.. slide:: Caracterització de la mitjana per convolució
+   :level: 3
+
+    Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
+    només ens queda una eina teòrica per caracteritzar :math:`\bar{X}`,
+    i és la caracterització pel Jacobià d'una transformació
+
+    .. rst-class:: note
+
+        **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
+        generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
+
+    Amb aquesta aproximació podem caracteritzar :math:`\bar{X}` per una població de Cauchy
+
+
+.. slide:: Caracterització dels estadístics mitjana i variança: població normal
+   :level: 3
+
+    El model de població Normal ens permet anar una mica més enllà en la caracterització d':math:`\bar{X}` i :math:`S^2`.
+    En particular, no ens hem de limitar als seus moments sino que en podrem derivar la distribució.
+
+.. slide:: Caracterització dels estadístics mitjana i variança: població normal amb mitja desconeguda
+   :level: 3
+
+    bla bla
+
+.. slide:: Caracterització dels estadístics mitjana i variança: població normal amb mitja i variança desconeguda
+   :level: 3
+
+    bla bla
 
 
 .. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita
@@ -259,10 +365,17 @@ Intro a l'inferència estadística
     Llei dels grans nombres
 
 
-.. slide:: Distribució d'un estadístic: asimptòtics de funcions de sumes d'iid amb variança finita
+.. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita (II)
    :level: 3
 
-    Delta method
+    Llei dels grans nombres
+
+
+.. slide:: Distribució d'un estadístic: aproximacions computacionals
+   :level: 3
+
+    Llei dels grans nombres
+
 
 
 .. slide:: Propietats d'un estimador

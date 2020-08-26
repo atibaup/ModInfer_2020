@@ -157,6 +157,11 @@ Benvinguts a `104392 - Modelització i Inferència`
     Necessitaré la vostra col.laboració!
 
 
+.. slide:: Convenció de notació
+   :level: 3
+
+
+
 .. slide:: Temari i guia docent
    :level: 3
 
