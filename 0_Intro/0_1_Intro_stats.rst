@@ -75,7 +75,7 @@ Intro a l'inferència estadística
     .. rst-class:: note
 
         **Definició**: Les variables aleatòries :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són una mostra aleatòria d'una població
-        caracteritzada per una *fdp* :math:`f(x)`, si :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són **mutualment independents** i :math:`X_i \sim f(x)`.
+        caracteritzada per una *fdp* :math:`f_X(x)`, si :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són **mutualment independents** i :math:`X_i \sim f_X(x)`.
 
     Alternativament :math:`\left\{X_0, \cdots, X_{n-1}\right\}` s'anomenen **independents i idènticament distribuïdes** (abreviat **iid**)
 
@@ -86,9 +86,9 @@ Intro a l'inferència estadística
     [Kendall Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) :math:`X_i` d':math:`n` circuits electrònics. Si
     :math:`X_i \sim \mathbf{exponential}\left(\beta\right)`, quina és la probabilitat que tots els circuits mesurats durin més de 2 anys?
 
-    * Els esdeveniments :math:`\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}` són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)
+    Els esdeveniments :math:`\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}` són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)
 
-    * Per independència, la *fdp* conjunta de :math:`\left\{X_1, \cdots, X_{N}\right\}` és :math:`f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=0}^{n-1}f\left(x_i\right) = \frac{1}{\beta^n}\exp^{\frac{-\sum_i x_i}{\beta}}`
+    Per independència, la *fdp* conjunta de :math:`\left\{X_1, \cdots, X_{N}\right\}` és :math:`f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=0}^{n-1}f\left(x_i\right) = \frac{1}{\beta^n}\exp^{\frac{-\sum_i x_i}{\beta}}`
 
     .. math::
 
@@ -164,10 +164,10 @@ Intro a l'inferència estadística
     .. rst-class:: note
 
         **Definició:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` d'un espai mostral :math:`\Omega`,
-        un estadístic és una funció :math:`T: D \subseteq \Omega^N \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
+        un estadístic és una funció :math:`T: \Omega^N \rightarrow \mathbb{R}^p`, amb :math:`p \geq 1`.
 
     * La mitja i la variança de mostres reals són estadístics amb p=1.
-    * La matriu de covariança de mostres formades per vectors és un estadístic amb p=d*(d-1)/2
+    * La matriu de covariança de mostres formades per vectors de dimensió :math:`d` és un estadístic amb :math:`p=d(d-1)/2`
 
     Com que :math:`T` és una funció de variables o vectors aleatòries, :math:`T` és també una variable o vector aleatori
 
@@ -238,15 +238,16 @@ Intro a l'inferència estadística
     En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
 
 
-.. slide:: Exercici de recapitulació
+.. slide:: Exercicis de recapitulació
    :level: 3
 
-    * Definim :math:`T:` bla bla: és un estadístic?
-    * Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
-    * Quan es fa una enquesta d´intenció de vot, quin tipus de població i mostres tenim?
+    1. Definim :math:`T:` bla bla: és un estadístic?
+    2. Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
+    3. Quan es fa una enquesta d'intenció de vot, quin tipus de població i mostres tenim?
+    4. Quan es fa una enquesta d'intenció de vot, perquè no és vàlid agafar mostres només d'una zona geogràfica determinada?
 
 
-.. slide:: Caracterització d'estadístics
+.. slide:: Caracterització probabilística d'estadístics
    :level: 2
 
 .. slide:: Caracterització d'un estadístic
@@ -255,7 +256,7 @@ Intro a l'inferència estadística
     La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
     no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament
 
-    Haurem de fer doncs asssumpcions addicionals per caracteritzar-los analíticament:
+    Haurem de fer doncs asssumpcions addicionals:
 
     * tipus de funció (ex: mitja, variança, funció contínua i diferenciable)
     * distribució de les mostres (ex: mostres normals)
@@ -265,6 +266,7 @@ Intro a l'inferència estadística
 
     * bootstrap
     * simulació
+
 
     Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança
 
@@ -284,7 +286,7 @@ Intro a l'inferència estadística
 
     Demostració (exercici). Recordeu:
 
-    * Linearitat de l´esperança
+    * Linearitat de l'esperança
     * Covariança de v.a. independents
 
 
@@ -297,17 +299,47 @@ Intro a l'inferència estadística
 
         **Teorema 5.2.6:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança :math:`\mu` i variança :math:`\sigma^2`
         tenim:
+
         * :math:`E\left(\bar{X}\right) = \mu`
         * :math:`\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2`
         * :math:`E\left(S^2\right) = \sigma^2`
 
     Demostració (exercici).
 
-    * Els estadístics :math:`\bar{X}` i :math:`S^2` son **estimadors sense biaix** dels paràmetres :math:`\mu` i :math:`\sigma^2`
+.. slide:: Caracterització dels estadístics mitjana i variança (III)
+   :level: 3
 
-    * Només hem asumit moments d'ordre 2 i ja podem caracteritzar estadísticament :math:`\bar{X}` fins als moments de 2on ordre
+    Observacions:
 
-    * Sense el factor :math:`\frac{1}{N-1}`, :math:`S^2` tindria biaix
+    1. Els estadístics :math:`\bar{X}` i :math:`S^2` son **estimadors sense biaix** de :math:`\mu` i :math:`\sigma^2`
+
+    2. Només hem assumit moments d'ordre 2!
+
+    3. Sense el factor :math:`\frac{1}{N-1}`, :math:`S^2` tindria biaix
+
+
+.. slide:: Caracterització dels estadístics mitjana i variança (IV)
+   :level: 3
+
+    Finalment, podem aplicar la desigualtat de Txebixev:
+
+    .. math::
+
+        P\left(g\left(x\right) \geq r\right)  \leq \frac{E g\left(x\right)}{r}
+
+    amb :math:`g\left(\bar{X}\right) = \frac{\left(\bar{X} - \mu\right)^2}{\sigma^2}`,
+
+    .. math::
+
+        P\left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \geq r \right)   & \leq  \frac{\mbox{Var}\left(\bar{X}\right)}{\sigma^2 r} \\
+                                                                              & = \frac{1}{ N r}
+
+    Per tant :math:`\lim_{N \to \infty} P\left(\left|\bar{X} - \mu\right| \geq r \right) = 0` (convergència en probabilitat)
+
+    .. rst-class:: note
+
+        Acabem de demostrar la Llei Feble dels Grans Nombres: "la mitja empírica convergeix a la mitja de la població"
+
 
 .. slide:: Caracterització de la mitjana mitjantçant la funció generatriu de moments
    :level: 3
@@ -320,6 +352,8 @@ Intro a l'inferència estadística
 
         **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
         generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
+
+    Demostració:
 
     Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
     amb f.g.m coneguda, per exemple:
@@ -348,12 +382,12 @@ Intro a l'inferència estadística
     El model de població Normal ens permet anar una mica més enllà en la caracterització d':math:`\bar{X}` i :math:`S^2`.
     En particular, no ens hem de limitar als seus moments sino que en podrem derivar la distribució.
 
-.. slide:: Caracterització dels estadístics mitjana i variança: població normal amb mitja desconeguda
+.. slide:: Caracterització dels estadístics mitjana i variança: X
    :level: 3
 
     bla bla
 
-.. slide:: Caracterització dels estadístics mitjana i variança: població normal amb mitja i variança desconeguda
+.. slide:: Caracterització dels estadístics mitjana i variança: Y
    :level: 3
 
     bla bla
@@ -362,7 +396,7 @@ Intro a l'inferència estadística
 .. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita
    :level: 3
 
-    Llei dels grans nombres
+    Llei feble dels grans nombres
 
 
 .. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita (II)
@@ -371,10 +405,26 @@ Intro a l'inferència estadística
     Llei dels grans nombres
 
 
-.. slide:: Distribució d'un estadístic: aproximacions computacionals
+.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Bootstrap
    :level: 3
 
-    Llei dels grans nombres
+    Bootstrap
+
+.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Bootstrap (II)
+   :level: 3
+
+    Bootstrap II
+
+
+.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Simulació
+   :level: 3
+
+    Simulació
+
+.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Simulació (II)
+   :level: 3
+
+    Simulació II
 
 
 
