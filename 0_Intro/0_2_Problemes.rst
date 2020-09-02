@@ -1,7 +1,6 @@
 .. slideconf::
    :autoslides: False
 
-=================================================
 Intro a l'inferència estadística: Problemes
 =================================================
 
