@@ -1,62 +1,66 @@
 ===============================
-Recordatori de Probabilitat
+Tema 1: Preliminars
 ===============================
 
-.. slide:: Probabilitat
-   :level: 1
 
-.. slide:: Espai de Probabilitat
-   :level: 2
+Espais i mesures de Probabilitat
+==========================================
 
-.. slide:: Espai de probabilitat
-   :level: 3
+Espai de Probabilitat
+-------------------------------
 
-    Un **espai de probabilitat** és un model matemàtic del resultat d'un **experiment aleatori**.
+.. note::
+    Durant el Tema 1 haurem d'anar una mica ràpid. És impossible fer un curs de probabilitat
+    en 2 setmanes, però per sort ja n'heu fet un!
 
-    Consisteix en un triplet :math:`\left(\Omega, \mathcal{A}, P\right)`:
+Un **espai de probabilitat** és un model matemàtic del resultat d'un **experiment aleatori**.
 
-    * :math:`\Omega`: l'**espai mostral**, conjunt de resultats possibles d'un experiment
-    * :math:`\mathcal{A} \subset 2^{\Omega}`: els **esdeveniments**, una família de subconjunts d':math:`\Omega`
-    * :math:`P`: una **mesura de probabilitat**, una funció :math:`\mathcal{A} \rightarrow \left[0, 1\right]`
+Consisteix en un triplet :math:`\left(\Omega, \mathcal{A}, P\right)`:
 
-.. slide:: Mesura de probabilitat
-   :level: 3
-
-    Una **mesura de probabilitat** :math:`P: \mathcal{A} \rightarrow \left[0, 1\right]`
-    ha de satisfer els següents axiomes:
-
-    1. :math:`P\left(\Omega\right)=1`
-
-    2. Per qualsevol esdeveniment :math:`A\in\mathcal{A}`, :math:`P\left(A\right)\geq 0`
-
-    3. Per :math:`A_1,A_2\in\mathcal{A}` disjunts, :math:`P\left(A_1 \cup A_2\right) = P\left(A_1\right) + P\left(A_2\right)`
+* :math:`\Omega`: l'**espai mostral**, conjunt de resultats possibles d'un experiment
+* :math:`\mathcal{A} \subset 2^{\Omega}`: els **esdeveniments**, una família de subconjunts d':math:`\Omega`
+* :math:`P`: una **mesura de probabilitat**, una funció :math:`\mathcal{A} \rightarrow \left[0, 1\right]`
 
 
-.. slide:: Mesura de probabilitat (II)
-   :level: 3
+Mesura de probabilitat
+-------------------------------
 
-    Això és una construcció axiomàtica de Probabilitat, formalitzada per Kolmogorov.
+Una **mesura de probabilitat** :math:`P: \mathcal{A} \rightarrow \left[0, 1\right]`
+ha de satisfer els següents axiomes:
 
-    Noteu que no hi ha cap interpretació sobre el significat físic dels valors de :math:`P`.
+1. :math:`P\left(\Omega\right)=1`
 
-    Dues interpretacions possibles:
+2. Per qualsevol esdeveniment :math:`A\in\mathcal{A}`, :math:`P\left(A\right)\geq 0`
 
-    * **Frequentista**: :math:`P\left(A\right)` representa la frequència amb que observariem l'esdeveniment `A`
-    si realitzéssim un gran nombre d'experiments
-
-    * **Bayesiana**: :math:`P\left(A\right)` representa
+3. Per :math:`A_1,A_2\in\mathcal{A}` disjunts, :math:`P\left(A_1 \cup A_2\right) = P\left(A_1\right) + P\left(A_2\right)`
 
 
-.. slide:: Això no és un curs de probabilitat...
-   :level: 3
+.. nextslide::
+	:increment:
 
-    Per tant amagarem "detalls" important sota l'alfombra:
+Això és una construcció axiomàtica de Probabilitat, formalitzada per Kolmogorov.
 
-    * :math:`\mathcal{A}` en realitat ha de ser una :math:`\sigma`-àlgebra
-    * Per a conjunts :math:`\Omega` contables, podem tirar milles
-    * La cosa es complica quan :math:`\Omega` no és discret (exemples: l'alçada d'una població, el nivell d'expressió d'un gen)
+Noteu que no hi ha cap interpretació sobre el significat físic dels valors de :math:`P`.
 
-    **Recomano** donar una ullada al Kendall per una intro no tècnica a les :math:`\sigma`-àlgebres
+Dues interpretacions possibles:
+
+* **Frequentista**: :math:`P\left(A\right)` representa la frequència amb que observariem l'esdeveniment `A`
+si realitzéssim un gran nombre d'experiments
+
+* **Bayesiana**: :math:`P\left(A\right)` representa
+
+
+Aquest no és un curs de probabilitat...
+---------------------------------------
+
+Per tant amagarem "detalls" important sota l'alfombra:
+
+* :math:`\mathcal{A}` en realitat ha de ser una :math:`\sigma`-àlgebra
+* Per a conjunts :math:`\Omega` contables, podem tirar milles
+* La cosa es complica quan :math:`\Omega` no és discret (exemples: l'alçada d'una població, el nivell d'expressió d'un gen)
+
+**Recomano** donar una ullada al [Casella & Berger] o a una altra de les referències
+bibliogràfiques per una intro no tècnica a les :math:`\sigma`-àlgebres
 
 
 

@@ -118,27 +118,91 @@ Disposem d'un històric amb les `següents dades <http://files.grouplens.org/dat
 * Si implementem un model estadístic de recomanacions, com podem saber si millora l'experiència dels nostres usuaris o no? :math:`\rightarrow`  **Mostreig, Tests d'hipòtesi, Estimació**
 
 
-Funcionament del curs
+Organització del curs
 -------------------------------------------------
 
-* Classes de teoria: estadística matemàtica
-* Resolució de problemes proposats com a deures
-* Classes pràctiques amb programari (R/Python)
+**Classes de teoria**: Estadística matemàtica
+
+* Rigor matemàtic: el just
+* Focus en l'aplicació i l'aspecte computacional
+* Després de cada classe, penjaré les transparències/notes de classe al Campus Virtual
+* **IMPORTANT**: Es recomanara la lectura
+
+**Classes de problemes**: Resolució de problemes proposats per l'estudi autònom
+
+* Complement a les classes teòriques
+* Molt difícil (veure impossible) resoldre els problemes sense seguir les classes
+* Molt difícil aprovar sense treballar els problemes
+* **IMPORTANT**: part de la teoria s'exposarà en els problemes
+
+**Classes pràctiques** amb programari (R/Python)
+
+* Complement a les classes teòriques
+* **IMPORTANT**: El programari haurà de córrer sense modificacions al meu ordinador.
+
+
+Temari i Calendari provisional
+-------------------------------------------------
+
+
+* Tema 1. Preliminars (Setmana 1)
+* Tema 2. Introducció a l’Inferència Estadística (Setmana 2 i 3)
+* Tema 3. Estimació
+* Tema 4. Tests d’hipòtesi
+* Tema 5. Regressió i predicció
+
+Més detalls a la `guia docent <https://guies.uab.cat/guies_docents/public/portal/html/2020/assignatura/104392/ca>`_
 
 
 Bibliografia recomanada
 -------------------------------------------------
 
-* Statistical inference
-* Computational age statistical inference
+Pel desenvolupament teòric, seguiré majoritàriament [Casella & Berger],
+excepte pel `Tema 4. Tests d’hipòtesi`, on seguiré més aviat el desenvolupament
+de [Rice].
+
+* [Casella & Berger] Stastistical Inference, 2nd Edition
+* [Rice] Mathematical Statistics and Data Analysis, J. Rice, 3rd edition
+
+Bibliografia complementària:
+
+* [Efron & Hastie] Computer Age Statistical Inference
 
 
-Organització i avaluació
+Avaluació curs
 -------------------------------------------------
 
-* Classes de teoria: estadística matemàtica
-* Resolució de problemes proposats com a deures
-* Classes pràctiques amb programari (R/Python)
+Avaluació continuada:
+
+* :math:`C`: Nota mitjana del control de problemes (avaluació continuada)
+* :math:`P`: Control de pràctiques (avaluació continuada)
+
+Exàmens:
+
+* :math:`E1`: Nota examen final
+* :math:`E2`: Nota examen de recuperació
+
+Si l'alumne es presenta a un dels dos examens:
+
+:math:`N = 0.50 x \max\left(E1, E2\right) + 0.20 x C + 0.30 × P`
+
+En cas contrari:
+
+:math:`N = \mbox{No Presentat}` (independentment de :math:`C` i :math:`P`
+
+
+Avaluació continuada (problemes i pràctiques)
+-------------------------------------------------
+
+Ho repeteixo, perquè quedi clar:
+
+
+* Tant les sessions de problemes com les de pràctiques són complementàries a les classes teòriques
+* /!\\ part de la teoria s'exposarà en els problemes i les pràctiques
+* Molt difícil (veure impossible) resoldre els problemes sense seguir les classes
+* Molt difícil aprovar (`aprendre!`) sense treballar els problemes
+* **IMPORTANT**: Per ser evaluat, el programari de cada pràctica haurà de córrer sense
+modificacions al meu ordinador.
 
 
 Algunes coses a tenir en compte
@@ -149,19 +213,10 @@ Aquest curs és la primera vegada que l´ensenyo:
 * Pot haver-hi alguna errada a les slides/apunts
 * Termes anglès català
 
-Necessitaré la vostra col.laboració!
+.. warning::
 
+    Necessitaré la vostra col.laboració!
 
-Convencións de notació i  abrevacions
--------------------------------------------------
-
-X: variable aleatòria (v.a.)
-
-
-Temari
--------------------------------------------------
-* Tema 1: Introducció a l'inferència estadística
-* Tema 2: bla bla
 
 
 
