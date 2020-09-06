@@ -5,8 +5,10 @@ Tema 1: Preliminars
 Benvinguts a `104392 - Modelització i Inferència`
 ================================================
 
+abc
+
 Em presento
--------------------------------------------------
+-------------
 
 .. image::  /_static/0_Intro/arnau_pic.jpg
     :width: 600px
@@ -16,16 +18,16 @@ Em presento
 arnau.tibau@uab.cat
 Phd in EECS, U of Michigan
 Head of DS at letgo
->10 anys experiència com a Científic de Dades en indústria
+> 10 anys experiència com a Científic de Dades en indústria
 
 
 Què és l'inferència estadística?
--------------------------------------------------
+----------------------------------
 
 abc
 
-Exemples d'aplicació
--------------------------------------------------
+Exemples d'aplicació2
+------------------------
 
 **Exemple 1**: Caracterització de plantes (`R. A. Fisher 1936 <https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x>`_)
 
