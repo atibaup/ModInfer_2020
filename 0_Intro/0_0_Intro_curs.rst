@@ -232,6 +232,7 @@ Aquest curs és la primera vegada que el preparo:
 
     Necessitaré la vostra col.laboració!
 
+
 Qüestionari
 ---------------
 
@@ -295,13 +296,15 @@ Dues interpretacions típiques:
 
 .. note::
 
-    Les dues interpretacions no són completament ortogonals (a no ser que sigueu filòsofs)
+    Les dues interpretacions no són completament ortogonals, però són l'orígen d'un munt de
+    discussions filosòfiques i a vegades dogmàtiques. Si us interessa el tema us recomano
+    `Objections to Bayesian statistics <https://projecteuclid.org/euclid.ba/1340370429>`_.
 
 
 .. nextslide:: Aquest no és un curs de probabilitat...
 	:increment:
 
-Per tant amagarem "detalls" important sota l'alfombra:
+Aquest no és un curs de probabilitat, per tant amagarem "detalls" important sota l'alfombra:
 
 * :math:`\mathcal{A}` en realitat ha de ser una :math:`\sigma`-àlgebra
 * Per a conjunts :math:`\Omega` contables, podem tirar milles considerant :math:`\mathcal{A} = 2^{\Omega}`
