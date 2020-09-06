@@ -1,5 +1,5 @@
 
-Benvinguts a `104392 - Modelització i Inferència`
+`104392 - Modelització i Inferència`
 =========================================================
 
 Continguts
@@ -10,10 +10,7 @@ Continguts
   :numbered:
 
   0_Intro/0_0_Intro_curs
-  0_Intro/0_1_Repas_proba
   0_Intro/0_2_Intro_stats
-  0_Intro/0_2_Problemes
-  0_Intro/0_3_Practica
 
 © Arnau Tibau Puig, 2020
 
