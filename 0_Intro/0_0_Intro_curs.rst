@@ -2,7 +2,7 @@
 Tema 1: Preliminars
 ===================
 
-Benvinguts a `104392 - Modelització i Inferència`
+Benvinguts a 104392 - Modelització i Inferència
 =================================================
 
 abc
@@ -20,13 +20,12 @@ Phd in EECS, U of Michigan
 Head of DS at letgo
 10 anys experiència com a Científic de Dades en indústria
 
-
 Què és l'inferència estadística?
 ----------------------------------
 
 abc
 
-Exemples d'aplicació2
+Exemples d'aplicació
 ------------------------
 
 **Exemple 1**: Caracterització de plantes (`R. A. Fisher 1936 <https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x>`_)
@@ -62,35 +61,35 @@ Mesurem la longitud i amplada dels sèpals i els pètals de 50 exemplars de tres
 * Hi ha alguna relació entre la morfologia i cada espècie d'*Iris*? :math:`\rightarrow` **Estimació**
 * Donades les mesures d'un especímen nou, el podríem classificar en l'espècie correcta? :math:`\rightarrow`  **Predicció**
 
-
 .. nextslide:: Assaig clínic
-	:increment:
 
-**Exemple 2**: Eficacitat d'un tractament profilàctic per als contactes de casos COVID-19 (`O. Mitjà et al. 2020 <https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1>`_)
+**Exemple 2**: Eficacitat d'un tractament profilàctic per als contactes de casos COVID-19
+(`O. Mitjà et al. 2020 <https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1>`_)
 
-Seleccionem **aleatòriament** [*]_ dos grups de pacients de COVID-19:
+Seleccionem **aleatòriament** (en realitat l'experiment fa
+`cluster-randomization <https://en.wikipedia.org/wiki/Cluster_randomised_controlled_trial>`_)
+dos grups de pacients de COVID-19:
 
 * **Control**: Tractament convencional
 * **Intervenció**: Administració d'*hidroxicloroquina*
 
-Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen positiu en una prova PCR.
+Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen
+positiu en una prova PCR.
 
-.. [*] En realitat l'experiment fa `cluster-randomization <https://en.wikipedia.org/wiki/Cluster_randomised_controlled_trial>`_.
-
-.. nextslide::
+.. nextslide:: Assaig clínic (2)
 	:increment:
 
-* Quants pacients hem de seleccionar per prendre una decisió sobre la població general? :math:`\rightarrow`  **Mostreig**
+Preguntes d'inferència estadística:
+
+* Quants pacients hem de seleccionar per prendre una decisió sobre la població general? :math:`\rightarrow` **Mostreig**
 * Com sabem si hem seleccionat els grups adequadament? :math:`\rightarrow`  **Mostreig, Estimació**
 * Com determinem si el tractament funciona? :math:`\rightarrow`  **Tests d'hipòtesi**
 
 .. image::  /_static/0_Intro/mitja_et_al_resultats.png
     :width: 600px
     :align: center
-    :alt:
 
 .. nextslide:: Recomanacions de pel.lícules
-	:increment:
 
 **Exemple 3**: Tenim una plataforma de vídeo en streaming i volem millorar les nostres recomanacions.
 En particular, volem saber si, donat un usuari i un producte, a l'usuari li agradarà.
@@ -100,7 +99,7 @@ En particular, volem saber si, donat un usuari i un producte, a l'usuari li agra
     :align: center
     :alt:
 
-.. nextslide::
+.. nextslide:: Recomanacions de pel.lícules (2)
 	:increment:
 
 Disposem d'un històric amb les `següents dades <http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html>`_:
@@ -117,7 +116,7 @@ Disposem d'un històric amb les `següents dades <http://files.grouplens.org/dat
     Toy Story (1995)  GoldenEye (1995) Four Rooms (1995)
             5                 3                 4
 
-.. nextslide::
+.. nextslide:: Recomanacions de pel.lícules (3)
 	:increment:
 
 * Donada una película que l'usuari encara no ha vist, podem determinar si li agradarà o no? :math:`\rightarrow`  **Regressió**
@@ -174,7 +173,7 @@ Bibliografia recomanada
 
 Pel desenvolupament teòric, seguiré majoritàriament [Casella & Berger],
 excepte pel `Tema 4. Tests d’hipòtesi`, on seguiré més aviat el desenvolupament
-de [Rice].
+de [Rice]:
 
 * [Casella & Berger] Stastistical Inference, 2nd Edition
 * [Rice] Mathematical Statistics and Data Analysis, J. Rice, 3rd edition
@@ -339,13 +338,15 @@ Punts (4)-(6) a la pissarra.
 
 Els següents són propietats interessants relatives a col.leccions de conjunts:
 
-1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\Omega`, tenim que:
+.. rst-class:: note
 
-:math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
+    **Teorema [Kendall 1.2.11]** Si :math:`P` és una mesura de probabilitat:
 
-2. La desigualtat de Boole, estableix que:
+    1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\Omega`,
+    :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
 
-:math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)`
+    2. La desigualtat de Boole, estableix que:
+    :math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)`
 
 Exemples d'espais de probabilitat
 --------------------------------------------------
@@ -397,8 +398,7 @@ Problemes
 Espais i mesures de Probabilitat
 ---------------------------------
 
-Conseqüències dels axiomes de probabilitat
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Conseqüències dels axiomes de probabilitat**
 
 Practiquem amb els axiomes per demostrar que:
 
@@ -408,8 +408,10 @@ Practiquem amb els axiomes per demostrar que:
 
 3. :math:`P\left(A \cup B \right)= P\left(A\right) + P\left(B\right) - P\left(A \cap B\right)`
 
-Desigualtat de Bonferroni
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. nextslide::
+    :increment:
+
+**Desigualtat de Bonferroni**
 
 La desigualtat de Bonferroni per dos esdeveniments :math:`A, B` estableix que:
 
@@ -448,28 +450,6 @@ En alguns casos, es pot corregir l'efecte fàcilment.
 
 Pràctica
 =================================================
-
-
-Apèndix
--------
-
-.. math::
-
-   (a + b)^2 = a^2 + 2ab + b^2
-
-   (a - b)^2 = a^2 - 2ab + b^2
-
-.. math::
-   :nowrap:
-
-   \begin{eqnarray}
-      y    & = & ax^2 + bx + c \\
-      f(x) & = & x^2 + 2xy + y^2
-   \end{eqnarray}
-
-
-
-
 
 
 
