@@ -474,6 +474,11 @@ Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar 
 Tema 2: Problemes
 =================================================
 
+Mostreig
+---------------------------------
+
+**Disseny d'experiments**
+https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf
 
 Tema 2: Pràctica
 =================================================

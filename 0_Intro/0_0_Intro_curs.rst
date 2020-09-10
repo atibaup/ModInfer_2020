@@ -2,28 +2,39 @@
 Tema 1: Preliminars
 ===================
 
-Benvinguts a 104392 - Modelització i Inferència
+Introducció al curs
 =================================================
 
-abc
 
 Em presento
 -------------
 
-.. image::  /_static/0_Intro/arnau_pic.jpg
-    :width: 600px
+.. figure::  /_static/0_Intro/arnau_pic.jpg
+    :width: 250px
     :align: center
-    :alt: Iris Images
 
-arnau.tibau@uab.cat
-Phd in EECS, U of Michigan
-Head of DS at letgo
-10 anys experiència com a Científic de Dades en indústria
+    arnau.tibau@uab.cat | `@ArnauTibau <https://twitter.com/ArnauTibau>`_
+
+* PhD en EECS, U of Michigan, Ann Arbor
+* Cap de Data Science a `letgo <https://www.letgo.com/>`_
+* 10 anys experiència com a Científic de Dades (*Data Scientist*)
+* Qualsevol pregunta: contacteu-me per email o pel Campus Virtual!
+* Horaris tutoria: Dilluns i Dimecres de 15h a 17h (**Envieu-me una invitació `Calendar`!**)
 
 Què és l'inferència estadística?
 ----------------------------------
 
-abc
+.. figure::  /_static/0_Intro/stat_inference.png
+    :height: 300px
+    :align: center
+
+* "Població" aquí es refereix al concepte estadístic, que definirem en breu
+* Inferència pot ser:
+
+1. Inferir propietats d'un objecte (la població)
+2. Deduïr conclusions sobre una premisa
+
+a partir de d'un nombre finit de mostres
 
 Exemples d'aplicació
 ------------------------
@@ -53,7 +64,7 @@ Mesurem la longitud i amplada dels sèpals i els pètals de 50 exemplars de tres
 	:increment:
 
 .. image::  /_static/0_Intro/iris_dataset_sample.png
-    :width: 300px
+    :width: 500px
     :align: center
     :alt: Iris dataset (13 primeres mostres)
 
@@ -70,29 +81,28 @@ Seleccionem **aleatòriament** (en realitat l'experiment fa
 `cluster-randomization <https://en.wikipedia.org/wiki/Cluster_randomised_controlled_trial>`_)
 dos grups de pacients de COVID-19:
 
-* **Control**: Tractament convencional
-* **Intervenció**: Administració d'*hidroxicloroquina*
-
-Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen
-positiu en una prova PCR.
+.. figure::  /_static/0_Intro/hcq_example.png
+    :height: 325px
+    :align: center
 
 .. nextslide:: Assaig clínic (2)
 	:increment:
 
-Preguntes d'inferència estadística:
+Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen
+positiu en una prova PCR.
 
 * Quants pacients hem de seleccionar per prendre una decisió sobre la població general? :math:`\rightarrow` **Mostreig**
 * Com sabem si hem seleccionat els grups adequadament? :math:`\rightarrow`  **Mostreig, Estimació**
-* Com determinem si el tractament funciona? :math:`\rightarrow`  **Tests d'hipòtesi**
+* Com determinem si el tractament funciona? :math:`\rightarrow`  **Tests d'hipòtesi**, **Intervals de confiança**
 
-.. image::  /_static/0_Intro/mitja_et_al_resultats.png
+.. figure::  /_static/0_Intro/mitja_et_al_resultats.png
     :width: 600px
     :align: center
 
 .. nextslide:: Recomanacions de pel.lícules
 
 **Exemple 3**: Tenim una plataforma de vídeo en streaming i volem millorar les nostres recomanacions.
-En particular, volem saber si, donat un usuari i un producte, a l'usuari li agradarà.
+En particular volem saber si, donat un usuari i un producte, a l'usuari li agradarà.
 
 .. figure::  /_static/0_Intro/movielens.png
     :width: 600px
@@ -105,68 +115,81 @@ En particular, volem saber si, donat un usuari i un producte, a l'usuari li agra
 Disposem d'un històric amb les `següents dades <http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html>`_:
 
 * Les evaluacions (0-5 estrelles) que cada usuari ha fet de les películes que ja ha vist
-* Informació sobre cada película (ex: gènere)
+* Informació sobre cada película (ex: gènere, actors)
 
 .. code-block:: R
 
-    > install.packages('recommenderlab')
-    > library(recommenderlab)
+    install.packages('recommenderlab')
+    library(recommenderlab)
+    data(MovieLense)
     # Veure primeres 3 evaluacions d'un dels usuaris
-    > head(as(MovieLense[1,], "list")[[1]], 3)
-    Toy Story (1995)  GoldenEye (1995) Four Rooms (1995)
-            5                 3                 4
+    head(as(MovieLense[1,], "list")[[1]], 3)
+    > Toy Story (1995)  GoldenEye (1995) Four Rooms (1995)
+    >        5                 3                 4
+    MovieLenseMeta[MovieLenseMeta$title=="Toy Story (1995)", ]
 
-.. nextslide:: Recomanacions de pel.lícules (3)
-	:increment:
+.. rst-class:: build
 
 * Donada una película que l'usuari encara no ha vist, podem determinar si li agradarà o no? :math:`\rightarrow`  **Regressió**
 * Si implementem un model estadístic de recomanacions, com podem saber si millora l'experiència dels nostres usuaris o no? :math:`\rightarrow`  **Mostreig, Tests d'hipòtesi, Estimació**
-
 
 Organització del curs
 -------------------------------------------------
 
 **Classes de teoria**: Estadística matemàtica
 
+.. rst-class:: build
+
 * Rigor matemàtic: el just
 * Focus en l'aplicació i l'aspecte computacional
 * Després de cada classe, penjaré les transparències/notes de classe al Campus Virtual
-* **IMPORTANT**: Es recomana la lectura **prèvia** dels temes a tractar abans de cada llicó
+
+.. warning::
+
+    Es recomana la lectura **prèvia** dels temes a tractar abans de cada llicó
 
 .. nextslide::
 	:increment:
 
 **Classes de problemes**: Resolució de problemes proposats per l'estudi autònom
 
+.. rst-class:: build
+
 * Complement a les classes teòriques
 * Molt difícil (veure impossible) resoldre els problemes sense seguir les classes
 * Molt difícil aprovar sense treballar els problemes
-* **IMPORTANT**: part de la teoria s'exposarà en els problemes
+
+.. warning::
+
+    Part de la teoria s'exposarà en els problemes
 
 .. nextslide::
 	:increment:
 
 **Classes pràctiques** amb programari (R/Python)
 
+.. rst-class:: build
+
 * Complement a les classes teòriques
 * Implementarem/experimentarem amb els mètodes descrits a classe
-* **IMPORTANT**: Per ser evaluat, el programari entregat haurà de córrer sense modificacions al meu ordinador.
-* Instal.leu-vos `Rstudio <https://rstudio.com/products/rstudio/>`_ i/o `Python 3+ <https://www.python.org/downloads/>`_ (si feu servir Python, us recomano que instal.leu també `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_
-    per gestionar-ne els paquets)
+* Instal.leu-vos `Rstudio <https://rstudio.com/products/rstudio/>`_ i/o `Python 3+ <https://www.python.org/downloads/>`_ (si feu servir Python, us recomano que instal.leu també `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ per gestionar-ne els paquets)
 
+.. warning::
+
+    Per ser evaluat, el programari entregat haurà de córrer sense modificacions al meu ordinador.
 
 .. nextslide:: Temari i Calendari provisional
 	:increment:
 
 Hem estructurat el curs en 5 parts:
 
-* Tema 1. Preliminars (Setmana 1)
-* Tema 2. Introducció a l’Inferència Estadística (Setmana 2 i 3)
-* Tema 3. Estimació
-* Tema 4. Tests d’hipòtesi
-* Tema 5. Regressió i predicció
+* Tema 1. Preliminars (Setmanes 1 i 2)
+* Tema 2. Introducció a l’Inferència Estadística (Setmana 2, 3 i 4)
+* Tema 3. Estimació (Octubre)
+* Tema 4. Tests d’hipòtesi (Novembre)
+* Tema 5. Regressió i predicció (Desembre)
 
-Per més detalls sobre el contingut de cada tema, consulteu la `guia docent <https://guies.uab.cat/guies_docents/public/portal/html/2020/assignatura/104392/ca>`_
+Per més detalls sobre el contingut de cada tema, consulteu la `guia docent penajda al Campus Virtual <https://e-aules.uab.cat/2020-21/course/view.php?id=7622#section-0>`_
 
 Bibliografia recomanada
 -------------------------------------------------
@@ -181,7 +204,6 @@ de [Rice]:
 Bibliografia complementària:
 
 * [Efron & Hastie] Computer Age Statistical Inference
-
 
 Avaluació curs
 -------------------------------------------------
@@ -212,7 +234,6 @@ Si l'alumne no es presenta a cap dels dos examens:
 
 Ho repeteixo, perquè quedi clar:
 
-
 * Tant les sessions de problemes com les de pràctiques són complementàries a les classes teòriques
 * /!\\ part de la teoria s'exposarà en els problemes i les pràctiques
 * Molt difícil (veure impossible) resoldre els problemes sense seguir les classes
@@ -223,15 +244,15 @@ Ho repeteixo, perquè quedi clar:
 Algunes coses a tenir en compte
 -------------------------------------------------
 
-Aquest curs és la primera vegada que el preparo:
+.. figure::  /_static/0_Intro/we_need_you.jpg
+    :height: 300px
+    :align: center
 
-* Pot haver-hi alguna errada a les slides/apunts
-* Termes en anglès --> català
-* Si observeu qualsevol problema durant o després de la classe: arnau.tibau@uab.cat
+    Aquest curs és la primera vegada que el preparo!
 
-.. warning::
-
-    Necessitaré la vostra col.laboració!
+    * Pot haver-hi alguna errada a les slides/apunts
+    * Termes en anglès --> català
+    * Qualsevol problema durant o després de la classe: arnau.tibau@uab.cat
 
 
 Qüestionari
@@ -242,11 +263,13 @@ el material que anem desenvolupant.
 
 Comencem amb el primer :)
 
-0. Calcular el nombre de pacients necessaris per un assaig clínic és un problema de _________.
-1. Es podràn resoldre els problemes sense assistir a les classes de teoria?
-2. Per determinar si un tractament clínic funciona, normalment es fa servir la tècnica dels _____________.
-3. Si trec un 10 en l'avaluació de problemes i pràctiques i no em presento a l'exàmen final, puc aprovar?
-4. Perquè una pràctica s'evalui, m'he d'assegurar que el meu codi ___________.
+.. rst-class:: build
+
+1. Calcular el nombre de pacients necessaris per un assaig clínic és un problema de _________.
+2. Es podràn resoldre els problemes sense assistir a les classes de teoria?
+3. Per determinar si un tractament clínic funciona, normalment es fa servir la tècnica dels _____________.
+4. Si trec un 10 en l'avaluació de problemes i pràctiques i no em presento a l'exàmen final, puc aprovar?
+5. Perquè una pràctica s'evalui, m'he d'assegurar que el meu codi ___________.
 
 
 Espais i mesures de Probabilitat
@@ -255,7 +278,8 @@ Espais i mesures de Probabilitat
 Espai de Probabilitat
 -------------------------------
 
-.. note::
+.. rst-class:: note
+
     Durant el Tema 1 haurem d'anar una mica ràpid. És impossible fer un curs de probabilitat
     en 2 setmanes, però per sort ja n'heu fet un!
 
@@ -264,7 +288,7 @@ Un **espai de probabilitat** és un model matemàtic del resultat d'un **experim
 Consisteix en un triplet :math:`\left(\Omega, \mathcal{A}, P\right)`:
 
 * :math:`\Omega`: l'**espai mostral**, conjunt de resultats possibles d'un experiment
-* :math:`\mathcal{A} \subset 2^{\Omega}`: el conjunt d'**esdeveniments**, una família de subconjunts d':math:`\Omega`
+* :math:`\mathcal{A} \subseteq 2^{\Omega}`: el conjunt d'**esdeveniments**, una família de subconjunts d':math:`\Omega`
 * :math:`P`: una **mesura de probabilitat**, una funció :math:`\mathcal{A} \rightarrow \left[0, 1\right]`
 
 
@@ -281,17 +305,19 @@ ha de satisfer els següents axiomes:
 3. Per :math:`A_1,A_2,A_3, \cdots \in \mathcal{A}` disjunts, :math:`P\left(\cup_i A_i\right) = \sum_i P\left(A_i\right)`
 
 
+.. rst-class:: note
+
+    Fixeu-vos que tenim llibertat a l'hora de definir :math:`\mathcal{A}` pels esdeveniments que ens
+    interessen (sempre i quan sigui una :math:`\sigma`-àlgebra.)
+
 .. nextslide::
 	:increment:
 
 Això és una construcció axiomàtica de Probabilitat, formalitzada per Kolmogorov.
 
-Noteu que no hem associat cap interpretació al significat físic dels valors de :math:`P`.
+Noteu que no hem associat cap interpretació al significat físic dels valors de :math:`P`. Dues interpretacions típiques:
 
-Dues interpretacions típiques:
-
-* **Frequentista**: :math:`P\left(A\right)` representa la frequència amb que observariem l'esdeveniment `A`
-    si realitzéssim un gran nombre d'experiments
+* **Frequentista**: :math:`P\left(A\right)` representa la frequència amb que observariem l'esdeveniment `A` si realitzéssim un gran nombre d'experiments
 
 * **Bayesiana**: :math:`P\left(A\right)` representa la nostra certesa sobre l'ocurrència de l'esdeveniment `A`
 
@@ -311,8 +337,10 @@ Aquest no és un curs de probabilitat, per tant amagarem "detalls" important sot
 * Per a conjunts :math:`\Omega` contables, podem tirar milles considerant :math:`\mathcal{A} = 2^{\Omega}`
 * La cosa es complica quan :math:`\Omega` no és discret (exemples: l'alçada d'una població, el nivell d'expressió d'un gen)
 
-**Recomano** donar una ullada al [Casella & Berger] o a una altra de les referències
-bibliogràfiques per una intro no tècnica a les :math:`\sigma`-àlgebres
+.. rst-class:: note
+
+    **Recomano** donar una ullada al [Casella & Berger] o a una altra de les referències
+    bibliogràfiques per una intro no tècnica a les :math:`\sigma`-àlgebres
 
 Algunes propietats de les mesures de probabilitat
 --------------------------------------------------
@@ -332,7 +360,6 @@ Algunes propietats de les mesures de probabilitat
 **Demostració**: Punts (1), (2), (3), exercici :) (recomano començar pel 3er punt).
 Punts (4)-(6) a la pissarra.
 
-
 .. nextslide:: Un parell més de resultats útils
 	:increment:
 
@@ -342,16 +369,15 @@ Els següents són propietats interessants relatives a col.leccions de conjunts:
 
     **Teorema [Kendall 1.2.11]** Si :math:`P` és una mesura de probabilitat:
 
-    1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\Omega`,
-    :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
+    1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\mathcal{A}`, :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
+    2. :math:`A_1, A_2 \cdots, \in \mathcal{A}`, :math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)` (desigualtat de Boole)
 
-    2. La desigualtat de Boole, estableix que:
-    :math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)`
+**Demostració**: A la pissarra.
 
 Exemples d'espais de probabilitat
 --------------------------------------------------
 
-**Experiment 1**: Observar el valor resultant de llançar un dau de 6 cares
+**Experiment 1**: Modelar el resultat de llançar un dau de 6 cares
 
 * :math:`\Omega = \left\{1, 2, 3, 4, 5, 6\right\}`
 * :math:`\mathcal{A} = \left\{ \left\{1\right\}, \left\{2\right\}, \cdots, \left\{1, 2\right\}, \cdots \right\}`
@@ -359,7 +385,7 @@ Exemples d'espais de probabilitat
 
 .. rst-class:: note
 
-    Com definirieu :math:`P\left(A\right)` per a qualsevol :math:`A \in \mathcal{A}`?
+    **Exercici**: Com definirieu :math:`P\left(A\right)` per a qualsevol :math:`A \in \mathcal{A}`?
 
 .. nextslide::
 	:increment:
@@ -367,33 +393,144 @@ Exemples d'espais de probabilitat
 **Experiment 2**: Escollir 100 persones i fer-els-hi una prova d'anticossos per SARS-COV-2
 
 * :math:`\Omega = \left\{+, -\right\}^{100}`
-* :math:`\mathcal{A} = \left\{...\right\}`
-* :math:`P\left(A\right) = ....`
-
-.. nextslide::
-	:increment:
+* :math:`\mathcal{A} = ?`
+* :math:`P\left(A\right) = ?`
 
 **Experiment 3**: Escollir aleatòriament un estudiant d'questa classe i mesurar-ne la seva alçada
 
 * :math:`\Omega = \left[0, \infty \right)`
-* :math:`\mathcal{A} = \left\{...\right\}`
-* :math:`P\left(A\right) = ...`
+* :math:`\mathcal{A} = ?`
+* :math:`P\left(A\right) = ?`
 
 
 Independència i probabilitat condicional
 ==========================================
 
+Probabilitat condicional
+--------------------------------
 
-Variables aleatòries
-==========================================
+Donats :math:`A, B \in \mathcal{A}`, amb :math:`P\left(B\right) > 0`,
+:math:`P\left(A|B\right) = \frac{P\left(A \cap B\right)}{P\left(B\right)}` (aquesta construcció satisfà els axiomes de Kolmogorov)
+
+.. figure::  /_static/0_Intro/proba_condicional.png
+    :height: 250px
+    :align: center
+
+:math:`P\left(\cdot|B\right)` és la restricció de :math:`P` al subconjunt d'esdeveniments B. Algunes preguntes:
+
+.. rst-class:: build
+
+1. Si :math:`A \cap B = \emptyset`, :math:`P\left(A|B\right)`?
+2. Com podem interpretar si :math:`P\left(A|B\right) =P\left(A\right)`? Podeu donar un
+exemple "físic"?
+
+Esdeveniments independents
+--------------------------------
+
+Diem que :math:`A, B \in \mathcal{A}`, són independents si:
+
+:math:`P\left(A \cap B\right) =P\left(A\right)P\left(B\right)`
+
+Això és equivalent a :math:`P\left(A|B\right) =P\left(A\right)` si :math:`P\left(B\right) > 0`.
+
+Algunes preguntes [Kendall Teorema 1.3.9]:
+
+.. rst-class:: build
+
+1. Si :math:`A, B \in \mathcal{A}` son independents, :math:`P\left(A \cap B^c\right)`?
+2. Si :math:`A, B \in \mathcal{A}` son independents, :math:`P\left(A^c \cap B^c\right)`?
+
+.. nextslide:: Precaució, estimat conductor
+
+Exemple que independència conjunta, no implica independència de parells
+
+
+.. nextslide:: Precaució, estimat conductor (II)
+    :increment:
+
+Exemple que independència de parells no implica independència mútua
+
+
+.. nextslide:: Independència mútua
+    :increment:
+
+Per resoldre aquests problemes, fa falta una definició més estricta
+de la noció d'independència en conjunts d'esdeveniments:
+
+.. rst-class:: note
+
+    **Definició** :math:`A_1, A_2 \cdots, \in \mathcal{A}` són mutualment independents si per cualsevol
+    subcol.lecció :math:`A_{i_1}, A_{i_2} \cdots, \in \mathcal{A}`, tenim que :math:`P\left(\cap_j A_{i_j}\right) = \Pi_j P\left(A_{i_j}\right)
+
+
+Variables aleatòries i funcions de distribució
+==============================================
+
+Variable aleatòria
+--------------------------------
+
+.. rst-class:: note
+
+    **Definició** Una variable aleatòria (*v.a.* pels amics) és una funció :math:`X : \Omega \to \mathbb{R}`.
+
+Podem doncs definir una funció de probabilitat:
+
+:math:`P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)`
+
+que satisfà els axiomes de Kolmogorov:
+
+a. :math:`\Omega` **contable**: Fàcil, :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`
+b. :math:`\Omega` **incontable**: Ens centrarem en esdeveniments del tipus :math:`X \in\left[a, b\right)` (intervals oberts o tancats)
+
+Funció de distribució
+--------------------------------
+
+.. rst-class:: note
+
+    **Definició** La funció de distribució cumulativa (f.d.c.) d'una v.a. es defineix com :math:`F\left(x\right) = P\left(X \leq x\right)`.
+
+De fet qualsevol funció pot ser una f.d.c si compleix:
+
+1. :math:`\lim_{x\to -\infty} F(x) = 0` i :math:`\lim_{x\to \infty} F(x) = 1`
+2. :math:`F(x)` és no-decreixent
+3. :math:`F(x)` és contínua per la dreta (:math:`\lim_{x\to x_0^+} F(x) = x_0`)
+
+
+Funció de massa o densitat de probabilitat
+-------------------------------------------
+
+Exemples de distribucions discretes
+-------------------------------------------
+
+
+Exemples de distribucions contínues
+-------------------------------------------
 
 
 Esperança i moments
 ==========================================
 
+Desigualtats
+==========================================
+
+
+
+Distribucions conjuntes i marginals
+==========================================
+
 
 Problemes
 =================================================
+
+Introducció a l'inferència estadística
+--------------------------------------
+
+LLegiu l'article d'`O. Mitjà et al. 2020 <https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1>`_
+sobre el tractament profilàctic de contactes de casos positius de COVID-19
+amb Hidroxicloroquina, expecialment la secció *STATISTICAL ANALYSIS*:
+
+1.
+
 
 Espais i mesures de Probabilitat
 ---------------------------------
@@ -430,6 +567,9 @@ aproximar la probabilitat de l'esdeveniment conjunt?
 4. Definiu un experiment i una col.lecció d'esdeveniments :math:`A_i` on la desigualtat de Bonferroni ens donaria una cota inferior útil.
 Per exemple:
 
+
+
+
 Probabilitat condicional i independència
 -----------------------------------------
 
@@ -446,6 +586,21 @@ Durant el curs hem vist un exemple de com el biaix de sel.lecció pot perjudicar
 En alguns casos, es pot corregir l'efecte fàcilment.
 
 1. Demostra que E(\sum \frac{1}{P}X) = E(X) bla bla bla
+
+Variables aleatòries
+-----------------------------------------
+
+**Barreja de Gaussianes** (Gaussian Mixture Models)
+
+
+Esperança i moments
+-----------------------------------------
+
+Desigualtats
+-----------------------------------------
+
+Distribucions conjuntes i marginals
+-----------------------------------------
 
 
 Pràctica
