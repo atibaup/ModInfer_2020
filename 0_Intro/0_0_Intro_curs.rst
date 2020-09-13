@@ -10,7 +10,7 @@ Em presento
 -------------
 
 .. figure::  /_static/0_Intro/arnau_pic.jpg
-    :width: 250px
+    :width: 20px
     :align: center
 
     arnau.tibau@uab.cat | `@ArnauTibau <https://twitter.com/ArnauTibau>`_
@@ -25,14 +25,14 @@ Què és l'inferència estadística?
 ----------------------------------
 
 .. figure::  /_static/0_Intro/stat_inference.png
-    :height: 300px
+    :height: 280px
     :align: center
 
-* "Població" aquí es refereix al concepte estadístic, que definirem en breu
-* Inferència pot ser:
+"Població" aquí es refereix al concepte estadístic, que definirem en breu. Per
+inferència entenem:
 
 1. Inferir propietats d'un objecte (la població)
-2. Deduïr conclusions sobre una premisa
+2. Deduïr validesa d'una premisa
 
 a partir de d'un nombre finit de mostres
 
@@ -91,6 +91,9 @@ dos grups de pacients de COVID-19:
 Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen
 positiu en una prova PCR.
 
+
+.. rst-class:: build
+
 * Quants pacients hem de seleccionar per prendre una decisió sobre la població general? :math:`\rightarrow` **Mostreig**
 * Com sabem si hem seleccionat els grups adequadament? :math:`\rightarrow`  **Mostreig, Estimació**
 * Com determinem si el tractament funciona? :math:`\rightarrow`  **Tests d'hipòtesi**, **Intervals de confiança**
@@ -127,11 +130,16 @@ Disposem d'un històric amb les `següents dades <http://files.grouplens.org/dat
     > Toy Story (1995)  GoldenEye (1995) Four Rooms (1995)
     >        5                 3                 4
     MovieLenseMeta[MovieLenseMeta$title=="Toy Story (1995)", ]
+    >      title         year                url                                       unknown Action Adventure ....
+    > 1 Toy Story (1995) 1995 http://us.imdb.com/M/title-exact?Toy%20Story%20(1995)       0      0         0
+
+.. nextslide:: Recomanacions de pel.lícules (3)
+	:increment:
 
 .. rst-class:: build
 
 * Donada una película que l'usuari encara no ha vist, podem determinar si li agradarà o no? :math:`\rightarrow`  **Regressió**
-* Si implementem un model estadístic de recomanacions, com podem saber si millora l'experiència dels nostres usuaris o no? :math:`\rightarrow`  **Mostreig, Tests d'hipòtesi, Estimació**
+* Si implementem un model estadístic de recomanacions de pel.lícules, com podem saber si millora l'experiència dels nostres usuaris o no? :math:`\rightarrow`  **Mostreig, Tests d'hipòtesi, Estimació**
 
 Organització del curs
 -------------------------------------------------
@@ -141,7 +149,7 @@ Organització del curs
 .. rst-class:: build
 
 * Rigor matemàtic: el just
-* Focus en l'aplicació i l'aspecte computacional
+* Centrades en l'aplicació i l'aspecte computacional
 * Després de cada classe, penjaré les transparències/notes de classe al Campus Virtual
 
 .. warning::
@@ -194,24 +202,24 @@ Per més detalls sobre el contingut de cada tema, consulteu la `guia docent pena
 Bibliografia recomanada
 -------------------------------------------------
 
-Pel desenvolupament teòric, seguiré majoritàriament [Casella & Berger],
+Pel desenvolupament teòric, seguiré majoritàriament *[Casella & Berger]*,
 excepte pel `Tema 4. Tests d’hipòtesi`, on seguiré més aviat el desenvolupament
-de [Rice]:
+de *[Rice]*:
 
-* [Casella & Berger] Stastistical Inference, 2nd Edition
-* [Rice] Mathematical Statistics and Data Analysis, J. Rice, 3rd edition
+* *[Casella & Berger]* Stastistical Inference, 2nd Edition
+* *[Rice]* Mathematical Statistics and Data Analysis, J. Rice, 3rd edition
 
 Bibliografia complementària:
 
-* [Efron & Hastie] Computer Age Statistical Inference
+* [Efron & Hastie] `Computer Age Statistical Inference <https://web.stanford.edu/~hastie/CASI/index.html>`_
 
 Avaluació curs
 -------------------------------------------------
 
 Avaluació continuada:
 
-* :math:`C`: Nota mitjana del control de problemes (avaluació continuada)
-* :math:`P`: Control de pràctiques (avaluació continuada)
+* :math:`C`: Nota mitjana del control de problemes
+* :math:`P`: Control de pràctiques
 
 Exàmens:
 
@@ -229,10 +237,24 @@ Si l'alumne no es presenta a cap dels dos examens:
 :math:`N = \mbox{No Presentat}` (independentment de :math:`C` i :math:`P`)
 
 
+.. nextslide:: Problemes
+	:increment:
+
+* Alguns dels problemes els proposaré durant les classes de teoria (exemple: completar una demostració).
+
+* En cualsevol cas, miraré de donar sempre un mínim de 5 dies entre l'enunciat dels problemes i l'entrega/correcció de sol.lucions.
+
+* Alguns dels problemes els corregirem a classe (després d'entregar-los).
+
+* Ho sento però per qüestions logístiques no acceptaré entregues amb retard.
+
+
 .. nextslide:: Avaluació continuada (problemes i pràctiques)
 	:increment:
 
 Ho repeteixo, perquè quedi clar:
+
+.. rst-class: build
 
 * Tant les sessions de problemes com les de pràctiques són complementàries a les classes teòriques
 * /!\\ part de la teoria s'exposarà en els problemes i les pràctiques
@@ -251,7 +273,7 @@ Algunes coses a tenir en compte
     Aquest curs és la primera vegada que el preparo!
 
     * Pot haver-hi alguna errada a les slides/apunts
-    * Termes en anglès --> català
+    * Termes en anglès <--> català
     * Qualsevol problema durant o després de la classe: arnau.tibau@uab.cat
 
 
@@ -333,7 +355,7 @@ Noteu que no hem associat cap interpretació al significat físic dels valors de
 
 Aquest no és un curs de probabilitat, per tant amagarem "detalls" important sota l'alfombra:
 
-* :math:`\mathcal{A}` en realitat ha de ser una :math:`\sigma`-àlgebra
+* :math:`\mathcal{A}` en realitat ha de ser una :math:`\sigma`-àlgebra (conté :math:`\emptyset`, tancat per unió contable i complement)
 * Per a conjunts :math:`\Omega` contables, podem tirar milles considerant :math:`\mathcal{A} = 2^{\Omega}`
 * La cosa es complica quan :math:`\Omega` no és discret (exemples: l'alçada d'una població, el nivell d'expressió d'un gen)
 
@@ -347,7 +369,7 @@ Algunes propietats de les mesures de probabilitat
 
 .. rst-class:: note
 
-    **Teorema [Kendall 1.2.8 i 1.2.9]** Per una mesura de probabilitat :math:`P` i
+    **Teorema [Casella & Berger 1.2.8 i 1.2.9]** Per una mesura de probabilitat :math:`P` i
     qualsevol esdeveniments :math:`A, B \in \mathcal{A}`, tenim:
 
     1. :math:`P\left(\emptyset\right)=0`
@@ -367,7 +389,7 @@ Els següents són propietats interessants relatives a col.leccions de conjunts:
 
 .. rst-class:: note
 
-    **Teorema [Kendall 1.2.11]** Si :math:`P` és una mesura de probabilitat:
+    **Teorema [Casella & Berger 1.2.11]** Si :math:`P` és una mesura de probabilitat:
 
     1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\mathcal{A}`, :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
     2. :math:`A_1, A_2 \cdots, \in \mathcal{A}`, :math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)` (desigualtat de Boole)
@@ -413,16 +435,20 @@ Donats :math:`A, B \in \mathcal{A}`, amb :math:`P\left(B\right) > 0`,
 :math:`P\left(A|B\right) = \frac{P\left(A \cap B\right)}{P\left(B\right)}` (aquesta construcció satisfà els axiomes de Kolmogorov)
 
 .. figure::  /_static/0_Intro/proba_condicional.png
-    :height: 250px
+    :height: 300px
     :align: center
+
+.. nextslide::
+	:increment:
 
 :math:`P\left(\cdot|B\right)` és la restricció de :math:`P` al subconjunt d'esdeveniments B. Algunes preguntes:
 
 .. rst-class:: build
 
-1. Si :math:`A \cap B = \emptyset`, :math:`P\left(A|B\right)`?
-2. Com podem interpretar si :math:`P\left(A|B\right) =P\left(A\right)`? Podeu donar un
-exemple "físic"?
+1. Tindria sentit definir :math:`P\left(A|B\right)` si :math:`P\left(B\right) = 0`?
+2. Si :math:`A \cap B = \emptyset`, :math:`P\left(A|B\right)`?
+3. Com podem interpretar si :math:`P\left(A|B\right) =P\left(A\right)`? Podeu donar un exemple "físic"?
+3. Si :math:`A \subseteq B`, quina relació hi ha entre :math:`P\left(A|B\right)` i :math:`P\left(A\right)`?
 
 Esdeveniments independents
 --------------------------------
@@ -433,34 +459,37 @@ Diem que :math:`A, B \in \mathcal{A}`, són independents si:
 
 Això és equivalent a :math:`P\left(A|B\right) =P\left(A\right)` si :math:`P\left(B\right) > 0`.
 
-Algunes preguntes [Kendall Teorema 1.3.9]:
+Algunes preguntes [Casella & Berger Teorema 1.3.9] (mirem de respondre per intució primer i matemàticament després):
 
 .. rst-class:: build
 
-1. Si :math:`A, B \in \mathcal{A}` son independents, :math:`P\left(A \cap B^c\right)`?
-2. Si :math:`A, B \in \mathcal{A}` son independents, :math:`P\left(A^c \cap B^c\right)`?
+1. Si :math:`A, B \in \mathcal{A}` son independents, què podem dir de :math:`A, B^c`?
+2. Si :math:`A, B \in \mathcal{A}` son independents, què podem dir de :math:`A^c, B^c`?
+
 
 .. nextslide:: Precaució, estimat conductor
 
-Exemple que independència conjunta, no implica independència de parells
+Exemple que d'independència conjunta que no implica independència de parells
 
 
 .. nextslide:: Precaució, estimat conductor (II)
     :increment:
 
-Exemple que independència de parells no implica independència mútua
+Exemple d'independència de parells que no implica independència mútua
 
 
 .. nextslide:: Independència mútua
     :increment:
 
-Per resoldre aquests problemes, fa falta una definició més estricta
+Per resoldre aquests problemes, fa falta una definició molt més estricta
 de la noció d'independència en conjunts d'esdeveniments:
 
 .. rst-class:: note
 
     **Definició** :math:`A_1, A_2 \cdots, \in \mathcal{A}` són mutualment independents si per cualsevol
-    subcol.lecció :math:`A_{i_1}, A_{i_2} \cdots, \in \mathcal{A}`, tenim que :math:`P\left(\cap_j A_{i_j}\right) = \Pi_j P\left(A_{i_j}\right)
+    subcol.lecció :math:`A_{i_1}, A_{i_2} \cdots, \in \mathcal{A}`, tenim que :math:`P\left(\cap_j A_{i_j}\right) = \Pi_j P\left(A_{i_j}\right)`
+
+(En aquest curs, quan parlem de mostres independents, estarem assumint independència mútua)
 
 
 Variables aleatòries i funcions de distribució
@@ -480,7 +509,36 @@ Podem doncs definir una funció de probabilitat:
 que satisfà els axiomes de Kolmogorov:
 
 a. :math:`\Omega` **contable**: Fàcil, :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`
-b. :math:`\Omega` **incontable**: Ens centrarem en esdeveniments del tipus :math:`X \in\left[a, b\right)` (intervals oberts o tancats)
+b. :math:`\Omega` **incontable**: Una mica més complicat...
+
+.. rst-class:: note
+
+    Enlloc de treballar amb :math:`P_X\left(X \in A\right)`, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.
+
+
+.. nextslide:: Exemple de variable aleatòria discreta
+    :increment:
+
+Revisitem l'**Experiment 2** anterior (escollim 100 persones i fem una prova d'anticossos per SARS-COV-2)
+
+* Teniem que :math:`\Omega = \left\{+, -\right\}^{100}`
+* Definim v.a. :math:`X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]`
+
+**Exercici**: Fent servir l'identitat' :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`, derivem :math:`P_X\left(X=k\right)`.
+
+.. nextslide:: Exemple de variable aleatòria contínua
+    :increment:
+
+Revisitem l'**Experiment 3**. Escollim un estudiant d'aquesta classe i aquest cop mesurem la raó alçada/pes:
+
+* :math:`\Omega = \left(0, \infty \right) \times \left(0, \infty \right)`
+* :math:`X: (x, y) \in \Omega \to \frac{x}{y}`
+* Com calculariem :math:`P_X\left(X \in A\right)`?
+
+.. rst-class:: note
+
+    En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de de les observacions (hipòtesi que després haurem de validar comprovant la *bondat de l'ajust*)
+
 
 Funció de distribució
 --------------------------------
@@ -489,15 +547,51 @@ Funció de distribució
 
     **Definició** La funció de distribució cumulativa (f.d.c.) d'una v.a. es defineix com :math:`F\left(x\right) = P\left(X \leq x\right)`.
 
-De fet qualsevol funció pot ser una f.d.c si compleix:
+De fet qualsevol funció pot ser una f.d.c si compleix [Casella & Berger Teorema 1.5.3]:
 
 1. :math:`\lim_{x\to -\infty} F(x) = 0` i :math:`\lim_{x\to \infty} F(x) = 1`
 2. :math:`F(x)` és no-decreixent
 3. :math:`F(x)` és contínua per la dreta (:math:`\lim_{x\to x_0^+} F(x) = x_0`)
 
+.. rst-class:: note
+
+    El més important es que la f.d.c caracteritza únicament una variable aleatòria: si :math:`F_X = F_Y`, aleshores :math:`X` i :math:`Y` són idènticament distribuïdes [Casella & Berger 1.5.10]
+
 
 Funció de massa o densitat de probabilitat
 -------------------------------------------
+
+A voltes ens serà més pràctic treballar amb un altre objecte, la funció de massa de probabilitat (f.m.p.) :math:`p_X` o de densitat de probabilitat (f.d.p) :math:`f_X`.
+
+* **Cas discret**: :math:`p_X\left(k\right) = P_X\left(X=k\right)` (noteu que :math:`F_X\left(x\right) = \sum_{k=-\infty}^{x}p_X\left(k\right))`)
+* **Cas "continu"**: La funció :math:`f_X` tal que :math:`F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt`
+
+.. rst-class:: note
+
+    Aquí ens desviem una mica de la notació de [Casella & Berger] al fer servir :math:`p_X` enlloc de :math:`f_X` per la f.m.p.
+
+.. warning::
+
+    Estem ometent molts "detalls" tècnics importants... Hi ha variables contínues per les que :math:`f_X` no existeix.
+
+
+Exemple: funció de distribució i massa d'una v.a. geomètrica
+-------------------------------------------------------------
+
+Considerem la variable aleatòria corresponent amb el següent experiment:
+
+* llançar una moneda fins que surti cara
+
+:math:`Omega = \left\{C, XC, XXC, \cdots \right\}`
+
+Definim la v.a. :math:`X` com el nombre de creus que obtenim abans de la primera cara.
+
+
+.. nextslide::
+
+f.d.c, f.d.p
+
+propietat memoryless
 
 Exemples de distribucions discretes
 -------------------------------------------
