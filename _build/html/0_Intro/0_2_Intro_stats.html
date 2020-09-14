@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Tema 2: Introducció a l’inferència estadística &#8212; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    <link rel="stylesheet" href="../_static/sab-book.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. Tema 1: Preliminars" href="0_0_Intro_curs.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="0_0_Intro_curs.html" title="1. Tema 1: Preliminars"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Tema 2: Introducció a l’inferència estadística</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tema-2-introduccio-a-l-inferencia-estadistica">
+<h1><span class="section-number">2. </span>Tema 2: Introducció a l’inferència estadística<a class="headerlink" href="#tema-2-introduccio-a-l-inferencia-estadistica" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mostreig">
+<h2><span class="section-number">2.1. </span>Mostreig<a class="headerlink" href="#mostreig" title="Permalink to this headline">¶</a></h2>
+<p>abc</p>
+<div class="section" id="que-ens-interessa">
+<h3><span class="section-number">2.1.1. </span>Què ens interessa?<a class="headerlink" href="#que-ens-interessa" title="Permalink to this headline">¶</a></h3>
+<p>En aquesta secció desenvoluparem la teoria necessària per respondre a les següents preguntes:</p>
+<ul class="simple">
+<li><p>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em>?</p></li>
+<li><p>Com de fiables són aquestes caracteritzacions?</p></li>
+</ul>
+<p>TBD: Figura ilustrativa</p>
+<p>Vegem un primer exemple. Suposeu que volem estimar la prevalència d’anticossos de SARS-COV-2 en la població espanyola</p>
+<ul class="simple">
+<li><p>Tenim una <em>població finita</em> de ~47M d’habitants</p></li>
+<li><p>Sel.leccionem aleatòriament <span class="math notranslate nohighlight">\(N\)</span> individus d’entre els 47M</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_i \sim \mbox{Bernouilli}\left(p\right)\)</span> indica si l’individu <span class="math notranslate nohighlight">\(i\)</span> té anticossos</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> indica la prevalència real d’anticossos en la població</p></li>
+<li><p>Volem estimar <span class="math notranslate nohighlight">\(p\)</span> a partir de la mostra <span class="math notranslate nohighlight">\(\left\{x_1,\cdots,x_N\right\}\)</span></p></li>
+<li><p><strong>Pregunta</strong>: Quan gran ha de ser <span class="math notranslate nohighlight">\(N\)</span>?</p></li>
+</ul>
+<p>Vegem un segon exemple, aquest cop considerant la modelització d’un experiment aleatori.</p>
+<p>TBD: Exemple caracterització experiment aleatori (població infinita)</p>
+</div>
+<div class="section" id="poblacio-estadistica">
+<h3><span class="section-number">2.1.2. </span>Població estadística<a class="headerlink" href="#poblacio-estadistica" title="Permalink to this headline">¶</a></h3>
+<p>Quan parlem de <em>població</em> ens podem referir a:</p>
+<ul class="simple">
+<li><p>Un conjunt <em>finit</em> i <em>“petit”</em> d’elements dels quals mesurem una quantitat real. Exemple: les alçades de les persones d’aquesta classe.</p></li>
+<li><p>Un conjunt <em>finit</em> però <em>“gran”</em> d’elements dels quals mesurem una quantitat real. Exemple: les mesures dels sèpals i pètals de les diferents espècies d’<em>Iris</em></p></li>
+<li><p>Una <em>abstracció</em> representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Exemple: obtenir 4 asos al repartir 4 cartes d’una baralla de 52 cartes</p></li>
+</ul>
+<p class="note">A efectes pràctics, l’únic que ens interessa és si l’acte de mostrejar impacta la distribució de la mostra o no</p>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">2.1.3. </span>Mostreig<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>El mostreig és l’acció de sel.leccionar i mesurar un <strong>subconjunt de la població</strong>.</p>
+<p>El mostreig més simple és l’aleatori: escollim un membre de la població a l’atzar, i en mesurem l’atribut.</p>
+<p>En poblacions infinites (o finites però suficientment grans), l’acte de mostrejar no afecta la distribució de les següents mostres.</p>
+<p>En poblacions finites, un mostreig aleatori <em>sense remplaçament</em> sí que impacta la distribució de les mostres
+subsegüents (vegeu exemple a continuació)</p>
+</div>
+<div class="section" id="mostra-iid-definicio">
+<h3><span class="section-number">2.1.4. </span>Mostra <em>iid</em>: Definició<a class="headerlink" href="#mostra-iid-definicio" title="Permalink to this headline">¶</a></h3>
+<p>En la resta del curs, ens centrarem en <strong>mostres aleatòries de poblacions infinites</strong>. És una prou bona aproximació
+en la majoria de casos pràctics (exercici)</p>
+<p class="note"><strong>Definició</strong>: Les variables aleatòries <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> són una mostra aleatòria d’una població
+caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\(f_X(x)\)</span>, si <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> són <strong>mutualment independents</strong> i <span class="math notranslate nohighlight">\(X_i \sim f_X(x)\)</span>.</p>
+<p>Alternativament <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> s’anomenen <strong>independents i idènticament distribuïdes</strong> (abreviat <strong>iid</strong>)</p>
+<p>[Kendall Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) <span class="math notranslate nohighlight">\(X_i\)</span> d’<span class="math notranslate nohighlight">\(n\)</span> circuits electrònics. Si
+<span class="math notranslate nohighlight">\(X_i \sim \mathbf{exponential}\left(\beta\right)\)</span>, quina és la probabilitat que tots els circuits mesurats durin més de 2 anys?</p>
+<p>Els esdeveniments <span class="math notranslate nohighlight">\(\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}\)</span> són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)</p>
+<p>Per independència, la <em>fdp</em> conjunta de <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_{N}\right\}\)</span> és <span class="math notranslate nohighlight">\(f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=0}^{n-1}f\left(x_i\right) = \frac{1}{\beta^n}\exp^{\frac{-\sum_i x_i}{\beta}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(X_1 \geq 2, \cdots, X_N \geq 2\right) &amp;= \int_{2}^{\infty}\cdots\int_{2}^{\infty}\frac{1}{\beta^n}e^{\frac{-\sum_i x_i}{\beta}} dx_1\cdots dx_N \\
+                                             &amp;= e^{-\frac{2n}{\beta}}\end{split}\]</div>
+<p>Tenim una població de n=30 persones, representades per la seva alçada: <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
+<p><span class="math notranslate nohighlight">\(X_i\)</span>: alçada de la <span class="math notranslate nohighlight">\(i\)</span>-ena persona. Si <span class="math notranslate nohighlight">\(x_i\neq x_j, \forall i\neq j\)</span>, tenim:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(X_1 = x_k\right)             &amp;= \frac{1}{n} \\
+P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k \\ \frac{1}{n-1} &amp;l\neq k \end{array}\right.\end{split}\]</div>
+<p class="note"><span class="math notranslate nohighlight">\(P\left(X_2 | X_1 = x_k\right) \neq P\left(X_2\right) \neq P\left(X_1\right) \Rightarrow\)</span> Les mostres <span class="math notranslate nohighlight">\(X_1, X_2\)</span> no són ni independents, ni idènticament distribuïdes</p>
+<p><strong>Exercici</strong>: Què passa si mostregem cada persona <em>amb remplaçament</em>?</p>
+<div class="section" id="exemple-de-mostres-no-iid-biaix-de-sel-leccio">
+<h4><span class="section-number">2.1.4.1. </span>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció<a class="headerlink" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h4>
+<p>Volem estimar l’edat mitjana dels casos de COVID-19. Prenem mostres:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}\)</span>: variable indicativa de test efectuat a l’individu <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A_i \in \left(0, \infty\right)\)</span>: edat de l’individu <span class="math notranslate nohighlight">\(i\)</span></p></li>
+</ul>
+<p>Problema: criteri de sel.lecció no és el mateix per les mostres <span class="math notranslate nohighlight">\(\left\{1, \cdots, N_A\right\}\)</span>
+que per les mostres <span class="math notranslate nohighlight">\(\left\{N_A + 1, \cdots, N_B\right\}\)</span>! (Per exemple: només es testeja gent que arriva a
+l’hospital vs. cribatge generalitzat)</p>
+<p>[Diagrama de Venn?]</p>
+<p><strong>Exercici</strong>:</p>
+<ul class="simple">
+<li><p>Se us acudeix una manera simple d’ajustar els valors de <span class="math notranslate nohighlight">\(A_i\)</span> (veure Problemes)?</p></li>
+<li><p>A la pràctica farem un ajust de les dades d’edat de COVID basat en l’<em>inverse probability weighting</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="estadistics-i-estimadors">
+<h2><span class="section-number">2.2. </span>Estadístics i estimadors<a class="headerlink" href="#estadistics-i-estimadors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="estadistics-mitja-i-varianca">
+<h3><span class="section-number">2.2.1. </span>Estadístics: mitja i variança<a class="headerlink" href="#estadistics-mitja-i-varianca" title="Permalink to this headline">¶</a></h3>
+<p>Si ens donen un conjunt de dades i volem descriure’l abreviadament, el més comú es calcular-ne:</p>
+<ul class="simple">
+<li><p>La mitja: <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p></li>
+<li><p>La variança: <span class="math notranslate nohighlight">\(S^2 = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2\)</span></p></li>
+</ul>
+<p>Amb aquestes dues quantitats ja podem fer inferència:</p>
+<ul class="simple">
+<li><p>Podem predir el valor d’una nova observació</p></li>
+<li><p>Podem estimar com de rara és una nova observació</p></li>
+</ul>
+<p>La mitja i la variança són dos exemples d’un <strong>estadístic</strong>.</p>
+</div>
+<div class="section" id="estadistics-definicio">
+<h3><span class="section-number">2.2.2. </span>Estadístics: definició<a class="headerlink" href="#estadistics-definicio" title="Permalink to this headline">¶</a></h3>
+<p class="note"><strong>Definició:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> d’un espai mostral <span class="math notranslate nohighlight">\(\Omega\)</span>,
+un estadístic és una funció <span class="math notranslate nohighlight">\(T: \Omega^N \rightarrow \mathbb{R}^p\)</span>, amb <span class="math notranslate nohighlight">\(p \geq 1\)</span>.</p>
+<ul class="simple">
+<li><p>La mitja i la variança de mostres reals són estadístics amb p=1.</p></li>
+<li><p>La matriu de covariança de mostres formades per vectors de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d(d-1)/2\)</span></p></li>
+</ul>
+<p>Com que <span class="math notranslate nohighlight">\(T\)</span> és una funció de variables o vectors aleatòries, <span class="math notranslate nohighlight">\(T\)</span> és també una variable o vector aleatori</p>
+<p><strong>Exercici</strong>: Altres exemples d’estadístics?</p>
+<ul class="simple">
+<li><p>Mediana</p></li>
+<li><p>Percentil</p></li>
+<li><p>Max/min (extrems)</p></li>
+<li><p>Coeficient de correlació</p></li>
+<li><p>Risc relatiu (<em>odds ratio</em>)</p></li>
+<li><p>Histograma</p></li>
+<li><p>Entropía</p></li>
+</ul>
+</div>
+<div class="section" id="estimadors-i-parametres-exemple-en-poblacio-finita">
+<h3><span class="section-number">2.2.3. </span>Estimadors i paràmetres: Exemple en població finita<a class="headerlink" href="#estimadors-i-parametres-exemple-en-poblacio-finita" title="Permalink to this headline">¶</a></h3>
+<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada: <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
+<p>Podem definir un <strong>paràmetre</strong> que caracteritza la població, per exemple la seva mitja aritmètica:</p>
+<p><span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></p>
+<p>Aquesta és una quantitat <strong>determinista</strong>, però calcular-la requereix mesurar l’alçada de 47M de persones.</p>
+<span class="admonition-estimadors-i-parametres-exemple-en-poblacio-finita-ii"></span><span class="admonition-estimadors-i-parametres-exemple-en-poblacio-infinita"></span><span class="admonition-estimadors-i-estadistics"></span><span class="admonition-exercicis-de-recapitulacio"></span><span class="admonition-caracteritzacio-probabilistica-d-estadistics"></span><span class="admonition-caracteritzacio-d-un-estadistic"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv"></span><span class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments"></span><span class="admonition-caracteritzacio-de-la-mitjana-per-convolucio"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-poblacio-normal"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-x"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-y"></span><span class="admonition-distribucio-d-un-estadistic-asimptotics-de-sumes-d-iid-amb-varianca-finita"></span><span class="admonition-distribucio-d-un-estadistic-asimptotics-de-sumes-d-iid-amb-varianca-finita-ii"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-bootstrap"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-bootstrap-ii"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-simulacio"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-simulacio-ii"></span><span class="admonition-propietats-d-un-estimador"></span><span class="admonition-propietats-d-un-estimador-ii"></span><span class="admonition-propietats-dels-estimadors-de-la-mitja-i-la-varianca"></span><span class="admonition-propietats-dels-estimadors-de-la-mitja-i-la-varianca"></span><span class="admonition-estadistics-d-ordre"></span></div>
+</div>
+<div class="section" id="tema-2-problemes">
+<h2><span class="section-number">2.3. </span>Tema 2: Problemes<a class="headerlink" href="#tema-2-problemes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3><span class="section-number">2.3.1. </span>Mostreig<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Disseny d’experiments</strong>
+<a class="reference external" href="https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf">https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf</a></p>
+</div>
+</div>
+<div class="section" id="tema-2-practica">
+<h2><span class="section-number">2.4. </span>Tema 2: Pràctica<a class="headerlink" href="#tema-2-practica" title="Permalink to this headline">¶</a></h2>
+<span class="admonition-practica-2-introduccio-a-l-inferencia-estadistica"></span><span class="admonition-preparacio"></span><span class="admonition-familiaritzacio-amb-les-dades"></span></div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Tema 2: Introducció a l’inferència estadística</a><ul>
+<li><a class="reference internal" href="#mostreig">2.1. Mostreig</a><ul>
+<li><a class="reference internal" href="#que-ens-interessa">2.1.1. Què ens interessa?</a></li>
+<li><a class="reference internal" href="#poblacio-estadistica">2.1.2. Població estadística</a></li>
+<li><a class="reference internal" href="#id1">2.1.3. Mostreig</a></li>
+<li><a class="reference internal" href="#mostra-iid-definicio">2.1.4. Mostra <em>iid</em>: Definició</a><ul>
+<li><a class="reference internal" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio">2.1.4.1. Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estadistics-i-estimadors">2.2. Estadístics i estimadors</a><ul>
+<li><a class="reference internal" href="#estadistics-mitja-i-varianca">2.2.1. Estadístics: mitja i variança</a></li>
+<li><a class="reference internal" href="#estadistics-definicio">2.2.2. Estadístics: definició</a></li>
+<li><a class="reference internal" href="#estimadors-i-parametres-exemple-en-poblacio-finita">2.2.3. Estimadors i paràmetres: Exemple en població finita</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tema-2-problemes">2.3. Tema 2: Problemes</a><ul>
+<li><a class="reference internal" href="#id2">2.3.1. Mostreig</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tema-2-practica">2.4. Tema 2: Pràctica</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="0_0_Intro_curs.html"
+                        title="previous chapter"><span class="section-number">1. </span>Tema 1: Preliminars</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="0_0_Intro_curs.html" title="1. Tema 1: Preliminars"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Tema 2: Introducció a l’inferència estadística</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Arnau Tibau Puig.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

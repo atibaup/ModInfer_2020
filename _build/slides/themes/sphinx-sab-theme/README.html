@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Slides-and-book theme &mdash; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/slides.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/../../html/_static/sab-slides.css" type="text/css" />
+    
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2020.08.04',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/common.js"></script>
+    
+    <script type="text/javascript" src="../../_static/slides.js"></script>
+    <script type="text/javascript" src="../../_static/sync.js"></script>
+    <script type="text/javascript" src="../../_static/controller.js"></script>
+    <script type="text/javascript" src="../../_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="104392 - Modelització i Inferència 2020.08.04 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="slides-and-book-theme">
+
+<h1>Slides-and-book theme</h1>
+
+<p>This is a theme for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> and <a class="reference external" href="http://hieroglyph.io/">Hieroglyph</a>,
+for making a document available as a</p>
+<ul class="simple">
+<li>a set of browsable HTML pages (with the <code class="docutils literal notranslate"><span class="pre">html</span></code> builder),</li>
+<li>an HTML slideshow (with the <code class="docutils literal notranslate"><span class="pre">slides</span></code> builder),</li>
+<li>a printer-friendly single HTML page (with the <code class="docutils literal notranslate"><span class="pre">singlehtml</span></code> builder).</li>
+</ul>
+
+
+
+<div class="slide-no">1</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="how-to-use-it">
+
+<h2>How to use it</h2>
+
+<p>This tutorial assumes that your sphinx project has
+a separate <code class="docutils literal notranslate"><span class="pre">source</span></code> directory.
+Adaptation is required if your source files are in the project root.</p>
+<ol class="arabic">
+<li><p class="first">create a <code class="docutils literal notranslate"><span class="pre">themes</span></code> directory in your sphinx project,
+you must clone this repository
+under the <code class="docutils literal notranslate"><span class="pre">themes</span></code> directory of yoursphinx project;</p>
+</li>
+<li><p class="first">in the HTML section of the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, set the following variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;../themes&quot;</span><span class="p">]</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx-sab-theme&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">in the Hieroglyph section of the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file,
+set the following varables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slide_theme_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;custom_css&#39;</span><span class="p">:</span> <span class="s1">&#39;../../_static/sab-slides.css&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>NB: the path above aims to point at <code class="docutils literal notranslate"><span class="pre">build/html/_static/sab-slides.css</span></code>,
+assuming that slides are generated in <code class="docutils literal notranslate"><span class="pre">build/html/slides</span></code>,
+which is the configuration we recommend.
+If slides are generated in a directory separate from the HTML pages,
+the path of <code class="docutils literal notranslate"><span class="pre">sab-slides.css</span></code> should be adapted accordingly.</p>
+</li>
+<li><p class="first">Important: <strong>do not</strong> set <code class="docutils literal notranslate"><span class="pre">slide_theme</span></code> to <code class="docutils literal notranslate"><span class="pre">sphinx-sab-theme</span></code>.
+For the moment,
+this theme is grafting itself to the standard hieroglyph themes
+using the <code class="docutils literal notranslate"><span class="pre">custom_css</span></code> option.
+This may change in the future.</p>
+</li>
+<li><p class="first">The top-level document (usually <code class="docutils literal notranslate"><span class="pre">source/index.rst</span></code>) should contain
+the following directive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">rst</span><span class="o">-</span><span class="n">class</span><span class="p">::</span> <span class="n">sab</span><span class="o">-</span><span class="n">printable</span>
+</pre></div>
+</div>
+<p><em>before</em> its title.
+This ensures that the single-paged version is printer friendly.</p>
+</li>
+</ol>
+
+
+
+<div class="slide-no">2</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="customizing-the-theme">
+
+<h2>Customizing the theme</h2>
+
+<p>You may add a file named <code class="docutils literal notranslate"><span class="pre">sab-custom.css</span></code> in your <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory.
+This file will be automatically imported in all versions
+(standard, HTML, single-paged).</p>
+
+
+
+<div class="slide-no">3</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>

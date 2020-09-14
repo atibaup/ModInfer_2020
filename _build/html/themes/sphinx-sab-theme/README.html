@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slides-and-book theme &#8212; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    <link rel="stylesheet" href="../../_static/sab-book.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Slides-and-book theme</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="slides-and-book-theme">
+<h1>Slides-and-book theme<a class="headerlink" href="#slides-and-book-theme" title="Permalink to this headline">¶</a></h1>
+<p>This is a theme for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> and <a class="reference external" href="http://hieroglyph.io/">Hieroglyph</a>,
+for making a document available as a</p>
+<ul class="simple">
+<li><p>a set of browsable HTML pages (with the <code class="docutils literal notranslate"><span class="pre">html</span></code> builder),</p></li>
+<li><p>an HTML slideshow (with the <code class="docutils literal notranslate"><span class="pre">slides</span></code> builder),</p></li>
+<li><p>a printer-friendly single HTML page (with the <code class="docutils literal notranslate"><span class="pre">singlehtml</span></code> builder).</p></li>
+</ul>
+<div class="section" id="how-to-use-it">
+<h2>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial assumes that your sphinx project has
+a separate <code class="docutils literal notranslate"><span class="pre">source</span></code> directory.
+Adaptation is required if your source files are in the project root.</p>
+<ol class="arabic">
+<li><p>create a <code class="docutils literal notranslate"><span class="pre">themes</span></code> directory in your sphinx project,
+you must clone this repository
+under the <code class="docutils literal notranslate"><span class="pre">themes</span></code> directory of yoursphinx project;</p></li>
+<li><p>in the HTML section of the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, set the following variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;../themes&quot;</span><span class="p">]</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx-sab-theme&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>in the Hieroglyph section of the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file,
+set the following varables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slide_theme_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;custom_css&#39;</span><span class="p">:</span> <span class="s1">&#39;../../_static/sab-slides.css&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>NB: the path above aims to point at <code class="docutils literal notranslate"><span class="pre">build/html/_static/sab-slides.css</span></code>,
+assuming that slides are generated in <code class="docutils literal notranslate"><span class="pre">build/html/slides</span></code>,
+which is the configuration we recommend.
+If slides are generated in a directory separate from the HTML pages,
+the path of <code class="docutils literal notranslate"><span class="pre">sab-slides.css</span></code> should be adapted accordingly.</p>
+</li>
+<li><p>Important: <strong>do not</strong> set <code class="docutils literal notranslate"><span class="pre">slide_theme</span></code> to <code class="docutils literal notranslate"><span class="pre">sphinx-sab-theme</span></code>.
+For the moment,
+this theme is grafting itself to the standard hieroglyph themes
+using the <code class="docutils literal notranslate"><span class="pre">custom_css</span></code> option.
+This may change in the future.</p></li>
+<li><p>The top-level document (usually <code class="docutils literal notranslate"><span class="pre">source/index.rst</span></code>) should contain
+the following directive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">rst</span><span class="o">-</span><span class="n">class</span><span class="p">::</span> <span class="n">sab</span><span class="o">-</span><span class="n">printable</span>
+</pre></div>
+</div>
+<p><em>before</em> its title.
+This ensures that the single-paged version is printer friendly.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="customizing-the-theme">
+<h2>Customizing the theme<a class="headerlink" href="#customizing-the-theme" title="Permalink to this headline">¶</a></h2>
+<p>You may add a file named <code class="docutils literal notranslate"><span class="pre">sab-custom.css</span></code> in your <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory.
+This file will be automatically imported in all versions
+(standard, HTML, single-paged).</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Slides-and-book theme</a><ul>
+<li><a class="reference internal" href="#how-to-use-it">How to use it</a></li>
+<li><a class="reference internal" href="#customizing-the-theme">Customizing the theme</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Slides-and-book theme</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Arnau Tibau Puig.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
