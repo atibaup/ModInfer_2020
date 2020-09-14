@@ -460,7 +460,7 @@ Exemples d'espais de probabilitat
 **Experiment 1**: Modelar el resultat de llançar un dau de 6 cares
 
 * :math:`\Omega = \left\{1, 2, 3, 4, 5, 6\right\}`
-* :math:`\mathcal{A} = \left\{ \left\{1\right\}, \left\{2\right\}, \cdots, \left\{1, 2\right\}, \cdots \right\}`
+* :math:`\mathcal{A} = \left\{ \left\{1\right\}, \left\{2\right\}, \cdots, \left\{1, 2\right\}, \cdots, \emptyset, \Omega \right\}`
 * :math:`P\left(x\right) = \frac{1}{6}, x \in \Omega`
 
 .. rst-class:: note
@@ -700,136 +700,80 @@ Una v.a. :math:`X` és *memoryless* si:
 * L'interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops...
 * Aquesta propietat no és tant freqüent com podria semblar.
 
-Exemples de distribucions discretes
+Altres v.a. discretes
 -------------------------------------------
 
+A través dels exemples, fins ara ja hem vist 4 tipus de variables aleatòries discretes:
 
-Exemples de distribucions contínues
+* Uniforme, :math:`X \in \left\{0, \cdots, k-1\right\}`, :math:`P\left(X = c \right)=\frac{1}{k}`
+* Bernouilli, :math:`X \in \left\{0, 1\right\}`, :math:`P\left(X = 1 \right)=p`
+* Binomial, :math:`X \in \left\{0, \cdots, n\right\}`, :math:`P\left(X = k \right)={n\choose k}p^k\left(1-p\right)^{n-k}`
+* Geomètrica, :math:`X \in \left\{1, \cdots,\right\}`, :math:`P\left(X = k \right)= p\left(1-p\right)^{k-1}`
+
+.. rst-class:: note
+
+    Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?
+
+Us recomano donar un cop d'ull pel vostre compte a dues distribucions famoses més,
+la **hipergeomètrica** i la **binomial negativa**. Ara donarem un cop d'ull a la de Poisson.
+
+.. nextslide:: La distribució de Poisson
+
+La distribució de Poisson es pot motivar físicament amb el següent exemple:
+
+.. figure::  /_static/0_Intro/poisson_motivation.png
+    :height: 300px
+    :align: center
+
+* els intervals de temps :math:`\delta t_i` són iguals i prou petits per què :math:`B_i` sigui aproximadament Bernouilli(p)
+* els esdeveniments :math:`B_i` són independents
+
+.. nextslide:: La distribució de Poisson (II)
+
+Per tant :math:`X` és aproximadament :math:`\mbox{Binomial}\left(N, p\right)` on N és el nombre d'intervals en el periòde.
+
+
+La distribució de Poisson apareix quan tenim que :math:`p \to 0` i :math:`N \to \infty`
+mantenint el nombre mig d'arribades per interval de temps fixe, que anomenarem :math:`\lambda = Np`.
+
+La f.m.p de  :math:`X` és aleshores, quan :math:`n \to \infty`:
+
+.. math::
+
+    P\left(X = k \right) & =\frac{n!}{k!\left(n-k\right)!}\left(\frac{\lambda}{n}\right)^k\left(1-\frac{\lambda}{n}\right)^{n-k} \\
+                         & =\frac{\lambda^k}{k!}\frac{n!}{\left(n-k\right)!}\frac{1}{n^k}\left(1 - \frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{-k} \\
+                         & \to \frac{\lambda^k}{k!}e^{-\lambda}
+
+*Exercici*: Justificar l'últim pas!
+
+
+Exemples de variables aleatòries contínues
 -------------------------------------------
 
+Hem vist que una variable aleatòria contínua es caracteritza per una funció
+de densitat de probabilitat tal que:
 
-Esperança i moments
-==========================================
+:math:`F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt`
 
-Desigualtats
-==========================================
+per tant tenim que
 
+:math:`P\left(a < X < b\right) = \int_{a}^b f_X\left(t\right)dt`
 
+Una conseqüència d'aquesta definició és el que pot semblar paradoxal:
 
-Distribucions conjuntes i marginals
-==========================================
+:math:`P\left(X = x\right) = 0`
 
+ja que pel 3er axioma de Kolmogorov això sembla implicar que
+:math:`P\left(a < X < b\right)`, sent la unió de tots els punts entre a i b, hauria
+de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!
 
-Problemes
-=================================================
+.. nextslide:: La distribució uniforme
 
+La f.d.p més simple es correspon amb la variable aleatòria més simple, escollir
+un nombre aleatori dins d'un interval :math:`\left[a, b\right]`:
 
-Espais i mesures de Probabilitat
----------------------------------
+:math:`f_X\left(x\right) = \left\{\begin{array}{cc} \frac{1}{b-a} & a \leq x \leq b \\ 0 & \mbox{altrament} \end{array}\right.`
 
-**Conjunts**
-
-Demostreu les següents identitats: Donats dos subconjunts arbitraris A i B:
-
-* :math:`B = \left(B \cap A\right) \cup \left(B \cap A^c\right)`
-* :math:`A \cup B = A \cup \left(B \cap A^c\right)`
-
-**Conseqüències dels axiomes de probabilitat**
-
-Practiquem amb els axiomes per demostrar que:
-
-1. :math:`P\left(\emptyset\right)=0`
-
-2. :math:`P\left(A\right) \leq 1`
-
-3. :math:`P\left(A^c\right)=1-P\left(A\right)`
-
-
-**Desigualtat de Boole**
-
-
-.. nextslide::
-    :increment:
-
-**Desigualtat de Bonferroni**
-
-La desigualtat de Bonferroni per dos esdeveniments :math:`A, B` estableix que:
-
-:math:`P\left(A \cap B\right) \geq P\left(A\right) + P\left(B\right) - 1`
-
-És útil quan la probabilitat conjunta dels esdeveniments no és fàcil de calcular (per
-exemple quan aquests no són independents).
-
-1. Demostreu la desigualtat de Bonferroni
-
-2. Per quin tipus d'esdeveniments no és trivial, és a dir, ens serveix per
-aproximar la probabilitat de l'esdeveniment conjunt?
-
-3. Demostreu la desigualtat de Bonferroni en el cas genèric :math:`P\left(\cap_i A_i\right) \geq \sum_i P\left(A_i\right) - (n - 1)`
-
-4. Definiu un experiment i una col.lecció d'esdeveniments :math:`A_i` on la desigualtat de Bonferroni ens donaria una cota inferior útil.
-Per exemple: Comparacions múltiples, controlar la probabilitat de que totes donguin "positiu".
-
-
-
-Probabilitat condicional i independència
------------------------------------------
-
-Problema X: Independència de parells vs independència mútua
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Exercici per entendre perquè independència a parells no implica independència mútua
-
-
-Problema Z: Distribució binomial negativa
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Una extensió de la distribució geomètrica que hem vist a classe és la distribució
-binomial negativa. Es correspon amb l'experiment bla bla bla
-
-
-Problema Y: Esperança condicional i correcció del biaix de sel.lecció
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Durant el curs hem vist un exemple de com el biaix de sel.lecció pot perjudicar els nostres estimadors.
-En alguns casos, es pot corregir l'efecte fàcilment.
-
-1. Demostra que E(\sum \frac{1}{P}X) = E(X) bla bla bla
-
-Variables aleatòries
------------------------------------------
-
-**Barreja de Gaussianes** (Gaussian Mixture Models)
-
-
-Esperança i moments
------------------------------------------
-
-Desigualtats
------------------------------------------
-
-Distribucions conjuntes i marginals
------------------------------------------
-
-
-Pràctica
-=================================================
-
-
-Familiarització amb R/pandas amb el conjunt de dades Iris
----------------------------------------------------------
-
-
-Fórmula de Bayes i la seva aplicació
--------------------------------------
-
-Aplicació de probabilitat condicional: mètode de Bayes naïf
-
-
-
-
-Teorema de la transformació per integració i l'aplicació a la simulació de v.a.
-------------------------------------------------------------------------------------
-
+Exercici: Calculem la f.d.c d'una variable uniforme.
 
 
