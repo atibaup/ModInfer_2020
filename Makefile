@@ -10,6 +10,7 @@ SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = ModelitzacióIInferència
 SOURCEDIR     = .
 BUILDDIR      = _build
+GITHUB_PAGE_ROOT = docs/
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -22,10 +23,11 @@ build:
 	make html
 	make slides
 
-pdf:
-	$(SPHINXBUILD) -b pdf "$(SOURCEDIR)" $(BUILDDIR)/pdf
-	@echo
-	@echo "Build finished. The PDF is in $(BUILDDIR)/pdf."
+publish: build
+	cp -R $(BUILDDIR)/html $(GITHUB_PAGE_ROOT)/
+	cp -R $(BUILDDIR)/slides $(GITHUB_PAGE_ROOT)/
+	git commit -a -m 'Updating materials...'
+	git push origin master
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
