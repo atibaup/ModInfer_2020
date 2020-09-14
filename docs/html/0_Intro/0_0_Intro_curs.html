@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Tema 1: Preliminars &#8212; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    <link rel="stylesheet" href="../_static/sab-book.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Tema 2: Introducció a l’inferència estadística" href="0_2_Intro_stats.html" />
+    <link rel="prev" title="104392 - Modelització i Inferència" href="../index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="0_2_Intro_stats.html" title="2. Tema 2: Introducció a l’inferència estadística"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="104392 - Modelització i Inferència"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Tema 1: Preliminars</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tema-1-preliminars">
+<h1><span class="section-number">1. </span>Tema 1: Preliminars<a class="headerlink" href="#tema-1-preliminars" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduccio-al-curs">
+<h2><span class="section-number">1.1. </span>Introducció al curs<a class="headerlink" href="#introduccio-al-curs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="em-presento">
+<h3><span class="section-number">1.1.1. </span>Em presento<a class="headerlink" href="#em-presento" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/arnau_pic.jpg"><img alt="../_images/arnau_pic.jpg" src="../_images/arnau_pic.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text"><a class="reference external" href="mailto:arnau&#46;tibau&#37;&#52;&#48;uab&#46;cat">arnau<span>&#46;</span>tibau<span>&#64;</span>uab<span>&#46;</span>cat</a> | <a class="reference external" href="https://twitter.com/ArnauTibau">&#64;ArnauTibau</a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>PhD en EECS, U of Michigan, Ann Arbor</p></li>
+<li><p>Cap de Data Science a <a class="reference external" href="https://www.letgo.com/">letgo</a></p></li>
+<li><p>10 anys experiència com a Científic de Dades (<em>Data Scientist</em>)</p></li>
+<li><p>Qualsevol pregunta: contacteu-me per email o pel Campus Virtual!</p></li>
+<li><p>Horaris tutoria: Dilluns i Dimecres de 15h a 17h (<strong>Envieu-me una invitació `Calendar`!</strong>)</p></li>
+</ul>
+</div>
+<div class="section" id="que-es-l-inferencia-estadistica">
+<h3><span class="section-number">1.1.2. </span>Què és l’inferència estadística?<a class="headerlink" href="#que-es-l-inferencia-estadistica" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/stat_inference.png"><img alt="../_images/stat_inference.png" src="../_images/stat_inference.png" style="height: 280px;" /></a>
+</div>
+<p>“Població” aquí es refereix al concepte estadístic, que definirem en breu. Per
+inferència entenem:</p>
+<ol class="arabic simple">
+<li><p>Inferir propietats d’un objecte (la població)</p></li>
+<li><p>Deduïr validesa d’una premisa</p></li>
+</ol>
+<p>a partir de d’un nombre <strong>finit</strong> de mostres</p>
+</div>
+<div class="section" id="exemples-d-aplicacio">
+<h3><span class="section-number">1.1.3. </span>Exemples d’aplicació<a class="headerlink" href="#exemples-d-aplicacio" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exemple 1</strong>: Caracterització de plantes (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x">R. A. Fisher 1936</a>)</p>
+<p>Mesurem la longitud i amplada dels sèpals i els pètals de 50 exemplars de tres espècies diferents del gènere <em>Iris</em></p>
+<a class="reference internal image-reference" href="../_images/iris_pics.png"><img alt="Iris Images" class="align-center" src="../_images/iris_pics.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/iris_dataset_sample.png"><img alt="Iris dataset (13 primeres mostres)" class="align-center" src="../_images/iris_dataset_sample.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>Quan solen mesurar els pètals de les <em>Iris</em>?</p></li>
+<li><p>Hi ha alguna relació entre la morfologia i cada espècie d’<em>Iris</em>?</p></li>
+<li><p>Donades les mesures d’un especímen nou, el podríem classificar en l’espècie correcta?</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/iris_dataset_sample.png"><img alt="Iris dataset (13 primeres mostres)" class="align-center" src="../_images/iris_dataset_sample.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>Quan solen mesurar els pètals de les Iris? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Estimació</strong></p></li>
+<li><p>Hi ha alguna relació entre la morfologia i cada espècie d’<em>Iris</em>? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Estimació</strong></p></li>
+<li><p>Donades les mesures d’un especímen nou, el podríem classificar en l’espècie correcta? <span class="math notranslate nohighlight">\(\rightarrow\)</span>  <strong>Predicció</strong></p></li>
+</ul>
+<p><strong>Exemple 2</strong>: Eficacitat d’un tractament profilàctic per als contactes de casos COVID-19
+(<a class="reference external" href="https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1">O. Mitjà et al. 2020</a>)</p>
+<p>Seleccionem <strong>aleatòriament</strong> (en realitat l’experiment fa
+<a class="reference external" href="https://en.wikipedia.org/wiki/Cluster_randomised_controlled_trial">cluster-randomization</a>)
+dos grups de pacients de COVID-19:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/hcq_example.png"><img alt="../_images/hcq_example.png" src="../_images/hcq_example.png" style="height: 325px;" /></a>
+</div>
+<p>Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes <strong>i</strong> dónen
+positiu en una prova PCR.</p>
+<ul class="build simple">
+<li><p>Quants pacients hem de seleccionar per prendre una decisió sobre la població general? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Mostreig</strong></p></li>
+<li><p>Com sabem si hem seleccionat els grups adequadament? <span class="math notranslate nohighlight">\(\rightarrow\)</span>  <strong>Mostreig, Estimació</strong></p></li>
+<li><p>Com determinem si el tractament funciona? <span class="math notranslate nohighlight">\(\rightarrow\)</span>  <strong>Tests d’hipòtesi</strong>, <strong>Intervals de confiança</strong></p></li>
+</ul>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/mitja_et_al_resultats.png"><img alt="../_images/mitja_et_al_resultats.png" src="../_images/mitja_et_al_resultats.png" style="width: 600px;" /></a>
+</div>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/abc_hcq.png"><img alt="../_images/abc_hcq.png" src="../_images/abc_hcq.png" style="height: 325px;" /></a>
+<p class="caption"><span class="caption-text">Un assaig clínic busca falsificar l’hipòtesi nul.la: que el tractament no té efecte. No trobar evidència contra la mateixa no és un fracàs, és progrés científic! <a class="reference external" href="https://www.abc.es/espana/catalunya/abci-fracasa-ensayo-oriol-mitja-hidroxicloroquina-no-previene-coronavirus-202006121016_noticia.html">Font</a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Exemple 3</strong>: Tenim una plataforma de vídeo en streaming i volem millorar les nostres recomanacions.
+En particular volem saber si, donat un usuari i un producte, a l’usuari li agradarà.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/movielens.png"><img alt="" src="../_images/movielens.png" style="width: 600px;" /></a>
+</div>
+<p>Disposem d’un històric amb les <a class="reference external" href="http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html">següents dades</a>:</p>
+<ul class="simple">
+<li><p>Les evaluacions (0-5 estrelles) que cada usuari ha fet de les películes que ja ha vist</p></li>
+<li><p>Informació sobre cada película (ex: gènere, actors)</p></li>
+</ul>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;recommenderlab&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">recommenderlab</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">MovieLense</span><span class="p">)</span>
+<span class="c1"># Veure primeres 3 evaluacions d&#39;un dels usuaris</span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">as</span><span class="p">(</span><span class="n">MovieLense[1</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="s">&quot;list&quot;</span><span class="p">)</span><span class="n">[[1]]</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">Toy</span> <span class="nf">Story </span><span class="p">(</span><span class="m">1995</span><span class="p">)</span>  <span class="nf">GoldenEye </span><span class="p">(</span><span class="m">1995</span><span class="p">)</span> <span class="n">Four</span> <span class="nf">Rooms </span><span class="p">(</span><span class="m">1995</span><span class="p">)</span>
+<span class="o">&gt;</span>        <span class="m">5</span>                 <span class="m">3</span>                 <span class="m">4</span>
+<span class="n">MovieLenseMeta[MovieLenseMeta</span><span class="o">$</span><span class="n">title</span><span class="o">==</span><span class="s">&quot;Toy Story (1995)&quot;</span><span class="p">,</span> <span class="n">]</span>
+<span class="o">&gt;</span>      <span class="n">title</span>         <span class="n">year</span>                <span class="n">url</span>                                       <span class="n">unknown</span> <span class="n">Action</span> <span class="n">Adventure</span> <span class="n">....</span>
+<span class="o">&gt;</span> <span class="m">1</span> <span class="n">Toy</span> <span class="nf">Story </span><span class="p">(</span><span class="m">1995</span><span class="p">)</span> <span class="m">1995</span> <span class="n">http</span><span class="o">://</span><span class="n">us.imdb.com</span><span class="o">/</span><span class="n">M</span><span class="o">/</span><span class="n">title</span><span class="o">-</span><span class="n">exact</span><span class="o">?</span><span class="n">Toy</span><span class="o">%20Story%</span><span class="m">20</span><span class="p">(</span><span class="m">1995</span><span class="p">)</span>       <span class="m">0</span>      <span class="m">0</span>         <span class="m">0</span>
+</pre></div>
+</div>
+<ul class="build simple">
+<li><p>Donada una película que l’usuari encara no ha vist, podem determinar si li agradarà o no? <span class="math notranslate nohighlight">\(\rightarrow\)</span>  <strong>Regressió</strong></p></li>
+<li><p>Si implementem un model estadístic de recomanacions de pel.lícules, com podem saber si millora l’experiència dels nostres usuaris o no? <span class="math notranslate nohighlight">\(\rightarrow\)</span>  <strong>Mostreig, Tests d’hipòtesi, Estimació</strong></p></li>
+</ul>
+</div>
+<div class="section" id="organitzacio-del-curs">
+<h3><span class="section-number">1.1.4. </span>Organització del curs<a class="headerlink" href="#organitzacio-del-curs" title="Permalink to this headline">¶</a></h3>
+<p><strong>Classes de teoria</strong>: Estadística matemàtica</p>
+<ul class="build simple">
+<li><p>Rigor matemàtic: el just</p></li>
+<li><p>Centrades en l’aplicació i l’aspecte computacional</p></li>
+<li><p>Després de cada classe, penjaré les transparències/notes de classe al Campus Virtual</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Es recomana la lectura <strong>prèvia</strong> dels temes a tractar abans de cada llicó</p>
+</div>
+<p><strong>Classes de problemes</strong>: Resolució de problemes proposats per l’estudi autònom</p>
+<ul class="build simple">
+<li><p>Complement a les classes teòriques</p></li>
+<li><p>Molt difícil (veure impossible) resoldre els problemes sense seguir les classes</p></li>
+<li><p>Molt difícil aprovar sense treballar els problemes</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Part de la teoria s’exposarà en els problemes</p>
+</div>
+<p><strong>Classes pràctiques</strong> amb programari (R/Python)</p>
+<ul class="build simple">
+<li><p>Complement a les classes teòriques</p></li>
+<li><p>Implementarem/experimentarem amb els mètodes descrits a classe</p></li>
+<li><p>Instal.leu-vos <a class="reference external" href="https://rstudio.com/products/rstudio/">Rstudio</a> i/o <a class="reference external" href="https://www.python.org/downloads/">Python 3+</a> (si feu servir Python, us recomano que instal.leu també <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> per gestionar-ne els paquets)</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Per ser evaluat, el programari entregat haurà de córrer sense modificacions al meu ordinador.</p>
+</div>
+<ul class="simple">
+<li><p>Com ja sabeu, hem de mantenir l’ocupació de l’aula a 32</p></li>
+<li><p>Mantindrem l’alternança entre Grup 1, Grup 2 i virtual (<a class="reference external" href="https://www.uab.cat/doc/hor-grau-MatCAD-20-21">calendari</a>)</p></li>
+<li><p>Si m’ajudeu podem mirar de gravar les classes per penjar-les al Campus Virtual</p></li>
+<li><p>Haurem de ser una mica flexibles</p></li>
+</ul>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/flexibilitat.jpg"><img alt="../_images/flexibilitat.jpg" src="../_images/flexibilitat.jpg" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text"><a class="reference external" href="https://www.centralyoga.com.au/blog/beware-the-allure-of-extreme-poses">Font de l’imatge</a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Hem estructurat el curs en 5 parts:</p>
+<ul class="simple">
+<li><p>Tema 1. Preliminars (Setmanes 1 i 2)</p></li>
+<li><p>Tema 2. Introducció a l’Inferència Estadística (Setmana 2, 3 i 4)</p></li>
+<li><p>Tema 3. Estimació (Octubre)</p></li>
+<li><p>Tema 4. Tests d’hipòtesi (Novembre)</p></li>
+<li><p>Tema 5. Regressió i predicció (Desembre)</p></li>
+</ul>
+<p>Per més detalls sobre el contingut de cada tema, consulteu la <a class="reference external" href="https://e-aules.uab.cat/2020-21/course/view.php?id=7622#section-0">guia docent penajda al Campus Virtual</a></p>
+</div>
+<div class="section" id="bibliografia-recomanada">
+<h3><span class="section-number">1.1.5. </span>Bibliografia recomanada<a class="headerlink" href="#bibliografia-recomanada" title="Permalink to this headline">¶</a></h3>
+<p>Pel desenvolupament teòric, seguiré majoritàriament <em>[Casella &amp; Berger]</em>,
+excepte pel <cite>Tema 4. Tests d’hipòtesi</cite>, on seguiré més aviat el desenvolupament
+de <em>[Rice]</em>:</p>
+<ul class="simple">
+<li><p><em>[Casella &amp; Berger]</em> <a class="reference external" href="https://cataleg.uab.cat/iii/encore/record/C__Rb1522633__Sstatistical%20inference__Orightresult__U__X7?lang=cat&amp;suite=def">Statistical Inference, 2nd Edition</a></p></li>
+<li><p><em>[Rice]</em> <a class="reference external" href="https://cataleg.uab.cat/iii/encore/record/C__Rb1953551__SMathematical%20Statistics%20and%20Data%20Analysis__Orightresult__U__X7?lang=cat&amp;suite=def">Mathematical Statistics and Data Analysis, J. Rice, 3rd edition</a></p></li>
+</ul>
+<p>Bibliografia complementària:</p>
+<ul class="simple">
+<li><p>[Efron &amp; Hastie] <a class="reference external" href="https://web.stanford.edu/~hastie/CASI/index.html">Computer Age Statistical Inference</a></p></li>
+</ul>
+</div>
+<div class="section" id="avaluacio-curs">
+<h3><span class="section-number">1.1.6. </span>Avaluació curs<a class="headerlink" href="#avaluacio-curs" title="Permalink to this headline">¶</a></h3>
+<p>Avaluació continuada:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C\)</span>: Nota mitjana del control de problemes</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span>: Control de pràctiques</p></li>
+</ul>
+<p>Exàmens:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E_1\)</span>: Nota examen final</p></li>
+<li><p><span class="math notranslate nohighlight">\(E_2\)</span>: Nota examen de recuperació</p></li>
+</ul>
+<p>Si l’alumne es presenta a un dels dos examens:</p>
+<p><span class="math notranslate nohighlight">\(N = 0.50 x \max\left(E_1, E_2\right) + 0.20 x C + 0.30 × P\)</span></p>
+<p>(<span class="math notranslate nohighlight">\(C, P, E_1, E_2, N \in \left[0, 10\right]\)</span>) i aprova si <span class="math notranslate nohighlight">\(N \geq 5\)</span>.</p>
+<p>Si l’alumne no es presenta a cap dels dos examens:</p>
+<p><span class="math notranslate nohighlight">\(N = \mbox{No Presentat}\)</span> (independentment de <span class="math notranslate nohighlight">\(C\)</span> i <span class="math notranslate nohighlight">\(P\)</span>)</p>
+<ul class="simple">
+<li><p>Alguns dels problemes els proposaré durant les classes de teoria (exemple: completar una demostració).</p></li>
+<li><p>En cualsevol cas, miraré de donar sempre un mínim de 5 dies entre l’enunciat dels problemes i l’entrega/correcció de sol.lucions.</p></li>
+<li><p>Alguns dels problemes els corregirem a classe (després d’entregar-los).</p></li>
+<li><p>Ho sento però per qüestions logístiques no acceptaré entregues amb retard.</p></li>
+</ul>
+<p>Ho repeteixo, perquè quedi clar:</p>
+<ul class="simple">
+<li><p>Tant les sessions de problemes com les de pràctiques són complementàries a les classes teòriques</p></li>
+<li><p>/!\ part de la teoria s’exposarà en els problemes i les pràctiques</p></li>
+<li><p>Molt difícil (veure impossible) resoldre els problemes sense seguir les classes</p></li>
+<li><p>Molt difícil aprovar (<cite>aprendre!</cite>) sense treballar els problemes</p></li>
+<li><p><strong>IMPORTANT</strong>: Per ser evaluat, el programari de cada pràctica haurà de córrer sense modificacions al meu ordinador.</p></li>
+</ul>
+</div>
+<div class="section" id="algunes-coses-a-tenir-en-compte">
+<h3><span class="section-number">1.1.7. </span>Algunes coses a tenir en compte<a class="headerlink" href="#algunes-coses-a-tenir-en-compte" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/we_need_you.jpg"><img alt="../_images/we_need_you.jpg" src="../_images/we_need_you.jpg" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Aquest curs és la primera vegada que el preparo!</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<div class="legend">
+<ul class="simple">
+<li><p>Pot haver-hi alguna errada a les slides/apunts</p></li>
+<li><p>En particular en la traducció de termes en anglès &lt;–&gt; català</p></li>
+<li><p>Qualsevol problema durant o després de la classe: <a class="reference external" href="mailto:arnau&#46;tibau&#37;&#52;&#48;uab&#46;cat">arnau<span>&#46;</span>tibau<span>&#64;</span>uab<span>&#46;</span>cat</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="questionari">
+<h3><span class="section-number">1.1.8. </span>Qüestionari<a class="headerlink" href="#questionari" title="Permalink to this headline">¶</a></h3>
+<p>Durant el curs faré servir qüestionaris i exercicis per ajudar-vos a reflexionar i recordar
+el material que anem desenvolupant.</p>
+<p>Comencem amb el primer :)</p>
+<ol class="build arabic simple">
+<li><p>Calcular el nombre de pacients necessaris per un assaig clínic és un problema de _________.</p></li>
+<li><p>Es podràn resoldre els problemes sense assistir a les classes de teoria?</p></li>
+<li><p>Per determinar si un tractament clínic funciona, normalment es fa servir la tècnica dels _____________.</p></li>
+<li><p>Si trec un 10 en l’avaluació de problemes i pràctiques i no em presento a l’exàmen final, puc aprovar?</p></li>
+<li><p>Perquè una pràctica s’evalui, m’he d’assegurar que el meu codi ___________.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="espais-i-mesures-de-probabilitat">
+<h2><span class="section-number">1.2. </span>Espais i mesures de Probabilitat<a class="headerlink" href="#espais-i-mesures-de-probabilitat" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="espai-de-probabilitat">
+<h3><span class="section-number">1.2.1. </span>Espai de Probabilitat<a class="headerlink" href="#espai-de-probabilitat" title="Permalink to this headline">¶</a></h3>
+<p class="note">Durant el Tema 1 haurem d’anar una mica ràpid. És impossible fer un curs de probabilitat
+en 2 setmanes, però per sort ja n’heu fet un!</p>
+<p>Un <strong>espai de probabilitat</strong> és un model matemàtic del resultat d’un <strong>experiment aleatori</strong>.</p>
+<p>Consisteix en un triplet <span class="math notranslate nohighlight">\(\left(\Omega, \mathcal{A}, P\right)\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span>: l’<strong>espai mostral</strong>, conjunt de resultats possibles d’un experiment</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A} \subseteq 2^{\Omega}\)</span>: el conjunt d’<strong>esdeveniments</strong>, una família de subconjunts d’<span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span>: una <strong>mesura de probabilitat</strong>, una funció <span class="math notranslate nohighlight">\(\mathcal{A} \rightarrow \left[0, 1\right]\)</span></p></li>
+</ul>
+<p><em>Recordatori</em>: <span class="math notranslate nohighlight">\(2^{\Omega}\)</span> és el conjunt de tots els sub-conjunts d’<span class="math notranslate nohighlight">\(\Omega\)</span>, incloent-hi <span class="math notranslate nohighlight">\(\emptyset\)</span> i <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+</div>
+<div class="section" id="mesura-de-probabilitat">
+<h3><span class="section-number">1.2.2. </span>Mesura de probabilitat<a class="headerlink" href="#mesura-de-probabilitat" title="Permalink to this headline">¶</a></h3>
+<p>Una <strong>mesura de probabilitat</strong> <span class="math notranslate nohighlight">\(P: \mathcal{A} \rightarrow \left[0, 1\right]\)</span>
+ha de satisfer els següents axiomes (de Kolmogorov):</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P\left(\Omega\right)=1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\forall A\in\mathcal{A}\)</span>, <span class="math notranslate nohighlight">\(P\left(A\right)\geq 0\)</span></p></li>
+<li><p>Per <span class="math notranslate nohighlight">\(A_1,A_2,A_3, \cdots \in \mathcal{A}\)</span> disjunts, <span class="math notranslate nohighlight">\(P\left(\cup_i A_i\right) = \sum_i P\left(A_i\right)\)</span></p></li>
+</ol>
+<p class="note">Fixeu-vos que tenim llibertat a l’hora de definir <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> pels esdeveniments que ens
+interessen (sempre i quan formin una <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebra.)</p>
+<p>Això és una construcció axiomàtica de Probabilitat, formalitzada per Andrey Kolmogorov.</p>
+<p>Noteu que no hem associat cap interpretació al significat físic dels valors de <span class="math notranslate nohighlight">\(P\)</span>. Dues interpretacions típiques:</p>
+<ul class="simple">
+<li><p><strong>Frequentista</strong>: <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> representa la frequència amb que observariem l’esdeveniment <cite>A</cite> si realitzéssim un gran nombre d’experiments</p></li>
+<li><p><strong>Bayesiana</strong>: <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> representa la nostra certesa sobre l’ocurrència de l’esdeveniment <cite>A</cite></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les dues interpretacions no són completament ortogonals, però són l’orígen d’un munt de
+discussions filosòfiques i a vegades dogmàtiques. Si us interessa el tema us recomano
+<a class="reference external" href="https://projecteuclid.org/euclid.ba/1340370429">Objections to Bayesian statistics</a>.</p>
+</div>
+<p>Aquest no és un curs de probabilitat, per tant amagarem “detalls” important sota l’alfombra:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> en realitat ha de ser una <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebra (conté <span class="math notranslate nohighlight">\(\emptyset\)</span>, tancat per unió contable i complement)</p></li>
+<li><p>Per a conjunts <span class="math notranslate nohighlight">\(\Omega\)</span> contables, podem tirar milles considerant <span class="math notranslate nohighlight">\(\mathcal{A} = 2^{\Omega}\)</span></p></li>
+<li><p>La cosa es complica quan <span class="math notranslate nohighlight">\(\Omega\)</span> no és discret (exemples: l’alçada d’una població, el nivell d’expressió d’un gen)</p></li>
+</ul>
+<p class="note"><strong>Recomano</strong> donar una ullada al [Casella &amp; Berger] o a una altra de les referències
+bibliogràfiques per una intro no tècnica a les <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebres</p>
+</div>
+<div class="section" id="algunes-propietats-de-les-mesures-de-probabilitat">
+<h3><span class="section-number">1.2.3. </span>Algunes propietats de les mesures de probabilitat<a class="headerlink" href="#algunes-propietats-de-les-mesures-de-probabilitat" title="Permalink to this headline">¶</a></h3>
+<p class="note"><strong>Teorema [Casella &amp; Berger 1.2.8 i 1.2.9]</strong> Per una mesura de probabilitat <span class="math notranslate nohighlight">\(P\)</span> i
+qualsevol esdeveniments <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, tenim:</p>
+<ol class="note arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P\left(\emptyset\right)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) \leq 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A^c\right) = 1 - P\left(A\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(B \cap A^c\right) = P\left(B\right) - P\left(A \cap B\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A \cup B\right) = P\left(A\right) + P\left(B\right) - P\left(A \cap B\right)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A \subseteq B\)</span>, aleshores <span class="math notranslate nohighlight">\(P\left(A\right) \leq P\left(B\right)\)</span></p></li>
+</ol>
+<p><strong>Demostració</strong>: Punts (1), (2), (3), exercici :) (recomano començar pel 3er punt).
+Punts (4)-(6) tot seguit.</p>
+<p>Pel punt (4), només cal observar que <span class="math notranslate nohighlight">\(B = \left(B \cap A\right) \cup \left(B \cap A^c\right)\)</span> (exercici).
+D’aquesta identitat i tenint en compte que <span class="math notranslate nohighlight">\(B \cap A\)</span> i <span class="math notranslate nohighlight">\(B \cap A^c\)</span> son disjunts,
+s’en dedueix l’expressió usant el 3er axioma de Kolmogorov.</p>
+<p>Pel punt (5), utilitzem la següent identitat <span class="math notranslate nohighlight">\(A \cup B = A \cup \left(B \cap A^c\right)\)</span> i apliquem el punt (4).</p>
+<p>Finalment el punt (6) el demostrem observant que si <span class="math notranslate nohighlight">\(A \subseteq B\)</span> aleshores <span class="math notranslate nohighlight">\(A \cap B = A\)</span>
+i que <span class="math notranslate nohighlight">\(0 \leq P\left(B \cap A^c\right) = P\left(B\right) - P\left(A\right)\)</span>.</p>
+<p>Els següents són propietats interessants relatives a col.leccions de conjunts:</p>
+<p class="note"><strong>Teorema [Casella &amp; Berger 1.2.11]</strong> Si <span class="math notranslate nohighlight">\(P\)</span> és una mesura de probabilitat:</p>
+<ol class="note arabic simple">
+<li><p>Per cualsevol partició <span class="math notranslate nohighlight">\(C_1, \cdots, C_N\)</span> d’ <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(P\left(A\right) = \sum_i P\left(A \cap C_i \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A_1, A_2 \cdots, \in \mathcal{A}\)</span>, <span class="math notranslate nohighlight">\(P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)\)</span> (desigualtat de Boole)</p></li>
+</ol>
+<p><strong>Demostració</strong>: (1) tot seguit, (2) exercici.</p>
+<p>Demostració punt (1): Recordem que una partició <span class="math notranslate nohighlight">\(C_1, \cdots, C_N\)</span> d’ <span class="math notranslate nohighlight">\(\Omega\)</span>
+és una col.lecció de conjunts tal que <span class="math notranslate nohighlight">\(\cup_i C_i = \Omega\)</span> i <span class="math notranslate nohighlight">\(C_i \cap C_j = \emptyset, \forall i\neq j\)</span>.</p>
+<p>Tenim doncs la següent cadena d’identitats:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A &amp;= A \cap \Omega \\
+A &amp; = A \cap \cup_i C_i \\
+A &amp; = \cup_i \left( A \cap C_i \right)\\
+P\left(A\right) &amp; = P\left(\cup_i \left( A \cap C_i\right)\right)\end{split}\]</div>
+<p>i com que <span class="math notranslate nohighlight">\(A \cap C_i\)</span> i <span class="math notranslate nohighlight">\(A \cap C_j\)</span> son disjunts, el resultat
+s’obté considerant el 3er axioma de Kolmogorov.</p>
+</div>
+<div class="section" id="exemples-d-espais-de-probabilitat">
+<h3><span class="section-number">1.2.4. </span>Exemples d’espais de probabilitat<a class="headerlink" href="#exemples-d-espais-de-probabilitat" title="Permalink to this headline">¶</a></h3>
+<p><strong>Experiment 1</strong>: Modelar el resultat de llançar un dau de 6 cares</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega = \left\{1, 2, 3, 4, 5, 6\right\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A} = \left\{ \left\{1\right\}, \left\{2\right\}, \cdots, \left\{1, 2\right\}, \cdots \right\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(x\right) = \frac{1}{6}, x \in \Omega\)</span></p></li>
+</ul>
+<p class="note"><strong>Exercici</strong>: Com definirieu <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> per a qualsevol <span class="math notranslate nohighlight">\(A \in \mathcal{A}\)</span>?</p>
+<ul class="build simple">
+<li><p>Resposta: <span class="math notranslate nohighlight">\(P\left(A\right) = \sum_{x \in A} P\left(x\right)\)</span>. Podeu comprovar que aquesta construcció satisfà els axiomes.</p></li>
+</ul>
+<p><strong>Experiment 2</strong>: Escollir 100 persones i fer-els-hi una prova d’anticossos per SARS-COV-2</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega = \left\{+, -\right\}^{100}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) = ?\)</span></p></li>
+</ul>
+<p><strong>Experiment 3</strong>: Escollir aleatòriament un estudiant d’questa classe i mesurar-ne la seva alçada</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega = \left[0, \infty \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) = ?\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="independencia-i-probabilitat-condicional">
+<h2><span class="section-number">1.3. </span>Independència i probabilitat condicional<a class="headerlink" href="#independencia-i-probabilitat-condicional" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="probabilitat-condicional">
+<h3><span class="section-number">1.3.1. </span>Probabilitat condicional<a class="headerlink" href="#probabilitat-condicional" title="Permalink to this headline">¶</a></h3>
+<p>Donats <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, amb <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>,
+<span class="math notranslate nohighlight">\(P\left(A|B\right) = \frac{P\left(A \cap B\right)}{P\left(B\right)}\)</span> (aquesta construcció satisfà els axiomes de Kolmogorov)</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/proba_condicional.png"><img alt="../_images/proba_condicional.png" src="../_images/proba_condicional.png" style="height: 300px;" /></a>
+</div>
+<p><span class="math notranslate nohighlight">\(P\left(\cdot|B\right)\)</span> és la restricció de <span class="math notranslate nohighlight">\(P\)</span> al subconjunt d’esdeveniments B. Alguns preguntes/petits exercicis interessants:</p>
+<ol class="build arabic simple">
+<li><p>Tindria sentit definir <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span> si <span class="math notranslate nohighlight">\(P\left(B\right) = 0\)</span>?</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span>?</p></li>
+<li><p>Com podem interpretar si <span class="math notranslate nohighlight">\(P\left(A|B\right) =P\left(A\right)\)</span>? Podeu donar un exemple “físic”?</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A \subseteq B\)</span>, quina relació hi ha entre <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span> i <span class="math notranslate nohighlight">\(P\left(A\right)\)</span>?</p></li>
+</ol>
+</div>
+<div class="section" id="esdeveniments-independents">
+<h3><span class="section-number">1.3.2. </span>Esdeveniments independents<a class="headerlink" href="#esdeveniments-independents" title="Permalink to this headline">¶</a></h3>
+<p>Diem que <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, són independents si:</p>
+<p><span class="math notranslate nohighlight">\(P\left(A \cap B\right) =P\left(A\right)P\left(B\right)\)</span></p>
+<p>Això és equivalent a <span class="math notranslate nohighlight">\(P\left(A|B\right) =P\left(A\right)\)</span> si <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>.</p>
+<p>Algunes preguntes [Casella &amp; Berger Teorema 1.3.9] (mirem de respondre per intució primer i matemàticament després):</p>
+<ol class="build arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span> son independents, què podem dir de <span class="math notranslate nohighlight">\(A, B^c\)</span>?</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span> son independents, què podem dir de <span class="math notranslate nohighlight">\(A^c, B^c\)</span>?</p></li>
+</ol>
+<p>Per exemple, l’independència conjunta no implica independència de parells:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/ex_independencia.png"><img alt="../_images/ex_independencia.png" src="../_images/ex_independencia.png" style="height: 300px;" /></a>
+</div>
+<p>Calculem <span class="math notranslate nohighlight">\(P\left(A \cap B \cap C\right)\)</span> i <span class="math notranslate nohighlight">\(P\left(B \cap C\right)\)</span>…</p>
+<p><em>Nota:</em> l’independència de parells tampoc implica independència mútua (veure Problema)</p>
+<p>Per resoldre aquests problemes, fa falta una definició molt més estricta
+de la noció d’independència en conjunts d’esdeveniments:</p>
+<p class="note"><strong>Definició</strong> <span class="math notranslate nohighlight">\(A_1, A_2 \cdots, \in \mathcal{A}\)</span> són mutualment independents si per cualsevol
+subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cdots, \in \mathcal{A}\)</span>, tenim que <span class="math notranslate nohighlight">\(P\left(\cap_j A_{i_j}\right) = \Pi_j P\left(A_{i_j}\right)\)</span></p>
+<p>(En aquest curs, quan parlem de mostres independents, estarem assumint independència mútua)</p>
+</div>
+</div>
+<div class="section" id="variables-aleatories-i-funcions-de-distribucio">
+<h2><span class="section-number">1.4. </span>Variables aleatòries i funcions de distribució<a class="headerlink" href="#variables-aleatories-i-funcions-de-distribucio" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variable-aleatoria">
+<h3><span class="section-number">1.4.1. </span>Variable aleatòria<a class="headerlink" href="#variable-aleatoria" title="Permalink to this headline">¶</a></h3>
+<p class="note"><strong>Definició</strong> Una variable aleatòria (<em>v.a.</em> pels amics) és una funció <span class="math notranslate nohighlight">\(X : \Omega \to \mathbb{R}\)</span>.</p>
+<p>Podem doncs definir una funció de probabilitat:</p>
+<p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span></p>
+<p>que satisfà els axiomes de Kolmogorov:</p>
+<ol class="loweralpha simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> <strong>contable</strong>: Fàcil, <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> <strong>incontable</strong>: Una mica més complicat…</p></li>
+</ol>
+<p class="note">Enlloc de treballar amb <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.</p>
+<p>Revisitem l’<strong>Experiment 2</strong> anterior (escollim 100 persones i fem una prova d’anticossos per SARS-COV-2)</p>
+<ul class="simple">
+<li><p>Teniem que <span class="math notranslate nohighlight">\(\Omega = \left\{+, -\right\}^{100}\)</span></p></li>
+<li><p>Definim v.a. <span class="math notranslate nohighlight">\(X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]\)</span></p></li>
+</ul>
+<p><strong>Exercici</strong>: Fent servir l’identitat <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span>, derivem <span class="math notranslate nohighlight">\(P_X\left(X=k\right)\)</span>.</p>
+<p>Revisitem l’<strong>Experiment 3</strong>. Escollim un estudiant d’aquesta classe i aquest cop mesurem la raó alçada/pes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega = \left(0, \infty \right) \times \left(0, \infty \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X: (x, y) \in \Omega \to \frac{x}{y}\)</span></p></li>
+<li><p>Com calculariem <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>?</p></li>
+</ul>
+<p class="note">En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de les observacions (hipòtesi que després haurem de validar comprovant la <em>bondat de l’ajust</em>)</p>
+</div>
+<div class="section" id="funcio-de-distribucio">
+<h3><span class="section-number">1.4.2. </span>Funció de distribució<a class="headerlink" href="#funcio-de-distribucio" title="Permalink to this headline">¶</a></h3>
+<p class="note"><strong>Definició</strong> La funció de distribució cumulativa (f.d.c.) d’una v.a. es defineix com <span class="math notranslate nohighlight">\(F\left(x\right) = P\left(X \leq x\right)\)</span>.</p>
+<p>De fet qualsevol funció pot ser una f.d.c si compleix [Casella &amp; Berger Teorema 1.5.3]:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\lim_{x\to -\infty} F(x) = 0\)</span> i <span class="math notranslate nohighlight">\(\lim_{x\to \infty} F(x) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F(x)\)</span> és no-decreixent</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(x)\)</span> és contínua per la dreta (<span class="math notranslate nohighlight">\(\lim_{x\to x_0^+} F(x) = x_0\)</span>)</p></li>
+</ol>
+<p class="note">El més important es que la f.d.c caracteritza únicament una variable aleatòria: si <span class="math notranslate nohighlight">\(F_X = F_Y\)</span>, aleshores <span class="math notranslate nohighlight">\(X\)</span> i <span class="math notranslate nohighlight">\(Y\)</span> són idènticament distribuïdes [Casella &amp; Berger 1.5.8 i 1.5.10]</p>
+</div>
+<div class="section" id="funcio-de-massa-o-densitat-de-probabilitat">
+<h3><span class="section-number">1.4.3. </span>Funció de massa o densitat de probabilitat<a class="headerlink" href="#funcio-de-massa-o-densitat-de-probabilitat" title="Permalink to this headline">¶</a></h3>
+<p>A voltes ens serà més pràctic treballar amb un altre objecte, la funció de massa de probabilitat (f.m.p.) <span class="math notranslate nohighlight">\(p_X\)</span> o de densitat de probabilitat (f.d.p) <span class="math notranslate nohighlight">\(f_X\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Cas discret</strong>: <span class="math notranslate nohighlight">\(p_X\left(k\right) = P_X\left(X=k\right)\)</span> (noteu que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \sum_{k=-\infty}^{x}p_X\left(k\right))\)</span>)</p></li>
+<li><p><strong>Cas “continu”</strong>: La funció <span class="math notranslate nohighlight">\(f_X\)</span> tal que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></p></li>
+</ul>
+<p class="note">Aquí ens desviem una mica de la notació de [Casella &amp; Berger] al fer servir <span class="math notranslate nohighlight">\(p_X\)</span> enlloc de <span class="math notranslate nohighlight">\(f_X\)</span> per la f.m.p.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Estem ometent molts “detalls” tècnics importants… Hi ha variables contínues per les que <span class="math notranslate nohighlight">\(f_X\)</span> no existeix.</p>
+</div>
+<p>Tal i com hem fist per la f.d.c, tenim un resultat similar per la f.d.p o la f.m.p: <span class="math notranslate nohighlight">\(f_X\left(x\right)\)</span> (<span class="math notranslate nohighlight">\(p_X\left(k\right)\)</span>)
+és una f.d.p (f.m.p) si i només si [Casella &amp; Berger 1.6.5]:</p>
+<ol class="loweralpha simple">
+<li><p><span class="math notranslate nohighlight">\(f_X\left(x\right) \geq 0, \forall x\)</span> (<span class="math notranslate nohighlight">\(p_X\left(k\right) \geq 0, \forall k\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{\infty}^{\infty} f_X\left(x\right)dx = 1\)</span> (<span class="math notranslate nohighlight">\(\sum_{\infty}^{\infty} p_X\left(k\right) = 1\)</span>)</p></li>
+</ol>
+<p>Per tant podem construir una f.d.p. a partir de qualsevol funció <span class="math notranslate nohighlight">\(h\left(x\right)\)</span> no-negativa, definint:</p>
+<p><span class="math notranslate nohighlight">\(K = \int_{\infty}^{\infty} h\left(x\right)dx\)</span> (també coneguda com <em>funció de partició</em>)</p>
+<p>i <span class="math notranslate nohighlight">\(f_X\left(x\right) = \frac{h\left(x\right)}{K}\)</span>. Això es fa servir per exemple
+en uns objectes anomentats <a class="reference external" href="https://en.wikipedia.org/wiki/Graphical_model">Models Gràfics Probabilístics</a>.</p>
+</div>
+<div class="section" id="exemple-funcio-de-distribucio-i-massa-d-una-v-a-geometrica">
+<h3><span class="section-number">1.4.4. </span>Exemple: funció de distribució i massa d’una v.a. geomètrica<a class="headerlink" href="#exemple-funcio-de-distribucio-i-massa-d-una-v-a-geometrica" title="Permalink to this headline">¶</a></h3>
+<p>Considerem la variable aleatòria corresponent a l’experiment de
+llançar una moneda fins que surti cara.</p>
+<ul class="build simple">
+<li><p>L’espai mostral és: <span class="math notranslate nohighlight">\(\Omega = \left\{C, XC, XXC, \cdots \right\}\)</span></p></li>
+<li><p>Definim la v.a. <span class="math notranslate nohighlight">\(X\)</span> com el nombre de creus que obtenim abans de la primera cara.</p></li>
+</ul>
+<p>Si suposem que:</p>
+<ol class="arabic simple">
+<li><p>Cada llançament és independent de l’altre (pregunta: podeu imaginar una situació en que no ho fos)</p></li>
+<li><p>La probabilitat de cara és <span class="math notranslate nohighlight">\(p\)</span></p></li>
+</ol>
+<p>Podem calcular <span class="math notranslate nohighlight">\(p_X\left(k\right)=?\)</span></p>
+<p>La f.m.p és la distribució geomètrica:</p>
+<p><span class="math notranslate nohighlight">\(p_X\left(k\right) = P\left(\mbox{X}\right)^{k-1}P\left(\mbox{C}\right) = \left(1-p\right)^{k-1}p\)</span></p>
+<p>A partir de la qual podem calcular la f.d.c:</p>
+<p><span class="math notranslate nohighlight">\(F_X\left(x\right) = \sum_{k=1}^x p_X\left(k\right) = \sum_{k=1}^x \left(1-p\right)^{k-1}p\)</span></p>
+<p>utilitzant l’identitat <span class="math notranslate nohighlight">\(\sum_{k=1}^x \rho^{x-1}=\frac{1-\rho^x}{1-\rho}\)</span>, podem arribar a:</p>
+<p><span class="math notranslate nohighlight">\(F_X\left(x\right) = 1 - \left(1-p\right)^x\)</span></p>
+<p>Seria interessant que comprovéssiu que <span class="math notranslate nohighlight">\(F_X\left(x\right)\)</span> compleix les condicions per
+ser una f.d.c.</p>
+<p>Una v.a. <span class="math notranslate nohighlight">\(X\)</span> és <em>memoryless</em> si:</p>
+<p><span class="math notranslate nohighlight">\(P\left(X &gt; m+n | X &gt; m\right) = P\left(X &gt; n \right)\)</span></p>
+<p><em>Exercici:</em> Comprovem que aquesta propietat es verifica per la <span class="math notranslate nohighlight">\(p_X\left(k\right)\)</span> geomètrica.</p>
+<ul class="simple">
+<li><p>L’interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops…</p></li>
+<li><p>Aquesta propietat no és tant freqüent com podria semblar.</p></li>
+</ul>
+</div>
+<div class="section" id="exemples-de-distribucions-discretes">
+<h3><span class="section-number">1.4.5. </span>Exemples de distribucions discretes<a class="headerlink" href="#exemples-de-distribucions-discretes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="exemples-de-distribucions-continues">
+<h3><span class="section-number">1.4.6. </span>Exemples de distribucions contínues<a class="headerlink" href="#exemples-de-distribucions-continues" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="esperanca-i-moments">
+<h2><span class="section-number">1.5. </span>Esperança i moments<a class="headerlink" href="#esperanca-i-moments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="desigualtats">
+<h2><span class="section-number">1.6. </span>Desigualtats<a class="headerlink" href="#desigualtats" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="distribucions-conjuntes-i-marginals">
+<h2><span class="section-number">1.7. </span>Distribucions conjuntes i marginals<a class="headerlink" href="#distribucions-conjuntes-i-marginals" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="problemes">
+<h2><span class="section-number">1.8. </span>Problemes<a class="headerlink" href="#problemes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><span class="section-number">1.8.1. </span>Espais i mesures de Probabilitat<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Conjunts</strong></p>
+<p>Demostreu les següents identitats: Donats dos subconjunts arbitraris A i B:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(B = \left(B \cap A\right) \cup \left(B \cap A^c\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \cup B = A \cup \left(B \cap A^c\right)\)</span></p></li>
+</ul>
+<p><strong>Conseqüències dels axiomes de probabilitat</strong></p>
+<p>Practiquem amb els axiomes per demostrar que:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P\left(\emptyset\right)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) \leq 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A^c\right)=1-P\left(A\right)\)</span></p></li>
+</ol>
+<p><strong>Desigualtat de Boole</strong></p>
+<p><strong>Desigualtat de Bonferroni</strong></p>
+<p>La desigualtat de Bonferroni per dos esdeveniments <span class="math notranslate nohighlight">\(A, B\)</span> estableix que:</p>
+<p><span class="math notranslate nohighlight">\(P\left(A \cap B\right) \geq P\left(A\right) + P\left(B\right) - 1\)</span></p>
+<p>És útil quan la probabilitat conjunta dels esdeveniments no és fàcil de calcular (per
+exemple quan aquests no són independents).</p>
+<ol class="arabic simple">
+<li><p>Demostreu la desigualtat de Bonferroni</p></li>
+</ol>
+<p>2. Per quin tipus d’esdeveniments no és trivial, és a dir, ens serveix per
+aproximar la probabilitat de l’esdeveniment conjunt?</p>
+<ol class="arabic simple" start="3">
+<li><p>Demostreu la desigualtat de Bonferroni en el cas genèric <span class="math notranslate nohighlight">\(P\left(\cap_i A_i\right) \geq \sum_i P\left(A_i\right) - (n - 1)\)</span></p></li>
+</ol>
+<p>4. Definiu un experiment i una col.lecció d’esdeveniments <span class="math notranslate nohighlight">\(A_i\)</span> on la desigualtat de Bonferroni ens donaria una cota inferior útil.
+Per exemple: Comparacions múltiples, controlar la probabilitat de que totes donguin “positiu”.</p>
+</div>
+<div class="section" id="probabilitat-condicional-i-independencia">
+<h3><span class="section-number">1.8.2. </span>Probabilitat condicional i independència<a class="headerlink" href="#probabilitat-condicional-i-independencia" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="problema-x-independencia-de-parells-vs-independencia-mutua">
+<h4><span class="section-number">1.8.2.1. </span>Problema X: Independència de parells vs independència mútua<a class="headerlink" href="#problema-x-independencia-de-parells-vs-independencia-mutua" title="Permalink to this headline">¶</a></h4>
+<p>Exercici per entendre perquè independència a parells no implica independència mútua</p>
+</div>
+<div class="section" id="problema-z-distribucio-binomial-negativa">
+<h4><span class="section-number">1.8.2.2. </span>Problema Z: Distribució binomial negativa<a class="headerlink" href="#problema-z-distribucio-binomial-negativa" title="Permalink to this headline">¶</a></h4>
+<p>Una extensió de la distribució geomètrica que hem vist a classe és la distribució
+binomial negativa. Es correspon amb l’experiment bla bla bla</p>
+</div>
+<div class="section" id="problema-y-esperanca-condicional-i-correccio-del-biaix-de-sel-leccio">
+<h4><span class="section-number">1.8.2.3. </span>Problema Y: Esperança condicional i correcció del biaix de sel.lecció<a class="headerlink" href="#problema-y-esperanca-condicional-i-correccio-del-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h4>
+<p>Durant el curs hem vist un exemple de com el biaix de sel.lecció pot perjudicar els nostres estimadors.
+En alguns casos, es pot corregir l’efecte fàcilment.</p>
+<ol class="arabic simple">
+<li><p>Demostra que E(sum frac{1}{P}X) = E(X) bla bla bla</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="variables-aleatories">
+<h3><span class="section-number">1.8.3. </span>Variables aleatòries<a class="headerlink" href="#variables-aleatories" title="Permalink to this headline">¶</a></h3>
+<p><strong>Barreja de Gaussianes</strong> (Gaussian Mixture Models)</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">1.8.4. </span>Esperança i moments<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">1.8.5. </span>Desigualtats<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">1.8.6. </span>Distribucions conjuntes i marginals<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="practica">
+<h2><span class="section-number">1.9. </span>Pràctica<a class="headerlink" href="#practica" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="familiaritzacio-amb-r-pandas-amb-el-conjunt-de-dades-iris">
+<h3><span class="section-number">1.9.1. </span>Familiarització amb R/pandas amb el conjunt de dades Iris<a class="headerlink" href="#familiaritzacio-amb-r-pandas-amb-el-conjunt-de-dades-iris" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="formula-de-bayes-i-la-seva-aplicacio">
+<h3><span class="section-number">1.9.2. </span>Fórmula de Bayes i la seva aplicació<a class="headerlink" href="#formula-de-bayes-i-la-seva-aplicacio" title="Permalink to this headline">¶</a></h3>
+<p>Aplicació de probabilitat condicional: mètode de Bayes naïf</p>
+</div>
+<div class="section" id="teorema-de-la-transformacio-per-integracio-i-l-aplicacio-a-la-simulacio-de-v-a">
+<h3><span class="section-number">1.9.3. </span>Teorema de la transformació per integració i l’aplicació a la simulació de v.a.<a class="headerlink" href="#teorema-de-la-transformacio-per-integracio-i-l-aplicacio-a-la-simulacio-de-v-a" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Tema 1: Preliminars</a><ul>
+<li><a class="reference internal" href="#introduccio-al-curs">1.1. Introducció al curs</a><ul>
+<li><a class="reference internal" href="#em-presento">1.1.1. Em presento</a></li>
+<li><a class="reference internal" href="#que-es-l-inferencia-estadistica">1.1.2. Què és l’inferència estadística?</a></li>
+<li><a class="reference internal" href="#exemples-d-aplicacio">1.1.3. Exemples d’aplicació</a></li>
+<li><a class="reference internal" href="#organitzacio-del-curs">1.1.4. Organització del curs</a></li>
+<li><a class="reference internal" href="#bibliografia-recomanada">1.1.5. Bibliografia recomanada</a></li>
+<li><a class="reference internal" href="#avaluacio-curs">1.1.6. Avaluació curs</a></li>
+<li><a class="reference internal" href="#algunes-coses-a-tenir-en-compte">1.1.7. Algunes coses a tenir en compte</a></li>
+<li><a class="reference internal" href="#questionari">1.1.8. Qüestionari</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#espais-i-mesures-de-probabilitat">1.2. Espais i mesures de Probabilitat</a><ul>
+<li><a class="reference internal" href="#espai-de-probabilitat">1.2.1. Espai de Probabilitat</a></li>
+<li><a class="reference internal" href="#mesura-de-probabilitat">1.2.2. Mesura de probabilitat</a></li>
+<li><a class="reference internal" href="#algunes-propietats-de-les-mesures-de-probabilitat">1.2.3. Algunes propietats de les mesures de probabilitat</a></li>
+<li><a class="reference internal" href="#exemples-d-espais-de-probabilitat">1.2.4. Exemples d’espais de probabilitat</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#independencia-i-probabilitat-condicional">1.3. Independència i probabilitat condicional</a><ul>
+<li><a class="reference internal" href="#probabilitat-condicional">1.3.1. Probabilitat condicional</a></li>
+<li><a class="reference internal" href="#esdeveniments-independents">1.3.2. Esdeveniments independents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables-aleatories-i-funcions-de-distribucio">1.4. Variables aleatòries i funcions de distribució</a><ul>
+<li><a class="reference internal" href="#variable-aleatoria">1.4.1. Variable aleatòria</a></li>
+<li><a class="reference internal" href="#funcio-de-distribucio">1.4.2. Funció de distribució</a></li>
+<li><a class="reference internal" href="#funcio-de-massa-o-densitat-de-probabilitat">1.4.3. Funció de massa o densitat de probabilitat</a></li>
+<li><a class="reference internal" href="#exemple-funcio-de-distribucio-i-massa-d-una-v-a-geometrica">1.4.4. Exemple: funció de distribució i massa d’una v.a. geomètrica</a></li>
+<li><a class="reference internal" href="#exemples-de-distribucions-discretes">1.4.5. Exemples de distribucions discretes</a></li>
+<li><a class="reference internal" href="#exemples-de-distribucions-continues">1.4.6. Exemples de distribucions contínues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#esperanca-i-moments">1.5. Esperança i moments</a></li>
+<li><a class="reference internal" href="#desigualtats">1.6. Desigualtats</a></li>
+<li><a class="reference internal" href="#distribucions-conjuntes-i-marginals">1.7. Distribucions conjuntes i marginals</a></li>
+<li><a class="reference internal" href="#problemes">1.8. Problemes</a><ul>
+<li><a class="reference internal" href="#id1">1.8.1. Espais i mesures de Probabilitat</a></li>
+<li><a class="reference internal" href="#probabilitat-condicional-i-independencia">1.8.2. Probabilitat condicional i independència</a><ul>
+<li><a class="reference internal" href="#problema-x-independencia-de-parells-vs-independencia-mutua">1.8.2.1. Problema X: Independència de parells vs independència mútua</a></li>
+<li><a class="reference internal" href="#problema-z-distribucio-binomial-negativa">1.8.2.2. Problema Z: Distribució binomial negativa</a></li>
+<li><a class="reference internal" href="#problema-y-esperanca-condicional-i-correccio-del-biaix-de-sel-leccio">1.8.2.3. Problema Y: Esperança condicional i correcció del biaix de sel.lecció</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables-aleatories">1.8.3. Variables aleatòries</a></li>
+<li><a class="reference internal" href="#id2">1.8.4. Esperança i moments</a></li>
+<li><a class="reference internal" href="#id3">1.8.5. Desigualtats</a></li>
+<li><a class="reference internal" href="#id4">1.8.6. Distribucions conjuntes i marginals</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#practica">1.9. Pràctica</a><ul>
+<li><a class="reference internal" href="#familiaritzacio-amb-r-pandas-amb-el-conjunt-de-dades-iris">1.9.1. Familiarització amb R/pandas amb el conjunt de dades Iris</a></li>
+<li><a class="reference internal" href="#formula-de-bayes-i-la-seva-aplicacio">1.9.2. Fórmula de Bayes i la seva aplicació</a></li>
+<li><a class="reference internal" href="#teorema-de-la-transformacio-per-integracio-i-l-aplicacio-a-la-simulacio-de-v-a">1.9.3. Teorema de la transformació per integració i l’aplicació a la simulació de v.a.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter"><cite>104392 - Modelització i Inferència</cite></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="0_2_Intro_stats.html"
+                        title="next chapter"><span class="section-number">2. </span>Tema 2: Introducció a l’inferència estadística</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="0_2_Intro_stats.html" title="2. Tema 2: Introducció a l’inferència estadística"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="104392 - Modelització i Inferència"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">104392 - Modelització i Inferència 2020.08.04 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Tema 1: Preliminars</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Arnau Tibau Puig.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
