@@ -17,12 +17,18 @@ help:
 
 .PHONY: help Makefile
 
-.PHONY: build
+.PHONY: build pdf
 build:
 	make html
 	make slides
+
+pdf:
+	$(SPHINXBUILD) -b pdf "$(SOURCEDIR)" $(BUILDDIR)/pdf
+	@echo
+	@echo "Build finished. The PDF is in $(BUILDDIR)/pdf."
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+

@@ -483,7 +483,7 @@ https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf
 Tema 2: Pràctica
 =================================================
 
-.. slide:: Pràctica 1: Introducció a l'inferència estadística
+.. slide:: Pràctica 2: Introducció a l'inferència estadística
    :level: 3
 
     Objectius:

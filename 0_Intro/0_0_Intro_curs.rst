@@ -10,7 +10,7 @@ Em presento
 -------------
 
 .. figure::  /_static/0_Intro/arnau_pic.jpg
-    :width: 20px
+    :width: 200px
     :align: center
 
     arnau.tibau@uab.cat | `@ArnauTibau <https://twitter.com/ArnauTibau>`_
@@ -34,7 +34,7 @@ inferència entenem:
 1. Inferir propietats d'un objecte (la població)
 2. Deduïr validesa d'una premisa
 
-a partir de d'un nombre finit de mostres
+a partir de d'un nombre **finit** de mostres
 
 Exemples d'aplicació
 ------------------------
@@ -91,7 +91,6 @@ dos grups de pacients de COVID-19:
 Al cap de 14 dies, contem quants individus en cada grup  tenen símptomes **i** dónen
 positiu en una prova PCR.
 
-
 .. rst-class:: build
 
 * Quants pacients hem de seleccionar per prendre una decisió sobre la població general? :math:`\rightarrow` **Mostreig**
@@ -101,6 +100,16 @@ positiu en una prova PCR.
 .. figure::  /_static/0_Intro/mitja_et_al_resultats.png
     :width: 600px
     :align: center
+
+.. nextslide:: Assaig clínic (3)
+	:increment:
+
+
+.. figure::  /_static/0_Intro/abc_hcq.png
+    :height: 325px
+    :align: center
+
+    Un assaig clínic busca falsificar l'hipòtesi nul.la: que el tractament no té efecte. No trobar evidència contra la mateixa no és un fracàs, és progrés científic! `Font <https://www.abc.es/espana/catalunya/abci-fracasa-ensayo-oriol-mitja-hidroxicloroquina-no-previene-coronavirus-202006121016_noticia.html>`_
 
 .. nextslide:: Recomanacions de pel.lícules
 
@@ -186,6 +195,24 @@ Organització del curs
 
     Per ser evaluat, el programari entregat haurà de córrer sense modificacions al meu ordinador.
 
+
+.. nextslide:: Semi-presencialitat en temps de pandèmia
+	:increment:
+
+* Com ja sabeu, hem de mantenir l'ocupació de l'aula a 32
+* Mantindrem l'alternança entre Grup 1, Grup 2 i virtual (`calendari <https://www.uab.cat/doc/hor-grau-MatCAD-20-21>`_)
+* Si m'ajudeu podem mirar de gravar les classes per penjar-les al Campus Virtual
+* Haurem de ser una mica flexibles
+
+
+.. figure::  /_static/0_Intro/flexibilitat.jpg
+    :height: 250px
+    :align: center
+
+    `Font de l'imatge <https://www.centralyoga.com.au/blog/beware-the-allure-of-extreme-poses>`_
+
+
+
 .. nextslide:: Temari i Calendari provisional
 	:increment:
 
@@ -206,8 +233,8 @@ Pel desenvolupament teòric, seguiré majoritàriament *[Casella & Berger]*,
 excepte pel `Tema 4. Tests d’hipòtesi`, on seguiré més aviat el desenvolupament
 de *[Rice]*:
 
-* *[Casella & Berger]* Stastistical Inference, 2nd Edition
-* *[Rice]* Mathematical Statistics and Data Analysis, J. Rice, 3rd edition
+* *[Casella & Berger]* `Statistical Inference, 2nd Edition <https://cataleg.uab.cat/iii/encore/record/C__Rb1522633__Sstatistical%20inference__Orightresult__U__X7?lang=cat&suite=def>`_
+* *[Rice]* `Mathematical Statistics and Data Analysis, J. Rice, 3rd edition <https://cataleg.uab.cat/iii/encore/record/C__Rb1953551__SMathematical%20Statistics%20and%20Data%20Analysis__Orightresult__U__X7?lang=cat&suite=def>`_
 
 Bibliografia complementària:
 
@@ -273,14 +300,14 @@ Algunes coses a tenir en compte
     Aquest curs és la primera vegada que el preparo!
 
     * Pot haver-hi alguna errada a les slides/apunts
-    * Termes en anglès <--> català
+    * En particular en la traducció de termes en anglès <--> català
     * Qualsevol problema durant o després de la classe: arnau.tibau@uab.cat
 
 
 Qüestionari
 ---------------
 
-Durant el curs faré servir qüestionaris per ajudar-vos a reflexionar i recordar
+Durant el curs faré servir qüestionaris i exercicis per ajudar-vos a reflexionar i recordar
 el material que anem desenvolupant.
 
 Comencem amb el primer :)
@@ -313,12 +340,13 @@ Consisteix en un triplet :math:`\left(\Omega, \mathcal{A}, P\right)`:
 * :math:`\mathcal{A} \subseteq 2^{\Omega}`: el conjunt d'**esdeveniments**, una família de subconjunts d':math:`\Omega`
 * :math:`P`: una **mesura de probabilitat**, una funció :math:`\mathcal{A} \rightarrow \left[0, 1\right]`
 
+*Recordatori*: :math:`2^{\Omega}` és el conjunt de tots els sub-conjunts d':math:`\Omega`, incloent-hi :math:`\emptyset` i :math:`\Omega`.
 
 Mesura de probabilitat
 -------------------------------
 
 Una **mesura de probabilitat** :math:`P: \mathcal{A} \rightarrow \left[0, 1\right]`
-ha de satisfer els següents axiomes:
+ha de satisfer els següents axiomes (de Kolmogorov):
 
 1. :math:`P\left(\Omega\right)=1`
 
@@ -326,16 +354,15 @@ ha de satisfer els següents axiomes:
 
 3. Per :math:`A_1,A_2,A_3, \cdots \in \mathcal{A}` disjunts, :math:`P\left(\cup_i A_i\right) = \sum_i P\left(A_i\right)`
 
-
 .. rst-class:: note
 
     Fixeu-vos que tenim llibertat a l'hora de definir :math:`\mathcal{A}` pels esdeveniments que ens
-    interessen (sempre i quan sigui una :math:`\sigma`-àlgebra.)
+    interessen (sempre i quan formin una :math:`\sigma`-àlgebra.)
 
 .. nextslide::
 	:increment:
 
-Això és una construcció axiomàtica de Probabilitat, formalitzada per Kolmogorov.
+Això és una construcció axiomàtica de Probabilitat, formalitzada per Andrey Kolmogorov.
 
 Noteu que no hem associat cap interpretació al significat físic dels valors de :math:`P`. Dues interpretacions típiques:
 
@@ -380,7 +407,19 @@ Algunes propietats de les mesures de probabilitat
     6. Si :math:`A \subseteq B`, aleshores :math:`P\left(A\right) \leq P\left(B\right)`
 
 **Demostració**: Punts (1), (2), (3), exercici :) (recomano començar pel 3er punt).
-Punts (4)-(6) a la pissarra.
+Punts (4)-(6) tot seguit.
+
+.. nextslide:: Guia de la demostració punts (4)-(6)
+	:increment:
+
+Pel punt (4), només cal observar que :math:`B = \left(B \cap A\right) \cup \left(B \cap A^c\right)` (exercici).
+D'aquesta identitat i tenint en compte que :math:`B \cap A` i :math:`B \cap A^c` son disjunts,
+s'en dedueix l'expressió usant el 3er axioma de Kolmogorov.
+
+Pel punt (5), utilitzem la següent identitat :math:`A \cup B = A \cup \left(B \cap A^c\right)` i apliquem el punt (4).
+
+Finalment el punt (6) el demostrem observant que si :math:`A \subseteq B` aleshores :math:`A \cap B = A`
+i que :math:`0 \leq P\left(B \cap A^c\right) = P\left(B\right) - P\left(A\right)`.
 
 .. nextslide:: Un parell més de resultats útils
 	:increment:
@@ -391,10 +430,29 @@ Els següents són propietats interessants relatives a col.leccions de conjunts:
 
     **Teorema [Casella & Berger 1.2.11]** Si :math:`P` és una mesura de probabilitat:
 
-    1. Per cualsevol partició :math:`C_1, \cdots, C_N` de :math:`\mathcal{A}`, :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
+    1. Per cualsevol partició :math:`C_1, \cdots, C_N` d' :math:`\Omega`, :math:`P\left(A\right) = \sum_i P\left(A \cap C_i \right)`
     2. :math:`A_1, A_2 \cdots, \in \mathcal{A}`, :math:`P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)` (desigualtat de Boole)
 
-**Demostració**: A la pissarra.
+**Demostració**: (1) tot seguit, (2) exercici.
+
+.. nextslide:: Demostració punt (1) resultat anterior
+	:increment:
+
+Demostració punt (1): Recordem que una partició :math:`C_1, \cdots, C_N` d' :math:`\Omega`
+és una col.lecció de conjunts tal que :math:`\cup_i C_i = \Omega` i :math:`C_i \cap C_j = \emptyset, \forall i\neq j`.
+
+Tenim doncs la següent cadena d'identitats:
+
+.. math::
+
+    A &= A \cap \Omega \\
+    A & = A \cap \cup_i C_i \\
+    A & = \cup_i \left( A \cap C_i \right)\\
+    P\left(A\right) & = P\left(\cup_i \left( A \cap C_i\right)\right)
+
+i com que :math:`A \cap C_i` i :math:`A \cap C_j` son disjunts, el resultat
+s'obté considerant el 3er axioma de Kolmogorov.
+
 
 Exemples d'espais de probabilitat
 --------------------------------------------------
@@ -408,6 +466,10 @@ Exemples d'espais de probabilitat
 .. rst-class:: note
 
     **Exercici**: Com definirieu :math:`P\left(A\right)` per a qualsevol :math:`A \in \mathcal{A}`?
+
+.. rst-class:: build
+
+* Resposta: :math:`P\left(A\right) = \sum_{x \in A} P\left(x\right)`. Podeu comprovar que aquesta construcció satisfà els axiomes.
 
 .. nextslide::
 	:increment:
@@ -441,14 +503,14 @@ Donats :math:`A, B \in \mathcal{A}`, amb :math:`P\left(B\right) > 0`,
 .. nextslide::
 	:increment:
 
-:math:`P\left(\cdot|B\right)` és la restricció de :math:`P` al subconjunt d'esdeveniments B. Algunes preguntes:
+:math:`P\left(\cdot|B\right)` és la restricció de :math:`P` al subconjunt d'esdeveniments B. Alguns preguntes/petits exercicis interessants:
 
 .. rst-class:: build
 
 1. Tindria sentit definir :math:`P\left(A|B\right)` si :math:`P\left(B\right) = 0`?
 2. Si :math:`A \cap B = \emptyset`, :math:`P\left(A|B\right)`?
 3. Com podem interpretar si :math:`P\left(A|B\right) =P\left(A\right)`? Podeu donar un exemple "físic"?
-3. Si :math:`A \subseteq B`, quina relació hi ha entre :math:`P\left(A|B\right)` i :math:`P\left(A\right)`?
+4. Si :math:`A \subseteq B`, quina relació hi ha entre :math:`P\left(A|B\right)` i :math:`P\left(A\right)`?
 
 Esdeveniments independents
 --------------------------------
@@ -469,14 +531,15 @@ Algunes preguntes [Casella & Berger Teorema 1.3.9] (mirem de respondre per intuc
 
 .. nextslide:: Precaució, estimat conductor
 
-Exemple que d'independència conjunta que no implica independència de parells
+Per exemple, l'independència conjunta no implica independència de parells:
 
+.. figure::  /_static/0_Intro/ex_independencia.png
+    :height: 300px
+    :align: center
 
-.. nextslide:: Precaució, estimat conductor (II)
-    :increment:
+Calculem :math:`P\left(A \cap B \cap C\right)` i :math:`P\left(B \cap C\right)`...
 
-Exemple d'independència de parells que no implica independència mútua
-
+*Nota:* l'independència de parells tampoc implica independència mútua (veure Problema)
 
 .. nextslide:: Independència mútua
     :increment:
@@ -524,7 +587,7 @@ Revisitem l'**Experiment 2** anterior (escollim 100 persones i fem una prova d'a
 * Teniem que :math:`\Omega = \left\{+, -\right\}^{100}`
 * Definim v.a. :math:`X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]`
 
-**Exercici**: Fent servir l'identitat' :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`, derivem :math:`P_X\left(X=k\right)`.
+**Exercici**: Fent servir l'identitat :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`, derivem :math:`P_X\left(X=k\right)`.
 
 .. nextslide:: Exemple de variable aleatòria contínua
     :increment:
@@ -537,7 +600,7 @@ Revisitem l'**Experiment 3**. Escollim un estudiant d'aquesta classe i aquest co
 
 .. rst-class:: note
 
-    En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de de les observacions (hipòtesi que després haurem de validar comprovant la *bondat de l'ajust*)
+    En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de les observacions (hipòtesi que després haurem de validar comprovant la *bondat de l'ajust*)
 
 
 Funció de distribució
@@ -555,7 +618,7 @@ De fet qualsevol funció pot ser una f.d.c si compleix [Casella & Berger Teorema
 
 .. rst-class:: note
 
-    El més important es que la f.d.c caracteritza únicament una variable aleatòria: si :math:`F_X = F_Y`, aleshores :math:`X` i :math:`Y` són idènticament distribuïdes [Casella & Berger 1.5.10]
+    El més important es que la f.d.c caracteritza únicament una variable aleatòria: si :math:`F_X = F_Y`, aleshores :math:`X` i :math:`Y` són idènticament distribuïdes [Casella & Berger 1.5.8 i 1.5.10]
 
 
 Funció de massa o densitat de probabilitat
@@ -574,24 +637,68 @@ A voltes ens serà més pràctic treballar amb un altre objecte, la funció de m
 
     Estem ometent molts "detalls" tècnics importants... Hi ha variables contínues per les que :math:`f_X` no existeix.
 
+.. nextslide::
+    :increment:
+
+Tal i com hem fist per la f.d.c, tenim un resultat similar per la f.d.p o la f.m.p: :math:`f_X\left(x\right)` (:math:`p_X\left(k\right)`)
+és una f.d.p (f.m.p) si i només si [Casella & Berger 1.6.5]:
+
+a. :math:`f_X\left(x\right) \geq 0, \forall x` (:math:`p_X\left(k\right) \geq 0, \forall k`)
+b. :math:`\int_{\infty}^{\infty} f_X\left(x\right)dx = 1` (:math:`\sum_{\infty}^{\infty} p_X\left(k\right) = 1`)
+
+Per tant podem construir una f.d.p. a partir de qualsevol funció :math:`h\left(x\right)` no-negativa, definint:
+
+:math:`K = \int_{\infty}^{\infty} h\left(x\right)dx` (també coneguda com *funció de partició*)
+
+i :math:`f_X\left(x\right) = \frac{h\left(x\right)}{K}`. Això es fa servir per exemple
+en uns objectes anomentats `Models Gràfics Probabilístics <https://en.wikipedia.org/wiki/Graphical_model>`_.
+
 
 Exemple: funció de distribució i massa d'una v.a. geomètrica
 -------------------------------------------------------------
 
-Considerem la variable aleatòria corresponent amb el següent experiment:
+Considerem la variable aleatòria corresponent a l'experiment de
+llançar una moneda fins que surti cara.
 
-* llançar una moneda fins que surti cara
+.. rst-class:: build
 
-:math:`Omega = \left\{C, XC, XXC, \cdots \right\}`
+* L'espai mostral és: :math:`\Omega = \left\{C, XC, XXC, \cdots \right\}`
+* Definim la v.a. :math:`X` com el nombre de creus que obtenim abans de la primera cara.
 
-Definim la v.a. :math:`X` com el nombre de creus que obtenim abans de la primera cara.
+Si suposem que:
 
+1. Cada llançament és independent de l'altre (pregunta: podeu imaginar una situació en que no ho fos)
+2. La probabilitat de cara és :math:`p`
+
+Podem calcular :math:`p_X\left(k\right)=?`
 
 .. nextslide::
 
-f.d.c, f.d.p
+La f.m.p és la distribució geomètrica:
 
-propietat memoryless
+:math:`p_X\left(k\right) = P\left(\mbox{X}\right)^{k-1}P\left(\mbox{C}\right) = \left(1-p\right)^{k-1}p`
+
+A partir de la qual podem calcular la f.d.c:
+
+:math:`F_X\left(x\right) = \sum_{k=1}^x p_X\left(k\right) = \sum_{k=1}^x \left(1-p\right)^{k-1}p`
+
+utilitzant l'identitat :math:`\sum_{k=1}^x \rho^{x-1}=\frac{1-\rho^x}{1-\rho}`, podem arribar a:
+
+:math:`F_X\left(x\right) = 1 - \left(1-p\right)^x`
+
+Seria interessant que comprovéssiu que :math:`F_X\left(x\right)` compleix les condicions per
+ser una f.d.c.
+
+.. nextslide:: Propietat *memoryless* de les v.a. geomètriques
+
+Una v.a. :math:`X` és *memoryless* si:
+
+:math:`P\left(X > m+n | X > m\right) = P\left(X > n \right)`
+
+*Exercici:* Comprovem que aquesta propietat es verifica per la :math:`p_X\left(k\right)` geomètrica.
+
+* L'interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops...
+* Aquesta propietat no és tant freqüent com podria semblar.
 
 Exemples de distribucions discretes
 -------------------------------------------
@@ -616,18 +723,16 @@ Distribucions conjuntes i marginals
 Problemes
 =================================================
 
-Introducció a l'inferència estadística
---------------------------------------
-
-LLegiu l'article d'`O. Mitjà et al. 2020 <https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1>`_
-sobre el tractament profilàctic de contactes de casos positius de COVID-19
-amb Hidroxicloroquina, expecialment la secció *STATISTICAL ANALYSIS*:
-
-1.
-
 
 Espais i mesures de Probabilitat
 ---------------------------------
+
+**Conjunts**
+
+Demostreu les següents identitats: Donats dos subconjunts arbitraris A i B:
+
+* :math:`B = \left(B \cap A\right) \cup \left(B \cap A^c\right)`
+* :math:`A \cup B = A \cup \left(B \cap A^c\right)`
 
 **Conseqüències dels axiomes de probabilitat**
 
@@ -635,9 +740,13 @@ Practiquem amb els axiomes per demostrar que:
 
 1. :math:`P\left(\emptyset\right)=0`
 
-2. :math:`P\left(A^c\right)=1-P\left(A\right)`
+2. :math:`P\left(A\right) \leq 1`
 
-3. :math:`P\left(A \cup B \right)= P\left(A\right) + P\left(B\right) - P\left(A \cap B\right)`
+3. :math:`P\left(A^c\right)=1-P\left(A\right)`
+
+
+**Desigualtat de Boole**
+
 
 .. nextslide::
     :increment:
@@ -659,8 +768,7 @@ aproximar la probabilitat de l'esdeveniment conjunt?
 3. Demostreu la desigualtat de Bonferroni en el cas genèric :math:`P\left(\cap_i A_i\right) \geq \sum_i P\left(A_i\right) - (n - 1)`
 
 4. Definiu un experiment i una col.lecció d'esdeveniments :math:`A_i` on la desigualtat de Bonferroni ens donaria una cota inferior útil.
-Per exemple:
-
+Per exemple: Comparacions múltiples, controlar la probabilitat de que totes donguin "positiu".
 
 
 
@@ -671,6 +779,13 @@ Problema X: Independència de parells vs independència mútua
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Exercici per entendre perquè independència a parells no implica independència mútua
+
+
+Problema Z: Distribució binomial negativa
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Una extensió de la distribució geomètrica que hem vist a classe és la distribució
+binomial negativa. Es correspon amb l'experiment bla bla bla
 
 
 Problema Y: Esperança condicional i correcció del biaix de sel.lecció
@@ -701,10 +816,20 @@ Pràctica
 =================================================
 
 
+Familiarització amb R/pandas amb el conjunt de dades Iris
+---------------------------------------------------------
+
+
+Fórmula de Bayes i la seva aplicació
+-------------------------------------
+
+Aplicació de probabilitat condicional: mètode de Bayes naïf
 
 
 
 
+Teorema de la transformació per integració i l'aplicació a la simulació de v.a.
+------------------------------------------------------------------------------------
 
 
 

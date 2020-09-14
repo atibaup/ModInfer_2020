@@ -36,6 +36,7 @@ slide_theme = 'slides'
 auto_slides = False
 slide_numbers = True
 slide_footer = "104392 - Modelització i Inferència - 2020"
+slide_theme_options = {'custom_css': '../../html/_static/sab-slides.css'}
 # slide_theme_options = {
 #     'presenters': [
 #         {
@@ -44,6 +45,8 @@ slide_footer = "104392 - Modelització i Inferència - 2020"
 #             'github': 'http://github.com/atibaup/'
 # }, ],
 # }
+
+pdf_documents = [('index', u'sample', u'Sample rst2pdf doc', u'Arnau Tibau Puig'),]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -95,8 +98,11 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
 html_show_sourcelink = False
+
+html_theme_path = ["themes"]
+html_theme = "sphinx-sab-theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

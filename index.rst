@@ -1,3 +1,4 @@
+.. rst-class:: sab-printable
 
 `104392 - Modelització i Inferència`
 =========================================================
