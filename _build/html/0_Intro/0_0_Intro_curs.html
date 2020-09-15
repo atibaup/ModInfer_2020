@@ -363,7 +363,7 @@ s’obté considerant el 3er axioma de Kolmogorov.</p>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(P\left(A\right) = ?\)</span></p></li>
 </ul>
-<p><strong>Experiment 3</strong>: Escollir aleatòriament un estudiant d’questa classe i mesurar-ne la seva alçada</p>
+<p><strong>Experiment 3</strong>: Escollir aleatòriament un estudiant d’aquesta classe i mesurar-ne la seva alçada</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega = \left[0, \infty \right)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></p></li>
@@ -373,8 +373,23 @@ s’obté considerant el 3er axioma de Kolmogorov.</p>
 </div>
 <div class="section" id="independencia-i-probabilitat-condicional">
 <h2><span class="section-number">1.3. </span>Independència i probabilitat condicional<a class="headerlink" href="#independencia-i-probabilitat-condicional" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="questionari-de-repas">
+<h3><span class="section-number">1.3.1. </span>Qüestionari de repàs<a class="headerlink" href="#questionari-de-repas" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Un espai de probabilitat és el triplet d’un ______________, un ______________ i una _____________.</p></li>
+<li><p>Quina dels següents assercions <strong>no</strong> és un axioma de Kolmogorov:</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, <span class="math notranslate nohighlight">\(P\left(A \cup B \right) = P\left(A \right) + P\left( B \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) \leq 1, \forall A \in \mathcal{A}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\left(A\right) \geq 0, \forall A \in \mathcal{A}\)</span></p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Quin és l’<span class="math notranslate nohighlight">\(\Omega\)</span> i l’<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> del següent experiment: mesurar la vida útil en dies dels ordinadors Macbook Pro.</p></li>
+</ol>
+</div>
 <div class="section" id="probabilitat-condicional">
-<h3><span class="section-number">1.3.1. </span>Probabilitat condicional<a class="headerlink" href="#probabilitat-condicional" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2. </span>Probabilitat condicional<a class="headerlink" href="#probabilitat-condicional" title="Permalink to this headline">¶</a></h3>
 <p>Donats <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, amb <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>,
 <span class="math notranslate nohighlight">\(P\left(A|B\right) = \frac{P\left(A \cap B\right)}{P\left(B\right)}\)</span> (aquesta construcció satisfà els axiomes de Kolmogorov)</p>
 <div class="figure align-center">
@@ -389,7 +404,7 @@ s’obté considerant el 3er axioma de Kolmogorov.</p>
 </ol>
 </div>
 <div class="section" id="esdeveniments-independents">
-<h3><span class="section-number">1.3.2. </span>Esdeveniments independents<a class="headerlink" href="#esdeveniments-independents" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.3. </span>Esdeveniments independents<a class="headerlink" href="#esdeveniments-independents" title="Permalink to this headline">¶</a></h3>
 <p>Diem que <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, són independents si:</p>
 <p><span class="math notranslate nohighlight">\(P\left(A \cap B\right) =P\left(A\right)P\left(B\right)\)</span></p>
 <p>Això és equivalent a <span class="math notranslate nohighlight">\(P\left(A|B\right) =P\left(A\right)\)</span> si <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>.</p>
@@ -415,14 +430,12 @@ subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cd
 <h2><span class="section-number">1.4. </span>Variables aleatòries i funcions de distribució<a class="headerlink" href="#variables-aleatories-i-funcions-de-distribucio" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="variable-aleatoria">
 <h3><span class="section-number">1.4.1. </span>Variable aleatòria<a class="headerlink" href="#variable-aleatoria" title="Permalink to this headline">¶</a></h3>
-<p class="note"><strong>Definició</strong> Una variable aleatòria (<em>v.a.</em> pels amics) és una funció <span class="math notranslate nohighlight">\(X : \Omega \to \mathbb{R}\)</span>.</p>
+<p class="note"><strong>Definició</strong> Una variable aleatòria (<em>v.a.</em> pels amics) és una funció <span class="math notranslate nohighlight">\(X : \Omega \to \mathcal{X} \subseteq \mathbb{R}\)</span>.</p>
 <p>Podem doncs definir una funció de probabilitat:</p>
 <p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span></p>
-<p>que satisfà els axiomes de Kolmogorov:</p>
-<ol class="loweralpha simple">
-<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> <strong>contable</strong>: Fàcil, <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> <strong>incontable</strong>: Una mica més complicat…</p></li>
-</ol>
+<p>que satisfà els axiomes de Kolmogorov. Aquesta definició es pot especialitzar
+quan <span class="math notranslate nohighlight">\(\Omega, \mathcal{X}\)</span> són contables:</p>
+<p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p>
 <p class="note">Enlloc de treballar amb <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.</p>
 <p>Revisitem l’<strong>Experiment 2</strong> anterior (escollim 100 persones i fem una prova d’anticossos per SARS-COV-2)</p>
 <ul class="simple">
@@ -430,6 +443,15 @@ subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cd
 <li><p>Definim v.a. <span class="math notranslate nohighlight">\(X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]\)</span></p></li>
 </ul>
 <p><strong>Exercici</strong>: Fent servir l’identitat <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span>, derivem <span class="math notranslate nohighlight">\(P_X\left(X=k\right)\)</span>.</p>
+<p>Primer determinem el conjunt <span class="math notranslate nohighlight">\(\left\{s\in \Omega: X\left(s\right) \in A\right\}\)</span> sobre el qual haurem de sumar:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{s\in \Omega: X\left(s\right) \in A\right\} &amp;= \left\{s\in \Omega: X\left(s\right)= k\right\}\\
+&amp;= \mbox{Totes les seqüencies amb exactament k +}\end{split}\]</div>
+<p>Fixeu-vos que hi ha <span class="math notranslate nohighlight">\({n \choose k}\)</span> seqüencies amb k + de longitud n. Per altra banda,
+si assumim que cada individu és + de manera independent, tenim que cada seqüència
+succeeix amb probabilitat <span class="math notranslate nohighlight">\(p^k\left(1-p\right)^{n-k}\)</span>.</p>
+<p>Per tant deduïm que <span class="math notranslate nohighlight">\(P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\right)^{n-k}\)</span> (distribució binomial)</p>
+<p class="note">Què passa si alguns individus són membres d’una mateixa família?</p>
 <p>Revisitem l’<strong>Experiment 3</strong>. Escollim un estudiant d’aquesta classe i aquest cop mesurem la raó alçada/pes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega = \left(0, \infty \right) \times \left(0, \infty \right)\)</span></p></li>
@@ -483,7 +505,7 @@ llançar una moneda fins que surti cara.</p>
 <p>Si suposem que:</p>
 <ol class="arabic simple">
 <li><p>Cada llançament és independent de l’altre (pregunta: podeu imaginar una situació en que no ho fos)</p></li>
-<li><p>La probabilitat de cara és <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>La probabilitat d’obtenir cara és <span class="math notranslate nohighlight">\(p\)</span></p></li>
 </ol>
 <p>Podem calcular <span class="math notranslate nohighlight">\(p_X\left(k\right)=?\)</span></p>
 <p>La f.m.p és la distribució geomètrica:</p>
@@ -532,8 +554,8 @@ mantenint el nombre mig d’arribades per interval de temps fixe, que anomenarem
                      &amp; \to \frac{\lambda^k}{k!}e^{-\lambda}\end{split}\]</div>
 <p><em>Exercici</em>: Justificar l’últim pas!</p>
 </div>
-<div class="section" id="exemples-de-variables-aleatories-continues">
-<h3><span class="section-number">1.4.6. </span>Exemples de variables aleatòries contínues<a class="headerlink" href="#exemples-de-variables-aleatories-continues" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="incis-sobre-les-v-a-continues">
+<h3><span class="section-number">1.4.6. </span>Incís sobre les v.a. contínues<a class="headerlink" href="#incis-sobre-les-v-a-continues" title="Permalink to this headline">¶</a></h3>
 <p>Hem vist que una variable aleatòria contínua es caracteritza per una funció
 de densitat de probabilitat tal que:</p>
 <p><span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></p>
@@ -544,10 +566,26 @@ de densitat de probabilitat tal que:</p>
 <p>ja que pel 3er axioma de Kolmogorov això sembla implicar que
 <span class="math notranslate nohighlight">\(P\left(a &lt; X &lt; b\right)\)</span>, sent la unió de tots els punts entre a i b, hauria
 de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!</p>
-<p>La f.d.p més simple es correspon amb la variable aleatòria més simple, escollir
+</div>
+<div class="section" id="la-distribucio-uniforme">
+<h3><span class="section-number">1.4.7. </span>La distribució uniforme<a class="headerlink" href="#la-distribucio-uniforme" title="Permalink to this headline">¶</a></h3>
+<p>La f.d.p més simple es correspon amb la variable aleatòria contínua més simple, escollir
 un nombre aleatori dins d’un interval <span class="math notranslate nohighlight">\(\left[a, b\right]\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(f_X\left(x\right) = \left\{\begin{array}{cc} \frac{1}{b-a} &amp; a \leq x \leq b \\ 0 &amp; \mbox{altrament} \end{array}\right.\)</span></p>
 <p>Exercici: Calculem la f.d.c d’una variable uniforme.</p>
+</div>
+<div class="section" id="la-familia-gamma">
+<h3><span class="section-number">1.4.8. </span>La família Gamma<a class="headerlink" href="#la-familia-gamma" title="Permalink to this headline">¶</a></h3>
+<p>Recordeu que podem definir una f.d.p tot normalitzant qualsevol funció no-negativa.</p>
+<p>Considerem la següent família de funcions, parameteritzades per <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> doncs:</p>
+<p><span class="math notranslate nohighlight">\(h\left(t\right) = \frac{t^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{t}{\beta}}\)</span></p>
+<p>definides per <span class="math notranslate nohighlight">\(t\in \left[0, \infty\right)\)</span>. Es pot demostrar que per <span class="math notranslate nohighlight">\(\alpha, \beta &gt; 0\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\Gamma\left(\alpha\right)=\int_{0}^{\infty}h\left(t\right)dt\)</span> existeix.</p>
+<p>Per tant definim la família distribucions <span class="math notranslate nohighlight">\(\mbox{gamma}\left(\alpha, \beta\right)\)</span> com:</p>
+<p><span class="math notranslate nohighlight">\(f_X\left(x\right) = \frac{1}{\Gamma\left(\alpha\right)}\frac{x^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{x}{\beta}}\)</span></p>
+</div>
+<div class="note section" id="la-familia-normal">
+<h3><span class="section-number">1.4.9. </span>La família “Normal”<a class="headerlink" href="#la-familia-normal" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -581,8 +619,9 @@ un nombre aleatori dins d’un interval <span class="math notranslate nohighligh
 </ul>
 </li>
 <li><a class="reference internal" href="#independencia-i-probabilitat-condicional">1.3. Independència i probabilitat condicional</a><ul>
-<li><a class="reference internal" href="#probabilitat-condicional">1.3.1. Probabilitat condicional</a></li>
-<li><a class="reference internal" href="#esdeveniments-independents">1.3.2. Esdeveniments independents</a></li>
+<li><a class="reference internal" href="#questionari-de-repas">1.3.1. Qüestionari de repàs</a></li>
+<li><a class="reference internal" href="#probabilitat-condicional">1.3.2. Probabilitat condicional</a></li>
+<li><a class="reference internal" href="#esdeveniments-independents">1.3.3. Esdeveniments independents</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#variables-aleatories-i-funcions-de-distribucio">1.4. Variables aleatòries i funcions de distribució</a><ul>
@@ -591,7 +630,10 @@ un nombre aleatori dins d’un interval <span class="math notranslate nohighligh
 <li><a class="reference internal" href="#funcio-de-massa-o-densitat-de-probabilitat">1.4.3. Funció de massa o densitat de probabilitat</a></li>
 <li><a class="reference internal" href="#exemple-funcio-de-distribucio-i-massa-d-una-v-a-geometrica">1.4.4. Exemple: funció de distribució i massa d’una v.a. geomètrica</a></li>
 <li><a class="reference internal" href="#altres-v-a-discretes">1.4.5. Altres v.a. discretes</a></li>
-<li><a class="reference internal" href="#exemples-de-variables-aleatories-continues">1.4.6. Exemples de variables aleatòries contínues</a></li>
+<li><a class="reference internal" href="#incis-sobre-les-v-a-continues">1.4.6. Incís sobre les v.a. contínues</a></li>
+<li><a class="reference internal" href="#la-distribucio-uniforme">1.4.7. La distribució uniforme</a></li>
+<li><a class="reference internal" href="#la-familia-gamma">1.4.8. La família Gamma</a></li>
+<li><a class="reference internal" href="#la-familia-normal">1.4.9. La família “Normal”</a></li>
 </ul>
 </li>
 </ul>

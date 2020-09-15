@@ -480,7 +480,7 @@ Exemples d'espais de probabilitat
 * :math:`\mathcal{A} = ?`
 * :math:`P\left(A\right) = ?`
 
-**Experiment 3**: Escollir aleatòriament un estudiant d'questa classe i mesurar-ne la seva alçada
+**Experiment 3**: Escollir aleatòriament un estudiant d'aquesta classe i mesurar-ne la seva alçada
 
 * :math:`\Omega = \left[0, \infty \right)`
 * :math:`\mathcal{A} = ?`
@@ -489,6 +489,19 @@ Exemples d'espais de probabilitat
 
 Independència i probabilitat condicional
 ==========================================
+
+Qüestionari de repàs
+--------------------------------
+
+1. Un espai de probabilitat és el triplet d'un ______________, un ______________ i una _____________.
+
+2. Quina dels següents assercions **no** és un axioma de Kolmogorov:
+
+a. Si :math:`A \cap B = \emptyset`, :math:`P\left(A \cup B \right) = P\left(A \right) + P\left( B \right)`
+b. :math:`P\left(A\right) \leq 1, \forall A \in \mathcal{A}`
+c. :math:`P\left(A\right) \geq 0, \forall A \in \mathcal{A}`
+
+3. Quin és l':math:`\Omega` i l':math:`\mathcal{A}` del següent experiment: mesurar la vida útil en dies dels ordinadors Macbook Pro.
 
 Probabilitat condicional
 --------------------------------
@@ -563,23 +576,22 @@ Variable aleatòria
 
 .. rst-class:: note
 
-    **Definició** Una variable aleatòria (*v.a.* pels amics) és una funció :math:`X : \Omega \to \mathbb{R}`.
+    **Definició** Una variable aleatòria (*v.a.* pels amics) és una funció :math:`X : \Omega \to \mathcal{X} \subseteq \mathbb{R}`.
 
 Podem doncs definir una funció de probabilitat:
 
 :math:`P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)`
 
-que satisfà els axiomes de Kolmogorov:
+que satisfà els axiomes de Kolmogorov. Aquesta definició es pot especialitzar
+quan :math:`\Omega, \mathcal{X}` són contables:
 
-a. :math:`\Omega` **contable**: Fàcil, :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`
-b. :math:`\Omega` **incontable**: Una mica més complicat...
+:math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`
 
 .. rst-class:: note
 
     Enlloc de treballar amb :math:`P_X\left(X \in A\right)`, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.
 
-
-.. nextslide:: Exemple de variable aleatòria discreta
+.. nextslide:: Exemple de variable aleatòria discreta: binomial
     :increment:
 
 Revisitem l'**Experiment 2** anterior (escollim 100 persones i fem una prova d'anticossos per SARS-COV-2)
@@ -588,6 +600,28 @@ Revisitem l'**Experiment 2** anterior (escollim 100 persones i fem una prova d'a
 * Definim v.a. :math:`X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]`
 
 **Exercici**: Fent servir l'identitat :math:`P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)`, derivem :math:`P_X\left(X=k\right)`.
+
+.. nextslide:: Exemple de variable aleatòria discreta: binomial (2)
+    :increment:
+
+Primer determinem el conjunt :math:`\left\{s\in \Omega: X\left(s\right) \in A\right\}` sobre el qual haurem de sumar:
+
+.. math::
+
+    \left\{s\in \Omega: X\left(s\right) \in A\right\} &= \left\{s\in \Omega: X\left(s\right)= k\right\}\\
+    &= \mbox{Totes les seqüencies amb exactament k +}
+
+Fixeu-vos que hi ha :math:`{n \choose k}` seqüencies amb k + de longitud n. Per altra banda,
+si assumim que cada individu és + de manera independent, tenim que cada seqüència
+succeeix amb probabilitat :math:`p^k\left(1-p\right)^{n-k}`.
+
+Per tant deduïm que :math:`P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\right)^{n-k}` (distribució binomial)
+
+
+.. rst-class:: note
+
+    Què passa si alguns individus són membres d'una mateixa família?
+
 
 .. nextslide:: Exemple de variable aleatòria contínua
     :increment:
@@ -668,7 +702,7 @@ llançar una moneda fins que surti cara.
 Si suposem que:
 
 1. Cada llançament és independent de l'altre (pregunta: podeu imaginar una situació en que no ho fos)
-2. La probabilitat de cara és :math:`p`
+2. La probabilitat d'obtenir cara és :math:`p`
 
 Podem calcular :math:`p_X\left(k\right)=?`
 
@@ -747,7 +781,7 @@ La f.m.p de  :math:`X` és aleshores, quan :math:`n \to \infty`:
 *Exercici*: Justificar l'últim pas!
 
 
-Exemples de variables aleatòries contínues
+Incís sobre les v.a. contínues
 -------------------------------------------
 
 Hem vist que una variable aleatòria contínua es caracteritza per una funció
@@ -767,13 +801,38 @@ ja que pel 3er axioma de Kolmogorov això sembla implicar que
 :math:`P\left(a < X < b\right)`, sent la unió de tots els punts entre a i b, hauria
 de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!
 
-.. nextslide:: La distribució uniforme
+La distribució uniforme
+-------------------------------------------
 
-La f.d.p més simple es correspon amb la variable aleatòria més simple, escollir
+La f.d.p més simple es correspon amb la variable aleatòria contínua més simple, escollir
 un nombre aleatori dins d'un interval :math:`\left[a, b\right]`:
 
 :math:`f_X\left(x\right) = \left\{\begin{array}{cc} \frac{1}{b-a} & a \leq x \leq b \\ 0 & \mbox{altrament} \end{array}\right.`
 
 Exercici: Calculem la f.d.c d'una variable uniforme.
 
+La família Gamma
+-------------------------------------------
 
+Recordeu que podem definir una f.d.p tot normalitzant qualsevol funció no-negativa.
+
+Considerem la següent família de funcions, parameteritzades per :math:`\alpha, \beta` doncs:
+
+:math:`h\left(t\right) = \frac{t^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{t}{\beta}}`
+
+definides per :math:`t\in \left[0, \infty\right)`. Es pot demostrar que per :math:`\alpha, \beta > 0`,
+
+:math:`\Gamma\left(\alpha\right)=\int_{0}^{\infty}h\left(t\right)dt` existeix.
+
+Per tant definim la família distribucions :math:`\mbox{gamma}\left(\alpha, \beta\right)` com:
+
+:math:`f_X\left(x\right) = \frac{1}{\Gamma\left(\alpha\right)}\frac{x^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{x}{\beta}}`
+
+
+.. rst-class:: note
+
+
+
+
+La família "Normal"
+-------------------------------------------
