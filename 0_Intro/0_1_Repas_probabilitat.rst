@@ -565,4 +565,4 @@ La distribució Normal o Gaussiana és fonamental en estadística, per múltiple
 I què te a veure tot això amb l'estadística?
 --------------------------------------------
 
-La
+Tot!
