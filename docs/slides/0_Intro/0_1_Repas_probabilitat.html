@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Tema 1: Repàs de probabilitat &mdash; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/slides.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../_static/../../html/_static/sab-slides.css" type="text/css" />
+    
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2020.08.04',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/common.js"></script>
+    
+    <script type="text/javascript" src="../_static/slides.js"></script>
+    <script type="text/javascript" src="../_static/sync.js"></script>
+    <script type="text/javascript" src="../_static/controller.js"></script>
+    <script type="text/javascript" src="../_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="104392 - Modelització i Inferència 2020.08.04 documentation" href="../index.html" />
+    <link rel="prev" title="1. Tema 0: Intro al curs" href="0_0_Intro_curs.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="tema-1-repas-de-probabilitat">
+
+<h1>Tema 1: Repàs de probabilitat</h1>
+
+
+
+
+<div class="slide-no">1</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="espais-i-mesures-de-probabilitat">
+
+<h2>Espais i mesures de Probabilitat</h2>
+
+
+
+
+<div class="slide-no">2</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="espai-de-probabilitat">
+
+<h3>Espai de Probabilitat</h3>
+
+<p class="note">Durant el Tema 1 haurem d’anar una mica ràpid. És impossible fer un curs de probabilitat
+en 2 setmanes, però per sort ja n’heu fet un!</p>
+<p>Un <strong>espai de probabilitat</strong> és un model matemàtic del resultat d’un <strong>experiment aleatori</strong>.</p>
+<p>Consisteix en un triplet <span class="math notranslate nohighlight">\(\left(\Omega, \mathcal{A}, P\right)\)</span>:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Omega\)</span>: l’<strong>espai mostral</strong>, conjunt de resultats possibles d’un experiment</li>
+<li><span class="math notranslate nohighlight">\(\mathcal{A} \subseteq 2^{\Omega}\)</span>: el conjunt d’<strong>esdeveniments</strong>, una família de subconjunts d’<span class="math notranslate nohighlight">\(\Omega\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\)</span>: una <strong>mesura de probabilitat</strong>, una funció <span class="math notranslate nohighlight">\(\mathcal{A} \rightarrow \left[0, 1\right]\)</span></li>
+</ul>
+<p><em>Recordatori</em>: <span class="math notranslate nohighlight">\(2^{\Omega}\)</span> és el conjunt de tots els sub-conjunts d’<span class="math notranslate nohighlight">\(\Omega\)</span>, incloent-hi <span class="math notranslate nohighlight">\(\emptyset\)</span> i <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+
+
+
+<div class="slide-no">3</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="mesura-de-probabilitat">
+
+<h3>Mesura de probabilitat</h3>
+
+<p>Una <strong>mesura de probabilitat</strong> <span class="math notranslate nohighlight">\(P: \mathcal{A} \rightarrow \left[0, 1\right]\)</span>
+ha de satisfer els següents axiomes (de Kolmogorov):</p>
+<ol class="arabic simple">
+<li><span class="math notranslate nohighlight">\(P\left(\Omega\right)=1\)</span></li>
+<li><span class="math notranslate nohighlight">\(\forall A\in\mathcal{A}\)</span>, <span class="math notranslate nohighlight">\(P\left(A\right)\geq 0\)</span></li>
+<li>Per <span class="math notranslate nohighlight">\(A_1,A_2,A_3, \cdots \in \mathcal{A}\)</span> disjunts, <span class="math notranslate nohighlight">\(P\left(\cup_i A_i\right) = \sum_i P\left(A_i\right)\)</span></li>
+</ol>
+<p class="note">Fixeu-vos que tenim llibertat a l’hora de definir <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> pels esdeveniments que ens
+interessen (sempre i quan formin una <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebra.)</p>
+
+
+
+<div class="slide-no">4</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id1">
+
+<h3>Mesura de probabilitat (2)</h3>
+
+<p>Això és una construcció axiomàtica de Probabilitat, formalitzada per Andrey Kolmogorov.</p>
+<p>Noteu que no hem associat cap interpretació al significat físic dels valors de <span class="math notranslate nohighlight">\(P\)</span>. Dues interpretacions típiques:</p>
+<ul class="simple">
+<li><strong>Frequentista</strong>: <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> representa la frequència amb que observariem l’esdeveniment <cite>A</cite> si realitzéssim un gran nombre d’experiments</li>
+<li><strong>Bayesiana</strong>: <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> representa la nostra certesa sobre l’ocurrència de l’esdeveniment <cite>A</cite></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les dues interpretacions no són completament ortogonals, però són l’orígen d’un munt de
+discussions filosòfiques i a vegades dogmàtiques. Si us interessa el tema us recomano
+<a class="reference external" href="https://projecteuclid.org/euclid.ba/1340370429">Objections to Bayesian statistics</a>.</p>
+</div>
+
+
+
+<div class="slide-no">5</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id2">
+
+<h3>Aquest no és un curs de probabilitat…</h3>
+
+<p>Aquest no és un curs de probabilitat, per tant amagarem “detalls” important sota l’alfombra:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> en realitat ha de ser una <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebra (conté <span class="math notranslate nohighlight">\(\emptyset\)</span>, tancat per unió contable i complement)</li>
+<li>Per a conjunts <span class="math notranslate nohighlight">\(\Omega\)</span> contables, podem tirar milles considerant <span class="math notranslate nohighlight">\(\mathcal{A} = 2^{\Omega}\)</span></li>
+<li>La cosa es complica quan <span class="math notranslate nohighlight">\(\Omega\)</span> no és discret (exemples: l’alçada d’una població, el nivell d’expressió d’un gen)</li>
+</ul>
+<p class="note"><strong>Recomano</strong> donar una ullada al [Casella &amp; Berger] o a una altra de les referències
+bibliogràfiques per una intro no tècnica a les <span class="math notranslate nohighlight">\(\sigma\)</span>-àlgebres</p>
+
+
+
+<div class="slide-no">6</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="algunes-propietats-de-les-mesures-de-probabilitat">
+
+<h3>Algunes propietats de les mesures de probabilitat</h3>
+
+<p class="note"><strong>Teorema [Casella &amp; Berger 1.2.8 i 1.2.9]</strong> Per una mesura de probabilitat <span class="math notranslate nohighlight">\(P\)</span> i
+qualsevol esdeveniments <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, tenim:</p>
+<ol class="note arabic simple">
+<li><span class="math notranslate nohighlight">\(P\left(\emptyset\right)=0\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A\right) \leq 1\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A^c\right) = 1 - P\left(A\right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(B \cap A^c\right) = P\left(B\right) - P\left(A \cap B\right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A \cup B\right) = P\left(A\right) + P\left(B\right) - P\left(A \cap B\right)\)</span></li>
+<li>Si <span class="math notranslate nohighlight">\(A \subseteq B\)</span>, aleshores <span class="math notranslate nohighlight">\(P\left(A\right) \leq P\left(B\right)\)</span></li>
+</ol>
+<p><strong>Demostració</strong>: Punts (1), (2), (3), exercici :) (recomano començar pel 3er punt).
+Punts (4)-(6) tot seguit.</p>
+
+
+
+<div class="slide-no">7</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id3">
+
+<h3>Guia de la demostració punts (4)-(6)</h3>
+
+<p>Pel punt (4), només cal observar que <span class="math notranslate nohighlight">\(B = \left(B \cap A\right) \cup \left(B \cap A^c\right)\)</span> (exercici).
+D’aquesta identitat i tenint en compte que <span class="math notranslate nohighlight">\(B \cap A\)</span> i <span class="math notranslate nohighlight">\(B \cap A^c\)</span> son disjunts,
+s’en dedueix l’expressió usant el 3er axioma de Kolmogorov.</p>
+<p>Pel punt (5), utilitzem la següent identitat <span class="math notranslate nohighlight">\(A \cup B = A \cup \left(B \cap A^c\right)\)</span> i apliquem el punt (4).</p>
+<p>Finalment el punt (6) el demostrem observant que si <span class="math notranslate nohighlight">\(A \subseteq B\)</span> aleshores <span class="math notranslate nohighlight">\(A \cap B = A\)</span>
+i que <span class="math notranslate nohighlight">\(0 \leq P\left(B \cap A^c\right) = P\left(B\right) - P\left(A\right)\)</span>.</p>
+
+
+
+<div class="slide-no">8</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id4">
+
+<h3>Un parell més de resultats útils</h3>
+
+<p>Els següents són propietats interessants relatives a col.leccions de conjunts:</p>
+<p class="note"><strong>Teorema [Casella &amp; Berger 1.2.11]</strong> Si <span class="math notranslate nohighlight">\(P\)</span> és una mesura de probabilitat:</p>
+<ol class="note arabic simple">
+<li>Per cualsevol partició <span class="math notranslate nohighlight">\(C_1, \cdots, C_N\)</span> d’ <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(P\left(A\right) = \sum_i P\left(A \cap C_i \right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(A_1, A_2 \cdots, \in \mathcal{A}\)</span>, <span class="math notranslate nohighlight">\(P\left(\cup_i A_i\right) \leq \sum_i P\left(A_i \right)\)</span> (desigualtat de Boole)</li>
+</ol>
+<p><strong>Demostració</strong>: (1) tot seguit, (2) exercici.</p>
+
+
+
+<div class="slide-no">9</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id5">
+
+<h3>Demostració punt (1) resultat anterior</h3>
+
+<p>Demostració punt (1): Recordem que una partició <span class="math notranslate nohighlight">\(C_1, \cdots, C_N\)</span> d’ <span class="math notranslate nohighlight">\(\Omega\)</span>
+és una col.lecció de conjunts tal que <span class="math notranslate nohighlight">\(\cup_i C_i = \Omega\)</span> i <span class="math notranslate nohighlight">\(C_i \cap C_j = \emptyset, \forall i\neq j\)</span>.</p>
+<p>Tenim doncs la següent cadena d’identitats:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A &amp;= A \cap \Omega \\
+A &amp; = A \cap \cup_i C_i \\
+A &amp; = \cup_i \left( A \cap C_i \right)\\
+P\left(A\right) &amp; = P\left(\cup_i \left( A \cap C_i\right)\right)\end{split}\]</div>
+<p>i com que <span class="math notranslate nohighlight">\(A \cap C_i\)</span> i <span class="math notranslate nohighlight">\(A \cap C_j\)</span> son disjunts, el resultat
+s’obté considerant el 3er axioma de Kolmogorov.</p>
+
+
+
+<div class="slide-no">10</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemples-d-espais-de-probabilitat">
+
+<h3>Exemples d’espais de probabilitat</h3>
+
+<p><strong>Experiment 1</strong>: Modelar el resultat de llançar un dau de 6 cares</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Omega = \left\{1, 2, 3, 4, 5, 6\right\}\)</span></li>
+<li><span class="math notranslate nohighlight">\(\mathcal{A} = \left\{ \left\{1\right\}, \left\{2\right\}, \cdots, \left\{1, 2\right\}, \cdots, \emptyset, \Omega \right\}\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(x\right) = \frac{1}{6}, x \in \Omega\)</span></li>
+</ul>
+<p class="note"><strong>Exercici</strong>: Com definirieu <span class="math notranslate nohighlight">\(P\left(A\right)\)</span> per a qualsevol <span class="math notranslate nohighlight">\(A \in \mathcal{A}\)</span>?</p>
+<ul class="build simple">
+<li>Resposta: <span class="math notranslate nohighlight">\(P\left(A\right) = \sum_{x \in A} P\left(x\right)\)</span>. Podeu comprovar que aquesta construcció satisfà els axiomes.</li>
+</ul>
+
+
+
+<div class="slide-no">11</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id6">
+
+<h3>Exemples d’espais de probabilitat (2)</h3>
+
+<p><strong>Experiment 2</strong>: Escollir 100 persones i fer-els-hi una prova d’anticossos per SARS-COV-2</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Omega = \left\{+, -\right\}^{100}\)</span></li>
+<li><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A\right) = ?\)</span></li>
+</ul>
+<p><strong>Experiment 3</strong>: Escollir aleatòriament un estudiant d’aquesta classe i mesurar-ne la seva alçada</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Omega = \left[0, \infty \right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(\mathcal{A} = ?\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A\right) = ?\)</span></li>
+</ul>
+
+
+
+<div class="slide-no">12</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="questionari-de-repas">
+
+<h3>Qüestionari de repàs</h3>
+
+<ol class="arabic simple">
+<li>Un espai de probabilitat és el triplet d’un ______________, un ______________ i una _____________.</li>
+<li>Quina dels següents assercions <strong>no</strong> és un axioma de Kolmogorov:</li>
+</ol>
+<ol class="loweralpha simple">
+<li>Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, <span class="math notranslate nohighlight">\(P\left(A \cup B \right) = P\left(A \right) + P\left( B \right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A\right) \leq 1, \forall A \in \mathcal{A}\)</span></li>
+<li><span class="math notranslate nohighlight">\(P\left(A\right) \geq 0, \forall A \in \mathcal{A}\)</span></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li>Quin és l’<span class="math notranslate nohighlight">\(\Omega\)</span> i l’<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> del següent experiment: <em>mesurar la vida útil en dies dels ordinadors Macbook Pro.</em></li>
+<li>Quin és l’<span class="math notranslate nohighlight">\(\Omega\)</span> i l’<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> de l’experiment: <em>llençar un dau fins que treiem un 6.</em></li>
+</ol>
+
+
+
+<div class="slide-no">13</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="independencia-i-probabilitat-condicional">
+
+<h2>Independència i probabilitat condicional</h2>
+
+
+
+
+<div class="slide-no">14</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="probabilitat-condicional">
+
+<h3>Probabilitat condicional</h3>
+
+<p>Donats <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, amb <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>,
+<span class="math notranslate nohighlight">\(P\left(A|B\right) = \frac{P\left(A \cap B\right)}{P\left(B\right)}\)</span> (aquesta construcció satisfà els axiomes de Kolmogorov)</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/proba_condicional.png"><img alt="../_images/proba_condicional.png" src="../_images/proba_condicional.png" style="height: 300px;" /></a>
+</div>
+
+
+
+<div class="slide-no">15</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id7">
+
+<h3>Probabilitat condicional (2)</h3>
+
+<p><span class="math notranslate nohighlight">\(P\left(\cdot|B\right)\)</span> és la restricció de <span class="math notranslate nohighlight">\(P\)</span> al subconjunt d’esdeveniments B. Alguns preguntes/petits exercicis interessants:</p>
+<ol class="build arabic simple">
+<li>Tindria sentit definir <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span> si <span class="math notranslate nohighlight">\(P\left(B\right) = 0\)</span>?</li>
+<li>Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span>?</li>
+<li>Com podem interpretar si <span class="math notranslate nohighlight">\(P\left(A|B\right) =P\left(A\right)\)</span>? Podeu donar un exemple “físic”?</li>
+<li>Si <span class="math notranslate nohighlight">\(A \subseteq B\)</span>, quina relació hi ha entre <span class="math notranslate nohighlight">\(P\left(A|B\right)\)</span> i <span class="math notranslate nohighlight">\(P\left(A\right)\)</span>?</li>
+</ol>
+
+
+
+<div class="slide-no">16</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="esdeveniments-independents">
+
+<h3>Esdeveniments independents</h3>
+
+<p>Diem que <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span>, són independents si:</p>
+<p><span class="math notranslate nohighlight">\(P\left(A \cap B\right) =P\left(A\right)P\left(B\right)\)</span></p>
+<p>Això és equivalent a <span class="math notranslate nohighlight">\(P\left(A|B\right) =P\left(A\right)\)</span> si <span class="math notranslate nohighlight">\(P\left(B\right) &gt; 0\)</span>.</p>
+<p>Algunes preguntes [Casella &amp; Berger Teorema 1.3.9] (mirem de respondre per intució primer i matemàticament després):</p>
+<ol class="build arabic simple">
+<li>Si <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span> son independents, què podem dir de <span class="math notranslate nohighlight">\(A, B^c\)</span>?</li>
+<li>Si <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span> son independents, què podem dir de <span class="math notranslate nohighlight">\(A^c, B^c\)</span>?</li>
+</ol>
+
+
+
+<div class="slide-no">17</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id8">
+
+<h3>Precaució, estimat conductor</h3>
+
+<p>Per exemple, l’independència conjunta no implica independència de parells:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/ex_independencia.png"><img alt="../_images/ex_independencia.png" src="../_images/ex_independencia.png" style="height: 300px;" /></a>
+</div>
+<p>Calculem <span class="math notranslate nohighlight">\(P\left(A \cap B \cap C\right)\)</span> i <span class="math notranslate nohighlight">\(P\left(B \cap C\right)\)</span>…</p>
+<p><em>Nota:</em> l’independència de parells tampoc implica independència mútua (veure Problema)</p>
+
+
+
+<div class="slide-no">18</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id9">
+
+<h3>Independència mútua</h3>
+
+<p>Per resoldre aquests problemes, fa falta una definició molt més estricta
+de la noció d’independència en conjunts d’esdeveniments:</p>
+<p class="note"><strong>Definició</strong> <span class="math notranslate nohighlight">\(A_1, A_2 \cdots, \in \mathcal{A}\)</span> són mutualment independents si per cualsevol
+subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cdots, \in \mathcal{A}\)</span>, tenim que <span class="math notranslate nohighlight">\(P\left(\cap_j A_{i_j}\right) = \Pi_j P\left(A_{i_j}\right)\)</span></p>
+<p>(En aquest curs, quan parlem de mostres independents, estarem assumint independència mútua)</p>
+
+
+
+<div class="slide-no">19</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="variables-aleatories-i-funcions-de-distribucio">
+
+<h2>Variables aleatòries i funcions de distribució</h2>
+
+
+
+
+<div class="slide-no">20</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="variable-aleatoria">
+
+<h3>Variable aleatòria</h3>
+
+<p class="note"><strong>Definició</strong> Una variable aleatòria (<em>v.a.</em> pels amics) és una funció <span class="math notranslate nohighlight">\(X : \Omega \to \mathcal{X} \subseteq \mathbb{R}\)</span>.</p>
+<p>Podem doncs definir una funció de probabilitat:</p>
+<p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span></p>
+<p>que satisfà els axiomes de Kolmogorov. Aquesta definició es pot especialitzar
+quan <span class="math notranslate nohighlight">\(\Omega, \mathcal{X}\)</span> són contables:</p>
+<p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p>
+<p class="note">Enlloc de treballar amb <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.</p>
+
+
+
+<div class="slide-no">21</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id10">
+
+<h3>Variables aleatòries simplones</h3>
+
+<p>Per entendre un concepte, sempre va bé intentar reflexionar primer sobre
+els casos més extremadament simples.</p>
+<ul class="simple">
+<li>Q:<em>Quina seria la v.a. més simple?</em></li>
+<li>R: La v.a. constant, definida com <span class="math notranslate nohighlight">\(X : \Omega \to 0\)</span></li>
+<li>Q: <em>I la 2a més simple?</em></li>
+<li>R: La v.a. de Bernouilli, definida com <span class="math notranslate nohighlight">\(X : \Omega \to \left\{0, 1\right\}\)</span></li>
+</ul>
+<p>Aplicant la definició anterior, tenim que la v.a. de Bernouilli està completament
+caracterizada per <span class="math notranslate nohighlight">\(p = \left\{s\in \Omega: X\left(s\right) = 1\right\}\)</span></p>
+
+
+
+<div class="slide-no">22</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id11">
+
+<h3>Exemple de variable aleatòria discreta: binomial</h3>
+
+<p>Revisitem l’<strong>Experiment 2</strong> anterior (escollim 100 persones i fem una prova d’anticossos per SARS-COV-2)</p>
+<ul class="simple">
+<li>Teniem que <span class="math notranslate nohighlight">\(\Omega = \left\{+, -\right\}^{100}\)</span></li>
+<li>Definim v.a. <span class="math notranslate nohighlight">\(X : \left\{+, -\right\}^{100} \to \mbox{Nombre de +} \in \left[0, 100\right]\)</span></li>
+</ul>
+<p><strong>Exercici</strong>: Fent servir l’identitat <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span>, derivem <span class="math notranslate nohighlight">\(P_X\left(X=k\right)\)</span>.</p>
+
+
+
+<div class="slide-no">23</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id12">
+
+<h3>Exemple de variable aleatòria discreta: binomial (2)</h3>
+
+<p>Primer determinem el conjunt <span class="math notranslate nohighlight">\(\left\{s\in \Omega: X\left(s\right) \in A\right\}\)</span> sobre el qual haurem de sumar:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{s\in \Omega: X\left(s\right) \in A\right\} &amp;= \left\{s\in \Omega: X\left(s\right)= k\right\}\\
+&amp;= \mbox{Totes les seqüencies amb exactament k +}\end{split}\]</div>
+<p>Fixeu-vos que hi ha <span class="math notranslate nohighlight">\({n \choose k}\)</span> seqüencies amb <span class="math notranslate nohighlight">\(k\)</span> “+” d’entre <span class="math notranslate nohighlight">\(n=100\)</span> individus. Per altra banda,
+si assumim que cada individu és + de manera independent, tenim que cada seqüència
+succeeix amb probabilitat <span class="math notranslate nohighlight">\(p^k\left(1-p\right)^{n-k}\)</span>.</p>
+<p>Per tant deduïm que <span class="math notranslate nohighlight">\(P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\right)^{n-k}\)</span> (distribució binomial)</p>
+<p class="note">Què passa si alguns individus són membres d’una mateixa família?</p>
+
+
+
+<div class="slide-no">24</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id13">
+
+<h3>Exemple de variable aleatòria contínua</h3>
+
+<p>Revisitem l’<strong>Experiment 3</strong>. Escollim un estudiant d’aquesta classe i aquest cop mesurem la raó alçada/pes:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Omega = \left(0, \infty \right) \times \left(0, \infty \right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(Z: (x, y) \in \Omega \to \frac{x}{y}\)</span></li>
+<li>Com calculariem <span class="math notranslate nohighlight">\(P_Z\left(Z \in A\right)\)</span>? <em>Necessitarem de fer alguna suposició addicional sobre les v.a. X i Y</em></li>
+</ul>
+<p class="note">En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de les observacions (hipòtesi que després haurem de validar comprovant la <em>bondat de l’ajust</em>)</p>
+
+
+
+<div class="slide-no">25</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="funcio-de-distribucio">
+
+<h3>Funció de distribució</h3>
+
+<p class="note"><strong>Definició</strong> La funció de distribució cumulativa (f.d.c.) d’una v.a. es defineix com <span class="math notranslate nohighlight">\(F\left(x\right) = P\left(X \leq x\right)\)</span>.</p>
+<p>De fet qualsevol funció pot ser una f.d.c si compleix [Casella &amp; Berger Teorema 1.5.3]:</p>
+<ol class="arabic simple">
+<li><span class="math notranslate nohighlight">\(\lim_{x\to -\infty} F(x) = 0\)</span> i <span class="math notranslate nohighlight">\(\lim_{x\to \infty} F(x) = 1\)</span></li>
+<li><span class="math notranslate nohighlight">\(F(x)\)</span> és no-decreixent</li>
+<li><span class="math notranslate nohighlight">\(F(x)\)</span> és contínua per la dreta (<span class="math notranslate nohighlight">\(\lim_{x\to x_0^+} F(x) = x_0\)</span>)</li>
+</ol>
+<p class="note">El més important es que la f.d.c caracteritza únicament una variable aleatòria: si <span class="math notranslate nohighlight">\(F_X = F_Y\)</span>, aleshores <span class="math notranslate nohighlight">\(X\)</span> i <span class="math notranslate nohighlight">\(Y\)</span> són idènticament distribuïdes [Casella &amp; Berger 1.5.8 i 1.5.10]</p>
+
+
+
+<div class="slide-no">26</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="funcio-de-massa-o-densitat-de-probabilitat">
+
+<h3>Funció de massa o densitat de probabilitat</h3>
+
+<p>A voltes ens serà més pràctic treballar amb un altre objecte, la funció de massa de probabilitat (f.m.p.) <span class="math notranslate nohighlight">\(p_X\)</span> o de densitat de probabilitat (f.d.p) <span class="math notranslate nohighlight">\(f_X\)</span>.</p>
+<ul class="simple">
+<li><strong>Cas discret</strong>: <span class="math notranslate nohighlight">\(p_X\left(k\right) = P_X\left(X=k\right)\)</span> (noteu que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \sum_{k=-\infty}^{x}p_X\left(k\right))\)</span>)</li>
+<li><strong>Cas “continu”</strong>: La funció <span class="math notranslate nohighlight">\(f_X\)</span> tal que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></li>
+</ul>
+<p class="note">Aquí ens desviem una mica de la notació de [Casella &amp; Berger] al fer servir <span class="math notranslate nohighlight">\(p_X\)</span> enlloc de <span class="math notranslate nohighlight">\(f_X\)</span> per la f.m.p.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Estem ometent molts “detalls” tècnics importants… Hi ha variables contínues per les que <span class="math notranslate nohighlight">\(f_X\)</span> no existeix.</p>
+</div>
+
+
+
+<div class="slide-no">27</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id14">
+
+<h3>Funció de massa o densitat de probabilitat (2)</h3>
+
+<p>Tal i com hem fist per la f.d.c, tenim un resultat similar per la f.d.p o la f.m.p: <span class="math notranslate nohighlight">\(f_X\left(x\right)\)</span> (<span class="math notranslate nohighlight">\(p_X\left(k\right)\)</span>)
+és una f.d.p (f.m.p) si i només si [Casella &amp; Berger 1.6.5]:</p>
+<ol class="loweralpha simple">
+<li><span class="math notranslate nohighlight">\(f_X\left(x\right) \geq 0, \forall x\)</span> (<span class="math notranslate nohighlight">\(p_X\left(k\right) \geq 0, \forall k\)</span>)</li>
+<li><span class="math notranslate nohighlight">\(\int_{\infty}^{\infty} f_X\left(x\right)dx = 1\)</span> (<span class="math notranslate nohighlight">\(\sum_{\infty}^{\infty} p_X\left(k\right) = 1\)</span>)</li>
+</ol>
+<p>Per tant podem construir una f.d.p. a partir de qualsevol funció <span class="math notranslate nohighlight">\(h\left(x\right)\)</span> no-negativa, definint:</p>
+<p><span class="math notranslate nohighlight">\(K = \int_{\infty}^{\infty} h\left(x\right)dx\)</span> (també coneguda com <em>funció de partició</em>)</p>
+<p>i <span class="math notranslate nohighlight">\(f_X\left(x\right) = \frac{h\left(x\right)}{K}\)</span>. Això es fa servir per exemple
+en uns objectes anomentats <a class="reference external" href="https://en.wikipedia.org/wiki/Graphical_model">Models Gràfics Probabilístics</a>.</p>
+
+
+
+<div class="slide-no">28</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-funcio-de-distribucio-i-massa-d-una-v-a-geometrica">
+
+<h3>Exemple: funció de distribució i massa d’una v.a. geomètrica</h3>
+
+<p>Considerem la variable aleatòria corresponent a l’experiment de
+llançar una moneda fins que surti cara.</p>
+<ul class="build simple">
+<li>L’espai mostral és: <span class="math notranslate nohighlight">\(\Omega = \left\{C, XC, XXC, \cdots \right\}\)</span></li>
+<li>Definim la v.a. <span class="math notranslate nohighlight">\(X\)</span> com el nombre de creus que obtenim abans de la primera cara.</li>
+</ul>
+<p>Si suposem que:</p>
+<ol class="arabic simple">
+<li>Cada llançament és independent de l’altre (pregunta: podeu imaginar una situació en que no ho fos)</li>
+<li>La probabilitat d’obtenir cara és <span class="math notranslate nohighlight">\(p\)</span></li>
+</ol>
+<p>Podem calcular <span class="math notranslate nohighlight">\(p_X\left(k\right)=?\)</span></p>
+
+
+
+<div class="slide-no">29</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id15">
+
+<h3>Exemple: funció de distribució i massa d’una v.a. geomètrica</h3>
+
+<p>La f.m.p és la distribució geomètrica:</p>
+<p><span class="math notranslate nohighlight">\(p_X\left(k\right) = P\left(\mbox{X}\right)^{k-1}P\left(\mbox{C}\right) = \left(1-p\right)^{k-1}p\)</span></p>
+<p>A partir de la qual podem calcular la f.d.c:</p>
+<p><span class="math notranslate nohighlight">\(F_X\left(x\right) = \sum_{k=1}^x p_X\left(k\right) = \sum_{k=1}^x \left(1-p\right)^{k-1}p\)</span></p>
+<p>utilitzant l’identitat <span class="math notranslate nohighlight">\(\sum_{k=1}^x \rho^{x-1}=\frac{1-\rho^x}{1-\rho}\)</span>, podem arribar a:</p>
+<p><span class="math notranslate nohighlight">\(F_X\left(x\right) = 1 - \left(1-p\right)^x\)</span></p>
+<p>Seria interessant que comprovéssiu que <span class="math notranslate nohighlight">\(F_X\left(x\right)\)</span> compleix les condicions per
+ser una f.d.c.</p>
+
+
+
+<div class="slide-no">30</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id16">
+
+<h3>Propietat <em>memoryless</em> de les v.a. geomètriques</h3>
+
+<p>Una v.a. <span class="math notranslate nohighlight">\(X\)</span> és <em>memoryless</em> si:</p>
+<p><span class="math notranslate nohighlight">\(P\left(X &gt; m+n | X &gt; m\right) = P\left(X &gt; n \right)\)</span></p>
+<p><em>Exercici:</em> Comprovem que aquesta propietat es verifica per la <span class="math notranslate nohighlight">\(p_X\left(k\right)\)</span> geomètrica.</p>
+<ul class="simple">
+<li>L’interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops…</li>
+<li>Aquesta propietat no és tant freqüent com podria semblar.</li>
+<li>Aquesta f.m.p és interessant per modelar problemes de <em>temps de vida</em>, per exemple: fallada d’un component</li>
+</ul>
+<p>electrònic, on la probabilitat de que falli <strong>no canvia amb el temps</strong>.</p>
+
+
+
+<div class="slide-no">31</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="altres-v-a-discretes">
+
+<h3>Altres v.a. discretes</h3>
+
+<p>A través dels exemples, fins ara ja hem vist 4 tipus de variables aleatòries discretes:</p>
+<ul class="simple">
+<li>Uniforme, <span class="math notranslate nohighlight">\(X \in \left\{0, \cdots, k-1\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = c \right)=\frac{1}{k}\)</span></li>
+<li>Bernouilli, <span class="math notranslate nohighlight">\(X \in \left\{0, 1\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = 1; p \right)=p\)</span></li>
+<li>Binomial, <span class="math notranslate nohighlight">\(X \in \left\{0, \cdots, n\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = k; p, n \right)={n\choose k}p^k\left(1-p\right)^{n-k}\)</span></li>
+<li>Geomètrica, <span class="math notranslate nohighlight">\(X \in \left\{1, \cdots,\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = k; p \right)= p\left(1-p\right)^{k-1}\)</span></li>
+</ul>
+<p class="note">Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?</p>
+<p>Us recomano donar un cop d’ull pel vostre compte a dues distribucions famoses més,
+la <strong>hipergeomètrica</strong> i la <strong>binomial negativa</strong>. Ara donarem un cop d’ull a la de Poisson.</p>
+
+
+
+<div class="slide-no">32</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id17">
+
+<h3>La distribució de Poisson</h3>
+
+<p>La distribució de Poisson es pot motivar físicament amb el següent exemple:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/poisson_motivation.png"><img alt="../_images/poisson_motivation.png" src="../_images/poisson_motivation.png" style="height: 300px;" /></a>
+</div>
+<ul class="simple">
+<li>els intervals de temps <span class="math notranslate nohighlight">\(\delta t_i\)</span> són iguals i prou petits per què <span class="math notranslate nohighlight">\(B_i\)</span> sigui aproximadament Bernouilli(p)</li>
+<li>els esdeveniments <span class="math notranslate nohighlight">\(B_i\)</span> són independents</li>
+</ul>
+
+
+
+<div class="slide-no">33</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id18">
+
+<h3>La distribució de Poisson (II)</h3>
+
+<p>Per tant <span class="math notranslate nohighlight">\(X\)</span> és aproximadament <span class="math notranslate nohighlight">\(\mbox{Binomial}\left(N, p\right)\)</span> on N és el nombre d’intervals en el periòde.</p>
+<p>La distribució de Poisson apareix quan tenim que <span class="math notranslate nohighlight">\(p \to 0\)</span> i <span class="math notranslate nohighlight">\(N \to \infty\)</span>
+mantenint el nombre mig d’arribades per interval de temps fixe, que anomenarem <span class="math notranslate nohighlight">\(\lambda = Np\)</span>.</p>
+<p>La f.m.p de  <span class="math notranslate nohighlight">\(X\)</span> és aleshores, quan <span class="math notranslate nohighlight">\(n \to \infty\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(X = k; \lambda \right) &amp; =\frac{n!}{k!\left(n-k\right)!}\left(\frac{\lambda}{n}\right)^k\left(1-\frac{\lambda}{n}\right)^{n-k} \\
+                     &amp; =\frac{\lambda^k}{k!}\frac{n!}{\left(n-k\right)!}\frac{1}{n^k}\left(1 - \frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{-k} \\
+                     &amp; \to \frac{\lambda^k}{k!}e^{-\lambda}\end{split}\]</div>
+<p><em>Exercici</em>: Justificar l’últim pas!</p>
+
+
+
+<div class="slide-no">34</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="incis-sobre-les-v-a-continues">
+
+<h3>Incís sobre les v.a. contínues</h3>
+
+<p>Hem vist que una variable aleatòria contínua es caracteritza per una funció
+de densitat de probabilitat tal que:</p>
+<p><span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></p>
+<p>per tant tenim que</p>
+<p><span class="math notranslate nohighlight">\(P\left(a &lt; X &lt; b\right) = \int_{a}^b f_X\left(t\right)dt\)</span></p>
+<p>Una conseqüència d’aquesta definició és el que pot semblar paradoxal:</p>
+<p><span class="math notranslate nohighlight">\(P\left(X = x\right) = 0\)</span></p>
+<p>ja que pel 3er axioma de Kolmogorov això sembla implicar que
+<span class="math notranslate nohighlight">\(P\left(a &lt; X &lt; b\right)\)</span>, sent la unió de tots els punts entre a i b, hauria
+de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!</p>
+
+
+
+<div class="slide-no">35</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="la-distribucio-uniforme">
+
+<h3>La distribució uniforme</h3>
+
+<p>La f.d.p més simple es correspon amb la variable aleatòria contínua més simple, escollir
+un nombre aleatori dins d’un interval <span class="math notranslate nohighlight">\(\left[a, b\right]\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(f_X\left(x; a, b\right) = \left\{\begin{array}{cc} \frac{1}{b-a} &amp; a \leq x \leq b \\ 0 &amp; \mbox{altrament} \end{array}\right.\)</span></p>
+<p><strong>Exercicis</strong>:</p>
+<ul class="simple">
+<li>Calculem la f.d.c d’una variable uniforme.</li>
+<li>Doneu un exemple d’un experiment on l’uniforme és un bon model?</li>
+</ul>
+
+
+
+<div class="slide-no">36</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="la-familia-gamma">
+
+<h3>La família Gamma</h3>
+
+<p>Recordeu que podem definir una f.d.p tot normalitzant qualsevol funció no-negativa.</p>
+<p>Considerem la següent família de funcions, parameteritzades per <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> doncs:</p>
+<p><span class="math notranslate nohighlight">\(h\left(t\right) = \frac{t^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{t}{\beta}}\)</span></p>
+<p>definides per <span class="math notranslate nohighlight">\(t\in \left[0, \infty\right)\)</span>. Es pot demostrar que per <span class="math notranslate nohighlight">\(\alpha, \beta &gt; 0\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\Gamma\left(\alpha\right)=\int_{0}^{\infty}h\left(t\right)dt\)</span> existeix.</p>
+<p>Per tant definim la família distribucions <span class="math notranslate nohighlight">\(\mbox{gamma}\left(\alpha, \beta\right)\)</span> com:</p>
+<p><span class="math notranslate nohighlight">\(f_X\left(x;\alpha, \beta\right) = \frac{1}{\Gamma\left(\alpha\right)}\frac{x^{\alpha-1}}{\beta^{\alpha}} e^{-\frac{x}{\beta}}\)</span></p>
+
+
+
+<div class="slide-no">37</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id19">
+
+<h3>Cosines germanes de la Gamma</h3>
+
+<p>La família Gamma és important perquè permet modelar una gran varietat d’experiments i està intimament
+relacionada amb altres distribucions:</p>
+<ul class="simple">
+<li>Distribució exponencial (si fixem <span class="math notranslate nohighlight">\(\alpha=1\)</span>): la cosina contínua de la f.m.p geomètrica que hem vist abans</li>
+<li>Distribució de <span class="math notranslate nohighlight">\(\chi^2\)</span> (si fixem <span class="math notranslate nohighlight">\(\alpha=p/2\)</span> i <span class="math notranslate nohighlight">\(\beta=2\)</span>)</li>
+</ul>
+<p>La f.d.p de la Gamma per diversos valors de <span class="math notranslate nohighlight">\(\alpha\)</span> (k a l’imatge) i <span class="math notranslate nohighlight">\(\beta\)</span> (<span class="math notranslate nohighlight">\(\theta\)</span> a la figura) <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">[Font]</a></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/650px-Gamma_distribution_pdf.svg.png"><img alt="../_images/650px-Gamma_distribution_pdf.svg.png" src="../_images/650px-Gamma_distribution_pdf.svg.png" style="height: 250px;" /></a>
+</div>
+
+
+
+<div class="slide-no">38</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="la-familia-normal">
+
+<h3>La família “Normal”</h3>
+
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/440px-Normal_Distribution_PDF.svg.png"><img alt="../_images/440px-Normal_Distribution_PDF.svg.png" src="../_images/440px-Normal_Distribution_PDF.svg.png" style="height: 150px;" /></a>
+</div>
+<p><span class="math notranslate nohighlight">\(f_X\left(x ; \mu, \sigma\right) = \frac{1}{\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{\sigma^2}}\)</span></p>
+<p>La distribució Normal o Gaussiana és fonamental en estadística, per múltiples raons:</p>
+<ul class="simple">
+<li>Apareix “naturalment” quan sumem/calculem el promig d’un gran nombre de mostres</li>
+<li>És simètrica i parameteritzada per 2 paràmetres intuitius (<span class="math notranslate nohighlight">\(\mu\)</span> i <span class="math notranslate nohighlight">\(\sigma\)</span>)</li>
+<li>Malgrat la seva aparença intimidant, és tractable analíticament</li>
+</ul>
+
+
+
+<div class="slide-no">39</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="i-que-te-a-veure-tot-aixo-amb-l-estadistica">
+
+<h3>I què te a veure tot això amb l’estadística?</h3>
+
+<p>La</p>
+
+
+
+<div class="slide-no">40</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
