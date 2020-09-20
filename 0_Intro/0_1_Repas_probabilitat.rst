@@ -260,7 +260,7 @@ Variable aleatòria
 
     **Definició** Una variable aleatòria (*v.a.* pels amics) és una funció :math:`X : \Omega \to \mathcal{X} \subseteq \mathbb{R}`.
 
-Podem doncs definir una funció de probabilitat:
+Podem doncs definir una funció de probabilitat [Casella & Berger 1.4.2]:
 
 :math:`P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)`
 
@@ -272,6 +272,20 @@ quan :math:`\Omega, \mathcal{X}` són contables:
 .. rst-class:: note
 
     Enlloc de treballar amb :math:`P_X\left(X \in A\right)`, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.
+
+.. nextslide:: Il.lustració d'una v.a. i la seva funció de probabilitat
+    :increment:
+
+.. figure::  /_static/0_Intro/v.a.png
+    :height: 300px
+    :align: center
+
+    Diagrama explicatiu de la identitat :math:`P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)`.
+    Podem caracteritzar l'esdeveniment :math:`X \in A` relatiu a una v.a. :math:`X` en funció de l'esdeveniment :math:`\left\{s\in \Omega: X\left(s\right) \in A \right\}`
+    en l'espai mostral d'orígen. En aquest curs no ho tindrem en compte, però en realitat
+    no totes les funcions :math:`X : \Omega \to \mathcal{X} \subseteq \mathbb{R}` són admissibles,
+    només les `mesurables <https://en.wikipedia.org/wiki/Measurable_function>`_.
+
 
 .. nextslide:: Variables aleatòries simplones
     :increment:
@@ -287,7 +301,7 @@ els casos més extremadament simples.
 * R: La v.a. de Bernouilli, definida com :math:`X : \Omega \to \left\{0, 1\right\}`
 
 Aplicant la definició anterior, tenim que la v.a. de Bernouilli està completament
-caracterizada per :math:`p = \left\{s\in \Omega: X\left(s\right) = 1\right\}``
+caracterizada per un sol paràmetre :math:`p = P\left(\left\{s\in \Omega: X\left(s\right) = 1\right\}\right)`
 
 
 .. nextslide:: Exemple de variable aleatòria discreta: binomial
@@ -361,6 +375,7 @@ A voltes ens serà més pràctic treballar amb un altre objecte, la funció de m
 
 * **Cas discret**: :math:`p_X\left(k\right) = P_X\left(X=k\right)` (noteu que :math:`F_X\left(x\right) = \sum_{k=-\infty}^{x}p_X\left(k\right))`)
 * **Cas "continu"**: La funció :math:`f_X` tal que :math:`F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt`
+* **Cas "mixte"**:  No les podrem caracteritzar amb una f.m.p o una f.d.p, però recordeu que existeixen v.a. que no són discretes ni contínues!
 
 .. rst-class:: note
 
@@ -377,11 +392,11 @@ Tal i com hem fist per la f.d.c, tenim un resultat similar per la f.d.p o la f.m
 és una f.d.p (f.m.p) si i només si [Casella & Berger 1.6.5]:
 
 a. :math:`f_X\left(x\right) \geq 0, \forall x` (:math:`p_X\left(k\right) \geq 0, \forall k`)
-b. :math:`\int_{\infty}^{\infty} f_X\left(x\right)dx = 1` (:math:`\sum_{\infty}^{\infty} p_X\left(k\right) = 1`)
+b. :math:`\int_{\infty}^{-\infty} f_X\left(x\right)dx = 1` (:math:`\sum_{\infty}^{\infty} p_X\left(k\right) = 1`)
 
 Per tant podem construir una f.d.p. a partir de qualsevol funció :math:`h\left(x\right)` no-negativa, definint:
 
-:math:`K = \int_{\infty}^{\infty} h\left(x\right)dx` (també coneguda com *funció de partició*)
+:math:`K = \int_{-\infty}^{\infty} h\left(x\right)dx` (també coneguda com *funció de partició*)
 
 i :math:`f_X\left(x\right) = \frac{h\left(x\right)}{K}`. Això es fa servir per exemple
 en uns objectes anomentats `Models Gràfics Probabilístics <https://en.wikipedia.org/wiki/Graphical_model>`_.
@@ -432,8 +447,7 @@ Una v.a. :math:`X` és *memoryless* si:
 
 * L'interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops...
 * Aquesta propietat no és tant freqüent com podria semblar.
-* Aquesta f.m.p és interessant per modelar problemes de *temps de vida*, per exemple: fallada d'un component
-electrònic, on la probabilitat de que falli **no canvia amb el temps**.
+* Aquesta f.m.p és interessant per modelar problemes de *temps de vida*, per exemple: fallada d'un component electrònic, on la probabilitat de que falli **no canvia amb el temps**.
 
 Altres v.a. discretes
 -------------------------------------------
@@ -450,17 +464,17 @@ A través dels exemples, fins ara ja hem vist 4 tipus de variables aleatòries d
     Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?
 
 Us recomano donar un cop d'ull pel vostre compte a dues distribucions famoses més,
-la **hipergeomètrica** i la **binomial negativa**. Ara donarem un cop d'ull a la de Poisson.
+la **hipergeomètrica** i la **binomial negativa**. Ara donarem una ullada a la de Poisson.
 
 .. nextslide:: La distribució de Poisson
 
-La distribució de Poisson es pot motivar físicament amb el següent exemple:
+La distribució de Poisson es pot motivar físicament amb el següent exemple. Suposeu volem modelar # de clients que arriben en un interval T:
 
 .. figure::  /_static/0_Intro/poisson_motivation.png
     :height: 300px
     :align: center
 
-* els intervals de temps :math:`\delta t_i` són iguals i prou petits per què :math:`B_i` sigui aproximadament Bernouilli(p)
+* els intervals de temps :math:`\delta t_i = \frac{T}{N}, N \gg 1`, aleshores :math:`B_i` és aproximadament Bernouilli(p)
 * els esdeveniments :math:`B_i` són independents
 
 .. nextslide:: La distribució de Poisson (II)
@@ -486,19 +500,19 @@ Incís sobre les v.a. contínues
 -------------------------------------------
 
 Hem vist que una variable aleatòria contínua es caracteritza per una funció
-de densitat de probabilitat tal que:
+de densitat de probabilitat :math:`f_X` tal que:
 
 :math:`F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt`
 
 per tant tenim que
 
-:math:`P\left(a < X < b\right) = \int_{a}^b f_X\left(t\right)dt`
+:math:`P\left(a < X \leq b\right) = \int_{a}^b f_X\left(t\right)dt`
 
-Una conseqüència d'aquesta definició és el que pot semblar paradoxal:
+Una conseqüència d'aquesta definició quan :math:`b \to a` és el que pot semblar paradoxal:
 
 :math:`P\left(X = x\right) = 0`
 
-ja que pel 3er axioma de Kolmogorov això sembla implicar que
+Pel 3er axioma de Kolmogorov això sembla implicar que
 :math:`P\left(a < X < b\right)`, sent la unió de tots els punts entre a i b, hauria
 de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!
 
@@ -514,6 +528,7 @@ un nombre aleatori dins d'un interval :math:`\left[a, b\right]`:
 
 * Calculem la f.d.c d'una variable uniforme.
 * Doneu un exemple d'un experiment on l'uniforme és un bon model?
+* Com generarieu una variable uniforme amb un ordinador
 
 La família Gamma
 -------------------------------------------
@@ -538,7 +553,7 @@ La família Gamma és important perquè permet modelar una gran varietat d'exper
 relacionada amb altres distribucions:
 
 * Distribució exponencial (si fixem :math:`\alpha=1`): la cosina contínua de la f.m.p geomètrica que hem vist abans
-* Distribució de :math:`\chi^2` (si fixem :math:`\alpha=p/2` i :math:`\beta=2`)
+* Distribució de :math:`\chi^2_p` (si fixem :math:`\alpha=p/2` i :math:`\beta=2`)
 
 La f.d.p de la Gamma per diversos valors de :math:`\alpha` (k a l'imatge) i :math:`\beta` (:math:`\theta` a la figura) `[Font] <https://en.wikipedia.org/wiki/Gamma_distribution>`_
 
@@ -565,4 +580,190 @@ La distribució Normal o Gaussiana és fonamental en estadística, per múltiple
 I què te a veure tot això amb l'estadística?
 --------------------------------------------
 
-Tot!
+.. note::
+
+    Com vem comentar a l'introducció al curs, l'inferència estadística és la ciència d'establir propietats
+    d'una població mitjantçant mostres de la mateixa.
+
+    Els models probabilístics com els que hem vist darrerament són una de les eines que farem servir
+    per fer aquesta feina d'inferència.
+
+
+Vegem un exemple pràctic, el de l'**Experiment 2** (proves d'anticossos).
+
+.. rst-class:: build
+
+1. Com hem dit, l'estadística comença amb la **recollida de mostres** (dades), en aquest cas, realizar tests d'anticossos a 100 persones a l'atzar i anotar-ne el resultat
+
+2. El segon pas en **estadística paramètrica** és la definició d'un model probabilístic que caracteritzi les observacions. Com hem vist abans, un model raonable és que cada una de les 100 mostres és una v.a. de Bernouilli.
+
+3. Ara tenim una col.lecció de mostres, :math:`\left\{x_1, \cdots, x_{100}\right\}`, on cada :math:`x_i\in \left\{0, 1\right\}`, i un model: :math:`P_X\left(X_i=1\right) = p`. L'únic que ens falta per poder fer inferència és trobar el valor de :math:`p` que millor descriu les observacions (Tema 2). Per exemple un estimador raonable seria la mitjana aritmètica :math:`\hat{p}=\frac{1}{100}\sum_i x_i= \frac{\mbox{# de +}}{100}`. Posem que :math:`\hat{p}=0.1`.
+
+.. nextslide::
+
+Amb aquest estimador, obtingut **només a partir de 100 mostres**, i gràcies als resultats que
+veurem en els Temes 1 i 2, ja podríem deduïr propietats de la població en general:
+
+* Veurem que :math:`\hat{p}` és un estimador "sense biaix" de :math:`p`
+* Però també veurem que la variabilitat (ex: variança) de :math:`\hat{p}` decreix amb el nombre de mostres, i potser 100 són massa poques...
+* També veurem com, a partir de :math:`\hat{p}`, podem donar un interval de confiança sobre :math:`p`...
+
+.. rst-class:: note
+
+    Però per tot això primer hem d'aprofundir més en alguns altres conceptes de probabilitat: les transformacions
+    de v.a., l'esperança, les distribucions conjuntes i algunes desigüaltats.
+
+
+Funcions de variables aleatòries
+==========================================
+
+Transformacions afins
+-------------------------------------------
+
+Sovint ens trobarem que el nostre experiment es pot modelar més fàcilment
+com la transformació d'una v.a. :math:`X: \Omega \to \mathcal{X}` mitjantçant una funció
+:math:`g: \mathcal{X}\to\mathcal{Y}`: :math:`Y=g\left(X\right)`
+
+.. note::
+
+    Recordem que :math:`\mathcal{X}` i :math:`\mathcal{Y}` denoten l'espai mostral d':math:`X`
+    i :math:`Y`, respectivament.
+
+Per exemple, una transformació senzilla és l'afí: :math:`Y = a + b X`
+
+En aquest cas, podem expressar la f.d.c :math:`F_Y` en funció de :math:`F_X`:
+
+.. math::
+
+    F_Y\left(y\right) &= P\left( a + b X \leq y \right) \\
+                      &= P\left( X \leq \frac{y - a}{b} \right) \\
+                      &= F_X\left(\frac{y - a}{b} \right)
+
+.. rst-class:: note
+
+    Exercici: Fent servir aquesta identitat, demostreu que si :math:`X \sim \mathcal{N}\left(\mu, \sigma\right)`, :math:`Y = \frac{X - \mu}{\sigma} \sim \mathcal{N}\left(0, 1\right)`
+
+
+Cas genèric
+-------------------------------------------
+
+Per una funció genèrica, :math:`g: \mathcal{X}\to\mathcal{Y}`,
+no serà tan senzill caracteritzar la f.d.c de :math:`Y` en funció de la d':math:`X`.
+
+Sota unes condicions tècniques relativament generals, podrem definir una funció de
+probabilitat el conjunt d'esdeveniments associat a l'espai mostral :math:`\mathcal{Y}` com segueix:
+
+.. math::
+
+    P\left(Y \in A\right) & = P\left(\left\{x \in \mathcal{X}: g\left(x\right) \in A \right\}\right) \\
+                          & = P\left(X \in g^{-1}\left(A\right)\right)
+
+on definim el mapa invers :math:`g^{-1}\left(A\right) = \left\{ x\in \mathcal{X}: g(x) \in A\right\}` [Casella & Berger 2.1.1]
+
+.. nextslide:: Il.lustració de l'identitat anterior
+
+Vegem la relació entre els tres espais mostrals mitjantçant un diagrama:
+
+.. figure::  /_static/0_Intro/transformation.png
+    :height: 280px
+    :align: center
+
+    :math:`P\left(Y \in A\right) = P\left(X \in g^{-1}\left(A\right)\right) = P\left(\left\{ s \in \Omega: X(s) \in g^{-1}\left(A\right) \right\}\right)`
+
+.. rst-class:: note
+
+    Sortosament, normalment no haurem de raonar directament sobre :math:`\Omega`, ja que en molts casos
+    podrem caracteritzar :math:`Y` en base a la f.d.c d':math:`X`.
+
+
+F.d.c i transformacions monòtones
+-------------------------------------------
+
+En general, la f.d.c. d':math:`Y` vé donada per l'expressió [Casella & Berger 2.1.4]:
+
+.. math::
+
+    F_Y\left(y\right) &= P\left( g\left(X\right) \leq y \right) \\
+                      & = P_X\left(\left\{x \in \mathcal{X}: g\left(x\right) \leq y \right\}\right)
+
+
+En el cas que la funció :math:`g: \mathcal{X}\to\mathcal{Y}` sigui monòtona stricta (creixent o decreixent),
+tindrem que és injectiva i surjectiva, i per tant podem definir :math:`g^{-1}: \mathcal{Y}\to\mathcal{X}`
+associant un únic x a cada y. Per exemple, en el cas monòton creixent:
+
+.. math::
+
+    \left\{x \in \mathcal{X}: g\left(x\right) \leq y \right\} & =  \left\{x \in \mathcal{X}: x \leq g^{-1}\left(y\right) \right\} \\
+
+Per tant podem simplicar l'expressió [Casella & Berger 2.1.3]: :math:`F_Y\left(y\right) =F_x\left(g^{-1}\left(y\right)\right)`
+
+
+Transformacions monòtones i diferenciables
+-------------------------------------------
+
+Si a més de centrar-nos en transformacions monòtones,
+ens restringim a v.a's contínues i a transformacions diferenciables, tenim que:
+
+.. math::
+
+    F_Y\left(y\right) &= F_x\left(g^{-1}\left(y\right)\right) \\
+
+són diferenciables, i aplicant la regla de la cadena arribem al famós resultat de la "transformació per Jacobià" [Casella & Berger 2.1.5]:
+
+.. math::
+
+    f_Y\left(y\right) &= f_x\left(g^{-1}\left(y\right)\right)\left|\frac{d g^{-1}\left(y\right)}{dy} \right| \\
+
+expressió vàlida per :math:`y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}`
+on :math:`\mathcal{X} = \left\{x : f_X\left(x\right) > 0 \right\}`.
+
+.. rst-class:: note
+
+    Veure [Casella & Berger 2.1.8] per una extensió on la funció :math:`g` és monòtona només sobre alguns intervals!
+
+
+.. nextslide:: Aplicació: derivació de la distribució de :math:`\chi^2_1`
+
+Veiem aquí un exemple de com el resultat anterior es pot extendre a transformacions
+no monòtones interessants en estadística. Considerarem la distribució de la transformació (contínua i diferenciable)
+
+:math:`Y = X^2`
+
+quan :math:`X \sim \mathcal{N}\left(0, 1\right)`. Observem que:
+
+.. math::
+
+    F_Y\left(y\right) &= P_X\left(-\sqrt{y} \leq X \leq \sqrt{y}\right) \\
+                      &= P_X\left(X \leq \sqrt{y}\right) - P_X\left(X \leq -\sqrt{y}\right) \\
+                      &= F_X\left(\sqrt{y}\right) - F_X\left(-\sqrt{y}\right)
+
+Diferenciant i fent servir la simetria de :math:`F_X\left(x\right)` respecte 0, obtenim:
+
+:math:`f_y\left(y\right) = y^{-\frac{1}{2}} F_X\left(\sqrt{y}\right) = \frac{y^{-\frac{1}{2}}}{\sqrt{2\pi}} e^{-\frac{y}{2}}`,
+que podem identificar amb la Gamma si fixem :math:`\alpha=1/2` i :math:`\beta=2`, que és
+la :math:`\chi^2_1`.
+
+Transformació integral
+-------------------------------------------
+
+L'última transformació que veurem
+
+
+Esperança i moments
+==========================================
+
+
+Esperança
+-------------
+
+L'esperança d'una v.a. :math:`g\left(X\right)` es defineix com:
+
+* Cas continu: :math:`E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty} g\left(x\right)f_X\left(x\right)dx`
+* Cas discret: :math:`E\left(g\left(X\right)\right) = \sum_{k} g\left(k\right)p_X\left(k\right)`
+
+
+Esperança
+-------------
+
+
+

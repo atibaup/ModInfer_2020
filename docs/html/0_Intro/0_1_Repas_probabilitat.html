@@ -211,12 +211,20 @@ subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cd
 <div class="section" id="variable-aleatoria">
 <h3><span class="section-number">2.3.1. </span>Variable aleatòria<a class="headerlink" href="#variable-aleatoria" title="Permalink to this headline">¶</a></h3>
 <p class="note"><strong>Definició</strong> Una variable aleatòria (<em>v.a.</em> pels amics) és una funció <span class="math notranslate nohighlight">\(X : \Omega \to \mathcal{X} \subseteq \mathbb{R}\)</span>.</p>
-<p>Podem doncs definir una funció de probabilitat:</p>
+<p>Podem doncs definir una funció de probabilitat [Casella &amp; Berger 1.4.2]:</p>
 <p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span></p>
 <p>que satisfà els axiomes de Kolmogorov. Aquesta definició es pot especialitzar
 quan <span class="math notranslate nohighlight">\(\Omega, \mathcal{X}\)</span> són contables:</p>
 <p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p>
 <p class="note">Enlloc de treballar amb <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/v.a.png"><img alt="../_images/v.a.png" src="../_images/v.a.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Diagrama explicatiu de la identitat <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span>.
+Podem caracteritzar l’esdeveniment <span class="math notranslate nohighlight">\(X \in A\)</span> relatiu a una v.a. <span class="math notranslate nohighlight">\(X\)</span> en funció de l’esdeveniment <span class="math notranslate nohighlight">\(\left\{s\in \Omega: X\left(s\right) \in A \right\}\)</span>
+en l’espai mostral d’orígen. En aquest curs no ho tindrem en compte, però en realitat
+no totes les funcions <span class="math notranslate nohighlight">\(X : \Omega \to \mathcal{X} \subseteq \mathbb{R}\)</span> són admissibles,
+només les <a class="reference external" href="https://en.wikipedia.org/wiki/Measurable_function">mesurables</a>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p>Per entendre un concepte, sempre va bé intentar reflexionar primer sobre
 els casos més extremadament simples.</p>
 <ul class="simple">
@@ -226,7 +234,7 @@ els casos més extremadament simples.</p>
 <li><p>R: La v.a. de Bernouilli, definida com <span class="math notranslate nohighlight">\(X : \Omega \to \left\{0, 1\right\}\)</span></p></li>
 </ul>
 <p>Aplicant la definició anterior, tenim que la v.a. de Bernouilli està completament
-caracterizada per <span class="math notranslate nohighlight">\(p = \left\{s\in \Omega: X\left(s\right) = 1\right\}\)</span></p>
+caracterizada per un sol paràmetre <span class="math notranslate nohighlight">\(p = P\left(\left\{s\in \Omega: X\left(s\right) = 1\right\}\right)\)</span></p>
 <p>Revisitem l’<strong>Experiment 2</strong> anterior (escollim 100 persones i fem una prova d’anticossos per SARS-COV-2)</p>
 <ul class="simple">
 <li><p>Teniem que <span class="math notranslate nohighlight">\(\Omega = \left\{+, -\right\}^{100}\)</span></p></li>
@@ -267,6 +275,7 @@ succeeix amb probabilitat <span class="math notranslate nohighlight">\(p^k\left(
 <ul class="simple">
 <li><p><strong>Cas discret</strong>: <span class="math notranslate nohighlight">\(p_X\left(k\right) = P_X\left(X=k\right)\)</span> (noteu que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \sum_{k=-\infty}^{x}p_X\left(k\right))\)</span>)</p></li>
 <li><p><strong>Cas “continu”</strong>: La funció <span class="math notranslate nohighlight">\(f_X\)</span> tal que <span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></p></li>
+<li><p><strong>Cas “mixte”</strong>:  No les podrem caracteritzar amb una f.m.p o una f.d.p, però recordeu que existeixen v.a. que no són discretes ni contínues!</p></li>
 </ul>
 <p class="note">Aquí ens desviem una mica de la notació de [Casella &amp; Berger] al fer servir <span class="math notranslate nohighlight">\(p_X\)</span> enlloc de <span class="math notranslate nohighlight">\(f_X\)</span> per la f.m.p.</p>
 <div class="admonition warning">
@@ -277,10 +286,10 @@ succeeix amb probabilitat <span class="math notranslate nohighlight">\(p^k\left(
 és una f.d.p (f.m.p) si i només si [Casella &amp; Berger 1.6.5]:</p>
 <ol class="loweralpha simple">
 <li><p><span class="math notranslate nohighlight">\(f_X\left(x\right) \geq 0, \forall x\)</span> (<span class="math notranslate nohighlight">\(p_X\left(k\right) \geq 0, \forall k\)</span>)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\int_{\infty}^{\infty} f_X\left(x\right)dx = 1\)</span> (<span class="math notranslate nohighlight">\(\sum_{\infty}^{\infty} p_X\left(k\right) = 1\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{\infty}^{-\infty} f_X\left(x\right)dx = 1\)</span> (<span class="math notranslate nohighlight">\(\sum_{\infty}^{\infty} p_X\left(k\right) = 1\)</span>)</p></li>
 </ol>
 <p>Per tant podem construir una f.d.p. a partir de qualsevol funció <span class="math notranslate nohighlight">\(h\left(x\right)\)</span> no-negativa, definint:</p>
-<p><span class="math notranslate nohighlight">\(K = \int_{\infty}^{\infty} h\left(x\right)dx\)</span> (també coneguda com <em>funció de partició</em>)</p>
+<p><span class="math notranslate nohighlight">\(K = \int_{-\infty}^{\infty} h\left(x\right)dx\)</span> (també coneguda com <em>funció de partició</em>)</p>
 <p>i <span class="math notranslate nohighlight">\(f_X\left(x\right) = \frac{h\left(x\right)}{K}\)</span>. Això es fa servir per exemple
 en uns objectes anomentats <a class="reference external" href="https://en.wikipedia.org/wiki/Graphical_model">Models Gràfics Probabilístics</a>.</p>
 </div>
@@ -312,9 +321,8 @@ ser una f.d.c.</p>
 <ul class="simple">
 <li><p>L’interpretació de la propietat és interessant, per exemple, en el contexte de la loteria: No haver guanyat després de jugar 10 cops no incrementa la probabilitat que guanyem en els següents 10 cops…</p></li>
 <li><p>Aquesta propietat no és tant freqüent com podria semblar.</p></li>
-<li><p>Aquesta f.m.p és interessant per modelar problemes de <em>temps de vida</em>, per exemple: fallada d’un component</p></li>
+<li><p>Aquesta f.m.p és interessant per modelar problemes de <em>temps de vida</em>, per exemple: fallada d’un component electrònic, on la probabilitat de que falli <strong>no canvia amb el temps</strong>.</p></li>
 </ul>
-<p>electrònic, on la probabilitat de que falli <strong>no canvia amb el temps</strong>.</p>
 </div>
 <div class="section" id="altres-v-a-discretes">
 <h3><span class="section-number">2.3.5. </span>Altres v.a. discretes<a class="headerlink" href="#altres-v-a-discretes" title="Permalink to this headline">¶</a></h3>
@@ -327,13 +335,13 @@ ser una f.d.c.</p>
 </ul>
 <p class="note">Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?</p>
 <p>Us recomano donar un cop d’ull pel vostre compte a dues distribucions famoses més,
-la <strong>hipergeomètrica</strong> i la <strong>binomial negativa</strong>. Ara donarem un cop d’ull a la de Poisson.</p>
-<p>La distribució de Poisson es pot motivar físicament amb el següent exemple:</p>
+la <strong>hipergeomètrica</strong> i la <strong>binomial negativa</strong>. Ara donarem una ullada a la de Poisson.</p>
+<p>La distribució de Poisson es pot motivar físicament amb el següent exemple. Suposeu volem modelar # de clients que arriben en un interval T:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/poisson_motivation.png"><img alt="../_images/poisson_motivation.png" src="../_images/poisson_motivation.png" style="height: 300px;" /></a>
 </div>
 <ul class="simple">
-<li><p>els intervals de temps <span class="math notranslate nohighlight">\(\delta t_i\)</span> són iguals i prou petits per què <span class="math notranslate nohighlight">\(B_i\)</span> sigui aproximadament Bernouilli(p)</p></li>
+<li><p>els intervals de temps <span class="math notranslate nohighlight">\(\delta t_i = \frac{T}{N}, N \gg 1\)</span>, aleshores <span class="math notranslate nohighlight">\(B_i\)</span> és aproximadament Bernouilli(p)</p></li>
 <li><p>els esdeveniments <span class="math notranslate nohighlight">\(B_i\)</span> són independents</p></li>
 </ul>
 <p>Per tant <span class="math notranslate nohighlight">\(X\)</span> és aproximadament <span class="math notranslate nohighlight">\(\mbox{Binomial}\left(N, p\right)\)</span> on N és el nombre d’intervals en el periòde.</p>
@@ -349,13 +357,13 @@ mantenint el nombre mig d’arribades per interval de temps fixe, que anomenarem
 <div class="section" id="incis-sobre-les-v-a-continues">
 <h3><span class="section-number">2.3.6. </span>Incís sobre les v.a. contínues<a class="headerlink" href="#incis-sobre-les-v-a-continues" title="Permalink to this headline">¶</a></h3>
 <p>Hem vist que una variable aleatòria contínua es caracteritza per una funció
-de densitat de probabilitat tal que:</p>
+de densitat de probabilitat <span class="math notranslate nohighlight">\(f_X\)</span> tal que:</p>
 <p><span class="math notranslate nohighlight">\(F_X\left(x\right) = \int_{-\infty}^x f_X\left(t\right)dt\)</span></p>
 <p>per tant tenim que</p>
-<p><span class="math notranslate nohighlight">\(P\left(a &lt; X &lt; b\right) = \int_{a}^b f_X\left(t\right)dt\)</span></p>
-<p>Una conseqüència d’aquesta definició és el que pot semblar paradoxal:</p>
+<p><span class="math notranslate nohighlight">\(P\left(a &lt; X \leq b\right) = \int_{a}^b f_X\left(t\right)dt\)</span></p>
+<p>Una conseqüència d’aquesta definició quan <span class="math notranslate nohighlight">\(b \to a\)</span> és el que pot semblar paradoxal:</p>
 <p><span class="math notranslate nohighlight">\(P\left(X = x\right) = 0\)</span></p>
-<p>ja que pel 3er axioma de Kolmogorov això sembla implicar que
+<p>Pel 3er axioma de Kolmogorov això sembla implicar que
 <span class="math notranslate nohighlight">\(P\left(a &lt; X &lt; b\right)\)</span>, sent la unió de tots els punts entre a i b, hauria
 de ser també 0. La paradoxa es resol si recordem que el 3er axioma només contempla unions contables!</p>
 </div>
@@ -368,6 +376,7 @@ un nombre aleatori dins d’un interval <span class="math notranslate nohighligh
 <ul class="simple">
 <li><p>Calculem la f.d.c d’una variable uniforme.</p></li>
 <li><p>Doneu un exemple d’un experiment on l’uniforme és un bon model?</p></li>
+<li><p>Com generarieu una variable uniforme amb un ordinador</p></li>
 </ul>
 </div>
 <div class="section" id="la-familia-gamma">
@@ -383,7 +392,7 @@ un nombre aleatori dins d’un interval <span class="math notranslate nohighligh
 relacionada amb altres distribucions:</p>
 <ul class="simple">
 <li><p>Distribució exponencial (si fixem <span class="math notranslate nohighlight">\(\alpha=1\)</span>): la cosina contínua de la f.m.p geomètrica que hem vist abans</p></li>
-<li><p>Distribució de <span class="math notranslate nohighlight">\(\chi^2\)</span> (si fixem <span class="math notranslate nohighlight">\(\alpha=p/2\)</span> i <span class="math notranslate nohighlight">\(\beta=2\)</span>)</p></li>
+<li><p>Distribució de <span class="math notranslate nohighlight">\(\chi^2_p\)</span> (si fixem <span class="math notranslate nohighlight">\(\alpha=p/2\)</span> i <span class="math notranslate nohighlight">\(\beta=2\)</span>)</p></li>
 </ul>
 <p>La f.d.p de la Gamma per diversos valors de <span class="math notranslate nohighlight">\(\alpha\)</span> (k a l’imatge) i <span class="math notranslate nohighlight">\(\beta\)</span> (<span class="math notranslate nohighlight">\(\theta\)</span> a la figura) <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">[Font]</a></p>
 <div class="figure align-center">
@@ -405,7 +414,123 @@ relacionada amb altres distribucions:</p>
 </div>
 <div class="section" id="i-que-te-a-veure-tot-aixo-amb-l-estadistica">
 <h3><span class="section-number">2.3.10. </span>I què te a veure tot això amb l’estadística?<a class="headerlink" href="#i-que-te-a-veure-tot-aixo-amb-l-estadistica" title="Permalink to this headline">¶</a></h3>
-<p>Tot!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Com vem comentar a l’introducció al curs, l’inferència estadística és la ciència d’establir propietats
+d’una població mitjantçant mostres de la mateixa.</p>
+<p>Els models probabilístics com els que hem vist darrerament són una de les eines que farem servir
+per fer aquesta feina d’inferència.</p>
+</div>
+<p>Vegem un exemple pràctic, el de l’<strong>Experiment 2</strong> (proves d’anticossos).</p>
+<ol class="build arabic simple">
+<li><p>Com hem dit, l’estadística comença amb la <strong>recollida de mostres</strong> (dades), en aquest cas, realizar tests d’anticossos a 100 persones a l’atzar i anotar-ne el resultat</p></li>
+<li><p>El segon pas en <strong>estadística paramètrica</strong> és la definició d’un model probabilístic que caracteritzi les observacions. Com hem vist abans, un model raonable és que cada una de les 100 mostres és una v.a. de Bernouilli.</p></li>
+<li><p>Ara tenim una col.lecció de mostres, <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_{100}\right\}\)</span>, on cada <span class="math notranslate nohighlight">\(x_i\in \left\{0, 1\right\}\)</span>, i un model: <span class="math notranslate nohighlight">\(P_X\left(X_i=1\right) = p\)</span>. L’únic que ens falta per poder fer inferència és trobar el valor de <span class="math notranslate nohighlight">\(p\)</span> que millor descriu les observacions (Tema 2). Per exemple un estimador raonable seria la mitjana aritmètica <span class="math notranslate nohighlight">\(\hat{p}=\frac{1}{100}\sum_i x_i= \frac{\mbox{# de +}}{100}\)</span>. Posem que <span class="math notranslate nohighlight">\(\hat{p}=0.1\)</span>.</p></li>
+</ol>
+<p>Amb aquest estimador, obtingut <strong>només a partir de 100 mostres</strong>, i gràcies als resultats que
+veurem en els Temes 1 i 2, ja podríem deduïr propietats de la població en general:</p>
+<ul class="simple">
+<li><p>Veurem que <span class="math notranslate nohighlight">\(\hat{p}\)</span> és un estimador “sense biaix” de <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Però també veurem que la variabilitat (ex: variança) de <span class="math notranslate nohighlight">\(\hat{p}\)</span> decreix amb el nombre de mostres, i potser 100 són massa poques…</p></li>
+<li><p>També veurem com, a partir de <span class="math notranslate nohighlight">\(\hat{p}\)</span>, podem donar un interval de confiança sobre <span class="math notranslate nohighlight">\(p\)</span>…</p></li>
+</ul>
+<p class="note">Però per tot això primer hem d’aprofundir més en alguns altres conceptes de probabilitat: les transformacions
+de v.a., l’esperança, les distribucions conjuntes i algunes desigüaltats.</p>
+</div>
+</div>
+<div class="section" id="funcions-de-variables-aleatories">
+<h2><span class="section-number">2.4. </span>Funcions de variables aleatòries<a class="headerlink" href="#funcions-de-variables-aleatories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transformacions-afins">
+<h3><span class="section-number">2.4.1. </span>Transformacions afins<a class="headerlink" href="#transformacions-afins" title="Permalink to this headline">¶</a></h3>
+<p>Sovint ens trobarem que el nostre experiment es pot modelar més fàcilment
+com la transformació d’una v.a. <span class="math notranslate nohighlight">\(X: \Omega \to \mathcal{X}\)</span> mitjantçant una funció
+<span class="math notranslate nohighlight">\(g: \mathcal{X}\to\mathcal{Y}\)</span>: <span class="math notranslate nohighlight">\(Y=g\left(X\right)\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recordem que <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> i <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> denoten l’espai mostral d’<span class="math notranslate nohighlight">\(X\)</span>
+i <span class="math notranslate nohighlight">\(Y\)</span>, respectivament.</p>
+</div>
+<p>Per exemple, una transformació senzilla és l’afí: <span class="math notranslate nohighlight">\(Y = a + b X\)</span></p>
+<p>En aquest cas, podem expressar la f.d.c <span class="math notranslate nohighlight">\(F_Y\)</span> en funció de <span class="math notranslate nohighlight">\(F_X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_Y\left(y\right) &amp;= P\left( a + b X \leq y \right) \\
+                  &amp;= P\left( X \leq \frac{y - a}{b} \right) \\
+                  &amp;= F_X\left(\frac{y - a}{b} \right)\end{split}\]</div>
+<p class="note">Exercici: Fent servir aquesta identitat, demostreu que si <span class="math notranslate nohighlight">\(X \sim \mathcal{N}\left(\mu, \sigma\right)\)</span>, <span class="math notranslate nohighlight">\(Y = \frac{X - \mu}{\sigma} \sim \mathcal{N}\left(0, 1\right)\)</span></p>
+</div>
+<div class="section" id="cas-generic">
+<h3><span class="section-number">2.4.2. </span>Cas genèric<a class="headerlink" href="#cas-generic" title="Permalink to this headline">¶</a></h3>
+<p>Per una funció genèrica, <span class="math notranslate nohighlight">\(g: \mathcal{X}\to\mathcal{Y}\)</span>,
+no serà tan senzill caracteritzar la f.d.c de <span class="math notranslate nohighlight">\(Y\)</span> en funció de la d’<span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Sota unes condicions tècniques relativament generals, podrem definir una funció de
+probabilitat el conjunt d’esdeveniments associat a l’espai mostral <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> com segueix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(Y \in A\right) &amp; = P\left(\left\{x \in \mathcal{X}: g\left(x\right) \in A \right\}\right) \\
+                      &amp; = P\left(X \in g^{-1}\left(A\right)\right)\end{split}\]</div>
+<p>on definim el mapa invers <span class="math notranslate nohighlight">\(g^{-1}\left(A\right) = \left\{ x\in \mathcal{X}: g(x) \in A\right\}\)</span> [Casella &amp; Berger 2.1.1]</p>
+<p>Vegem la relació entre els tres espais mostrals mitjantçant un diagrama:</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/transformation.png"><img alt="../_images/transformation.png" src="../_images/transformation.png" style="height: 280px;" /></a>
+<p class="caption"><span class="caption-text"><span class="math notranslate nohighlight">\(P\left(Y \in A\right) = P\left(X \in g^{-1}\left(A\right)\right) = P\left(\left\{ s \in \Omega: X(s) \in g^{-1}\left(A\right) \right\}\right)\)</span></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p class="note">Sortosament, normalment no haurem de raonar directament sobre <span class="math notranslate nohighlight">\(\Omega\)</span>, ja que en molts casos
+podrem caracteritzar <span class="math notranslate nohighlight">\(Y\)</span> en base a la f.d.c d’<span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+<div class="section" id="f-d-c-i-transformacions-monotones">
+<h3><span class="section-number">2.4.3. </span>F.d.c i transformacions monòtones<a class="headerlink" href="#f-d-c-i-transformacions-monotones" title="Permalink to this headline">¶</a></h3>
+<p>En general, la f.d.c. d’<span class="math notranslate nohighlight">\(Y\)</span> vé donada per l’expressió [Casella &amp; Berger 2.1.4]:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_Y\left(y\right) &amp;= P\left( g\left(X\right) \leq y \right) \\
+                  &amp; = P_X\left(\left\{x \in \mathcal{X}: g\left(x\right) \leq y \right\}\right)\end{split}\]</div>
+<p>En el cas que la funció <span class="math notranslate nohighlight">\(g: \mathcal{X}\to\mathcal{Y}\)</span> sigui monòtona stricta (creixent o decreixent),
+tindrem que és injectiva i surjectiva, i per tant podem definir <span class="math notranslate nohighlight">\(g^{-1}: \mathcal{Y}\to\mathcal{X}\)</span>
+associant un únic x a cada y. Per exemple, en el cas monòton creixent:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{x \in \mathcal{X}: g\left(x\right) \leq y \right\} &amp; =  \left\{x \in \mathcal{X}: x \leq g^{-1}\left(y\right) \right\} \\\end{split}\]</div>
+<p>Per tant podem simplicar l’expressió [Casella &amp; Berger 2.1.3]: <span class="math notranslate nohighlight">\(F_Y\left(y\right) =F_x\left(g^{-1}\left(y\right)\right)\)</span></p>
+</div>
+<div class="section" id="transformacions-monotones-i-diferenciables">
+<h3><span class="section-number">2.4.4. </span>Transformacions monòtones i diferenciables<a class="headerlink" href="#transformacions-monotones-i-diferenciables" title="Permalink to this headline">¶</a></h3>
+<p>Si a més de centrar-nos en transformacions monòtones,
+ens restringim a v.a’s contínues i a transformacions diferenciables, tenim que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_Y\left(y\right) &amp;= F_x\left(g^{-1}\left(y\right)\right) \\\end{split}\]</div>
+<p>són diferenciables, i aplicant la regla de la cadena arribem al famós resultat de la “transformació per Jacobià” [Casella &amp; Berger 2.1.5]:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_Y\left(y\right) &amp;= f_x\left(g^{-1}\left(y\right)\right)\left|\frac{d g^{-1}\left(y\right)}{dy} \right| \\\end{split}\]</div>
+<p>expressió vàlida per <span class="math notranslate nohighlight">\(y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}\)</span>
+on <span class="math notranslate nohighlight">\(\mathcal{X} = \left\{x : f_X\left(x\right) &gt; 0 \right\}\)</span>.</p>
+<p class="note">Veure [Casella &amp; Berger 2.1.8] per una extensió on la funció <span class="math notranslate nohighlight">\(g\)</span> és monòtona només sobre alguns intervals!</p>
+<p>Veiem aquí un exemple de com el resultat anterior es pot extendre a transformacions
+no monòtones interessants en estadística. Considerarem la distribució de la transformació (contínua i diferenciable)</p>
+<p><span class="math notranslate nohighlight">\(Y = X^2\)</span></p>
+<p>quan <span class="math notranslate nohighlight">\(X \sim \mathcal{N}\left(0, 1\right)\)</span>. Observem que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_Y\left(y\right) &amp;= P_X\left(-\sqrt{y} \leq X \leq \sqrt{y}\right) \\
+                  &amp;= P_X\left(X \leq \sqrt{y}\right) - P_X\left(X \leq -\sqrt{y}\right) \\
+                  &amp;= F_X\left(\sqrt{y}\right) - F_X\left(-\sqrt{y}\right)\end{split}\]</div>
+<p>Diferenciant i fent servir la simetria de <span class="math notranslate nohighlight">\(F_X\left(x\right)\)</span> respecte 0, obtenim:</p>
+<p><span class="math notranslate nohighlight">\(f_y\left(y\right) = y^{-\frac{1}{2}} F_X\left(\sqrt{y}\right) = \frac{y^{-\frac{1}{2}}}{\sqrt{2\pi}} e^{-\frac{y}{2}}\)</span>,
+que podem identificar amb la Gamma si fixem <span class="math notranslate nohighlight">\(\alpha=1/2\)</span> i <span class="math notranslate nohighlight">\(\beta=2\)</span>, que és
+la <span class="math notranslate nohighlight">\(\chi^2_1\)</span>.</p>
+</div>
+<div class="section" id="transformacio-integral">
+<h3><span class="section-number">2.4.5. </span>Transformació integral<a class="headerlink" href="#transformacio-integral" title="Permalink to this headline">¶</a></h3>
+<p>L’última transformació que veurem</p>
+</div>
+</div>
+<div class="section" id="esperanca-i-moments">
+<h2><span class="section-number">2.5. </span>Esperança i moments<a class="headerlink" href="#esperanca-i-moments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="esperanca">
+<h3><span class="section-number">2.5.1. </span>Esperança<a class="headerlink" href="#esperanca" title="Permalink to this headline">¶</a></h3>
+<p>L’esperança d’una v.a. <span class="math notranslate nohighlight">\(g\left(X\right)\)</span> es defineix com:</p>
+<ul class="simple">
+<li><p>Cas continu: <span class="math notranslate nohighlight">\(E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty} g\left(x\right)f_X\left(x\right)dx\)</span></p></li>
+<li><p>Cas discret: <span class="math notranslate nohighlight">\(E\left(g\left(X\right)\right) = \sum_{k} g\left(k\right)p_X\left(k\right)\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">2.5.2. </span>Esperança<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -444,6 +569,19 @@ relacionada amb altres distribucions:</p>
 <li><a class="reference internal" href="#la-familia-gamma">2.3.8. La família Gamma</a></li>
 <li><a class="reference internal" href="#la-familia-normal">2.3.9. La família “Normal”</a></li>
 <li><a class="reference internal" href="#i-que-te-a-veure-tot-aixo-amb-l-estadistica">2.3.10. I què te a veure tot això amb l’estadística?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funcions-de-variables-aleatories">2.4. Funcions de variables aleatòries</a><ul>
+<li><a class="reference internal" href="#transformacions-afins">2.4.1. Transformacions afins</a></li>
+<li><a class="reference internal" href="#cas-generic">2.4.2. Cas genèric</a></li>
+<li><a class="reference internal" href="#f-d-c-i-transformacions-monotones">2.4.3. F.d.c i transformacions monòtones</a></li>
+<li><a class="reference internal" href="#transformacions-monotones-i-diferenciables">2.4.4. Transformacions monòtones i diferenciables</a></li>
+<li><a class="reference internal" href="#transformacio-integral">2.4.5. Transformació integral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#esperanca-i-moments">2.5. Esperança i moments</a><ul>
+<li><a class="reference internal" href="#esperanca">2.5.1. Esperança</a></li>
+<li><a class="reference internal" href="#id1">2.5.2. Esperança</a></li>
 </ul>
 </li>
 </ul>
