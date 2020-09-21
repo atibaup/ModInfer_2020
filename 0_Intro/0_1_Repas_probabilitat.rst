@@ -335,6 +335,19 @@ Per tant deduïm que :math:`P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\righ
 
     Què passa si alguns individus són membres d'una mateixa família?
 
+.. nextslide:: Qüestionari de repàs
+    :increment:
+
+.. rst-class:: note
+
+1. Donat un espai mostral :math:`\Omega`, quin seria el conjunt d'esdeveniments més "petit"?
+
+2. Si :math:`A \cap B = \emptyset`, vol dir que A, B són esdeveniments independents?
+
+3. Quin és l'espai mostral d'una v.a. :math:`X: \Omega \to \mathcal{X}`?
+
+4. Quina és la probabilitat de la seqüència [+,-,+,-] si :math:`P\left(+\right)=0.3` i cada esdeveniment +/- és mutualment independent?
+
 
 .. nextslide:: Exemple de variable aleatòria contínua
     :increment:
@@ -342,7 +355,7 @@ Per tant deduïm que :math:`P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\righ
 Revisitem l'**Experiment 3**. Escollim un estudiant d'aquesta classe i aquest cop mesurem la raó alçada/pes:
 
 * :math:`\Omega = \left(0, \infty \right) \times \left(0, \infty \right)`
-* :math:`Z: (x, y) \in \Omega \to \frac{x}{y}`
+* :math:`Z: (x, y) \in \Omega \to \frac{x}{y} \in \left(0, \infty \right)`
 * Com calculariem :math:`P_Z\left(Z \in A\right)`? *Necessitarem de fer alguna suposició addicional sobre les v.a. X i Y*
 
 .. rst-class:: note
@@ -461,7 +474,7 @@ A través dels exemples, fins ara ja hem vist 4 tipus de variables aleatòries d
 
 .. rst-class:: note
 
-    Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?
+    Exercici: podeu trobar un experiment "físic" que es correspongui a cada una de les v.a. anteriors?
 
 Us recomano donar un cop d'ull pel vostre compte a dues distribucions famoses més,
 la **hipergeomètrica** i la **binomial negativa**. Ara donarem una ullada a la de Poisson.
@@ -528,7 +541,12 @@ un nombre aleatori dins d'un interval :math:`\left[a, b\right]`:
 
 * Calculem la f.d.c d'una variable uniforme.
 * Doneu un exemple d'un experiment on l'uniforme és un bon model?
-* Com generarieu una variable uniforme amb un ordinador
+* Com generarieu una variable uniforme amb un ordinador?
+
+.. rst-class::
+
+    Irònicament, i potser contraintuïtivament, l'aleatorietat és molt difícil de generar!
+
 
 La família Gamma
 -------------------------------------------
@@ -606,12 +624,12 @@ veurem en els Temes 1 i 2, ja podríem deduïr propietats de la població en gen
 
 * Veurem que :math:`\hat{p}` és un estimador "sense biaix" de :math:`p`
 * Però també veurem que la variabilitat (ex: variança) de :math:`\hat{p}` decreix amb el nombre de mostres, i potser 100 són massa poques...
-* També veurem com, a partir de :math:`\hat{p}`, podem donar un interval de confiança sobre :math:`p`...
+* També veurem com, a partir de :math:`\hat{p}`, podem donar un interval de confiança sobre :math:`p` (ja hem vist que :math:`\sum_i x_i \sim \mbox{Binomial}\left(p, 100 \right)`...)
 
 .. rst-class:: note
 
     Però per tot això primer hem d'aprofundir més en alguns altres conceptes de probabilitat: les transformacions
-    de v.a., l'esperança, les distribucions conjuntes i algunes desigüaltats.
+    de v.a., l'esperança, les distribucions conjuntes i algunes desigualtats.
 
 
 Funcions de variables aleatòries
@@ -701,12 +719,12 @@ Per tant podem simplicar l'expressió [Casella & Berger 2.1.3]: :math:`F_Y\left(
 Transformacions monòtones i diferenciables
 -------------------------------------------
 
-Si a més de centrar-nos en transformacions monòtones,
-ens restringim a v.a's contínues i a transformacions diferenciables, tenim que:
+Si ens restringim a v.a's contínues i a transformacions estrictament monòtones diferenciables:
 
 .. math::
 
-    F_Y\left(y\right) &= F_x\left(g^{-1}\left(y\right)\right) \\
+    F_Y\left(y\right) &= F_x\left(g^{-1}\left(y\right)\right) \mbox{(g creixent)} \\
+    F_Y\left(y\right) &= 1 - F_x\left(g^{-1}\left(y\right)\right) \mbox{(g decreixent)}\\
 
 són diferenciables, i aplicant la regla de la cadena arribem al famós resultat de la "transformació per Jacobià" [Casella & Berger 2.1.5]:
 
@@ -714,7 +732,7 @@ són diferenciables, i aplicant la regla de la cadena arribem al famós resultat
 
     f_Y\left(y\right) &= f_x\left(g^{-1}\left(y\right)\right)\left|\frac{d g^{-1}\left(y\right)}{dy} \right| \\
 
-expressió vàlida per :math:`y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}`
+:math:`\forall y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}`
 on :math:`\mathcal{X} = \left\{x : f_X\left(x\right) > 0 \right\}`.
 
 .. rst-class:: note
@@ -746,8 +764,22 @@ la :math:`\chi^2_1`.
 Transformació integral
 -------------------------------------------
 
-L'última transformació que veurem
+L'última transformació que veurem inspirarà un
+algoritme per generar mostres de v.a. contínues amb distribucions
+arbitràries (ho veurem a la primera pràctica).
 
+.. rst-class:: note
+
+    [Casella & Berger 2.1.10] Sigui :math:`X` una v.a. contínua caracteritzada per :math:`F_X`. Aleshores
+    la v.a. :math:`Y = F_X\left(X\right)` és uniforme entre :math:`\left[0, 1\right]`
+
+La demostració passa per la definició de la funció:
+
+:math:`F_X^{-1}\left(y\right) = \left\{\begin{array}{cc} \inf \left\{x : F\left(x\right) \geq y \right\} & y \in \left(0, 1\right) \\ \infty & y=1 \\ -\infty & y = 0 \end{array}\right.`
+
+I observant que (compte amb el segon "="!):
+
+:math:`P\left(Y \leq y \right) = P\left(F_X\left(X\right) \leq y\right) = P\left(X \leq F_X^{-1}\left(y\right)\right) = y`
 
 Esperança i moments
 ==========================================
@@ -756,14 +788,39 @@ Esperança i moments
 Esperança
 -------------
 
-L'esperança d'una v.a. :math:`g\left(X\right)` es defineix com:
+L'esperança o mitja d'una v.a. :math:`g\left(X\right)` es defineix com:
 
 * Cas continu: :math:`E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty} g\left(x\right)f_X\left(x\right)dx`
 * Cas discret: :math:`E\left(g\left(X\right)\right) = \sum_{k} g\left(k\right)p_X\left(k\right)`
 
+Com ja sabeu, l'esperança pot ser un indicador de "localització" però depèn de la dispersió
+(ex: variança) de la distribució en questió...
 
-Esperança
--------------
+Exercici: Podeu imaginar una distribució on l'esperança ens pot donar una idea equivocada?
+
+.. rst-class:: note
+
+    Recordeu que l'esperança no té perquè existir! L'exemple clàssic és la distribució de Cauchy.
+
+.. nextslide::
+
+L'esperança i la mitja aritmètica són cosines germanes. La següent és una interpretació
+de la mitja que pot ser útil:
+
+.. figure::  /_static/0_Intro/mitja_esperança.png
+    :height: 380px
+    :align: center
+
+
+.. nextslide:: Propietats de l'esperança
+
+La majoria de propietats de l'esperança provenen de la
+linearitat de l'operador integració/suma [Casella & Berger 2.2.5]:
+
+* :math:`E\left(a X + b Y + c\right) = aE\left( X\right) + b E\left( Y\right) + c`
+* Si :math:`X \geq Y`, aleshores :math:`E\left(X\right)\geq E\left(Y\right)`
+* Si :math:`a\geq X \geq b`, aleshores :math:`a \geq E\left(X\right)\geq b`
+
 
 
 

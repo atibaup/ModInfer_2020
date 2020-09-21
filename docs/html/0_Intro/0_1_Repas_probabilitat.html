@@ -217,13 +217,13 @@ subcol.lecció <span class="math notranslate nohighlight">\(A_{i_1}, A_{i_2} \cd
 quan <span class="math notranslate nohighlight">\(\Omega, \mathcal{X}\)</span> són contables:</p>
 <p><span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = \sum_{s\in \Omega: X\left(s\right) \in A } P\left(s\right)\)</span></p>
 <p class="note">Enlloc de treballar amb <span class="math notranslate nohighlight">\(P_X\left(X \in A\right)\)</span>, en general caracteritzarem les v.a. a través de les seves funcions de distribució, de massa o de densitat.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/v.a.png"><img alt="../_images/v.a.png" src="../_images/v.a.png" style="height: 300px;" /></a>
 <p class="caption"><span class="caption-text">Diagrama explicatiu de la identitat <span class="math notranslate nohighlight">\(P_X\left(X \in A\right) = P\left(\left\{s\in \Omega: X\left(s\right) \in A \right\}\right)\)</span>.
 Podem caracteritzar l’esdeveniment <span class="math notranslate nohighlight">\(X \in A\)</span> relatiu a una v.a. <span class="math notranslate nohighlight">\(X\)</span> en funció de l’esdeveniment <span class="math notranslate nohighlight">\(\left\{s\in \Omega: X\left(s\right) \in A \right\}\)</span>
 en l’espai mostral d’orígen. En aquest curs no ho tindrem en compte, però en realitat
 no totes les funcions <span class="math notranslate nohighlight">\(X : \Omega \to \mathcal{X} \subseteq \mathbb{R}\)</span> són admissibles,
-només les <a class="reference external" href="https://en.wikipedia.org/wiki/Measurable_function">mesurables</a>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+només les <a class="reference external" href="https://en.wikipedia.org/wiki/Measurable_function">mesurables</a>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Per entendre un concepte, sempre va bé intentar reflexionar primer sobre
 els casos més extremadament simples.</p>
@@ -250,10 +250,16 @@ si assumim que cada individu és + de manera independent, tenim que cada seqüè
 succeeix amb probabilitat <span class="math notranslate nohighlight">\(p^k\left(1-p\right)^{n-k}\)</span>.</p>
 <p>Per tant deduïm que <span class="math notranslate nohighlight">\(P_X\left(X=k\right) = {n \choose k}p^k\left(1-p\right)^{n-k}\)</span> (distribució binomial)</p>
 <p class="note">Què passa si alguns individus són membres d’una mateixa família?</p>
+<ol class="note arabic simple">
+<li><p>Donat un espai mostral <span class="math notranslate nohighlight">\(\Omega\)</span>, quin seria el conjunt d’esdeveniments més “petit”?</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, vol dir que A, B són esdeveniments independents?</p></li>
+<li><p>Quin és l’espai mostral d’una v.a. <span class="math notranslate nohighlight">\(X: \Omega \to \mathcal{X}\)</span>?</p></li>
+<li><p>Quina és la probabilitat de la seqüència [+,-,+,-] si <span class="math notranslate nohighlight">\(P\left(+\right)=0.3\)</span> i cada esdeveniment +/- és mutualment independent?</p></li>
+</ol>
 <p>Revisitem l’<strong>Experiment 3</strong>. Escollim un estudiant d’aquesta classe i aquest cop mesurem la raó alçada/pes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega = \left(0, \infty \right) \times \left(0, \infty \right)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Z: (x, y) \in \Omega \to \frac{x}{y}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Z: (x, y) \in \Omega \to \frac{x}{y} \in \left(0, \infty \right)\)</span></p></li>
 <li><p>Com calculariem <span class="math notranslate nohighlight">\(P_Z\left(Z \in A\right)\)</span>? <em>Necessitarem de fer alguna suposició addicional sobre les v.a. X i Y</em></p></li>
 </ul>
 <p class="note">En la gran majoria de problemes haurem de fer una hipòtesi sobre el model aleatori de les observacions (hipòtesi que després haurem de validar comprovant la <em>bondat de l’ajust</em>)</p>
@@ -333,7 +339,7 @@ ser una f.d.c.</p>
 <li><p>Binomial, <span class="math notranslate nohighlight">\(X \in \left\{0, \cdots, n\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = k; p, n \right)={n\choose k}p^k\left(1-p\right)^{n-k}\)</span></p></li>
 <li><p>Geomètrica, <span class="math notranslate nohighlight">\(X \in \left\{1, \cdots,\right\}\)</span>, <span class="math notranslate nohighlight">\(P\left(X = k; p \right)= p\left(1-p\right)^{k-1}\)</span></p></li>
 </ul>
-<p class="note">Questió: recordeu un experiment físic que es correspongui a cada una de les v.a. anteriors?</p>
+<p class="note">Exercici: podeu trobar un experiment “físic” que es correspongui a cada una de les v.a. anteriors?</p>
 <p>Us recomano donar un cop d’ull pel vostre compte a dues distribucions famoses més,
 la <strong>hipergeomètrica</strong> i la <strong>binomial negativa</strong>. Ara donarem una ullada a la de Poisson.</p>
 <p>La distribució de Poisson es pot motivar físicament amb el següent exemple. Suposeu volem modelar # de clients que arriben en un interval T:</p>
@@ -376,7 +382,7 @@ un nombre aleatori dins d’un interval <span class="math notranslate nohighligh
 <ul class="simple">
 <li><p>Calculem la f.d.c d’una variable uniforme.</p></li>
 <li><p>Doneu un exemple d’un experiment on l’uniforme és un bon model?</p></li>
-<li><p>Com generarieu una variable uniforme amb un ordinador</p></li>
+<li><p>Com generarieu una variable uniforme amb un ordinador?</p></li>
 </ul>
 </div>
 <div class="section" id="la-familia-gamma">
@@ -432,10 +438,10 @@ veurem en els Temes 1 i 2, ja podríem deduïr propietats de la població en gen
 <ul class="simple">
 <li><p>Veurem que <span class="math notranslate nohighlight">\(\hat{p}\)</span> és un estimador “sense biaix” de <span class="math notranslate nohighlight">\(p\)</span></p></li>
 <li><p>Però també veurem que la variabilitat (ex: variança) de <span class="math notranslate nohighlight">\(\hat{p}\)</span> decreix amb el nombre de mostres, i potser 100 són massa poques…</p></li>
-<li><p>També veurem com, a partir de <span class="math notranslate nohighlight">\(\hat{p}\)</span>, podem donar un interval de confiança sobre <span class="math notranslate nohighlight">\(p\)</span>…</p></li>
+<li><p>També veurem com, a partir de <span class="math notranslate nohighlight">\(\hat{p}\)</span>, podem donar un interval de confiança sobre <span class="math notranslate nohighlight">\(p\)</span> (ja hem vist que <span class="math notranslate nohighlight">\(\sum_i x_i \sim \mbox{Binomial}\left(p, 100 \right)\)</span>…)</p></li>
 </ul>
 <p class="note">Però per tot això primer hem d’aprofundir més en alguns altres conceptes de probabilitat: les transformacions
-de v.a., l’esperança, les distribucions conjuntes i algunes desigüaltats.</p>
+de v.a., l’esperança, les distribucions conjuntes i algunes desigualtats.</p>
 </div>
 </div>
 <div class="section" id="funcions-de-variables-aleatories">
@@ -469,9 +475,9 @@ probabilitat el conjunt d’esdeveniments associat a l’espai mostral <span cla
                       &amp; = P\left(X \in g^{-1}\left(A\right)\right)\end{split}\]</div>
 <p>on definim el mapa invers <span class="math notranslate nohighlight">\(g^{-1}\left(A\right) = \left\{ x\in \mathcal{X}: g(x) \in A\right\}\)</span> [Casella &amp; Berger 2.1.1]</p>
 <p>Vegem la relació entre els tres espais mostrals mitjantçant un diagrama:</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/transformation.png"><img alt="../_images/transformation.png" src="../_images/transformation.png" style="height: 280px;" /></a>
-<p class="caption"><span class="caption-text"><span class="math notranslate nohighlight">\(P\left(Y \in A\right) = P\left(X \in g^{-1}\left(A\right)\right) = P\left(\left\{ s \in \Omega: X(s) \in g^{-1}\left(A\right) \right\}\right)\)</span></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><span class="math notranslate nohighlight">\(P\left(Y \in A\right) = P\left(X \in g^{-1}\left(A\right)\right) = P\left(\left\{ s \in \Omega: X(s) \in g^{-1}\left(A\right) \right\}\right)\)</span></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p class="note">Sortosament, normalment no haurem de raonar directament sobre <span class="math notranslate nohighlight">\(\Omega\)</span>, ja que en molts casos
 podrem caracteritzar <span class="math notranslate nohighlight">\(Y\)</span> en base a la f.d.c d’<span class="math notranslate nohighlight">\(X\)</span>.</p>
@@ -491,14 +497,14 @@ associant un únic x a cada y. Per exemple, en el cas monòton creixent:</p>
 </div>
 <div class="section" id="transformacions-monotones-i-diferenciables">
 <h3><span class="section-number">2.4.4. </span>Transformacions monòtones i diferenciables<a class="headerlink" href="#transformacions-monotones-i-diferenciables" title="Permalink to this headline">¶</a></h3>
-<p>Si a més de centrar-nos en transformacions monòtones,
-ens restringim a v.a’s contínues i a transformacions diferenciables, tenim que:</p>
+<p>Si ens restringim a v.a’s contínues i a transformacions estrictament monòtones diferenciables:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}F_Y\left(y\right) &amp;= F_x\left(g^{-1}\left(y\right)\right) \\\end{split}\]</div>
+\[\begin{split}F_Y\left(y\right) &amp;= F_x\left(g^{-1}\left(y\right)\right) \mbox{(g creixent)} \\
+F_Y\left(y\right) &amp;= 1 - F_x\left(g^{-1}\left(y\right)\right) \mbox{(g decreixent)}\\\end{split}\]</div>
 <p>són diferenciables, i aplicant la regla de la cadena arribem al famós resultat de la “transformació per Jacobià” [Casella &amp; Berger 2.1.5]:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}f_Y\left(y\right) &amp;= f_x\left(g^{-1}\left(y\right)\right)\left|\frac{d g^{-1}\left(y\right)}{dy} \right| \\\end{split}\]</div>
-<p>expressió vàlida per <span class="math notranslate nohighlight">\(y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}\)</span>
+<p><span class="math notranslate nohighlight">\(\forall y \in \mathcal{Y} = \left\{y : \exists x\in \mathcal{X},  g(x)=y \right\}\)</span>
 on <span class="math notranslate nohighlight">\(\mathcal{X} = \left\{x : f_X\left(x\right) &gt; 0 \right\}\)</span>.</p>
 <p class="note">Veure [Casella &amp; Berger 2.1.8] per una extensió on la funció <span class="math notranslate nohighlight">\(g\)</span> és monòtona només sobre alguns intervals!</p>
 <p>Veiem aquí un exemple de com el resultat anterior es pot extendre a transformacions
@@ -516,21 +522,42 @@ la <span class="math notranslate nohighlight">\(\chi^2_1\)</span>.</p>
 </div>
 <div class="section" id="transformacio-integral">
 <h3><span class="section-number">2.4.5. </span>Transformació integral<a class="headerlink" href="#transformacio-integral" title="Permalink to this headline">¶</a></h3>
-<p>L’última transformació que veurem</p>
+<p>L’última transformació que veurem inspirarà un
+algoritme per generar mostres de v.a. contínues amb distribucions
+arbitràries (ho veurem a la primera pràctica).</p>
+<p class="note">[Casella &amp; Berger 2.1.10] Sigui <span class="math notranslate nohighlight">\(X\)</span> una v.a. contínua caracteritzada per <span class="math notranslate nohighlight">\(F_X\)</span>. Aleshores
+la v.a. <span class="math notranslate nohighlight">\(Y = F_X\left(X\right)\)</span> és uniforme entre <span class="math notranslate nohighlight">\(\left[0, 1\right]\)</span></p>
+<p>La demostració passa per la definició de la funció:</p>
+<p><span class="math notranslate nohighlight">\(F_X^{-1}\left(y\right) = \left\{\begin{array}{cc} \inf \left\{x : F\left(x\right) \geq y \right\} &amp; y \in \left(0, 1\right) \\ \infty &amp; y=1 \\ -\infty &amp; y = 0 \end{array}\right.\)</span></p>
+<p>I observant que (compte amb el segon “=”!):</p>
+<p><span class="math notranslate nohighlight">\(P\left(Y \leq y \right) = P\left(F_X\left(X\right) \leq y\right) = P\left(X \leq F_X^{-1}\left(y\right)\right) = y\)</span></p>
 </div>
 </div>
 <div class="section" id="esperanca-i-moments">
 <h2><span class="section-number">2.5. </span>Esperança i moments<a class="headerlink" href="#esperanca-i-moments" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="esperanca">
 <h3><span class="section-number">2.5.1. </span>Esperança<a class="headerlink" href="#esperanca" title="Permalink to this headline">¶</a></h3>
-<p>L’esperança d’una v.a. <span class="math notranslate nohighlight">\(g\left(X\right)\)</span> es defineix com:</p>
+<p>L’esperança o mitja d’una v.a. <span class="math notranslate nohighlight">\(g\left(X\right)\)</span> es defineix com:</p>
 <ul class="simple">
 <li><p>Cas continu: <span class="math notranslate nohighlight">\(E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty} g\left(x\right)f_X\left(x\right)dx\)</span></p></li>
 <li><p>Cas discret: <span class="math notranslate nohighlight">\(E\left(g\left(X\right)\right) = \sum_{k} g\left(k\right)p_X\left(k\right)\)</span></p></li>
 </ul>
+<p>Com ja sabeu, l’esperança pot ser un indicador de “localització” però depèn de la dispersió
+(ex: variança) de la distribució en questió…</p>
+<p>Exercici: Podeu imaginar una distribució on l’esperança ens pot donar una idea equivocada?</p>
+<p class="note">Recordeu que l’esperança no té perquè existir! L’exemple clàssic és la distribució de Cauchy.</p>
+<p>L’esperança i la mitja aritmètica són cosines germanes. La següent és una interpretació
+de la mitja que pot ser útil:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/mitja_esperança.png"><img alt="../_images/mitja_esperança.png" src="../_images/mitja_esperança.png" style="height: 380px;" /></a>
 </div>
-<div class="section" id="id1">
-<h3><span class="section-number">2.5.2. </span>Esperança<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>La majoria de propietats de l’esperança provenen de la
+linearitat de l’operador integració/suma [Casella &amp; Berger 2.2.5]:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E\left(a X + b Y + c\right) = aE\left( X\right) + b E\left( Y\right) + c\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(X \geq Y\)</span>, aleshores <span class="math notranslate nohighlight">\(E\left(X\right)\geq E\left(Y\right)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(a\geq X \geq b\)</span>, aleshores <span class="math notranslate nohighlight">\(a \geq E\left(X\right)\geq b\)</span></p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -581,7 +608,6 @@ la <span class="math notranslate nohighlight">\(\chi^2_1\)</span>.</p>
 </li>
 <li><a class="reference internal" href="#esperanca-i-moments">2.5. Esperança i moments</a><ul>
 <li><a class="reference internal" href="#esperanca">2.5.1. Esperança</a></li>
-<li><a class="reference internal" href="#id1">2.5.2. Esperança</a></li>
 </ul>
 </li>
 </ul>
