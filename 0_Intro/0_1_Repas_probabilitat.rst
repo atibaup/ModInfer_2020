@@ -807,7 +807,7 @@ Exercici: Podeu imaginar una distribució on l'esperança ens pot donar una idea
 L'esperança i la mitja aritmètica són cosines germanes. La següent és una interpretació
 de la mitja que pot ser útil:
 
-.. figure::  /_static/0_Intro/mitja_esperança.png
+.. figure::  /_static/0_Intro/mitja_Esperança.png
     :height: 380px
     :align: center
 
