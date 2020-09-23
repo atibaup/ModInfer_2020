@@ -757,7 +757,7 @@ quan :math:`X \sim \mathcal{N}\left(0, 1\right)`. Observem que:
 
 Diferenciant i fent servir la simetria de :math:`F_X\left(x\right)` respecte 0, obtenim:
 
-:math:`f_y\left(y\right) = y^{-\frac{1}{2}} F_X\left(\sqrt{y}\right) = \frac{y^{-\frac{1}{2}}}{\sqrt{2\pi}} e^{-\frac{y}{2}}`,
+:math:`f_y\left(y\right) = y^{-\frac{1}{2}} f_X\left(\sqrt{y}\right) = \frac{y^{-\frac{1}{2}}}{\sqrt{2\pi}} e^{-\frac{y}{2}}`,
 que podem identificar amb la Gamma si fixem :math:`\alpha=1/2` i :math:`\beta=2`, que és
 la :math:`\chi^2_1`.
 
@@ -781,9 +781,22 @@ I observant que (compte amb el segon "="!):
 
 :math:`P\left(Y \leq y \right) = P\left(F_X\left(X\right) \leq y\right) = P\left(X \leq F_X^{-1}\left(y\right)\right) = y`
 
+Qüestionari de repàs
+--------------------------------
+
+.. rst-class:: build
+
+1. Quines condicions ha de verificar una f.d.p o una f.m.p?
+2. Si compro un dècim de loteria de nadal cada any, i hi ha 170M de dècims, quina és la probabilitat que no em toqui en tota la vida?
+3. Les v.a. són contínues o discretes segons si la seva :math:`F_X` és contínua o discreta: cert o fals?
+4. Per què el fet que una v.a. contínua satisfaci :math:`P(X=x)=0` no implica que :math:`P(a < X \leq b)=0`?
+5. La distribució de Poisson és un bona aproximació de la binomial quan ______ i ________.
+6. Per demostrar el teorema de la transformació integral, hem definit :math:`F_X^{-1}\left(y\right) = \inf \left\{x : F\left(x\right) \geq y \right\}, y \in (0, 1)`. Perquè l'infimum i perquè el >=?
+7. En quins 4 casos podem caracteritzar fàcilment una variable :math:`Y=g(X)` en funció de la distribució de X?
+
+
 Esperança i moments
 ==========================================
-
 
 Esperança
 -------------
@@ -796,11 +809,14 @@ L'esperança o mitja d'una v.a. :math:`g\left(X\right)` es defineix com:
 Com ja sabeu, l'esperança pot ser un indicador de "localització" però depèn de la dispersió
 (ex: variança) de la distribució en questió...
 
-Exercici: Podeu imaginar una distribució on l'esperança ens pot donar una idea equivocada?
-
 .. rst-class:: note
 
-    Recordeu que l'esperança no té perquè existir! L'exemple clàssic és la distribució de Cauchy.
+    Aquesta definició es coneix com la `Llei de l'Estadístic Inconscient <https://en.wikipedia.org/wiki/Law_of_the_unconscious_statistician>`_,
+    perquè en realitat l'existència de :math:`E\left(g\left(X\right)\right)` s'hauria de provar formalment.
+    Recordeu doncs que l'esperança no té perquè existir! L'exemple clàssic és :math:`g(x)=x` i amb una distribució de Cauchy.
+
+**Exercici**: Podeu imaginar una distribució on l'esperança ens pot donar una idea equivocada?
+
 
 .. nextslide::
 
@@ -808,8 +824,41 @@ L'esperança i la mitja aritmètica són cosines germanes. La següent és una i
 de la mitja que pot ser útil:
 
 .. figure::  /_static/0_Intro/mitja_Esperança.png
-    :height: 380px
+    :height: 330px
     :align: center
+
+Per tant :math:`\bar{X} = \sum_{i} c_i \frac{\mbox{#}\left\{x=c_i\right\}}{N} = \sum_{i} c_i \hat{P}\left(X = c_i\right)` (S'assembla a l'esperança, no?)
+
+.. nextslide:: Exemple de càlcul d'esperances: v.a. de Poisson
+
+El càlcul l'esperança sol dependre una mica de la forma de la f.d.p o f.m.p
+de la v.a. en questió.
+
+Vegem com ho fariem per la f.m.p de Poisson:
+
+:math:`P\left(X = k; \lambda \right) = \frac{\lambda^k}{k!}e^{-\lambda}`
+
+Aplicant la definició:
+
+.. math::
+
+    E(X) & = \sum_{k=0}^{\infty} k \frac{\lambda^k}{k!}e^{-\lambda} \\
+         & = \lambda e^{-\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{\left(k-1\right)!} \\
+         & = \lambda
+
+On hem fet servir l'identitat :math:`\sum_{j=0}^{\infty} \frac{\lambda^{j}}{j!}=e^{\lambda}`
+
+.. nextslide:: Exemple de càlcul d'esperances: menys logaritme d'una v.a. uniforme
+
+Suposem :math:`X \sim U[0, 1]` i :math:`Y=-\log(X)`:
+
+* Podem calcular :math:`E(Y)` adonant-nos que :math:`F_Y(y)=P(Y \leq y) = 1 - e^{-y}`, per tant Y es exponencial amb paràmetre :math:`\lambda=1`
+* Podem calcular :math:`E(Y) = \int_{0}^1 -\log(x)dx=x - \log(x)|^1_0=1`
+
+.. rst-class:: note
+
+    En alguns casos podem escollir entre fer servir la definició amb :math:`g(x)`
+    o bé calcular la f.d.p de :math:`Y=g(X)` per calcular-ne :math:`E(Y)`.
 
 
 .. nextslide:: Propietats de l'esperança
@@ -817,9 +866,125 @@ de la mitja que pot ser útil:
 La majoria de propietats de l'esperança provenen de la
 linearitat de l'operador integració/suma [Casella & Berger 2.2.5]:
 
-* :math:`E\left(a X + b Y + c\right) = aE\left( X\right) + b E\left( Y\right) + c`
-* Si :math:`X \geq Y`, aleshores :math:`E\left(X\right)\geq E\left(Y\right)`
-* Si :math:`a\geq X \geq b`, aleshores :math:`a \geq E\left(X\right)\geq b`
+1. :math:`E\left(a X + b Y + c\right) = aE\left( X\right) + b E\left( Y\right) + c`
+2. Si :math:`X \geq Y`, aleshores :math:`E\left(X\right)\geq E\left(Y\right)`
+3. Si :math:`a\geq X \geq b`, aleshores :math:`a \geq E\left(X\right)\geq b`
+
+*Demostració (1) i (2) a la pissarra, (3) com exercici*
+
+.. nextslide:: Aplicació de la linearitat de l'E: Cupons
+
+.. rst-class:: build
+
+Tot i que podria semblar un resultat trivial, la linearitat de l'esperança és una propietat
+molt útil a la pràctica. Vegem per exemple la seva aplicació en el següent problema:
+
+[Rice 4.1.2 Exemple B] Tenim :math:`n` tipus diferents de cupons, i cada cop que comprem cereals ens en donen
+un dels :math:`n` a l'atzar. Quans cereals haurem de comprar per aconseguir-los tots?
+
+
+1. Definim :math:`X_i` nombre de compres fins que aconseguim el cupó *i*
+2. El nombre total de compres :math:`Y=\sum_{i=1}^n X_i`
+3. Noteu que :math:`X_i` es una v.a. geomètrica, amb paràmetre :math:`p_i = \frac{n -i + 1}{n}`
+4. Recordem que en aquest cas :math:`E(X_i) = \frac{1}{p_i}`
+5. Per linearitat de l'esperança :math:`E(Y)=\sum_{i=1}^n E(X_i) = \frac{n}{n} + \frac{n}{n-1} + \cdots + n = n\sum_{i=1}^n\frac{1}{i}`
+
+.. nextslide:: Aplicació de la linearitat de l'E: Optimització d'inversions
+
+[Rice 4.1.2 Exemple E] Suposeu que tenim una cartera d'inversió amb dues accions A i B de borsa
+amb retorns representats per v.a.'s :math:`R_A` i :math:`R_B`.
+
+.. rst-class:: build
+
+1. Si invertim una fracció :math:`\pi` del nostre capital a A, i :math:`1-\pi` a B, tindrem que el retorn final serà: :math:`R = \pi R_1 + \left(1 - \pi\right)R_2`
+2. Per linearitat de l'esperança, :math:`E(R) = \pi E(R_A) + \left(1 - \pi\right)E(R_B)`
+3. Per tant l'estratègia òptima d'inversió seria :math:`\pi=1` si :math:`E(R_A)>E(R_B)` i :math:`\pi=0` en cas contrari
+
+.. rst-class:: note
+
+    Fixeu-vos que una possible correlació entre :math:`R_A` i :math:`R_B` és irrellevant...
+
+.. rst-class:: note
+
+    Clarament la gestió de carteres és més complicada que això... què creieu que falla en el nostre model?
+
+
+Moments i moments centrals
+---------------------------
+
+A partir de l'esperança podem definir altres quantitats caracteritzant
+una v.a. [Casella & Berger 2.3.1]. Per tot enter :math:`n`, definim:
+
+* El moment d'ordre :math:`n` com: :math:`\mu_n' = E(X^n)`
+* El moment *central* d'ordre :math:`n` com: :math:`\mu_n = E\left(\left(X - E(X)\right)^n\right)`
+
+(que recordem no tenen perquè existir!)
+
+.. rst-class:: build
+
+Exemples:
+
+* :math:`\mu_0'=1`, :math:`\mu_1=0`
+* La variança, :math:`\mbox{Var}\left(X\right) = \mu_2`, que indica la desviació d'X respecte la seva mitja
+* L'asimetria (*skewness*) :math:`\mu_3` que ens indica si la cua de la f.d.p està a l'esquerra (<0) o a la dreta (>0) de la mitja
+
+
+L'esperança com a predictor de mínim error quadrat
+--------------------------------------------------
+
+Amb aquesta última definició podem establir una propietat
+fonamental de l'esperança. Considerem el següent problema de predicció
+d'una v.a. X tal que minitzem l'error de predicció [Casella & Berger 2.2.6]:
+
+.. rst-class:: note
+
+    Trobar :math:`\theta` tal que :math:`\min_{\theta} E\left(X - \theta \right)^2`.
+
+Observem:
+
+.. math::
+
+    E\left(X - \theta \right)^2 &= E\left(X - E(X) + \left(E(X) - \theta\right)\right)^2 \\
+                                &= E\left(X - E(X)\right)^2 + E\left(E(X) - \theta\right)^2 + \\
+                                & + 2E\left(X - E(X)\right)E\left(E(X) - \theta\right) \\
+                                &= \mbox{Var}\left(X\right) + E\left(E(X) - \theta\right)^2 \geq \mbox{Var}\left(X\right)
+
+(pel tercer "=", :math:`E\left(X - E(X)\right)=0`.) Per tant :math:`\theta^*=E(X)`!
+
+
+Funció generatriu de moments
+----------------------------
+
+Per una v.a. X, la funció generatriu de moments (*f.g.m*) (*Moment-Generating Function*) es defineix com:
+
+:math:`M_X\left(t\right)=E\left(e^{tX}\right)`
+
+suposant que existeix per :math:`t\in [-\epsilon, \epsilon]` amb :math:`\epsilon>0`.
+
+En estadística, la f.g.m es fa servir majoritàriament per tres raons:
+
+1. Calcular els moments d'una distribució que altrament serien molt difícils de calcular, veure [Casella & Berger 2.3.7 i 2.3.8], per exemple els moments d'una Gamma.
+2. Per calcular distribucions de transformacions afins de v.a. [Casella & Berger 2.3.15]
+3. Per calcular la distribució de la suma de v.a. independents [Casella & Berger 4.2.12]
+
+
+.. nextslide::
+    :increment:
+
+En aquest curs la farem servir més endavant per l'objectiu (3).
+
+Per ara, només mencionar que aquesta utilitat es deriva d'un resultat
+fonamental per les f.g.m's, que és que sota algunes condicions, la f.g.m
+caracteritza inequívocament una f.d.c:
+
+.. rst-class:: note
+
+    [Casella & Berger 2.3.11] Siguin :math:`F_X`, :math:`F_Y` f.d.c's per les quals
+    tots els moments existeixen. Aleshores :math:`M_X\left(t\right)=M_Y\left(t\right)`
+    per :math:`t\in [-\epsilon, \epsilon]` amb :math:`\epsilon>0` implica que :math:`F_X = F_Y`.
+
+És aquest resultat el que ens permetrà més endavant de calcular
+una f.g.m i a partir d'aquesta desfer el camí i obtenir-be la f.d.c. corresponent.
 
 
 
