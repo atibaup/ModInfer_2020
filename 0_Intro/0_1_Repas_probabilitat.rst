@@ -1248,7 +1248,7 @@ podem derivar la distribució d':math:`X`
               & = \sum_{n=k}^\infty \frac{\lambda^n e^{-\lambda}}{n!} {n \choose k}p^{k}\left(1 - p\right)^{n-k}\\
               & = \frac{\left(\lambda p\right)^k}{k!}e^{-\lambda p}
 
-Per tant :math:`X \sim \mbox{Poisson}\left(\lambdap\right)`
+Per tant :math:`X \sim \mbox{Poisson}\left(\lambda p\right)`
 
 **Exercici**: demostrar com es passa de la 2a la 3a igualtat.
 

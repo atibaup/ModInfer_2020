@@ -29,6 +29,10 @@ publish: build
 	git add --all _static/
 	git add --all $(BUILDDIR)/html/_static/
 	git add --all $(BUILDDIR)/slides/_static/
+	git add --all $(GITHUB_PAGE_ROOT)/html/_images
+	git add --all $(GITHUB_PAGE_ROOT)/slides/_images
+	git add --all $(GITHUB_PAGE_ROOT)/html/_static
+	git add --all $(GITHUB_PAGE_ROOT)/slides/_static
 	git commit -a -m 'Updating materials...'
 	git push origin master
 
