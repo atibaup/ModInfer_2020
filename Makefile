@@ -26,6 +26,9 @@ build:
 publish: build
 	cp -R $(BUILDDIR)/html $(GITHUB_PAGE_ROOT)/
 	cp -R $(BUILDDIR)/slides $(GITHUB_PAGE_ROOT)/
+	git add --all _static/
+	git add --all $(BUILDDIR)/html/_static/
+	git add --all $(BUILDDIR)/slides/_static/
 	git commit -a -m 'Updating materials...'
 	git push origin master
 

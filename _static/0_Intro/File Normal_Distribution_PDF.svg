@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>File:Normal Distribution PDF.svg - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e75f9aca-631f-4412-bd8d-bbfef4999f29","wgCSPNonce":!1,"wgCanonicalNamespace":"File","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":6,"wgPageName":"File:Normal_Distribution_PDF.svg","wgTitle":"Normal Distribution PDF.svg","wgCurRevisionId":0,"wgRevisionId":0,"wgArticleId":0,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"File:Normal_Distribution_PDF.svg","wgRelevantArticleId":0,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionCreate":[],"wgRestrictionUpload":[],
+"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0,"wgULSPosition":"interlanguage"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","filepage":"ready","mediawiki.action.view.filepage":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["mediawiki.action.view.metadata","site",
+"mediawiki.page.ready","skins.vector.legacy.js","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cfilepage%7Cmediawiki.action.view.filepage%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<link rel="stylesheet" href="https://commons.wikimedia.org/w/index.php?title=MediaWiki:Filepage.css&amp;action=raw&amp;ctype=text/css"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.36.0-wmf.8"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1200px-Normal_Distribution_PDF.svg.png"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="//en.m.wikipedia.org/wiki/File:Normal_Distribution_PDF.svg"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://commons.wikimedia.org/wiki/File:Normal_Distribution_PDF.svg"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-6 ns-subject mw-editable page-File_Normal_Distribution_PDF_svg rootpage-File_Normal_Distribution_PDF_svg skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+	<div id="mw-indicator-commons-icon" class="mw-indicator"><a href="https://commons.wikimedia.org/wiki/File:Normal_Distribution_PDF.svg" title="This is a file from the Wikimedia Commons"><img alt="This is a file from the Wikimedia Commons" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/15px-Commons-logo.svg.png" decoding="async" width="15" height="20" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/22px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></a></div>
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">File:Normal Distribution PDF.svg</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text"><ul id="filetoc"><li><a href="#file">File</a></li>
+<li><a href="#filehistory">File history</a></li>
+<li><a href="#filelinks">File usage</a></li>
+<li><a href="#globalusage">Global file usage</a></li>
+<li><a href="#metadata">Metadata</a></li></ul><div class="fullImageLink" id="file"><a href="//upload.wikimedia.org/wikipedia/commons/7/74/Normal_Distribution_PDF.svg"><img alt="File:Normal Distribution PDF.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/720px-Normal_Distribution_PDF.svg.png" decoding="async" width="720" height="460" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1080px-Normal_Distribution_PDF.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1440px-Normal_Distribution_PDF.svg.png 2x" data-file-width="720" data-file-height="460" /></a><div class="mw-filepage-resolutioninfo">Size of this PNG preview of this SVG file: <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/720px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">720 × 460 pixels</a>. <span class="mw-filepage-other-resolutions">Other resolutions: <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/320px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">320 × 204 pixels</a> | <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/640px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">640 × 409 pixels</a> | <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/800px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">800 × 511 pixels</a> | <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1024px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">1,024 × 654 pixels</a> | <a href="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1280px-Normal_Distribution_PDF.svg.png" class="mw-thumbnail-link">1,280 × 818 pixels</a>.</span></div></div>
+<div class="fullMedia"><p><a href="//upload.wikimedia.org/wikipedia/commons/7/74/Normal_Distribution_PDF.svg" class="internal" title="Normal Distribution PDF.svg">Original file</a> &#8206;<span class="fileInfo">(SVG file, nominally 720 × 460 pixels, file size: 63 KB)</span>
+</p></div><div class="sharedUploadNotice">
+<table id="mw-sharedupload" class="plainlinks fmbox fmbox-system" role="presentation"><tbody><tr><td class="mbox-image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" title="Wikimedia Commons logo" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td><td class="mbox-text" style="text-align: center;">This is a file from the <a href="https://commons.wikimedia.org/wiki/Main_Page" class="extiw" title="commons:Main Page">Wikimedia Commons</a>. Information from its <b><a href="https://commons.wikimedia.org/wiki/File:Normal_Distribution_PDF.svg" class="extiw" title="commons:File:Normal Distribution PDF.svg">description page there</a></b> is shown below.<br /><span style="font-size: smaller;">Commons is a freely licensed media file repository. <a href="https://commons.wikimedia.org/wiki/Commons:Welcome" class="extiw" title="commons:Commons:Welcome">You can help</a>.</span></td></tr></tbody></table>
+</div>
+<div id="shared-image-desc"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Mathematica"><span class="tocnumber">2</span> <span class="toctext">Mathematica</span></a></li>
+<li class="toclevel-1"><a href="#R"><span class="tocnumber">3</span> <span class="toctext">R</span></a></li>
+<li class="toclevel-1"><a href="#Python"><span class="tocnumber">4</span> <span class="toctext">Python</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Summary">Summary</span></h2>
+<div class="hproduct commons-file-information-table">
+<table class="fileinfotpl-type-information toccolours vevent mw-content-ltr" style="width: 100%; direction: ltr;" cellpadding="4">
+
+<tbody><tr style="vertical-align: top">
+<td id="fileinfotpl_desc" class="fileinfo-paramfield" lang="en">Description<span class="summary fn" style="display:none">Normal Distribution PDF.svg</span></td>
+<td class="description">
+<div class="description mw-content-ltr en" dir="ltr" lang="en" style=""><span class="language en" title=""><b>English:</b></span> A selection of Normal Distribution Probability Density Functions (PDFs). Both the mean, <i>μ</i>, and variance, <i>σ²</i>, are varied. The key is given on the graph.</div></td>
+</tr>
+
+<tr style="vertical-align: top">
+<td id="fileinfotpl_date" class="fileinfo-paramfield" lang="en">Date</td>
+<td lang="en">
+<span style="white-space:nowrap"><time class="dtstart" datetime="2008-04-02">2 April 2008</time></span></td>
+</tr>
+
+<tr style="vertical-align: top">
+<td id="fileinfotpl_src" class="fileinfo-paramfield" lang="en">Source</td>
+<td>
+self-made, Mathematica, Inkscape</td>
+</tr>
+
+<tr style="vertical-align: top">
+<td id="fileinfotpl_aut" class="fileinfo-paramfield" lang="en">Author</td>
+<td>
+<a href="//commons.wikimedia.org/wiki/User:Inductiveload" title="User:Inductiveload">Inductiveload</a></td>
+</tr>
+
+<tr style="vertical-align: top">
+<td id="fileinfotpl_perm" class="fileinfo-paramfield" lang="en">Permission<br /><small>(<a href="//commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia" title="Commons:Reusing content outside Wikimedia">Reusing this file</a>)</small></td>
+<td>
+<table class="licensetpl" style="display:none">
+<tbody><tr>
+<td><span class="licensetpl_short">Public domain</span><span class="licensetpl_long">Public domain</span><span class="licensetpl_link_req">false</span><span class="licensetpl_attr_req">false</span>
+</td></tr></tbody></table>
+<table style="width:100%; clear:both; margin:0.5em auto; background-color:#f7f8ff; border:2px solid #8888aa; direction: ltr; border-spacing: 8px; padding: 0px;" class="layouttemplate mw-content-ltr" lang="en">
+<tbody><tr>
+<td><img alt="Public domain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/64px-PD-icon.svg.png" decoding="async" title="Public domain" width="64" height="64" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/96px-PD-icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/128px-PD-icon.svg.png 2x" data-file-width="196" data-file-height="196" />
+</td>
+<td>I, the copyright holder of this work, release this work into the <b><a href="https://en.wikipedia.org/wiki/en:public_domain" class="extiw" title="w:en:public domain">public domain</a></b>. This applies worldwide.<br /><small>In some countries this may not be legally possible; if so:</small><br /><i>I grant anyone the right to use this work <b>for any purpose</b>, without any conditions, unless such conditions are required by law.</i>
+</td></tr></tbody></table></td>
+</tr>
+
+<tr style="vertical-align: top"><td style="" class="fileinfo-paramfield">SVG&#160;development</td><td style=""><span style="vertical-align:middle"><div class="mw-content-ltr plainlinks"><div class="mw-content-ltr">
+<table cellspacing="0" style="color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;background:#EEE;float:left" class="createdwithtemplate layouttemplate">
+<tbody><tr>
+<td style="width:1.2em;height:1.2em;padding:.2em;background:#FDC"><div class="center"><div class="floatnone"><a href="//validator.w3.org/" rel="nofollow"><img alt="W3C icon.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/W3C_icon.svg/24px-W3C_icon.svg.png" decoding="async" width="24" height="13" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/W3C_icon.svg/36px-W3C_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/W3C_icon.svg/48px-W3C_icon.svg.png 2x" data-file-width="212" data-file-height="114" /></a></div></div>
+</td>
+<td style="font-size:.85em;padding:.2em;vertical-align:middle;">The source code of this  <a href="//commons.wikimedia.org/wiki/Help:SVG" title="Help:SVG">SVG</a> is<span class="plainlinks" style="background:#FDC"> <b><a rel="nofollow" class="external text" href="//validator.w3.org/check?uri=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilepath%2FNormal_Distribution_PDF.svg&amp;doctype=Inline&amp;ss=1">invalid</a></b></span> due to an error.
+</td></tr></tbody></table></div><div class="mw-content-ltr">
+<table cellspacing="0" style="color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;float:left;vertical-align:middle" class="createdwithtemplate layouttemplate">
+<tbody><tr>
+<td style="width:1.2em;height:1.2em;padding:.2em;"><div class="center"><div class="floatnone"><a href="//commons.wikimedia.org/wiki/File:R_logo.svg" title="File:R logo.svg"><img alt="R logo.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/20px-R_logo.svg.png" decoding="async" width="20" height="15" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/30px-R_logo.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/40px-R_logo.svg.png 2x" data-file-width="724" data-file-height="561" /></a></div></div>
+</td>
+<td style="font-size:.85em;padding:.2em;vertical-align:middle;">This W3C-<i>invalid</i>&#32;<a href="https://en.wikipedia.org/wiki/chart" class="extiw" title="w:chart">chart</a>&#32;was created with <a href="https://en.wikipedia.org/wiki/R_(programming_language)" class="extiw" title="w:R (programming language)">R</a>.
+</td></tr></tbody></table></div><div style="clear:both;border:1px solid#AFA;background-color:#DFD;margin:2px 0;">
+<h2><span class="mw-headline" id="Mathematica">Mathematica</span></h2>
+<div class="mw-highlight mw-highlight-lang-mathematica mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Plot</span><span class="p">[</span><span class="w"></span>
+<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">PDF</span><span class="p">[</span><span class="n">NormalDistribution</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Sqrt</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span><span class="w"> </span><span class="n">x</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="n">PDF</span><span class="p">[</span><span class="n">NormalDistribution</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="n">PDF</span><span class="p">[</span><span class="n">NormalDistribution</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">Sqrt</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span><span class="w"> </span><span class="n">x</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w"> </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">},</span><span class="w"></span>
+<span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div><div style="clear:both;border:1px solid#DFA;background-color:#FEE;margin:0;">
+<h2><span class="mw-headline" id="R">R</span></h2>
+<div class="mw-highlight mw-highlight-lang-r mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">#			Normal Distribution PDF</span>
+<span class="c1">#range</span>
+<span class="n">x</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="m">200</span><span class="p">)</span>
+<span class="c1">#plot each curve</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">.2</span><span class="p">)),</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&#39;Normal Distribution PDF&#39;</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">xlab</span><span class="o">=</span><span class="s">&#39;X&#39;</span><span class="p">,</span>
+<span class="n">ylab</span><span class="o">=</span><span class="s">&#39;φμ, σ²(X)&#39;</span><span class="p">)</span>
+<span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">1</span><span class="p">),</span> <span class="n">add</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">5</span><span class="p">)),</span> <span class="n">add</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;brown&quot;</span><span class="p">)</span>
+<span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">-2</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">.5</span><span class="p">)),</span> <span class="n">add</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;green&quot;</span><span class="p">)</span>
+</pre></div>
+</div><div style="clear:both;border:1px solid#FFA;background-color:#EEB;margin:0;">
+<h2><span class="mw-headline" id="Python">Python</span></h2>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">#                    Normal Distribution</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+<span class="k">def</span> <span class="nf">make_gauss</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">N</span><span class="o">/</span><span class="p">(</span><span class="n">sig</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**.</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> 
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">sig</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span> 
+        <span class="n">gauss</span> <span class="o">=</span> <span class="n">make_gauss</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">mu</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gauss</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;0.2&#39;</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span> <span class="s1">&#39;5.0&#39;</span><span class="p">,</span> <span class="s1">&#39;0.5&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div><div class="mw-content-ltr">
+<table cellspacing="0" style="color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;float:left;height:1.2em;vertical-align:middle;background:#EED" class="createdwithtemplate layouttemplate">
+<tbody><tr>
+<td style="width:1.2em;height:1.2em;padding:.2em;"><div class="center"><div class="floatnone"><a href="//commons.wikimedia.org/wiki/File:Add_Language.svg" title="File:Add Language.svg"><img alt="Add Language.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Add_Language.svg/20px-Add_Language.svg.png" decoding="async" width="20" height="12" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Add_Language.svg/30px-Add_Language.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Add_Language.svg/40px-Add_Language.svg.png 2x" data-file-width="80" data-file-height="48" /></a></div></div>
+</td>
+<td style="font-size:.85em;padding:.2em;vertical-align:middle;">This <a href="https://en.wikipedia.org/wiki/SVG" class="extiw" title="w:SVG">SVG</a> <a href="https://en.wikipedia.org/wiki/chart" class="extiw" title="w:chart">chart</a> uses&#32;embedded text.
+</td></tr></tbody></table></div></div></span></td>
+</tr>
+</tbody></table>
+</div>
+<!-- 
+NewPP limit report
+Parsed by mw2238
+Cached time: 20200911145301
+Cache expiry: 2592000
+Dynamic content: false
+Complications: []
+CPU time usage: 0.236 seconds
+Real time usage: 0.423 seconds
+Preprocessor visited node count: 3592/1000000
+Post‐expand include size: 43722/2097152 bytes
+Template argument size: 12358/2097152 bytes
+Highest expansion depth: 31/40
+Expensive parser function count: 6/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 12596/5000000 bytes
+Lua time usage: 0.055/10.000 seconds
+Lua memory usage: 1.4 MB/50 MB
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  377.366      1 -total
+100.00%  377.366      1 Template:Information
+ 64.21%  242.288      1 Template:Igen
+ 56.75%  214.165      1 Template:InFi
+ 35.36%  133.418      1 Template:Created_with_R
+ 14.82%   55.928      3 Template:Created_with
+ 13.53%   51.051      1 Template:SVGvalid
+ 13.00%   49.049      1 Template:PD-self
+ 11.10%   41.870      1 Template:Autotranslate/clone_2
+  9.56%   36.062      1 Template:InvalidSVG
+-->
+<h1 class="mw-slot-header"><mediainfoslotheader /></h1><mediainfoview style="display: none"><mediainfoviewcaptions><div class='wbmi-entityview-captionsPanel oo-ui-layout oo-ui-panelLayout oo-ui-panelLayout-framed'><h3 class='wbmi-entityview-captions-header'>Captions</h3><div class='wbmi-entityview-caption oo-ui-layout oo-ui-horizontalLayout'><label aria-disabled='false' class='wbmi-language-label oo-ui-widget oo-ui-widget-enabled oo-ui-labelElement-label oo-ui-labelElement oo-ui-labelWidget'>English</label><div lang='en' dir='ltr' class='wbmi-caption-value wbmi-entityview-emptyCaption'>Add a one-line explanation of what this file represents</div></div></div></mediainfoviewcaptions><mediainfoviewstatements><div id='P180' data-property='P180' data-statements='[]' data-formatvalue='[]' class='wbmi-entityview-statementsGroup wbmi-entityview-statementsGroup-P180 oo-ui-layout oo-ui-panelLayout oo-ui-panelLayout-framed'><div class='wbmi-statements-widget'><div class='wbmi-statement-header'><div class='wbmi-entity-data'><div class='wbmi-entity-title'><h3 class='wbmi-statements-title'>Items portrayed in this file</h3><h4 class='wbmi-entity-label'><bdi><a target="_blank" title="d:Special:EntityPage/P180" href="https://www.wikidata.org/wiki/Special:EntityPage/P180">depicts</a></bdi></h4></div></div></div><div class='wbmi-content-items-group'></div></div></div><div id='P6216' data-property='P6216' data-statements='[{"mainsnak":{"snaktype":"value","property":"P6216","datavalue":{"value":{"entity-type":"item","numeric-id":88088423,"id":"Q88088423"},"type":"wikibase-entityid"}},"type":"statement","id":"M3817954$2F9654BF-12B1-4B5A-9845-08116F5CCBEE","rank":"normal"}]' data-formatvalue='{"{\"value\":{\"entity-type\":\"property\",\"numeric-id\":6216,\"id\":\"P6216\"},\"type\":\"wikibase-entityid\"}":{"text\/html":{"en":{"":"&lt;a target=\"_blank\" title=\"d:Special:EntityPage\/P6216\" href=\"https:\/\/www.wikidata.org\/wiki\/Special:EntityPage\/P6216\"&gt;copyright status&lt;\/a&gt;"}},"text\/plain":{"en":{"":"copyright status"}}},"{\"value\":{\"entity-type\":\"item\",\"numeric-id\":88088423,\"id\":\"Q88088423\"},\"type\":\"wikibase-entityid\"}":{"text\/html":{"en":{"P6216":"&lt;a target=\"_blank\" title=\"d:Special:EntityPage\/Q88088423\" href=\"https:\/\/www.wikidata.org\/wiki\/Special:EntityPage\/Q88088423\"&gt;copyrighted, dedicated to the public domain by copyright holder&lt;\/a&gt;"}},"text\/plain":{"en":{"P6216":"copyrighted, dedicated to the public domain by copyright holder"}}}}' class='wbmi-entityview-statementsGroup wbmi-entityview-statementsGroup-P6216 oo-ui-layout oo-ui-panelLayout oo-ui-panelLayout-framed'><div class='wbmi-statements-widget'><div class='wbmi-statement-header'><div class='wbmi-entity-data'><div class='wbmi-entity-title'><h4 class='wbmi-entity-label'><bdi><a target="_blank" title="d:Special:EntityPage/P6216" href="https://www.wikidata.org/wiki/Special:EntityPage/P6216">copyright status</a></bdi></h4></div></div></div><div class='wbmi-content-items-group'><div class='wbmi-item wbmi-item-read'><div data-guid='M3817954$2F9654BF-12B1-4B5A-9845-08116F5CCBEE' class='wbmi-item-container'><div class='wbmi-entity-header'><div class='wbmi-entity-data'><div class='wbmi-entity-title'><h4 class='wbmi-entity-label'><bdi><a target="_blank" title="d:Special:EntityPage/Q88088423" href="https://www.wikidata.org/wiki/Special:EntityPage/Q88088423">copyrighted, dedicated to the public domain by copyright holder</a></bdi></h4></div></div></div></div></div></div></div></div><div id='P275' data-property='P275' data-statements='[{"mainsnak":{"snaktype":"value","property":"P275","datavalue":{"value":{"entity-type":"item","numeric-id":98592850,"id":"Q98592850"},"type":"wikibase-entityid"}},"type":"statement","id":"M3817954$DB72D4B3-97DE-42B2-A685-76C9C93682F8","rank":"normal"}]' data-formatvalue='{"{\"value\":{\"entity-type\":\"property\",\"numeric-id\":275,\"id\":\"P275\"},\"type\":\"wikibase-entityid\"}":{"text\/html":{"en":{"":"&lt;a target=\"_blank\" title=\"d:Special:EntityPage\/P275\" href=\"https:\/\/www.wikidata.org\/wiki\/Special:EntityPage\/P275\"&gt;copyright license&lt;\/a&gt;"}},"text\/plain":{"en":{"":"copyright license"}}},"{\"value\":{\"entity-type\":\"item\",\"numeric-id\":98592850,\"id\":\"Q98592850\"},\"type\":\"wikibase-entityid\"}":{"text\/html":{"en":{"P275":"&lt;a target=\"_blank\" title=\"d:Special:EntityPage\/Q98592850\" href=\"https:\/\/www.wikidata.org\/wiki\/Special:EntityPage\/Q98592850\"&gt;released into the public domain by the copyright holder&lt;\/a&gt;"}},"text\/plain":{"en":{"P275":"released into the public domain by the copyright holder"}}}}' class='wbmi-entityview-statementsGroup wbmi-entityview-statementsGroup-P275 oo-ui-layout oo-ui-panelLayout oo-ui-panelLayout-framed'><div class='wbmi-statements-widget'><div class='wbmi-statement-header'><div class='wbmi-entity-data'><div class='wbmi-entity-title'><h4 class='wbmi-entity-label'><bdi><a target="_blank" title="d:Special:EntityPage/P275" href="https://www.wikidata.org/wiki/Special:EntityPage/P275">copyright license</a></bdi></h4></div></div></div><div class='wbmi-content-items-group'><div class='wbmi-item wbmi-item-read'><div data-guid='M3817954$DB72D4B3-97DE-42B2-A685-76C9C93682F8' class='wbmi-item-container'><div class='wbmi-entity-header'><div class='wbmi-entity-data'><div class='wbmi-entity-title'><h4 class='wbmi-entity-label'><bdi><a target="_blank" title="d:Special:EntityPage/Q98592850" href="https://www.wikidata.org/wiki/Special:EntityPage/Q98592850">released into the public domain by the copyright holder</a></bdi></h4></div></div></div></div></div></div></div></div></mediainfoviewstatements></mediainfoview>
+<!-- Saved in parser cache with key commonswiki:pcache:idhash:3817954-1!wb=3 and timestamp 20200911145300 and revision id 455372805
+ -->
+</div></div>
+<h2 id="filehistory">File history</h2>
+<div id="mw-imagepage-section-filehistory">
+<p>Click on a date/time to view the file as it appeared at that time.
+</p>
+<table class="wikitable filehistory">
+<tr><th></th><th>Date/Time</th><th>Thumbnail</th><th>Dimensions</th><th>User</th><th>Comment</th></tr>
+<tr><td>current</td><td class='filehistory-selected' style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/7/74/Normal_Distribution_PDF.svg">16:06, 29 April 2016</a></td><td><a href="//upload.wikimedia.org/wikipedia/commons/7/74/Normal_Distribution_PDF.svg"><img alt="Thumbnail for version as of 16:06, 29 April 2016" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/120px-Normal_Distribution_PDF.svg.png" decoding="async" width="120" height="77" data-file-width="720" data-file-height="460" /></a></td><td>720 × 460 <span style="white-space: nowrap;">(63 KB)</span></td><td>Glosser.ca</td><td dir="ltr">Lighten background grid</td></tr>
+<tr><td></td><td  style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20160429160624%21Normal_Distribution_PDF.svg">17:19, 22 September 2009</a></td><td><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20160429160624%21Normal_Distribution_PDF.svg"><img alt="Thumbnail for version as of 17:19, 22 September 2009" src="//upload.wikimedia.org/wikipedia/commons/thumb/archive/7/74/20160429160624%21Normal_Distribution_PDF.svg/120px-Normal_Distribution_PDF.svg.png" decoding="async" width="120" height="77" data-file-width="720" data-file-height="460" /></a></td><td>720 × 460 <span style="white-space: nowrap;">(65 KB)</span></td><td>Stpasha</td><td dir="ltr">Trying again, there seems to be a bug with previous upload…</td></tr>
+<tr><td></td><td  style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090922171938%21Normal_Distribution_PDF.svg">17:15, 22 September 2009</a></td><td><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090922171938%21Normal_Distribution_PDF.svg"><img alt="Thumbnail for version as of 17:15, 22 September 2009" src="//upload.wikimedia.org/wikipedia/commons/thumb/archive/7/74/20090922171938%21Normal_Distribution_PDF.svg/120px-Normal_Distribution_PDF.svg.png" decoding="async" width="120" height="77" data-file-width="720" data-file-height="460" /></a></td><td>720 × 460 <span style="white-space: nowrap;">(65 KB)</span></td><td>Stpasha</td><td dir="ltr">Curves are more distinguishable; numbers correctly rendered in roman style instead of italic</td></tr>
+<tr><td></td><td  style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090922171514%21Normal_Distribution_PDF.svg">14:07, 27 June 2009</a></td><td><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090922171514%21Normal_Distribution_PDF.svg"><img alt="Thumbnail for version as of 14:07, 27 June 2009" src="//upload.wikimedia.org/wikipedia/commons/thumb/archive/7/74/20090922171514%21Normal_Distribution_PDF.svg/120px-Normal_Distribution_PDF.svg.png" decoding="async" width="120" height="77" data-file-width="720" data-file-height="460" /></a></td><td>720 × 460 <span style="white-space: nowrap;">(55 KB)</span></td><td>Autiwa</td><td dir="ltr">fichier environ 2 fois moins gros. Purgé des définitions inutiles, et avec des plots optimisés au niveau du nombre de points.</td></tr>
+<tr><td></td><td  style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090627140731%21Normal_Distribution_PDF.svg">18:22, 5 September 2008</a></td><td><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20090627140731%21Normal_Distribution_PDF.svg"><img alt="Thumbnail for version as of 18:22, 5 September 2008" src="//upload.wikimedia.org/wikipedia/commons/thumb/archive/7/74/20090627140731%21Normal_Distribution_PDF.svg/120px-Normal_Distribution_PDF.svg.png" decoding="async" width="120" height="77" data-file-width="720" data-file-height="460" /></a></td><td>720 × 460 <span style="white-space: nowrap;">(109 KB)</span></td><td>PatríciaR</td><td dir="ltr">from http://tools.wikimedia.pl/~beau/imgs/ (recovering <a href="/w/index.php?title=User:Patr%C3%ADciaR/missing_images&amp;action=edit&amp;redlink=1" class="new" title="User:PatríciaR/missing images (page does not exist)">lost file</a>)</td></tr>
+<tr><td></td><td  style='white-space: nowrap;'><a href="//upload.wikimedia.org/wikipedia/commons/archive/7/74/20080905182212%21Normal_Distribution_PDF.svg">19:09, 2 April 2008</a></td><td>No thumbnail</td><td> <span style="white-space: nowrap;">(109 KB)</span></td><td>Inductiveload</td><td dir="ltr">{{Information |Description=A selection of Normal Distribution Probability Density Functions (PDFs). Both the mean, &#039;&#039;μ&#039;&#039;, and variance, &#039;&#039;σ²&#039;&#039;, are varied. The key is given on the graph. |Source=self-made, Mathematica, Inkscape |Date=02/04/2008 |Author</td></tr>
+</table>
+
+</div>
+<h2 id="filelinks">File usage</h2>
+<div id='mw-imagepage-section-linkstoimage'>
+<div class="linkstoimage" id="linkstoimage">The following pages on the English Wikipedia use this file (pages on other projects are not listed):</div><ul class="mw-imagepage-linkstoimage">
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Bell_shaped_function" title="Bell shaped function">Bell shaped function</a></li>
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Carl_Friedrich_Gauss" title="Carl Friedrich Gauss">Carl Friedrich Gauss</a></li>
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Gaussian_function" title="Gaussian function">Gaussian function</a></li>
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Information_geometry" title="Information geometry">Information geometry</a></li>
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Normal_distribution" title="Normal distribution">Normal distribution</a></li>
+<li class="mw-imagepage-linkstoimage-ns0"><a href="/wiki/Probability_distribution_fitting" title="Probability distribution fitting">Probability distribution fitting</a></li>
+<li class="mw-imagepage-linkstoimage-ns2"><a href="/wiki/User:Minzastro/sandbox" title="User:Minzastro/sandbox">User:Minzastro/sandbox</a></li>
+<li class="mw-imagepage-linkstoimage-ns2"><a href="/wiki/User:OneThousandTwentyFour/sandbox" title="User:OneThousandTwentyFour/sandbox">User:OneThousandTwentyFour/sandbox</a></li>
+<li class="mw-imagepage-linkstoimage-ns4"><a href="/wiki/Wikipedia:Top_25_Report/September_16_to_22,_2018" title="Wikipedia:Top 25 Report/September 16 to 22, 2018">Wikipedia:Top 25 Report/September 16 to 22, 2018</a></li>
+<li class="mw-imagepage-linkstoimage-ns10"><a href="/wiki/Template:Infobox_probability_distribution/testcases" title="Template:Infobox probability distribution/testcases">Template:Infobox probability distribution/testcases</a></li>
+</ul>
+</div>
+<h2 id="globalusage">Global file usage</h2>
+<div id="mw-imagepage-section-globalusage"><p>The following other wikis use this file:
+</p><ul>
+<li class='mw-gu-onwiki-ar_wikipedia_org'>Usage on ar.wikipedia.org
+<ul>	<li><a class="external" href="https://ar.wikipedia.org/wiki/%D8%AF%D8%A7%D9%84%D8%A9_%D8%A7%D9%84%D8%AA%D9%88%D8%B2%D9%8A%D8%B9_%D8%A7%D9%84%D8%AA%D8%B1%D8%A7%D9%83%D9%85%D9%8A">دالة التوزيع التراكمي</a></li>
+	<li><a class="external" href="https://ar.wikipedia.org/wiki/%D8%AF%D8%A7%D9%84%D8%A9_%D8%BA%D8%A7%D9%88%D8%B3%D9%8A%D8%A9">دالة غاوسية</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-az_wikipedia_org'>Usage on az.wikipedia.org
+<ul>	<li><a class="external" href="https://az.wikipedia.org/wiki/Alt%C4%B1_siqma">Altı siqma</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-be-tarask_wikipedia_org'>Usage on be-tarask.wikipedia.org
+<ul>	<li><a class="external" href="https://be-tarask.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%BB_%D0%A4%D1%80%D1%8B%D0%B4%D1%80%D1%8B%D1%85_%D0%93%D0%B0%D1%9E%D1%81">Карл Фрыдрых Гаўс</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-be_wikipedia_org'>Usage on be.wikipedia.org
+<ul>	<li><a class="external" href="https://be.wikipedia.org/wiki/%D0%9D%D0%B0%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%BA%D0%B0%D0%B2%D0%B0%D0%BD%D0%BD%D0%B5">Нармальнае размеркаванне</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-bg_wikipedia_org'>Usage on bg.wikipedia.org
+<ul>	<li><a class="external" href="https://bg.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D0%BD%D0%BE_%D1%80%D0%B0%D0%B7%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">Нормално разпределение</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-ca_wikipedia_org'>Usage on ca.wikipedia.org
+<ul>	<li><a class="external" href="https://ca.wikipedia.org/wiki/Distribuci%C3%B3_normal">Distribució normal</a></li>
+	<li><a class="external" href="https://ca.wikipedia.org/wiki/Par%C3%A0metre_estad%C3%ADstic">Paràmetre estadístic</a></li>
+	<li><a class="external" href="https://ca.wikipedia.org/wiki/Funci%C3%B3_de_distribuci%C3%B3">Funció de distribució</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-ckb_wikipedia_org'>Usage on ckb.wikipedia.org
+<ul>	<li><a class="external" href="https://ckb.wikipedia.org/wiki/%D9%81%D8%A7%D9%86%DA%A9%D8%B4%D9%86%DB%8C_%DA%AF%D8%A7%D9%88%D8%B3%DB%8C">فانکشنی گاوسی</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-cs_wikipedia_org'>Usage on cs.wikipedia.org
+<ul>	<li><a class="external" href="https://cs.wikipedia.org/wiki/Rozd%C4%9Blen%C3%AD_pravd%C4%9Bpodobnosti">Rozdělení pravděpodobnosti</a></li>
+	<li><a class="external" href="https://cs.wikipedia.org/wiki/Distribu%C4%8Dn%C3%AD_funkce">Distribuční funkce</a></li>
+	<li><a class="external" href="https://cs.wikipedia.org/wiki/Norm%C3%A1ln%C3%AD_rozd%C4%9Blen%C3%AD">Normální rozdělení</a></li>
+	<li><a class="external" href="https://cs.wikipedia.org/wiki/Gaussova_funkce">Gaussova funkce</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-de_wikipedia_org'>Usage on de.wikipedia.org
+<ul>	<li><a class="external" href="https://de.wikipedia.org/wiki/Normalverteilung">Normalverteilung</a></li>
+	<li><a class="external" href="https://de.wikipedia.org/wiki/Varianz_(Stochastik)">Varianz (Stochastik)</a></li>
+	<li><a class="external" href="https://de.wikipedia.org/wiki/Benutzer:Maximilian_Janisch/Glockenf%C3%B6rmige_Funktion">Benutzer:Maximilian Janisch/Glockenförmige Funktion</a></li>
+	<li><a class="external" href="https://de.wikipedia.org/wiki/Diskussion:COVID-19-Pandemie_in_%C3%96sterreich/Archiv/2020">Diskussion:COVID-19-Pandemie in Österreich/Archiv/2020</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-de_wikibooks_org'>Usage on de.wikibooks.org
+<ul>	<li><a class="external" href="https://de.wikibooks.org/wiki/Benutzer:OnkelDagobert:Wikilinks:Epidemiologie">Benutzer:OnkelDagobert:Wikilinks:Epidemiologie</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-de_wiktionary_org'>Usage on de.wiktionary.org
+<ul>	<li><a class="external" href="https://de.wiktionary.org/wiki/Normalverteilung">Normalverteilung</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-en_wikibooks_org'>Usage on en.wikibooks.org
+<ul>	<li><a class="external" href="https://en.wikibooks.org/wiki/Statistics/Summary/Variance">Statistics/Summary/Variance</a></li>
+	<li><a class="external" href="https://en.wikibooks.org/wiki/Statistics/Print_version">Statistics/Print version</a></li>
+	<li><a class="external" href="https://en.wikibooks.org/wiki/Statistics/Distributions/Normal_(Gaussian)">Statistics/Distributions/Normal (Gaussian)</a></li>
+	<li><a class="external" href="https://en.wikibooks.org/wiki/General_Engineering_Introduction/Error_Analysis/Statistics_Analysis">General Engineering Introduction/Error Analysis/Statistics Analysis</a></li>
+	<li><a class="external" href="https://en.wikibooks.org/wiki/The_science_of_finance/Probabilities_and_evaluation_of_risks">The science of finance/Probabilities and evaluation of risks</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-en_wikiquote_org'>Usage on en.wikiquote.org
+<ul>	<li><a class="external" href="https://en.wikiquote.org/wiki/David_Orrell">David Orrell</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-en_wikiversity_org'>Usage on en.wikiversity.org
+<ul>	<li><a class="external" href="https://en.wikiversity.org/wiki/Normal_distribution">Normal distribution</a></li>
+	<li><a class="external" href="https://en.wikiversity.org/wiki/User:Hylon.chen/Probability_concepts">User:Hylon.chen/Probability concepts</a></li>
+	<li><a class="external" href="https://en.wikiversity.org/wiki/User:Egm6936.f10/Probability_concepts">User:Egm6936.f10/Probability concepts</a></li>
+	<li><a class="external" href="https://en.wikiversity.org/wiki/Risk_Management/Modelling_of_Risks_and_Response_Maps">Risk Management/Modelling of Risks and Response Maps</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-en_wiktionary_org'>Usage on en.wiktionary.org
+<ul>	<li><a class="external" href="https://en.wiktionary.org/wiki/normal_distribution">normal distribution</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-eo_wikipedia_org'>Usage on eo.wikipedia.org
+<ul>	<li><a class="external" href="https://eo.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-es_wikipedia_org'>Usage on es.wikipedia.org
+<ul>	<li><a class="external" href="https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a></li>
+	<li><a class="external" href="https://es.wikipedia.org/wiki/Par%C3%A1metro_estad%C3%ADstico">Parámetro estadístico</a></li>
+	<li><a class="external" href="https://es.wikipedia.org/wiki/Funci%C3%B3n_de_distribuci%C3%B3n">Función de distribución</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-et_wikipedia_org'>Usage on et.wikipedia.org
+<ul>	<li><a class="external" href="https://et.wikipedia.org/wiki/Normaaljaotus">Normaaljaotus</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-eu_wikipedia_org'>Usage on eu.wikipedia.org
+<ul>	<li><a class="external" href="https://eu.wikipedia.org/wiki/Banaketa-funtzio">Banaketa-funtzio</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-fa_wikipedia_org'>Usage on fa.wikipedia.org
+<ul>	<li><a class="external" href="https://fa.wikipedia.org/wiki/%D8%AA%D9%88%D8%B2%DB%8C%D8%B9_%D9%86%D8%B1%D9%85%D8%A7%D9%84">توزیع نرمال</a></li>
+	<li><a class="external" href="https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D8%A8%D8%B9_%D8%AA%D9%88%D8%B2%DB%8C%D8%B9_%D8%AA%D8%AC%D9%85%D8%B9%DB%8C">تابع توزیع تجمعی</a></li>
+	<li><a class="external" href="https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D8%A8%D8%B9_%DA%AF%D8%A7%D9%88%D8%B3%DB%8C">تابع گاوسی</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-fi_wikipedia_org'>Usage on fi.wikipedia.org
+<ul>	<li><a class="external" href="https://fi.wikipedia.org/wiki/Tiheysfunktio">Tiheysfunktio</a></li>
+	<li><a class="external" href="https://fi.wikipedia.org/wiki/Normaalijakauma">Normaalijakauma</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-fr_wikipedia_org'>Usage on fr.wikipedia.org
+<ul>	<li><a class="external" href="https://fr.wikipedia.org/wiki/Loi_normale">Loi normale</a></li>
+	<li><a class="external" href="https://fr.wikipedia.org/wiki/Loi_de_probabilit%C3%A9">Loi de probabilité</a></li>
+	<li><a class="external" href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Lumi%C3%A8re_sur/Mars_2013">Wikipédia:Lumière sur/Mars 2013</a></li>
+	<li><a class="external" href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Lumi%C3%A8re_sur/Loi_normale">Wikipédia:Lumière sur/Loi normale</a></li>
+	<li><a class="external" href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Oracle/semaine_9_2015">Wikipédia:Oracle/semaine 9 2015</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-fr_wikibooks_org'>Usage on fr.wikibooks.org
+<ul>	<li><a class="external" href="https://fr.wikibooks.org/wiki/La_science_de_la_finance/Les_probabilit%C3%A9s_et_l%27%C3%A9valuation_des_risques">La science de la finance/Les probabilités et l'évaluation des risques</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-ga_wikipedia_org'>Usage on ga.wikipedia.org
+<ul>	<li><a class="external" href="https://ga.wikipedia.org/wiki/D%C3%A1ileadh_Normalach">Dáileadh Normalach</a></li>
+</ul></li>
+<li class='mw-gu-onwiki-gl_wikipedia_org'>Usage on gl.wikipedia.org
+<ul>	<li><a class="external" href="https://gl.wikipedia.org/wiki/N%C3%BAmero_pi">Número pi</a></li>
+</ul></li>
+</ul>
+<p>View <a href="/wiki/Special:GlobalUsage/Normal_Distribution_PDF.svg" title="Special:GlobalUsage/Normal Distribution PDF.svg">more global usage</a> of this file.
+</p></div><h2 id="metadata">Metadata</h2>
+<div class="mw-imagepage-section-metadata"><p>This file contains additional information, probably added from the digital camera or scanner used to create or digitize it.
+</p><p>
+If the file has been modified from its original state, some details may not fully reflect the modified file.</p><table id="mw_metadata" class="mw_metadata collapsed">
+<tbody><tr class="exif-imagewidth mw-metadata-collapsible"><th>Width</th><td>720</td></tr><tr class="exif-imagelength mw-metadata-collapsible"><th>Height</th><td>460</td></tr></tbody></table>
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/wiki/File:Normal_Distribution_PDF.svg">https://en.wikipedia.org/wiki/File:Normal_Distribution_PDF.svg</a>"</div></div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=File%3ANormal+Distribution+PDF.svg" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=File%3ANormal+Distribution+PDF.svg" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-image" class="selected"><a href="/wiki/File:Normal_Distribution_PDF.svg" title="View the file page [c]" accesskey="c">File</a></li><li id="ca-talk" class="new"><a href="/w/index.php?title=File_talk:Normal_Distribution_PDF.svg&amp;action=edit&amp;redlink=1" rel="discussion" title="Discuss improvements to the content page (page does not exist) [t]" accesskey="t">Talk</a></li></ul>
+		
+	</div>
+</nav>
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected"><a href="/wiki/File:Normal_Distribution_PDF.svg">Read</a></li><li id="ca-view-foreign"><a href="https://commons.wikimedia.org/wiki/File:Normal_Distribution_PDF.svg">View on Commons</a></li></ul>
+		
+	</div>
+</nav>
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Visit a randomly selected article [x]" accesskey="x">Random article</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works">About Wikipedia</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact us</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation">Donate</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+		
+	</div>
+</nav>
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-interaction" class="vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<h3 id="p-interaction-label">
+		<span>Contribute</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r">Recent changes</a></li><li id="n-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia">Upload file</a></li></ul>
+		
+	</div>
+</nav>
+<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/File:Normal_Distribution_PDF.svg" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-info"><a href="/w/index.php?title=File:Normal_Distribution_PDF.svg&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-lang" class="vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<h3 id="p-lang-label">
+		<span>Languages</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"></ul>
+		<div class="after-portlet after-portlet-lang"><span class="uls-after-portlet-link"></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=File:Normal_Distribution_PDF.svg&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":179,"wgHostname":"mw2355"});});</script>
+</body></html>

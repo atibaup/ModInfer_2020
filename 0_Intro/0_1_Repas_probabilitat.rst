@@ -864,13 +864,20 @@ Suposem :math:`X \sim U[0, 1]` i :math:`Y=-\log(X)`:
 .. nextslide:: Propietats de l'esperança
 
 La majoria de propietats de l'esperança provenen de la
-linearitat de l'operador integració/suma [Casella & Berger 2.2.5]:
+linearitat de l'operador integració/suma [Casella & Berger 2.2.5]*:
 
 1. :math:`E\left(a X + b Y + c\right) = aE\left( X\right) + b E\left( Y\right) + c`
 2. Si :math:`X \geq Y`, aleshores :math:`E\left(X\right)\geq E\left(Y\right)`
 3. Si :math:`a\geq X \geq b`, aleshores :math:`a \geq E\left(X\right)\geq b`
 
 *Demostració (1) i (2) a la pissarra, (3) com exercici*
+
+.. rst-class:: note
+
+    *Nota: En realitat, a [Casella & Berger 2.2.5] contemplen només el cas
+    :math:`X=g_1(x)` i :math:`Y=g_2(X)`. Aquí farem una mica de trampa i farem
+    servir ja les distribucions marginals d':math:`X` i :math:`Y` que encara no hem definit
+    però definirem més endavant.
 
 .. nextslide:: Aplicació de la linearitat de l'E: Cupons
 
@@ -967,7 +974,6 @@ En estadística, la f.g.m es fa servir majoritàriament per tres raons:
 2. Per calcular distribucions de transformacions afins de v.a. [Casella & Berger 2.3.15]
 3. Per calcular la distribució de la suma de v.a. independents [Casella & Berger 4.2.12]
 
-
 .. nextslide::
     :increment:
 
@@ -987,5 +993,304 @@ caracteritza inequívocament una f.d.c:
 una f.g.m i a partir d'aquesta desfer el camí i obtenir-be la f.d.c. corresponent.
 
 
+Desigualtats
+==========================================
 
+Desigualtat de Markov
+---------------------
+
+La desigualta de Markov estableix que, per qualsevol v.a. :math:`X \geq 0`,
+tal que :math:`E(X)` existeix, podem acotar la probabilitat de que :math:`X`
+excedeixi un cert valor :math:`t > 0` per:
+
+:math:`P(X \geq t) \leq \frac{E(X)}{t}`
+
+Per exemple, si fixem :math:`t = kE(X)`, podem acotar la proba que :math:`X`
+excedeixi la seva mitja per un factor k:
+
+:math:`P(X \geq k E(X)) \leq \frac{1}{k}`
+
+*Demostració*:
+
+Descomposar :math:`E(X)=\int_{-\infty}^t x f_X(x)dx + \int_t^{\infty} x f_X(x)dx`
+i observar que :math:`\int_{-\infty}^t x f_X(x)dx \geq 0` i :math:`\int_t^{\infty} x f_X(x)dx \geq t P(X\geq t)`
+
+
+Desigualtat de Txebitxev
+------------------------
+
+La desigualtat de Markov és molt laxa perquè només fa servir informació sobre :math:`E(X)`.
+La seva extensió (desigualtat de Txebitxev) ens permetrà establir cotes una mica més
+útils. Sigui v.a. :math:`g(X) \geq 0`, tal que :math:`E(g(X))` existeix, per qualsevol :math:`t > 0` tenim:
+
+:math:`P(g(X) \geq t) \leq \frac{E(g(X))}{t}`
+
+A priori això sembla calcat a la de Markov, però vegem-ne una aplicació:
+
+.. rst-class:: note
+
+    Sigui :math:`X` una v.a. amb mitja :math:`\mu` i variança :math:`\sigma^2`. Aleshores
+    :math:`P(|X - \mu| \geq k \sigma) \leq \frac{1}{k^2}`
+
+*Demostració*: Per demostrar Txebitxev, es segueix la mateixa idea que per Markov.
+Per demostrar-ne aquesta aplicació, n'hi ha prou amb aplicar Txebitxev amb :math:`g(x) = \left(\frac{x - \mu}{\sigma}\right)^2`
+
+
+Desigualtat de Jensen
+------------------------
+
+L'última desigualtat que considerarem és la de Jensen, que sota
+la seva simplicitat amaga moltíssim poder.
+
+Sigui :math:`g(x)` una funció convexa i :math:`X` una v.a. tal que :math:`E(g(x))`
+existeix. Aleshores:
+
+:math:`E(g(x)) \geq g(E(X))`
+
+*Aplicacions*: Moltíssimes, però dues d'immediates són les d'obtenir cotes, per exemple:
+
+* :math:`E(X^2) \geq (E(X))^2`
+* :math:`E(\frac{1}{X}) \geq \frac{1}{E(X)}`
+
+*Demostració*: A la pissarra
+
+
+Vectors aleatoris / Variables multivariades
+===========================================
+
+Variables multivariades
+-------------------------------------------
+
+Una variable aleatòria multivariada és una extensió d'una v.a.
+a múltiples dimensions:
+
+.. rst-class:: note
+
+    **Definició** Una variable aleatòria multivariada (*v.m.* pels amics)
+    és una funció :math:`\mathbf{X} : \Omega \to \mathcal{X} \subseteq \mathbb{R}^K`.
+
+Exemples:
+
+* **V.m. contínua**: Mesurem l'alçada, pes i perímetre cranial dels nadons al néixer. Cada mostra es pot interpretar com una v.m. contínua de dimensió 3, que pren valors en :math:`\mathbb{R}^3`.
+* **V.m. discreta**: Agafem un document de text i en contem el nombre de vegades que apareixen :math:`K` paraules d'un diccionari. El resultat és un vector discret que pren valors a :math:`\mathbb{N}^K`
+
+Funció de densitat o de massa de probabilitat conjuntes: Cas bivariat
+----------------------------------------------------------------------
+
+De manera anàloga al que hem vist per v.a.'s, ver una v.m :math:`(X, Y)` també
+podem definir:
+
+* Una *funció de massa de probabilitat conjunta*: :math:`p_{X,Y}(x, y)` si :math:`\mathcal{X}` contable
+* Una *funció de distribució de probabilitat conjunta*: :math:`f_{X,Y}(x, y)` si :math:`\mathcal{X}` incontable
+
+Per tal de ser vàlides aquestes funcions han de verificar:
+
+* :math:`p_{X,Y}(x, y) \geq 0`, :math:`\sum_{x, y \in \mathcal{X}}p_{X,Y}(x, y)=1`
+* :math:`f_{X,Y}(x, y) \geq 0`, :math:`\int\int_{x, y \in \mathcal{X}}f_{X,Y}(x, y)=1`
+
+.. rst-class:: note
+
+    Durant aquest repàs, presentarem els conceptes només pel cas bivariat (:math:`N=2`),
+    l'extensió a :math:`K>2` és gairebé immediata [Casella & Berger 4.6]
+
+.. nextslide::
+    :increment:
+
+La f.m.p. o la f.d.c. es poden utilitzar per caracteritzar la probabilitat
+d'un esdeveniment :math:`A` (omitirem el cas discret):
+
+:math:`P((X, Y) \in A) = \int\int_{x, y \in A} f_{X,Y}(x,y)dx dy`
+
+*Exemple*: :math:`(X,Y)` són les coordenades d'arribada d'un dard llançat
+en un tauler de radi :math:`r >0`.
+
+Si suposem que sóm uniformement dolents llançant dards, podem caracteritzar la
+f.d.p com una uniforme en el cercle de radi :math:`r`:
+
+:math:`f(x,y) = \left\{\begin{array}{cc}\frac{1}{\pi}&\mbox{ si } x^2 + y^2 \leq 1 \\ 0  &\mbox{ altrament } \end{array}\right\}`
+
+*Exercici*: Calculeu :math:`P((X, Y) \in A)` per :math:`A = \left\{x, y: t \leq x^2 + y^2 \leq 1\right\}`
+
+
+Distribucions marginals
+-------------------------------------------------------
+
+A vegades voldrem caracteritzar només un dels components d'un vector aleatori :math:`(X, Y)`.
+
+Per exemple, si volem calcular :math:`P(X \in A_x)`.
+
+Per fer-ho, farem servir el que s'anomena la f.d.p *marginal* d'X:
+
+:math:`f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) dy` (cas continu)
+
+o:
+
+:math:`p_X(x) = \sum_{k} f_{X,Y}(x, k) dy` (cas discret)
+
+**Exemple:** Quina és la probabilitat que el dard de l'exemple anterior caigui
+en la regió :math:`-1\leq y \leq 1` (:math:`r>1`).
+
+.. rst-class:: note
+
+    És important recordar que les marginals no contenen tota la informació que hi ha en la conjunta!
+
+
+Exemple de variable multivariada discreta: multinomial
+-------------------------------------------------------
+
+Considerem ara un exemple d'una v.m. discreta per :math:`K \geq 2`:
+
+* Suposeu un experiment en que cada realització pren un entre :math:`K` valors discret, amb probabilitats :math:`p_i`, :math:`i=1,\cdots,K`, :math:`\sum_i p_i = 1`.
+* Repetim l'experiment :math:`N` vegades, cada realització és mutuament independent amb les altres
+* Definim la v.m. :math:`\mathbf{X}=\left[X_1, \cdots, X_K\right]` com un vector on cada element :math:`X_i` conta el nombre de vegades que hem observat el valor :math:`i`
+
+Aleshores la v.m :math:`\mathbf{X}` segueix una distribució multinomial [Casella & Berger 4.6.2]
+
+:math:`p_{X_1, \cdots, X_K}\left(x_1, \cdots, x_K\right) = N!\Pi_{i=1}^{K}\frac{p_i^{x_i}}{x_i!}`
+
+.. nextslide::
+    :increment:
+
+És obvi que :math:`p_{X_1, \cdots, X_K}\left(x_1, \cdots, x_K\right)\geq 0`. Per demostrar que això és efectivament una f.m.p,
+haurem d'aplicar el Teorema Binomial [Casella & Berger 4.6.4], que diu que
+
+:math:`\left(p_1 + \cdots + p_N\right)^N = N!\Pi_{i=1}^{K}\frac{p_i^{x_i}}{x_i!}`
+
+i això és igual a 1 ja que :math:`p_1 + \cdots + p_N=1`.
+
+Fixeu-vos que:
+
+1. Si K=2, :math:`X_1` segueix una distribució binomial amb paràmetres :math:`p_1, N` (i :math:`X_2` també!)
+2. La f.m.p. de qualsevol :math:`X_i`, és també una binomial (Exercici!)
+
+.. nextslide:: Exemple d'aplicació: modelització de documents de text
+
+.. figure::  /_static/0_Intro/multinomial_exemple.png
+    :height: 500px
+    :align: center
+
+    Això es coneix com el model "Bag-of-Words" d'un document
+
+
+Funció de distribució cumulativa conjunta
+-------------------------------------------------------
+
+Som seria d'esperar, en el cas multivariat també podem definir una f.d.c conjunta. Per exemple,
+per :math:`N=2` i una v.m. :math:`(X, Y)`:
+
+:math:`F_{X,Y}(x, y) = P(X \leq x, Y \leq y)`
+
+Cosa que en el cas continu, i en el cas que :math:`f_{X,Y}` existeixi, implica:
+
+:math:`F_{X,Y}(x, y) = \int^x_{-\infty}\int^y_{-\infty} f_{X,Y}(x',y')dx'dy'`
+
+.. rst-class:: note
+
+    Les f.d.c són una mica menys útils en el cas multivariat ja que "només" ens serveixen
+    per calcular probabilitats d'esdeveniments "rectangulars"
+
+Funció de distribució de probabilitat i massa condicionals
+----------------------------------------------------------
+
+De manera anàloga al que vam definir per a probabilitats d'esdeveniments,
+podem definir f.d.p.'s o f.m.p's condicionals.
+
+Considero només el cas continu (pel cas discret la definició
+és la mateixa però intercanviat :math:`f` per :math:`p`). Per qualsevol
+:math:`y` t.q. :math:`f_Y(y) > 0` definim la f.d.p condicional donat
+:math:`Y=y` com [Casella & Berger 4.2.1 i 4.2.3]:
+
+:math:`f_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)}`
+
+Si :math:`X` segueix la distribució :math:`f_{X|Y=y}(x)` direm que
+:math:`X | Y=y \sim f_{X|Y=y}` (sovint omitirem :math:`y`)
+
+.. rst-class:: note
+
+    En realitat fixeu-vos que :math:`f_{X|Y}(x)` és una família de distribucions:
+    per cada possible valor d':math:`Y` tenim una :math:`f_{X|Y}(x)` diferent.
+
+Llei de la probabilitat total
+----------------------------------------------------------
+
+La f.d.p condicional ens permet desenvolupar una expressió equivalent a
+la llei de la probabilitat total que vem veure per esdeveniments [Casella & BErger 1.2.11],
+[diapo 9, punt (1)].
+
+L'idea és expressar una marginal en funció de la condicional:
+
+:math:`f_{X}(x) = \int^{\infty}_{-\infty} f_{X,Y}(x,y)dy = \int^{\infty}_{-\infty} f_{X|Y=y}(x)f_Y(y)dy`
+
+(una expressió similar es pot obtenir pel cas discret, remplaçant les integrals per sumes i
+:math:`f` per :math:`p`)
+
+Aquesta expressió és molt útil per caracteritzar models jeràrquics, com veurem
+a continuació.
+
+Exemple de model jeràrquic: Poisson-Binomial
+----------------------------------------------------------
+
+.. figure::  /_static/0_Intro/poisson_binomial.png
+    :width: 700px
+    :align: center
+
+    Exemple de model jeràrquic amb dos nivells: Modelem les entrades de peatons en una tenda, com un model poisson-binomial. Quina és la distribució d':math:`X`?
+
+.. nextslide::
+    :increment:
+
+Gràcies a la "lei de la probabilitat total" que acabem de veure,
+podem derivar la distribució d':math:`X`
+
+.. math::
+
+     p_{X}(k) & = \sum_{n=0}^\infty p_N(n) p_{X|N=n}(k) \\
+              & = \sum_{n=k}^\infty \frac{\lambda^n e^{-\lambda}}{n!} {n \choose k}p^{k}\left(1 - p\right)^{n-k}\\
+              & = \frac{\left(\lambda p\right)^k}{k!}e^{-\lambda p}
+
+Per tant :math:`X \sim \mbox{Poisson}\left(\lambdap\right)`
+
+**Exercici**: demostrar com es passa de la 2a la 3a igualtat.
+
+Esperança condicional
+----------------------
+
+Gràcies a la f.d.p. i la f.m.p. condicionals, podem definir
+l'eperança condicional, que juga un rol important en estadística
+com veurem tot seguit.
+
+:math:`E(X|Y=y) = \int x f_{X|Y=y}(x) dx`
+
+.. rst-class:: note
+
+    Noteu que a diferència de l'esperança "normal", l'esperança condicional
+    és una variable aleatòria, ja que és una funció d':math:`Y`!
+
+De fet, podem utilitzar l'esperança condicional per calcular l'esperança d':math:`X`,
+gràcies al que a vegades s'anomena la "llei de l'esperança total" (en referència
+a la llei de la probabilitat total) [Casella & Berger 4.4.3]:
+
+:math:`E(X) = E(E(X|Y))`
+
+Adoneu-vos que l'esperança "exterior" és respecte :math:`Y`! Demostració com a exercici.
+
+.. nextslide::
+    :increment:
+
+Aquesta última fórmula es pot fer servir per calcular esperances que altrament
+serien molt complicades. Per exemple, considereu el següent model probabilístic:
+
+* Tenim :math:`X_i` tals que :math:`E(X_i) = \mu`, :math:`i=1, \cdots, N`
+* :math:`N` és una v.a. independent d':math:`X_i`, amb :math:`E(N) = \nu`
+* Volem caracteritzar :math:`T = \sum_{i=1}^N X_i`
+
+(Per exemple, :math:`X_i` podria referir-se al gasto d'un client i :math:`N` al
+nombre de clients que entren a una web. :math:`T` seria els ingressos totals.)
+
+Gràcies a l'expressió :math:`E(T) = E(E(T|N))`, i fent servir una propietat
+que veurem tot seguit sobre v.a.'s independents, tenim:
+
+:math:`E(T) = E(N)E(X) = \mu \nu`.
+
+I això sense saber res d':math:`f_{X_1, \cdots, X_N, N}`!
 
