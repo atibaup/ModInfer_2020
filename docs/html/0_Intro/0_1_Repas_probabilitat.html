@@ -863,6 +863,32 @@ que veurem tot seguit sobre v.a.’s independents, tenim:</p>
 <p><span class="math notranslate nohighlight">\(E(T) = E(N)E(X) = \mu \nu\)</span>.</p>
 <p>I això sense saber res d’<span class="math notranslate nohighlight">\(f_{X_1, \cdots, X_N, N}\)</span>!</p>
 </div>
+<div class="section" id="esperanca-condicional-i-prediccio">
+<h3><span class="section-number">2.7.10. </span>Esperança condicional i predicció<a class="headerlink" href="#esperanca-condicional-i-prediccio" title="Permalink to this headline">¶</a></h3>
+<p>L’esperança condicional juga un rol molt
+important en els problemes de predicció.</p>
+<p>Vem veure a la diapo 62, que l’esperança d’una v.a. <span class="math notranslate nohighlight">\(X\)</span> era el predictor de
+mínim error quadrat:</p>
+<p><span class="math notranslate nohighlight">\(E(Y) = \arg\min_{\theta} E(Y - \theta)^2\)</span></p>
+<p>En molts problemes, el que voldrem és predir <span class="math notranslate nohighlight">\(Y\)</span> en funció
+d’un covariat (<em>covariate</em> o <em>feature</em>) <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Per exemple:</p>
+<ul class="simple">
+<li><p>Predir <span class="math notranslate nohighlight">\(Y\)</span>: la nota de l’exàmen final</p></li>
+<li><p>en funció de <span class="math notranslate nohighlight">\(X\)</span> el nombre d’hores d’estudi</p></li>
+</ul>
+<p>En aquest cas, el problem és de trobar una funció <span class="math notranslate nohighlight">\(h(X)\)</span> tal que
+minimitzi l’Error Quadràtic Mitjà:</p>
+<p><span class="math notranslate nohighlight">\(\min_{h(x)} E(Y - h(X))^2\)</span> (noteu que l’esperança és sobre <span class="math notranslate nohighlight">\(X,Y\)</span>!</p>
+<p>Gràcies a la llei de l’esperança total, podem escriure:</p>
+<p><span class="math notranslate nohighlight">\(E(Y - h(X)\theta)^2 =  E(E(\left(Y - h(X)\right)^2 | X))^2\)</span></p>
+<p>I fent servir el resultat esmentat, veiem que aquesta quantitat es minimitza
+per <span class="math notranslate nohighlight">\(h(x) = E(Y | X=x)\)</span>!</p>
+<p class="note">El millor predictor d’<span class="math notranslate nohighlight">\(Y\)</span> donat <span class="math notranslate nohighlight">\(X\)</span> és <span class="math notranslate nohighlight">\(E(Y | X=x)\)</span>!
+Malauradament, aquest predictor requereix un coneixement de <span class="math notranslate nohighlight">\(f_{XY}\)</span>
+per ser implementat. Durant el curs veurem altres predictors més útils,
+per exemple els predictors linears, on <span class="math notranslate nohighlight">\(h(X) = a + b X\)</span>.</p>
+</div>
 </div>
 </div>
 
@@ -934,6 +960,7 @@ que veurem tot seguit sobre v.a.’s independents, tenim:</p>
 <li><a class="reference internal" href="#llei-de-la-probabilitat-total">2.7.7. Llei de la probabilitat total</a></li>
 <li><a class="reference internal" href="#exemple-de-model-jerarquic-poisson-binomial">2.7.8. Exemple de model jeràrquic: Poisson-Binomial</a></li>
 <li><a class="reference internal" href="#esperanca-condicional">2.7.9. Esperança condicional</a></li>
+<li><a class="reference internal" href="#esperanca-condicional-i-prediccio">2.7.10. Esperança condicional i predicció</a></li>
 </ul>
 </li>
 </ul>

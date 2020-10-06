@@ -1294,3 +1294,46 @@ que veurem tot seguit sobre v.a.'s independents, tenim:
 
 I això sense saber res d':math:`f_{X_1, \cdots, X_N, N}`!
 
+Esperança condicional i predicció
+---------------------------------
+
+L'esperança condicional juga un rol molt
+important en els problemes de predicció.
+
+Vem veure a la diapo 62, que l'esperança d'una v.a. :math:`X` era el predictor de
+mínim error quadrat:
+
+:math:`E(Y) = \arg\min_{\theta} E(Y - \theta)^2`
+
+En molts problemes, el que voldrem és predir :math:`Y` en funció
+d'un covariat (*covariate* o *feature*) :math:`X`.
+
+Per exemple:
+
+* Predir :math:`Y`: la nota de l'exàmen final
+* en funció de :math:`X` el nombre d'hores d'estudi
+
+.. nextslide::
+    :increment:
+
+En aquest cas, el problem és de trobar una funció :math:`h(X)` tal que
+minimitzi l'Error Quadràtic Mitjà:
+
+:math:`\min_{h(x)} E(Y - h(X))^2` (noteu que l'esperança és sobre :math:`X,Y`!
+
+Gràcies a la llei de l'esperança total, podem escriure:
+
+:math:`E(Y - h(X)\theta)^2 =  E(E(\left(Y - h(X)\right)^2 | X))^2`
+
+I fent servir el resultat esmentat, veiem que aquesta quantitat es minimitza
+per :math:`h(x) = E(Y | X=x)`!
+
+.. rst-class:: note
+
+    El millor predictor d':math:`Y` donat :math:`X` és :math:`E(Y | X=x)`!
+    Malauradament, aquest predictor requereix un coneixement de :math:`f_{XY}`
+    per ser implementat. Durant el curs veurem altres predictors més útils,
+    per exemple els predictors linears, on :math:`h(X) = a + b X`.
+
+
+
