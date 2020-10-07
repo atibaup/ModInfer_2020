@@ -879,7 +879,7 @@ d’un covariat (<em>covariate</em> o <em>feature</em>) <span class="math notran
 </ul>
 <p>En aquest cas, el problem és de trobar una funció <span class="math notranslate nohighlight">\(h(X)\)</span> tal que
 minimitzi l’Error Quadràtic Mitjà:</p>
-<p><span class="math notranslate nohighlight">\(\min_{h(x)} E(Y - h(X))^2\)</span> (noteu que l’esperança és sobre <span class="math notranslate nohighlight">\(X,Y\)</span>!</p>
+<p><span class="math notranslate nohighlight">\(\min_{h(x)} E(Y - h(X))^2\)</span> (<em>l’esperança és sobre :math:`X,Y`!</em>)</p>
 <p>Gràcies a la llei de l’esperança total, podem escriure:</p>
 <p><span class="math notranslate nohighlight">\(E(Y - h(X)\theta)^2 =  E(E(\left(Y - h(X)\right)^2 | X))^2\)</span></p>
 <p>I fent servir el resultat esmentat, veiem que aquesta quantitat es minimitza
@@ -888,6 +888,56 @@ per <span class="math notranslate nohighlight">\(h(x) = E(Y | X=x)\)</span>!</p>
 Malauradament, aquest predictor requereix un coneixement de <span class="math notranslate nohighlight">\(f_{XY}\)</span>
 per ser implementat. Durant el curs veurem altres predictors més útils,
 per exemple els predictors linears, on <span class="math notranslate nohighlight">\(h(X) = a + b X\)</span>.</p>
+</div>
+<div class="section" id="variables-aleatories-independents">
+<h3><span class="section-number">2.7.11. </span>Variables aleatòries independents<a class="headerlink" href="#variables-aleatories-independents" title="Permalink to this headline">¶</a></h3>
+<p>El concepte d’esdeveniments independents:</p>
+<p><span class="math notranslate nohighlight">\(A, B: P(A\cap B) = P(A)P(B)\)</span></p>
+<p>es pot extendre a v.a.’s (o a les components d’un v.m.). Pel cas bivariat, tenim:</p>
+<p class="note">[Casella &amp; Berger 4.2.5] si <span class="math notranslate nohighlight">\(X, Y \sim f_{X,Y}\)</span> i <span class="math notranslate nohighlight">\(X\sim f_{X}\)</span>,
+<span class="math notranslate nohighlight">\(Y\sim f_{Y}\)</span> compleixen que <span class="math notranslate nohighlight">\(f_{X,Y}(x,y) = f_{X}(x)f_Y(y)\)</span>,
+aleshores diem que <span class="math notranslate nohighlight">\(X, Y\)</span> són v.a.’s independents.</p>
+<ul class="build simple">
+<li><p>Podeu verificar que aquesta definició implica que per qualsevol <span class="math notranslate nohighlight">\(A, B\)</span>, els esdeveniments <span class="math notranslate nohighlight">\(X\in A, Y \in B\)</span> són independents.</p></li>
+<li><p>Un resultat més sorprenent és que el recíproc també és cert, si existeixen <span class="math notranslate nohighlight">\(g(x), h(y)\)</span> tals que <span class="math notranslate nohighlight">\(f_{X,Y}(x,y) = h(x)g(y)\)</span>, aleshores <span class="math notranslate nohighlight">\(X, Y\)</span> són independents [Casella &amp; Berger 4.2.7]</p></li>
+<li><p>El resultat s’extén de manera immediata a les components d’un v.m. amb <span class="math notranslate nohighlight">\(N&gt;2\)</span> [Casella &amp; Berger 4.6.5]</p></li>
+</ul>
+</div>
+<div class="section" id="correlacio-i-covarianca">
+<h3><span class="section-number">2.7.12. </span>Correlació i covariança<a class="headerlink" href="#correlacio-i-covarianca" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fins ara hem vist una caracterització dicotòmica de les relacions entre variables aleatòries: <strong>independents</strong> o <strong>no independents</strong></p></li>
+<li><p>Quan les v.a.’s no són independents, sovint és útil caracteritzar-ne el grau d’associació</p></li>
+</ul>
+<p>La covariança i la correlació ens serveixen per quantificar el grau d’associació <strong>linear</strong>
+entre dues v.a.:</p>
+<p class="note">[Casella &amp; Berger 4.5.1, 4.5.2] Considerem <span class="math notranslate nohighlight">\(X, Y\)</span> tals que
+<span class="math notranslate nohighlight">\(E(X)=\mu_X\)</span>, <span class="math notranslate nohighlight">\(E(Y)=\mu_Y\)</span>, <span class="math notranslate nohighlight">\(\mbox{Var}(X)=\sigma^2_X\)</span>,
+<span class="math notranslate nohighlight">\(\mbox{Var}(Y)=\sigma^2_Y\)</span>. Definim la covariança com <span class="math notranslate nohighlight">\(\mbox{Cov}(X,Y) = E((X - \mu_X)(Y - \mu_Y))\)</span>
+i la correlació com <span class="math notranslate nohighlight">\(\rho_{X,Y} = \frac{\mbox{Cov}(X,Y)}{\sigma_X \sigma_Y}\)</span></p>
+<p><em>Exercici</em>: Demostrar que <span class="math notranslate nohighlight">\(-1 \leq \rho_{X,Y} \leq 1\)</span></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/covariance.png"><img alt="../_images/covariance.png" src="../_images/covariance.png" style="height: 500px;" /></a>
+</div>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/simpson.png"><img alt="../_images/simpson.png" src="../_images/simpson.png" style="height: 450px;" /></a>
+<p class="caption"><span class="caption-text">Exemple: <span class="math notranslate nohighlight">\(X\)</span> és la dosis d’un medicament i <span class="math notranslate nohighlight">\(Y\)</span> és la supervivència.
+<span class="math notranslate nohighlight">\(W\)</span> podria ser per exemple, l’ètnia del pacient.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="esperanca-de-funcions-v-a-s-independents">
+<h3><span class="section-number">2.7.13. </span>Esperança de funcions v.a.’s independents<a class="headerlink" href="#esperanca-de-funcions-v-a-s-independents" title="Permalink to this headline">¶</a></h3>
+<p>L’última propietat que estudiarem abans d’avançar al Tema 2 és la relació entre
+v.a.’s independents i l’esperança:</p>
+<p class="note">[Casella &amp; Berger 4.2.10] Considereu <span class="math notranslate nohighlight">\(g(X)\)</span> i <span class="math notranslate nohighlight">\(h(Y)\)</span> per dues funcions
+i v.a.’s arbitràries. Aleshores, si <span class="math notranslate nohighlight">\(X, Y\)</span> són independents, <span class="math notranslate nohighlight">\(E(g(X)h(Y)) = E(g(X))E(h(Y))\)</span></p>
+<p><em>Demostració</em>: Aplicació immediata de la definició d’independència de v.a.’s.</p>
+<p>Aquest resultat, com tots els relacionats amb l’esperança sembla trivial però
+té conseqüencies importants:</p>
+<ol class="arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(X, Y\)</span> són independents, aleshores <span class="math notranslate nohighlight">\(\mbox{Cov}(X,Y)=\rho_{X,Y} = 0\)</span> (Pregunta: creieu que el recíproc és cert?)</p></li>
+<li><p>La funció generatriu de moments d’una suma de variables aleatòries independents és la multiplicació de f.g.m’s</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -961,6 +1011,9 @@ per exemple els predictors linears, on <span class="math notranslate nohighlight
 <li><a class="reference internal" href="#exemple-de-model-jerarquic-poisson-binomial">2.7.8. Exemple de model jeràrquic: Poisson-Binomial</a></li>
 <li><a class="reference internal" href="#esperanca-condicional">2.7.9. Esperança condicional</a></li>
 <li><a class="reference internal" href="#esperanca-condicional-i-prediccio">2.7.10. Esperança condicional i predicció</a></li>
+<li><a class="reference internal" href="#variables-aleatories-independents">2.7.11. Variables aleatòries independents</a></li>
+<li><a class="reference internal" href="#correlacio-i-covarianca">2.7.12. Correlació i covariança</a></li>
+<li><a class="reference internal" href="#esperanca-de-funcions-v-a-s-independents">2.7.13. Esperança de funcions v.a.’s independents</a></li>
 </ul>
 </li>
 </ul>

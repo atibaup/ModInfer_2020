@@ -1319,7 +1319,7 @@ Per exemple:
 En aquest cas, el problem és de trobar una funció :math:`h(X)` tal que
 minimitzi l'Error Quadràtic Mitjà:
 
-:math:`\min_{h(x)} E(Y - h(X))^2` (noteu que l'esperança és sobre :math:`X,Y`!
+:math:`\min_{h(x)} E(Y - h(X))^2` (*l'esperança és sobre :math:`X,Y`!*)
 
 Gràcies a la llei de l'esperança total, podem escriure:
 
@@ -1335,5 +1335,82 @@ per :math:`h(x) = E(Y | X=x)`!
     per ser implementat. Durant el curs veurem altres predictors més útils,
     per exemple els predictors linears, on :math:`h(X) = a + b X`.
 
+
+Variables aleatòries independents
+----------------------------------------------------------
+
+El concepte d'esdeveniments independents:
+
+:math:`A, B: P(A\cap B) = P(A)P(B)`
+
+es pot extendre a v.a.'s (o a les components d'un v.m.). Pel cas bivariat, tenim:
+
+.. rst-class:: note
+
+    [Casella & Berger 4.2.5] si :math:`X, Y \sim f_{X,Y}` i :math:`X\sim f_{X}`,
+    :math:`Y\sim f_{Y}` compleixen que :math:`f_{X,Y}(x,y) = f_{X}(x)f_Y(y)`,
+    aleshores diem que :math:`X, Y` són v.a.'s independents.
+
+.. rst-class:: build
+
+* Podeu verificar que aquesta definició implica que per qualsevol :math:`A, B`, els esdeveniments :math:`X\in A, Y \in B` són independents.
+* Un resultat més sorprenent és que el recíproc també és cert, si existeixen :math:`g(x), h(y)` tals que :math:`f_{X,Y}(x,y) = h(x)g(y)`, aleshores :math:`X, Y` són independents [Casella & Berger 4.2.7]
+* El resultat s'extén de manera immediata a les components d'un v.m. amb :math:`N>2` [Casella & Berger 4.6.5]
+
+
+Correlació i covariança
+---------------------------------
+
+* Fins ara hem vist una caracterització dicotòmica de les relacions entre variables aleatòries: **independents** o **no independents**
+* Quan les v.a.'s no són independents, sovint és útil caracteritzar-ne el grau d'associació
+
+La covariança i la correlació ens serveixen per quantificar el grau d'associació **linear**
+entre dues v.a.:
+
+.. rst-class:: note
+
+    [Casella & Berger 4.5.1, 4.5.2] Considerem :math:`X, Y` tals que
+    :math:`E(X)=\mu_X`, :math:`E(Y)=\mu_Y`, :math:`\mbox{Var}(X)=\sigma^2_X`,
+    :math:`\mbox{Var}(Y)=\sigma^2_Y`. Definim la covariança com :math:`\mbox{Cov}(X,Y) = E((X - \mu_X)(Y - \mu_Y))`
+    i la correlació com :math:`\rho_{X,Y} = \frac{\mbox{Cov}(X,Y)}{\sigma_X \sigma_Y}`
+
+*Exercici*: Demostrar que :math:`-1 \leq \rho_{X,Y} \leq 1`
+
+.. nextslide:: Il.lustració
+    :increment:
+
+.. figure::  /_static/0_Intro/covariance.png
+    :height: 500px
+    :align: center
+
+.. nextslide:: Paradoxa de Simpson
+    :increment:
+
+.. figure::  /_static/0_Intro/simpson.png
+    :height: 450px
+    :align: center
+
+    Exemple: :math:`X` és la dosis d'un medicament i :math:`Y` és la supervivència.
+    :math:`W` podria ser per exemple, l'ètnia del pacient.
+
+
+Esperança de funcions v.a.'s independents
+----------------------------------------------------------
+
+L'última propietat que estudiarem abans d'avançar al Tema 2 és la relació entre
+v.a.'s independents i l'esperança:
+
+.. rst-class:: note
+
+    [Casella & Berger 4.2.10] Considereu :math:`g(X)` i :math:`h(Y)` per dues funcions
+    i v.a.'s arbitràries. Aleshores, si :math:`X, Y` són independents, :math:`E(g(X)h(Y)) = E(g(X))E(h(Y))`
+
+*Demostració*: Aplicació immediata de la definició d'independència de v.a.'s.
+
+Aquest resultat, com tots els relacionats amb l'esperança sembla trivial però
+té conseqüencies importants:
+
+1. Si :math:`X, Y` són independents, aleshores :math:`\mbox{Cov}(X,Y)=\rho_{X,Y} = 0` (Pregunta: creieu que el recíproc és cert?)
+2. La funció generatriu de moments d'una suma de variables aleatòries independents és la multiplicació de f.g.m's
 
 
