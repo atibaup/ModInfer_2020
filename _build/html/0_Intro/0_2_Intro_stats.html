@@ -37,15 +37,13 @@
 <h1>Tema 2: Introducció a l’inferència estadística<a class="headerlink" href="#tema-2-introduccio-a-l-inferencia-estadistica" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="mostreig">
 <h2>Mostreig<a class="headerlink" href="#mostreig" title="Permalink to this headline">¶</a></h2>
-<p>abc</p>
 <div class="section" id="que-ens-interessa">
 <h3>Què ens interessa?<a class="headerlink" href="#que-ens-interessa" title="Permalink to this headline">¶</a></h3>
-<p>En aquesta secció desenvoluparem la teoria necessària per respondre a les següents preguntes:</p>
+<p>En aquesta Tema 2 desenvoluparem la teoria necessària per respondre a les següents preguntes:</p>
 <ul class="simple">
 <li><p>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em>?</p></li>
 <li><p>Com de fiables són aquestes caracteritzacions?</p></li>
 </ul>
-<p>TBD: Figura ilustrativa</p>
 <p>Vegem un primer exemple. Suposeu que volem estimar la prevalència d’anticossos de SARS-COV-2 en la població espanyola</p>
 <ul class="simple">
 <li><p>Tenim una <em>població finita</em> de ~47M d’habitants</p></li>
@@ -53,10 +51,8 @@
 <li><p><span class="math notranslate nohighlight">\(X_i \sim \mbox{Bernouilli}\left(p\right)\)</span> indica si l’individu <span class="math notranslate nohighlight">\(i\)</span> té anticossos</p></li>
 <li><p><span class="math notranslate nohighlight">\(p\)</span> indica la prevalència real d’anticossos en la població</p></li>
 <li><p>Volem estimar <span class="math notranslate nohighlight">\(p\)</span> a partir de la mostra <span class="math notranslate nohighlight">\(\left\{x_1,\cdots,x_N\right\}\)</span></p></li>
-<li><p><strong>Pregunta</strong>: Quan gran ha de ser <span class="math notranslate nohighlight">\(N\)</span>?</p></li>
+<li><p><strong>Pregunta</strong>: Quan gran ha de ser <span class="math notranslate nohighlight">\(N\)</span> per tenir un error d’estimació de menys del 10%?</p></li>
 </ul>
-<p>Vegem un segon exemple, aquest cop considerant la modelització d’un experiment aleatori.</p>
-<p>TBD: Exemple caracterització experiment aleatori (població infinita)</p>
 </div>
 <div class="section" id="poblacio-estadistica">
 <h3>Població estadística<a class="headerlink" href="#poblacio-estadistica" title="Permalink to this headline">¶</a></h3>
@@ -97,8 +93,9 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k \\ \frac{1}{n-1} &amp;l\neq k \end{array}\right.\end{split}\]</div>
 <p class="note"><span class="math notranslate nohighlight">\(P\left(X_2 | X_1 = x_k\right) \neq P\left(X_2\right) \neq P\left(X_1\right) \Rightarrow\)</span> Les mostres <span class="math notranslate nohighlight">\(X_1, X_2\)</span> no són ni independents, ni idènticament distribuïdes</p>
 <p><strong>Exercici</strong>: Què passa si mostregem cada persona <em>amb remplaçament</em>?</p>
+</div>
 <div class="section" id="exemple-de-mostres-no-iid-biaix-de-sel-leccio">
-<h4>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció<a class="headerlink" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h4>
+<h3>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció<a class="headerlink" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h3>
 <p>Volem estimar l’edat mitjana dels casos de COVID-19. Prenem mostres:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}\)</span>: variable indicativa de test efectuat a l’individu <span class="math notranslate nohighlight">\(i\)</span></p></li>
@@ -113,7 +110,6 @@ l’hospital vs. cribatge generalitzat)</p>
 <li><p>Se us acudeix una manera simple d’ajustar els valors de <span class="math notranslate nohighlight">\(A_i\)</span> (veure Problemes)?</p></li>
 <li><p>A la pràctica farem un ajust de les dades d’edat de COVID basat en l’<em>inverse probability weighting</em></p></li>
 </ul>
-</div>
 </div>
 </div>
 <div class="section" id="estadistics-i-estimadors">
@@ -158,19 +154,8 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <p>Podem definir un <strong>paràmetre</strong> que caracteritza la població, per exemple la seva mitja aritmètica:</p>
 <p><span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></p>
 <p>Aquesta és una quantitat <strong>determinista</strong>, però calcular-la requereix mesurar l’alçada de 47M de persones.</p>
-<span class="admonition-estimadors-i-parametres-exemple-en-poblacio-finita-ii"></span><span class="admonition-estimadors-i-parametres-exemple-en-poblacio-infinita"></span><span class="admonition-estimadors-i-estadistics"></span><span class="admonition-exercicis-de-recapitulacio"></span><span class="admonition-caracteritzacio-probabilistica-d-estadistics"></span><span class="admonition-caracteritzacio-d-un-estadistic"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv"></span><span class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments"></span><span class="admonition-caracteritzacio-de-la-mitjana-per-convolucio"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-poblacio-normal"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-x"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-y"></span><span class="admonition-distribucio-d-un-estadistic-asimptotics-de-sumes-d-iid-amb-varianca-finita"></span><span class="admonition-distribucio-d-un-estadistic-asimptotics-de-sumes-d-iid-amb-varianca-finita-ii"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-bootstrap"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-bootstrap-ii"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-simulacio"></span><span class="admonition-aproximacions-computacionals-a-la-distribucio-d-un-estadistic-simulacio-ii"></span><span class="admonition-propietats-d-un-estimador"></span><span class="admonition-propietats-d-un-estimador-ii"></span><span class="admonition-propietats-dels-estimadors-de-la-mitja-i-la-varianca"></span><span class="admonition-propietats-dels-estimadors-de-la-mitja-i-la-varianca"></span><span class="admonition-estadistics-d-ordre"></span></div>
+<span class="admonition-estimadors-i-parametres-exemple-en-poblacio-finita-ii"></span><span class="admonition-estimadors-i-parametres-exemple-en-poblacio-infinita"></span><span class="admonition-estimadors-i-estadistics"></span><span class="admonition-exercicis-de-recapitulacio"></span><span class="admonition-caracteritzacio-probabilistica-d-estadistics"></span><span class="admonition-caracteritzacio-d-un-estadistic"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv"></span><span class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments"></span><span class="admonition-caracteritzacio-de-la-mitjana-per-convolucio"></span></div>
 </div>
-<div class="section" id="tema-2-problemes">
-<h2>Tema 2: Problemes<a class="headerlink" href="#tema-2-problemes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>Mostreig<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p><strong>Disseny d’experiments</strong>
-<a class="reference external" href="https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf">https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf</a></p>
-</div>
-</div>
-<div class="section" id="tema-2-practica">
-<h2>Tema 2: Pràctica<a class="headerlink" href="#tema-2-practica" title="Permalink to this headline">¶</a></h2>
-<span class="admonition-practica-2-introduccio-a-l-inferencia-estadistica"></span><span class="admonition-preparacio"></span><span class="admonition-familiaritzacio-amb-les-dades"></span></div>
 </div>
 
 
@@ -187,10 +172,8 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <li><a class="reference internal" href="#que-ens-interessa">Què ens interessa?</a></li>
 <li><a class="reference internal" href="#poblacio-estadistica">Població estadística</a></li>
 <li><a class="reference internal" href="#id1">Mostreig</a></li>
-<li><a class="reference internal" href="#mostra-iid-definicio">Mostra <em>iid</em>: Definició</a><ul>
+<li><a class="reference internal" href="#mostra-iid-definicio">Mostra <em>iid</em>: Definició</a></li>
 <li><a class="reference internal" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio">Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#estadistics-i-estimadors">Estadístics i estimadors</a><ul>
@@ -199,11 +182,6 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <li><a class="reference internal" href="#estimadors-i-parametres-exemple-en-poblacio-finita">Estimadors i paràmetres: Exemple en població finita</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#tema-2-problemes">Tema 2: Problemes</a><ul>
-<li><a class="reference internal" href="#id2">Mostreig</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tema-2-practica">Tema 2: Pràctica</a></li>
 </ul>
 </li>
 </ul>

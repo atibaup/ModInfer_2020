@@ -543,7 +543,7 @@ un nombre aleatori dins d'un interval :math:`\left[a, b\right]`:
 * Doneu un exemple d'un experiment on l'uniforme és un bon model?
 * Com generarieu una variable uniforme amb un ordinador?
 
-.. rst-class::
+.. rst-class:: note
 
     Irònicament, i potser contraintuïtivament, l'aleatorietat és molt difícil de generar!
 
@@ -1413,4 +1413,15 @@ té conseqüencies importants:
 1. Si :math:`X, Y` són independents, aleshores :math:`\mbox{Cov}(X,Y)=\rho_{X,Y} = 0` (Pregunta: creieu que el recíproc és cert?)
 2. La funció generatriu de moments d'una suma de variables aleatòries independents és la multiplicació de f.g.m's
 
+Qüestionari repàs
+------------------
 
+1. Si X, Y son tals que :math:`\mbox{cov}(X, Y) = 0`, quines de les següents afirmacions són certes: (a) X, Y són incorrelades, (b) X, Y no tenen perquè ser independents, (c) si X, Y son gaussianes, aleshores són independents, (d) Totes les anteriors son certes.
+
+2. Tenim una f.d.p conjunta :math:`f(x,y,z) = \frac{1}{K} e^{- (x + y + z)}` amb :math:`K` t.q. :math:`\int \int \int f(x,y,z) = 1`. Podem dir que X, Y, Z són mutualment independents?
+
+3. Volem predir una v.a. Y en funció d'X. Quin és el predictor que en minimitza l'error quadràtic mitjà? Com el podem estimar?
+
+4. Si :math:`X` és tal que :math:`\mbox{var}(X)=\sigma^2` i :math:`Y = a + b X`, quina és :math:`\mbox{var}(Y)`?
+
+5. Quina és la marginal per :math:`X` de la conjunta :math:`f(x,y)=\left\{\begin{array}{cc}\lambda^2 e^{- \lambda y} & o \leq x \leq y \\ 0 & \mbox{altrament} \end{array}\right.`

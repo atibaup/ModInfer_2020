@@ -5,19 +5,16 @@ Tema 2: Introducció a l'inferència estadística
 Mostreig
 =================================================
 
-abc
-
 Què ens interessa?
 --------------------
 
-En aquesta secció desenvoluparem la teoria necessària per respondre a les següents preguntes:
+En aquesta Tema 2 desenvoluparem la teoria necessària per respondre a les següents preguntes:
 
 * Com podem caracteritzar estadísticament una *població* o un *experiment aleatori*?
 * Com de fiables són aquestes caracteritzacions?
 
-TBD: Figura ilustrativa
 
-.. nextslide:: Exemple I: Volem estimar la prevalència d'anticossos de SARS-COV-2 en la població espanyola
+.. nextslide:: Exemple: Estimació de prevalència d'anticossos en la població espanyola
     :increment:
 
 .. ifnotslides::
@@ -28,16 +25,7 @@ TBD: Figura ilustrativa
 * :math:`X_i \sim \mbox{Bernouilli}\left(p\right)` indica si l'individu :math:`i` té anticossos
 * :math:`p` indica la prevalència real d'anticossos en la població
 * Volem estimar :math:`p` a partir de la mostra :math:`\left\{x_1,\cdots,x_N\right\}`
-* **Pregunta**: Quan gran ha de ser :math:`N`?
-
-
-.. nextslide:: Exemple II: Volem caracteritzar ... [TBD]
-    :increment:
-
-.. ifnotslides::
-    Vegem un segon exemple, aquest cop considerant la modelització d'un experiment aleatori.
-
-TBD: Exemple caracterització experiment aleatori (població infinita)
+* **Pregunta**: Quan gran ha de ser :math:`N` per tenir un error d'estimació de menys del 10%?
 
 
 Població estadística
@@ -116,7 +104,7 @@ Tenim una població de n=30 persones, representades per la seva alçada: :math:`
 
 
 Exemple de mostres **no-iid**: Biaix de sel.lecció
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------
 
 Volem estimar l'edat mitjana dels casos de COVID-19. Prenem mostres:
 
@@ -242,7 +230,7 @@ Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar 
 .. slide:: Exercicis de recapitulació
    :level: 3
 
-    1. Definim :math:`T:` bla bla: és un estadístic?
+    1. Donada una mostra :math:`\left\{x_1, \cdots, x_N\right\}`, és :math:`T = \max_i x_i - \min_i x_i` un estadístic?
     2. Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
     3. Quan es fa una enquesta d'intenció de vot, quin tipus de població i mostres tenim?
     4. Quan es fa una enquesta d'intenció de vot, perquè no és vàlid agafar mostres només d'una zona geogràfica determinada?
@@ -263,11 +251,7 @@ Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar 
     * distribució de les mostres (ex: mostres normals)
     * comportament asimptòtic (quan el nombre mostres tendeix a l'infinit)
 
-    o bé utilitzar eines computacionals:
-
-    * bootstrap
-    * simulació
-
+    o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.
 
     Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança
 
@@ -375,134 +359,3 @@ Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar 
         generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
 
     Amb aquesta aproximació podem caracteritzar :math:`\bar{X}` per una població de Cauchy
-
-
-.. slide:: Caracterització dels estadístics mitjana i variança: població normal
-   :level: 3
-
-    El model de població Normal ens permet anar una mica més enllà en la caracterització d':math:`\bar{X}` i :math:`S^2`.
-    En particular, no ens hem de limitar als seus moments sino que en podrem derivar la distribució.
-
-.. slide:: Caracterització dels estadístics mitjana i variança: X
-   :level: 3
-
-    bla bla
-
-.. slide:: Caracterització dels estadístics mitjana i variança: Y
-   :level: 3
-
-    bla bla
-
-
-.. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita
-   :level: 3
-
-    Llei feble dels grans nombres
-
-
-.. slide:: Distribució d'un estadístic: asimptòtics de sumes d'iid amb variança finita (II)
-   :level: 3
-
-    Llei dels grans nombres
-
-
-.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Bootstrap
-   :level: 3
-
-    Bootstrap
-
-.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Bootstrap (II)
-   :level: 3
-
-    Bootstrap II
-
-
-.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Simulació
-   :level: 3
-
-    Simulació
-
-.. slide:: Aproximacions computacionals a la distribució d'un estadístic: Simulació (II)
-   :level: 3
-
-    Simulació II
-
-
-
-.. slide:: Propietats d'un estimador
-   :level: 3
-
-    Cualsevol nombre pot ser un estimador.
-
-    Per exemple:
-
-    * mu=170cm pot ser un estimador de l'alçada de la classe. Però no depèn de les dades.
-    * un altre estimador (millor?) seria la mitja aritmètica.
-    * un altre estimador seria la mediana.
-
-    Quin és millor?
-
-
-.. slide:: Propietats d'un estimador (II)
-   :level: 3
-
-    * els estimadors són també variables aleatòries
-    * els podem caracteritzar a diversos nivells:
-        - esperança
-        - variança
-        - error quadràtic mitjà
-        - la seva distribució de probabilitat
-
-
-.. slide:: Propietats dels estimadors de la mitja i la variança
-    :level: 3
-
-    * derivació propietats mitja
-
-
-.. slide:: Propietats dels estimadors de la mitja i la variança
-    :level: 3
-
-    * derivació propietats variança
-    * independència mitja i variança
-
-
-.. slide:: Estadístics d'ordre
-   :level: 2
-
-
-Tema 2: Problemes
-=================================================
-
-Mostreig
----------------------------------
-
-**Disseny d'experiments**
-https://www.medrxiv.org/content/10.1101/2020.07.20.20157651v1.full.pdf
-
-Tema 2: Pràctica
-=================================================
-
-.. slide:: Pràctica 2: Introducció a l'inferència estadística
-   :level: 3
-
-    Objectius:
-
-    * Aplicació de probabilitat condicional: mètode de Bayes naïf
-    * Mostratge: Biaix de sel.lecció
-    * Estadístics i la seva distribució: caracterització de la mitjana via CLT vs bootstrap
-
-.. slide:: Preparació
-   :level: 3
-
-    * Descarregarem: les dades covid per catalunya + dataset de classificació
-    * Rstudio
-    * Instal.lar llibreries
-
-.. slide:: Familiarització amb les dades
-   :level: 3
-
-    * Inspeccionem les dades. Quina pinta ténen?
-    * Calculem-ne alguns estadístics
-    * Visualitzem: histograma, sèrie temporal
-    * Hi veieu res d'interessant?
