@@ -41,43 +41,50 @@
 <h1><span class="section-number">3. </span>Tema 2: Introducció a l’inferència estadística<a class="headerlink" href="#tema-2-introduccio-a-l-inferencia-estadistica" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="mostreig">
 <h2><span class="section-number">3.1. </span>Mostreig<a class="headerlink" href="#mostreig" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="que-ens-interessa">
-<h3><span class="section-number">3.1.1. </span>Què ens interessa?<a class="headerlink" href="#que-ens-interessa" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="el-perque-de-tot-plegat">
+<h3><span class="section-number">3.1.1. </span>El perquè de tot plegat<a class="headerlink" href="#el-perque-de-tot-plegat" title="Permalink to this headline">¶</a></h3>
 <p>En aquesta Tema 2 desenvoluparem la teoria necessària per respondre a les següents preguntes:</p>
 <ul class="simple">
-<li><p>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em>?</p></li>
+<li><p>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em> a partir d’una <em>mostra</em> finita?</p></li>
 <li><p>Com de fiables són aquestes caracteritzacions?</p></li>
 </ul>
-<p>Vegem un primer exemple. Suposeu que volem estimar la prevalència d’anticossos de SARS-COV-2 en la població espanyola</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/mostreig.png"><img alt="../_images/mostreig.png" src="../_images/mostreig.png" style="height: 400px;" /></a>
+</div>
+</div>
+<div class="section" id="exemple-estimacio-preu-mig-de-venta-immobiliaria-de-barcelona">
+<h3><span class="section-number">3.1.2. </span>Exemple: estimació preu mig de venta immobiliària de Barcelona<a class="headerlink" href="#exemple-estimacio-preu-mig-de-venta-immobiliaria-de-barcelona" title="Permalink to this headline">¶</a></h3>
+<p>Som inversors immobiliaris a Barcelona i volem tenir una estimació del preu mig de
+venta dels habitatges sense esperar a que l’ajuntament publiqui les dades de les
+compra-ventes registrades en l’últim exercici.</p>
+<p>Tenim:</p>
 <ul class="simple">
-<li><p>Tenim una <em>població finita</em> de ~47M d’habitants</p></li>
-<li><p>Sel.leccionem aleatòriament <span class="math notranslate nohighlight">\(N\)</span> individus d’entre els 47M</p></li>
-<li><p><span class="math notranslate nohighlight">\(X_i \sim \mbox{Bernouilli}\left(p\right)\)</span> indica si l’individu <span class="math notranslate nohighlight">\(i\)</span> té anticossos</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> indica la prevalència real d’anticossos en la població</p></li>
-<li><p>Volem estimar <span class="math notranslate nohighlight">\(p\)</span> a partir de la mostra <span class="math notranslate nohighlight">\(\left\{x_1,\cdots,x_N\right\}\)</span></p></li>
-<li><p><strong>Pregunta</strong>: Quan gran ha de ser <span class="math notranslate nohighlight">\(N\)</span> per tenir un error d’estimació de menys del 10%?</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span>: preu mig (<em>paràmetre</em>) calculat sobre totes les ventes (<em>població</em>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{x}\)</span>: preu mig calculat sobre una <em>mostra</em> aleatòria de <span class="math notranslate nohighlight">\(n=30\)</span> mostres (<em>estadístic</em>)</p></li>
 </ul>
+<p>A l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704">exemple complet (Campus Virtual)</a>
+hem vist que podem utilitzar <span class="math notranslate nohighlight">\(\bar{x}\)</span> per estimar <span class="math notranslate nohighlight">\(\mu\)</span>, amb un error de &lt; 11%.</p>
 </div>
 <div class="section" id="poblacio-estadistica">
-<h3><span class="section-number">3.1.2. </span>Població estadística<a class="headerlink" href="#poblacio-estadistica" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3. </span>Població estadística<a class="headerlink" href="#poblacio-estadistica" title="Permalink to this headline">¶</a></h3>
 <p>Quan parlem de <em>població</em> ens podem referir a:</p>
 <ul class="simple">
-<li><p>Un conjunt <em>finit</em> i <em>“petit”</em> d’elements dels quals mesurem una quantitat real. Exemple: les alçades de les persones d’aquesta classe.</p></li>
-<li><p>Un conjunt <em>finit</em> però <em>“gran”</em> d’elements dels quals mesurem una quantitat real. Exemple: les mesures dels sèpals i pètals de les diferents espècies d’<em>Iris</em></p></li>
-<li><p>Una <em>abstracció</em> representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Exemple: obtenir 4 asos al repartir 4 cartes d’una baralla de 52 cartes</p></li>
+<li><p>Un conjunt <em>finit</em> i <em>“petit”</em> d’elements dels quals mesurem una quantitat real. <em>Exemple</em>: les alçades de les persones d’aquesta classe.</p></li>
+<li><p>Un conjunt <em>finit</em> però <em>“gran”</em> d’elements dels quals mesurem una quantitat real. <em>Exemple</em>: les mesures dels sèpals i pètals de les diferents espècies d’<em>Iris</em></p></li>
+<li><p>Una <em>abstracció</em> representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. <em>Exemple</em>: obtenir 4 asos al repartir 4 cartes d’una baralla de 52 cartes</p></li>
 </ul>
 <p class="note">A efectes pràctics, l’únic que ens interessa és si l’acte de mostrejar impacta la distribució de la mostra o no</p>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">3.1.3. </span>Mostreig<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Mostreig<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>El mostreig és l’acció de sel.leccionar i mesurar un <strong>subconjunt de la població</strong>.</p>
 <p>El mostreig més simple és l’aleatori: escollim un membre de la població a l’atzar, i en mesurem l’atribut.</p>
-<p>En poblacions infinites (o finites però suficientment grans), l’acte de mostrejar no afecta la distribució de les següents mostres.</p>
-<p>En poblacions finites, un mostreig aleatori <em>sense remplaçament</em> sí que impacta la distribució de les mostres
+<p>En <strong>poblacions infinites</strong> (o finites però suficientment grans), l’acte de mostrejar no afecta la distribució de les següents mostres.</p>
+<p>En <strong>poblacions finites</strong>, un mostreig aleatori <em>sense remplaçament</em> sí que impacta la distribució de les mostres
 subsegüents (vegeu exemple a continuació)</p>
 </div>
 <div class="section" id="mostra-iid-definicio">
-<h3><span class="section-number">3.1.4. </span>Mostra <em>iid</em>: Definició<a class="headerlink" href="#mostra-iid-definicio" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.5. </span>Mostra <em>iid</em>: Definició<a class="headerlink" href="#mostra-iid-definicio" title="Permalink to this headline">¶</a></h3>
 <p>En la resta del curs, ens centrarem en <strong>mostres aleatòries de poblacions infinites</strong>. És una prou bona aproximació
 en la majoria de casos pràctics (exercici)</p>
 <p class="note"><strong>Definició</strong>: Les variables aleatòries <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> són una mostra aleatòria d’una població
@@ -96,24 +103,12 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 \[\begin{split}P\left(X_1 = x_k\right)             &amp;= \frac{1}{n} \\
 P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k \\ \frac{1}{n-1} &amp;l\neq k \end{array}\right.\end{split}\]</div>
 <p class="note"><span class="math notranslate nohighlight">\(P\left(X_2 | X_1 = x_k\right) \neq P\left(X_2\right) \neq P\left(X_1\right) \Rightarrow\)</span> Les mostres <span class="math notranslate nohighlight">\(X_1, X_2\)</span> no són ni independents, ni idènticament distribuïdes</p>
-<p><strong>Exercici</strong>: Què passa si mostregem cada persona <em>amb remplaçament</em>?</p>
+<p><strong>Exercicis</strong>:
+- Què passa si mostregem cada persona <em>amb remplaçament</em>?
+- Què passa si els <span class="math notranslate nohighlight">\(x_i\)</span> no són únics?</p>
 </div>
 <div class="section" id="exemple-de-mostres-no-iid-biaix-de-sel-leccio">
-<h3><span class="section-number">3.1.5. </span>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció<a class="headerlink" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h3>
-<p>Volem estimar l’edat mitjana dels casos de COVID-19. Prenem mostres:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}\)</span>: variable indicativa de test efectuat a l’individu <span class="math notranslate nohighlight">\(i\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A_i \in \left(0, \infty\right)\)</span>: edat de l’individu <span class="math notranslate nohighlight">\(i\)</span></p></li>
-</ul>
-<p>Problema: criteri de sel.lecció no és el mateix per les mostres <span class="math notranslate nohighlight">\(\left\{1, \cdots, N_A\right\}\)</span>
-que per les mostres <span class="math notranslate nohighlight">\(\left\{N_A + 1, \cdots, N_B\right\}\)</span>! (Per exemple: només es testeja gent que arriva a
-l’hospital vs. cribatge generalitzat)</p>
-<p>[Diagrama de Venn?]</p>
-<p><strong>Exercici</strong>:</p>
-<ul class="simple">
-<li><p>Se us acudeix una manera simple d’ajustar els valors de <span class="math notranslate nohighlight">\(A_i\)</span> (veure Problemes)?</p></li>
-<li><p>A la pràctica farem un ajust de les dades d’edat de COVID basat en l’<em>inverse probability weighting</em></p></li>
-</ul>
+<h3><span class="section-number">3.1.6. </span>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció<a class="headerlink" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="estadistics-i-estimadors">
@@ -154,11 +149,49 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 </div>
 <div class="section" id="estimadors-i-parametres-exemple-en-poblacio-finita">
 <h3><span class="section-number">3.2.3. </span>Estimadors i paràmetres: Exemple en població finita<a class="headerlink" href="#estimadors-i-parametres-exemple-en-poblacio-finita" title="Permalink to this headline">¶</a></h3>
-<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada: <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
+<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada:
+<span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
 <p>Podem definir un <strong>paràmetre</strong> que caracteritza la població, per exemple la seva mitja aritmètica:</p>
 <p><span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></p>
 <p>Aquesta és una quantitat <strong>determinista</strong>, però calcular-la requereix mesurar l’alçada de 47M de persones.</p>
-<span class="admonition-estimadors-i-parametres-exemple-en-poblacio-finita-ii"></span><span class="admonition-estimadors-i-parametres-exemple-en-poblacio-infinita"></span><span class="admonition-estimadors-i-estadistics"></span><span class="admonition-exercicis-de-recapitulacio"></span><span class="admonition-caracteritzacio-probabilistica-d-estadistics"></span><span class="admonition-caracteritzacio-d-un-estadistic"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv"></span><span class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments"></span><span class="admonition-caracteritzacio-de-la-mitjana-per-convolucio"></span></div>
+<p>Enlloc d’això, podem construïr un <strong>estimador</strong> d’aquest <strong>paràmetre</strong>, a partir d’una mostra finita amb N=1000,
+per exemple, la mitjana empírica:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p>
+<p>Noteu que <span class="math notranslate nohighlight">\(X_i\)</span> representen la v.a. corresponent a mostrejar la població <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> (amb remplaçament)</p>
+<p>Questions d’inferència:</p>
+<ul class="simple">
+<li><p>Com de bé aproxima <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> a <span class="math notranslate nohighlight">\(\mu\)</span>?</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> és una variable aleatòria… quina distribució té?</p></li>
+</ul>
+<p>En el cas d’una població infinita, normalment <strong>assumim</strong> que la mateixa
+està caracteritzada per una distribució de probabilitat parameteritzada per
+una sèrie de paràmetres (a vegades als paràmetres genèrics s’els denota per
+un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)</p>
+<p>Exemples:</p>
+<ul class="simple">
+<li><p>La vida útil d’un circuit estava carateritzada per una exponencial amb paràmetre <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+<li><p>Una mostra iid d’una població normal està caracteritzada per la mitja (<span class="math notranslate nohighlight">\(\mu\)</span>) i la variança (<span class="math notranslate nohighlight">\(\sigma^2\)</span>). Direm que <span class="math notranslate nohighlight">\(\mathbf{\theta}=\left[\mu, \sigma^2 \right]\)</span></p></li>
+<li><p>El nombre de cares al llençar una moneda N vegades són mostres d’una població binomial amb paràmetre <span class="math notranslate nohighlight">\(p\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="estimadors-i-estadistics">
+<h3><span class="section-number">3.2.4. </span>Estimadors i estadístics<a class="headerlink" href="#estimadors-i-estadistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>En general els estimadors són estadístics</p></li>
+<li><p>Fins ara em vist estimadors que són identitats d’estadístics (mitja, variança)</p></li>
+<li><p>Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d’estadístics de les dades</p></li>
+</ul>
+<p>En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.</p>
+</div>
+<div class="section" id="questionari-de-recapitulacio">
+<h3><span class="section-number">3.2.5. </span>Qüestionari de recapitulació<a class="headerlink" href="#questionari-de-recapitulacio" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Donada una mostra <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_N\right\}\)</span>, és <span class="math notranslate nohighlight">\(T = \max_i x_i - \min_i x_i\)</span> un estadístic?</p></li>
+<li><p>Quina és la població corresponent a l’experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?</p></li>
+<li><p>Quan es fa una enquesta d’intenció de vot, quin tipus de població i mostres tenim?</p></li>
+<li><p>Quan es fa una enquesta d’intenció de vot, perquè no és vàlid agafar mostres només d’una zona geogràfica determinada?</p></li>
+</ol>
+<span class="admonition-caracteritzacio-probabilistica-d-estadistics"></span><span class="admonition-caracteritzacio-d-un-estadistic"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii"></span><span class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv"></span><span class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments"></span><span class="admonition-caracteritzacio-de-la-mitjana-per-convolucio"></span></div>
 </div>
 </div>
 
@@ -173,17 +206,20 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
   <ul>
 <li><a class="reference internal" href="#">3. Tema 2: Introducció a l’inferència estadística</a><ul>
 <li><a class="reference internal" href="#mostreig">3.1. Mostreig</a><ul>
-<li><a class="reference internal" href="#que-ens-interessa">3.1.1. Què ens interessa?</a></li>
-<li><a class="reference internal" href="#poblacio-estadistica">3.1.2. Població estadística</a></li>
-<li><a class="reference internal" href="#id1">3.1.3. Mostreig</a></li>
-<li><a class="reference internal" href="#mostra-iid-definicio">3.1.4. Mostra <em>iid</em>: Definició</a></li>
-<li><a class="reference internal" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio">3.1.5. Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</a></li>
+<li><a class="reference internal" href="#el-perque-de-tot-plegat">3.1.1. El perquè de tot plegat</a></li>
+<li><a class="reference internal" href="#exemple-estimacio-preu-mig-de-venta-immobiliaria-de-barcelona">3.1.2. Exemple: estimació preu mig de venta immobiliària de Barcelona</a></li>
+<li><a class="reference internal" href="#poblacio-estadistica">3.1.3. Població estadística</a></li>
+<li><a class="reference internal" href="#id1">3.1.4. Mostreig</a></li>
+<li><a class="reference internal" href="#mostra-iid-definicio">3.1.5. Mostra <em>iid</em>: Definició</a></li>
+<li><a class="reference internal" href="#exemple-de-mostres-no-iid-biaix-de-sel-leccio">3.1.6. Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#estadistics-i-estimadors">3.2. Estadístics i estimadors</a><ul>
 <li><a class="reference internal" href="#estadistics-mitja-i-varianca">3.2.1. Estadístics: mitja i variança</a></li>
 <li><a class="reference internal" href="#estadistics-definicio">3.2.2. Estadístics: definició</a></li>
 <li><a class="reference internal" href="#estimadors-i-parametres-exemple-en-poblacio-finita">3.2.3. Estimadors i paràmetres: Exemple en població finita</a></li>
+<li><a class="reference internal" href="#estimadors-i-estadistics">3.2.4. Estimadors i estadístics</a></li>
+<li><a class="reference internal" href="#questionari-de-recapitulacio">3.2.5. Qüestionari de recapitulació</a></li>
 </ul>
 </li>
 </ul>

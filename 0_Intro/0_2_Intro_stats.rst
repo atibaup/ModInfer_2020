@@ -5,39 +5,44 @@ Tema 2: Introducció a l'inferència estadística
 Mostreig
 =================================================
 
-Què ens interessa?
---------------------
+El perquè de tot plegat
+-----------------------
 
 En aquesta Tema 2 desenvoluparem la teoria necessària per respondre a les següents preguntes:
 
-* Com podem caracteritzar estadísticament una *població* o un *experiment aleatori*?
+* Com podem caracteritzar estadísticament una *població* o un *experiment aleatori* a partir d'una *mostra* finita?
+
 * Com de fiables són aquestes caracteritzacions?
 
+.. figure::  /_static/0_Intro/mostreig.png
+    :height: 400px
+    :align: center
 
-.. nextslide:: Exemple: Estimació de prevalència d'anticossos en la població espanyola
-    :increment:
+Exemple: estimació preu mig de venta immobiliària de Barcelona
+----------------------------------------------------------------
 
-.. ifnotslides::
-    Vegem un primer exemple. Suposeu que volem estimar la prevalència d'anticossos de SARS-COV-2 en la població espanyola
+Som inversors immobiliaris a Barcelona i volem tenir una estimació del preu mig de
+venta dels habitatges sense esperar a que l’ajuntament publiqui les dades de les
+compra-ventes registrades en l’últim exercici.
 
-* Tenim una *població finita* de ~47M d'habitants
-* Sel.leccionem aleatòriament :math:`N` individus d'entre els 47M
-* :math:`X_i \sim \mbox{Bernouilli}\left(p\right)` indica si l'individu :math:`i` té anticossos
-* :math:`p` indica la prevalència real d'anticossos en la població
-* Volem estimar :math:`p` a partir de la mostra :math:`\left\{x_1,\cdots,x_N\right\}`
-* **Pregunta**: Quan gran ha de ser :math:`N` per tenir un error d'estimació de menys del 10%?
+Tenim:
 
+* :math:`\mu`: preu mig (*paràmetre*) calculat sobre totes les ventes (*població*)
+* :math:`\bar{x}`: preu mig calculat sobre una *mostra* aleatòria de :math:`n=30` mostres (*estadístic*)
+
+A l'`exemple complet (Campus Virtual) <https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704>`_
+hem vist que podem utilitzar :math:`\bar{x}` per estimar :math:`\mu`, amb un error de < 11%.
 
 Població estadística
 --------------------
 
 Quan parlem de *població* ens podem referir a:
 
-* Un conjunt *finit* i *"petit"* d'elements dels quals mesurem una quantitat real. Exemple: les alçades de les persones d'aquesta classe.
+* Un conjunt *finit* i *"petit"* d'elements dels quals mesurem una quantitat real. *Exemple*: les alçades de les persones d'aquesta classe.
 
-* Un conjunt *finit* però *"gran"* d'elements dels quals mesurem una quantitat real. Exemple: les mesures dels sèpals i pètals de les diferents espècies d'*Iris*
+* Un conjunt *finit* però *"gran"* d'elements dels quals mesurem una quantitat real. *Exemple*: les mesures dels sèpals i pètals de les diferents espècies d'*Iris*
 
-* Una *abstracció* representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Exemple: obtenir 4 asos al repartir 4 cartes d'una baralla de 52 cartes
+* Una *abstracció* representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. *Exemple*: obtenir 4 asos al repartir 4 cartes d'una baralla de 52 cartes
 
 .. rst-class:: note
 
@@ -51,9 +56,9 @@ El mostreig és l'acció de sel.leccionar i mesurar un **subconjunt de la poblac
 
 El mostreig més simple és l'aleatori: escollim un membre de la població a l'atzar, i en mesurem l'atribut.
 
-En poblacions infinites (o finites però suficientment grans), l'acte de mostrejar no afecta la distribució de les següents mostres.
+En **poblacions infinites** (o finites però suficientment grans), l'acte de mostrejar no afecta la distribució de les següents mostres.
 
-En poblacions finites, un mostreig aleatori *sense remplaçament* sí que impacta la distribució de les mostres
+En **poblacions finites**, un mostreig aleatori *sense remplaçament* sí que impacta la distribució de les mostres
 subsegüents (vegeu exemple a continuació)
 
 Mostra *iid*: Definició
@@ -100,31 +105,14 @@ Tenim una població de n=30 persones, representades per la seva alçada: :math:`
 
     :math:`P\left(X_2 | X_1 = x_k\right) \neq P\left(X_2\right) \neq P\left(X_1\right) \Rightarrow` Les mostres :math:`X_1, X_2` no són ni independents, ni idènticament distribuïdes
 
-**Exercici**: Què passa si mostregem cada persona *amb remplaçament*?
+**Exercicis**:
+- Què passa si mostregem cada persona *amb remplaçament*?
+- Què passa si els :math:`x_i` no són únics?
 
 
 Exemple de mostres **no-iid**: Biaix de sel.lecció
 -----------------------------------------------------
 
-Volem estimar l'edat mitjana dels casos de COVID-19. Prenem mostres:
-
-* :math:`T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}`: variable indicativa de test efectuat a l'individu :math:`i`
-* :math:`A_i \in \left(0, \infty\right)`: edat de l'individu :math:`i`
-
-Problema: criteri de sel.lecció no és el mateix per les mostres :math:`\left\{1, \cdots, N_A\right\}`
-que per les mostres :math:`\left\{N_A + 1, \cdots, N_B\right\}`! (Per exemple: només es testeja gent que arriva a
-l'hospital vs. cribatge generalitzat)
-
-
-.. nextslide::
-    :increment:
-
-[Diagrama de Venn?]
-
-**Exercici**:
-
-* Se us acudeix una manera simple d'ajustar els valors de :math:`A_i` (veure Problemes)?
-* A la pràctica farem un ajust de les dades d'edat de COVID basat en l'*inverse probability weighting*
 
 
 Estadístics i estimadors
@@ -176,7 +164,8 @@ Com que :math:`T` és una funció de variables o vectors aleatòries, :math:`T` 
 Estimadors i paràmetres: Exemple en població finita
 --------------------------------------------------------------
 
-Tenim una població de :math:`n=47 \times 10ˆ6` persones, representades per la seva alçada: :math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
+Tenim una població de :math:`n=47 \times 10ˆ6` persones, representades per la seva alçada:
+:math:`\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)`
 
 Podem definir un **paràmetre** que caracteritza la població, per exemple la seva mitja aritmètica:
 
@@ -184,56 +173,54 @@ Podem definir un **paràmetre** que caracteritza la població, per exemple la se
 
 Aquesta és una quantitat **determinista**, però calcular-la requereix mesurar l'alçada de 47M de persones.
 
-.. slide:: Estimadors i paràmetres: Exemple en població finita (II)
-   :level: 3
+.. nextslide::
+    :increment:
 
-    Enlloc d'això, podem construïr un **estimador** d'aquest **paràmetre**, a partir d'una mostra finita amb N=1000,
-    per exemple, la mitjana empírica:
+Enlloc d'això, podem construïr un **estimador** d'aquest **paràmetre**, a partir d'una mostra finita amb N=1000,
+per exemple, la mitjana empírica:
 
-    :math:`\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i`
+:math:`\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i`
 
-    Noteu que :math:`X_i` representen la v.a. corresponent a mostrejar la població :math:`\left\{x_i\right\}` (amb remplaçament)
+Noteu que :math:`X_i` representen la v.a. corresponent a mostrejar la població :math:`\left\{x_i\right\}` (amb remplaçament)
 
-    Questions d'inferència:
+Questions d'inferència:
 
-    * Com de bé aproxima :math:`\hat{\mu}` a :math:`\mu`?
-    * :math:`\hat{\mu}` és una variable aleatòria... quina distribució té?
+* Com de bé aproxima :math:`\hat{\mu}` a :math:`\mu`?
+* :math:`\hat{\mu}` és una variable aleatòria... quina distribució té?
 
+.. nextslide:: Estimadors i paràmetres: Exemple en població infinita
 
-.. slide:: Estimadors i paràmetres: Exemple en població infinita
-   :level: 3
+En el cas d'una població infinita, normalment **assumim** que la mateixa
+està caracteritzada per una distribució de probabilitat parameteritzada per
+una sèrie de paràmetres (a vegades als paràmetres genèrics s'els denota per
+un vector :math:`\mathbf{\theta}`)
 
-    En el cas d'una població infinita, normalment **assumim** que la mateixa
-    està caracteritzada per una distribució de probabilitat parameteritzada per
-    una sèrie de paràmetres (a vegades als paràmetres genèrics s'els denota per
-    un vector :math:`\mathbf{\theta}`)
+Exemples:
 
-    Exemples:
+* La vida útil d'un circuit estava carateritzada per una exponencial amb paràmetre :math:`\beta`
 
-    * La vida útil d'un circuit estava carateritzada per una exponencial amb paràmetre :math:`\beta`
+* Una mostra iid d'una població normal està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigma^2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma^2 \right]`
 
-    * Una mostra iid d'una població normal està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigma^2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma^2 \right]`
-
-    * El nombre de cares al llençar una moneda N vegades són mostres d'una població binomial amb paràmetre :math:`p`
+* El nombre de cares al llençar una moneda N vegades són mostres d'una població binomial amb paràmetre :math:`p`
 
 
-.. slide:: Estimadors i estadístics
-   :level: 3
+Estimadors i estadístics
+------------------------
 
-    * En general els estimadors són estadístics
-    * Fins ara em vist estimadors que són identitats d'estadístics (mitja, variança)
-    * Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d'estadístics de les dades
+* En general els estimadors són estadístics
+* Fins ara em vist estimadors que són identitats d'estadístics (mitja, variança)
+* Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d'estadístics de les dades
 
-    En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
+En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.
 
 
-.. slide:: Exercicis de recapitulació
-   :level: 3
+Qüestionari de recapitulació
+------------------------
 
-    1. Donada una mostra :math:`\left\{x_1, \cdots, x_N\right\}`, és :math:`T = \max_i x_i - \min_i x_i` un estadístic?
-    2. Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
-    3. Quan es fa una enquesta d'intenció de vot, quin tipus de població i mostres tenim?
-    4. Quan es fa una enquesta d'intenció de vot, perquè no és vàlid agafar mostres només d'una zona geogràfica determinada?
+1. Donada una mostra :math:`\left\{x_1, \cdots, x_N\right\}`, és :math:`T = \max_i x_i - \min_i x_i` un estadístic?
+2. Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
+3. Quan es fa una enquesta d'intenció de vot, quin tipus de població i mostres tenim?
+4. Quan es fa una enquesta d'intenció de vot, perquè no és vàlid agafar mostres només d'una zona geogràfica determinada?
 
 
 .. slide:: Caracterització probabilística d'estadístics

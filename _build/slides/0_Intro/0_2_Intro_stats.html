@@ -78,15 +78,18 @@
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="que-ens-interessa">
+<article class="slide level-3" id="el-perque-de-tot-plegat">
 
-<h3>Què ens interessa?</h3>
+<h3>El perquè de tot plegat</h3>
 
 <p>En aquesta Tema 2 desenvoluparem la teoria necessària per respondre a les següents preguntes:</p>
 <ul class="simple">
-<li>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em>?</li>
+<li>Com podem caracteritzar estadísticament una <em>població</em> o un <em>experiment aleatori</em> a partir d’una <em>mostra</em> finita?</li>
 <li>Com de fiables són aquestes caracteritzacions?</li>
 </ul>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/mostreig.png"><img alt="../_images/mostreig.png" src="../_images/mostreig.png" style="height: 400px;" /></a>
+</div>
 
 
 
@@ -96,18 +99,20 @@
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id2">
+<article class="slide level-3" id="exemple-estimacio-preu-mig-de-venta-immobiliaria-de-barcelona">
 
-<h3>Exemple: Estimació de prevalència d’anticossos en la població espanyola</h3>
+<h3>Exemple: estimació preu mig de venta immobiliària de Barcelona</h3>
 
+<p>Som inversors immobiliaris a Barcelona i volem tenir una estimació del preu mig de
+venta dels habitatges sense esperar a que l’ajuntament publiqui les dades de les
+compra-ventes registrades en l’últim exercici.</p>
+<p>Tenim:</p>
 <ul class="simple">
-<li>Tenim una <em>població finita</em> de ~47M d’habitants</li>
-<li>Sel.leccionem aleatòriament <span class="math notranslate nohighlight">\(N\)</span> individus d’entre els 47M</li>
-<li><span class="math notranslate nohighlight">\(X_i \sim \mbox{Bernouilli}\left(p\right)\)</span> indica si l’individu <span class="math notranslate nohighlight">\(i\)</span> té anticossos</li>
-<li><span class="math notranslate nohighlight">\(p\)</span> indica la prevalència real d’anticossos en la població</li>
-<li>Volem estimar <span class="math notranslate nohighlight">\(p\)</span> a partir de la mostra <span class="math notranslate nohighlight">\(\left\{x_1,\cdots,x_N\right\}\)</span></li>
-<li><strong>Pregunta</strong>: Quan gran ha de ser <span class="math notranslate nohighlight">\(N\)</span> per tenir un error d’estimació de menys del 10%?</li>
+<li><span class="math notranslate nohighlight">\(\mu\)</span>: preu mig (<em>paràmetre</em>) calculat sobre totes les ventes (<em>població</em>)</li>
+<li><span class="math notranslate nohighlight">\(\bar{x}\)</span>: preu mig calculat sobre una <em>mostra</em> aleatòria de <span class="math notranslate nohighlight">\(n=30\)</span> mostres (<em>estadístic</em>)</li>
 </ul>
+<p>A l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704">exemple complet (Campus Virtual)</a>
+hem vist que podem utilitzar <span class="math notranslate nohighlight">\(\bar{x}\)</span> per estimar <span class="math notranslate nohighlight">\(\mu\)</span>, amb un error de &lt; 11%.</p>
 
 
 
@@ -123,9 +128,9 @@
 
 <p>Quan parlem de <em>població</em> ens podem referir a:</p>
 <ul class="simple">
-<li>Un conjunt <em>finit</em> i <em>“petit”</em> d’elements dels quals mesurem una quantitat real. Exemple: les alçades de les persones d’aquesta classe.</li>
-<li>Un conjunt <em>finit</em> però <em>“gran”</em> d’elements dels quals mesurem una quantitat real. Exemple: les mesures dels sèpals i pètals de les diferents espècies d’<em>Iris</em></li>
-<li>Una <em>abstracció</em> representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. Exemple: obtenir 4 asos al repartir 4 cartes d’una baralla de 52 cartes</li>
+<li>Un conjunt <em>finit</em> i <em>“petit”</em> d’elements dels quals mesurem una quantitat real. <em>Exemple</em>: les alçades de les persones d’aquesta classe.</li>
+<li>Un conjunt <em>finit</em> però <em>“gran”</em> d’elements dels quals mesurem una quantitat real. <em>Exemple</em>: les mesures dels sèpals i pètals de les diferents espècies d’<em>Iris</em></li>
+<li>Una <em>abstracció</em> representant el fet de mesurar una o diverses variables aleatòries caracteritzades per una funció de distribució de probabilitat. <em>Exemple</em>: obtenir 4 asos al repartir 4 cartes d’una baralla de 52 cartes</li>
 </ul>
 <p class="note">A efectes pràctics, l’únic que ens interessa és si l’acte de mostrejar impacta la distribució de la mostra o no</p>
 
@@ -143,8 +148,8 @@
 
 <p>El mostreig és l’acció de sel.leccionar i mesurar un <strong>subconjunt de la població</strong>.</p>
 <p>El mostreig més simple és l’aleatori: escollim un membre de la població a l’atzar, i en mesurem l’atribut.</p>
-<p>En poblacions infinites (o finites però suficientment grans), l’acte de mostrejar no afecta la distribució de les següents mostres.</p>
-<p>En poblacions finites, un mostreig aleatori <em>sense remplaçament</em> sí que impacta la distribució de les mostres
+<p>En <strong>poblacions infinites</strong> (o finites però suficientment grans), l’acte de mostrejar no afecta la distribució de les següents mostres.</p>
+<p>En <strong>poblacions finites</strong>, un mostreig aleatori <em>sense remplaçament</em> sí que impacta la distribució de les mostres
 subsegüents (vegeu exemple a continuació)</p>
 
 
@@ -173,7 +178,7 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id3">
+<article class="slide level-3" id="id2">
 
 <h3>Exemple de mostres <em>iid</em>: Aplicació d’inferència</h3>
 
@@ -193,7 +198,7 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id4">
+<article class="slide level-3" id="id3">
 
 <h3>Exemple de mostres <strong>no-iid</strong>: Població finita</h3>
 
@@ -203,7 +208,9 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 \[\begin{split}P\left(X_1 = x_k\right)             &amp;= \frac{1}{n} \\
 P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k \\ \frac{1}{n-1} &amp;l\neq k \end{array}\right.\end{split}\]</div>
 <p class="note"><span class="math notranslate nohighlight">\(P\left(X_2 | X_1 = x_k\right) \neq P\left(X_2\right) \neq P\left(X_1\right) \Rightarrow\)</span> Les mostres <span class="math notranslate nohighlight">\(X_1, X_2\)</span> no són ni independents, ni idènticament distribuïdes</p>
-<p><strong>Exercici</strong>: Què passa si mostregem cada persona <em>amb remplaçament</em>?</p>
+<p><strong>Exercicis</strong>:
+- Què passa si mostregem cada persona <em>amb remplaçament</em>?
+- Què passa si els <span class="math notranslate nohighlight">\(x_i\)</span> no són únics?</p>
 
 
 
@@ -217,37 +224,10 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 
 <h3>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</h3>
 
-<p>Volem estimar l’edat mitjana dels casos de COVID-19. Prenem mostres:</p>
-<ul class="simple">
-<li><span class="math notranslate nohighlight">\(T_i \in \left\{\mbox{Test}, \mbox{No Test}\right\}\)</span>: variable indicativa de test efectuat a l’individu <span class="math notranslate nohighlight">\(i\)</span></li>
-<li><span class="math notranslate nohighlight">\(A_i \in \left(0, \infty\right)\)</span>: edat de l’individu <span class="math notranslate nohighlight">\(i\)</span></li>
-</ul>
-<p>Problema: criteri de sel.lecció no és el mateix per les mostres <span class="math notranslate nohighlight">\(\left\{1, \cdots, N_A\right\}\)</span>
-que per les mostres <span class="math notranslate nohighlight">\(\left\{N_A + 1, \cdots, N_B\right\}\)</span>! (Per exemple: només es testeja gent que arriva a
-l’hospital vs. cribatge generalitzat)</p>
 
 
 
 <div class="slide-no">10</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="slide level-3" id="id5">
-
-<h3>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció (2)</h3>
-
-<p>[Diagrama de Venn?]</p>
-<p><strong>Exercici</strong>:</p>
-<ul class="simple">
-<li>Se us acudeix una manera simple d’ajustar els valors de <span class="math notranslate nohighlight">\(A_i\)</span> (veure Problemes)?</li>
-<li>A la pràctica farem un ajust de les dades d’edat de COVID basat en l’<em>inverse probability weighting</em></li>
-</ul>
-
-
-
-<div class="slide-no">11</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -260,7 +240,7 @@ l’hospital vs. cribatge generalitzat)</p>
 
 
 
-<div class="slide-no">12</div>
+<div class="slide-no">11</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -284,7 +264,7 @@ l’hospital vs. cribatge generalitzat)</p>
 
 
 
-<div class="slide-no">13</div>
+<div class="slide-no">12</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -305,13 +285,13 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 
 
 
-<div class="slide-no">14</div>
+<div class="slide-no">13</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id6">
+<article class="slide level-3" id="id4">
 
 <h3>Altres exemples d’estadístics</h3>
 
@@ -327,7 +307,7 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 
 
 
-<div class="slide-no">15</div>
+<div class="slide-no">14</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -337,10 +317,33 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 
 <h3>Estimadors i paràmetres: Exemple en població finita</h3>
 
-<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada: <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
+<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada:
+<span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
 <p>Podem definir un <strong>paràmetre</strong> que caracteritza la població, per exemple la seva mitja aritmètica:</p>
 <p><span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></p>
 <p>Aquesta és una quantitat <strong>determinista</strong>, però calcular-la requereix mesurar l’alçada de 47M de persones.</p>
+
+
+
+<div class="slide-no">15</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id5">
+
+<h3>Estimadors i paràmetres: Exemple en població finita (2)</h3>
+
+<p>Enlloc d’això, podem construïr un <strong>estimador</strong> d’aquest <strong>paràmetre</strong>, a partir d’una mostra finita amb N=1000,
+per exemple, la mitjana empírica:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p>
+<p>Noteu que <span class="math notranslate nohighlight">\(X_i\)</span> representen la v.a. corresponent a mostrejar la població <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> (amb remplaçament)</p>
+<p>Questions d’inferència:</p>
+<ul class="simple">
+<li>Com de bé aproxima <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> a <span class="math notranslate nohighlight">\(\mu\)</span>?</li>
+<li><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> és una variable aleatòria… quina distribució té?</li>
+</ul>
 
 
 
@@ -350,36 +353,11 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-estimadors-i-parametres-exemple-en-poblacio-finita-ii slide level-3">
-
-<h3>Estimadors i paràmetres: Exemple en població finita (II)</h3>
-
-<blockquote>
-<div><p>Enlloc d’això, podem construïr un <strong>estimador</strong> d’aquest <strong>paràmetre</strong>, a partir d’una mostra finita amb N=1000,
-per exemple, la mitjana empírica:</p>
-<p><span class="math notranslate nohighlight">\(\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p>
-<p>Noteu que <span class="math notranslate nohighlight">\(X_i\)</span> representen la v.a. corresponent a mostrejar la població <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> (amb remplaçament)</p>
-<p>Questions d’inferència:</p>
-<ul class="simple">
-<li>Com de bé aproxima <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> a <span class="math notranslate nohighlight">\(\mu\)</span>?</li>
-<li><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> és una variable aleatòria… quina distribució té?</li>
-</ul>
-</div></blockquote>
-
-
-
-<div class="slide-no">17</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="admonition-estimadors-i-parametres-exemple-en-poblacio-infinita slide level-3">
+<article class="slide level-3" id="id6">
 
 <h3>Estimadors i paràmetres: Exemple en població infinita</h3>
 
-<blockquote>
-<div><p>En el cas d’una població infinita, normalment <strong>assumim</strong> que la mateixa
+<p>En el cas d’una població infinita, normalment <strong>assumim</strong> que la mateixa
 està caracteritzada per una distribució de probabilitat parameteritzada per
 una sèrie de paràmetres (a vegades als paràmetres genèrics s’els denota per
 un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)</p>
@@ -389,7 +367,25 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <li>Una mostra iid d’una població normal està caracteritzada per la mitja (<span class="math notranslate nohighlight">\(\mu\)</span>) i la variança (<span class="math notranslate nohighlight">\(\sigma^2\)</span>). Direm que <span class="math notranslate nohighlight">\(\mathbf{\theta}=\left[\mu, \sigma^2 \right]\)</span></li>
 <li>El nombre de cares al llençar una moneda N vegades són mostres d’una població binomial amb paràmetre <span class="math notranslate nohighlight">\(p\)</span></li>
 </ul>
-</div></blockquote>
+
+
+
+<div class="slide-no">17</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="estimadors-i-estadistics">
+
+<h3>Estimadors i estadístics</h3>
+
+<ul class="simple">
+<li>En general els estimadors són estadístics</li>
+<li>Fins ara em vist estimadors que són identitats d’estadístics (mitja, variança)</li>
+<li>Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d’estadístics de les dades</li>
+</ul>
+<p>En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.</p>
 
 
 
@@ -399,43 +395,20 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-estimadors-i-estadistics slide level-3">
+<article class="slide level-3" id="questionari-de-recapitulacio">
 
-<h3>Estimadors i estadístics</h3>
+<h3>Qüestionari de recapitulació</h3>
 
-<blockquote>
-<div><ul class="simple">
-<li>En general els estimadors són estadístics</li>
-<li>Fins ara em vist estimadors que són identitats d’estadístics (mitja, variança)</li>
-<li>Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d’estadístics de les dades</li>
-</ul>
-<p>En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.</p>
-</div></blockquote>
-
-
-
-<div class="slide-no">19</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="admonition-exercicis-de-recapitulacio slide level-3">
-
-<h3>Exercicis de recapitulació</h3>
-
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>Donada una mostra <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_N\right\}\)</span>, és <span class="math notranslate nohighlight">\(T = \max_i x_i - \min_i x_i\)</span> un estadístic?</li>
 <li>Quina és la població corresponent a l’experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?</li>
 <li>Quan es fa una enquesta d’intenció de vot, quin tipus de població i mostres tenim?</li>
 <li>Quan es fa una enquesta d’intenció de vot, perquè no és vàlid agafar mostres només d’una zona geogràfica determinada?</li>
 </ol>
-</div></blockquote>
 
 
 
-<div class="slide-no">20</div>
+<div class="slide-no">19</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -448,7 +421,7 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 
 
 
-<div class="slide-no">21</div>
+<div class="slide-no">20</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -473,7 +446,7 @@ no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 
 
 
-<div class="slide-no">22</div>
+<div class="slide-no">21</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -500,7 +473,7 @@ arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</
 
 
 
-<div class="slide-no">23</div>
+<div class="slide-no">22</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -524,7 +497,7 @@ tenim:</p>
 
 
 
-<div class="slide-no">24</div>
+<div class="slide-no">23</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -545,7 +518,7 @@ tenim:</p>
 
 
 
-<div class="slide-no">25</div>
+<div class="slide-no">24</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -569,7 +542,7 @@ tenim:</p>
 
 
 
-<div class="slide-no">26</div>
+<div class="slide-no">25</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -596,7 +569,7 @@ amb f.g.m coneguda, per exemple:</p>
 
 
 
-<div class="slide-no">27</div>
+<div class="slide-no">26</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -617,7 +590,7 @@ generatriu de moments <span class="math notranslate nohighlight">\(M_X\)</span>.
 
 
 
-<div class="slide-no">28</div>
+<div class="slide-no">27</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
