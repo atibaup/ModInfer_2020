@@ -215,7 +215,7 @@ En tot cas ara ens interessarem en la caracterització probabilística dels esta
 
 
 Qüestionari de recapitulació
-------------------------
+------------------------------
 
 1. Donada una mostra :math:`\left\{x_1, \cdots, x_N\right\}`, és :math:`T = \max_i x_i - \min_i x_i` un estadístic?
 2. Quina és la població corresponent a l'experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?
@@ -223,126 +223,125 @@ Qüestionari de recapitulació
 4. Quan es fa una enquesta d'intenció de vot, perquè no és vàlid agafar mostres només d'una zona geogràfica determinada?
 
 
-.. slide:: Caracterització probabilística d'estadístics
-   :level: 2
+Caracterització probabilística d'estadístics
+=============================================
 
-.. slide:: Caracterització d'un estadístic
-   :level: 3
+Caracterització d'un estadístic
+-------------------------------
 
-    La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
-    no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament
+La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
+no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament
 
-    Haurem de fer doncs asssumpcions addicionals:
+Haurem de fer doncs asssumpcions addicionals:
 
-    * tipus de funció (ex: mitja, variança, funció contínua i diferenciable)
-    * distribució de les mostres (ex: mostres normals)
-    * comportament asimptòtic (quan el nombre mostres tendeix a l'infinit)
+* tipus de funció (ex: mitja, variança, funció contínua i diferenciable)
+* distribució de les mostres (ex: mostres normals)
+* comportament asimptòtic (quan el nombre mostres tendeix a l'infinit)
 
-    o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.
+o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.
 
-    Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança
-
-
-.. slide:: Caracterització dels estadístics mitjana i variança
-   :level: 3
-
-    Comencem per un resultat auxiliar important:
-
-    .. rst-class:: note
-
-        **Lemma 5.2.5:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança finita, i una funció
-        arbitrària :math:`g` tenim que:
-
-        * :math:`E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)`
-        * :math:`\mbox{Var}\left(\sum_{i=1}^N g\left(X_i\right)\right) = N \mbox{Var}\left(g\left(X\right)\right)`
-
-    Demostració (exercici). Recordeu:
-
-    * Linearitat de l'esperança
-    * Covariança de v.a. independents
+Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança
 
 
-.. slide:: Caracterització dels estadístics mitjana i variança (II)
-   :level: 3
+Caracterització dels estadístics mitjana i variança
+------------------------------------------------------------
 
-    Com a corolari del darrer Lemma, tenim:
+Comencem per un resultat auxiliar important:
 
-    .. rst-class:: note
+.. rst-class:: note
 
-        **Teorema 5.2.6:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança :math:`\mu` i variança :math:`\sigma^2`
-        tenim:
+    **Lemma 5.2.5:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança finita, i una funció
+    arbitrària :math:`g` tenim que:
 
-        * :math:`E\left(\bar{X}\right) = \mu`
-        * :math:`\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2`
-        * :math:`E\left(S^2\right) = \sigma^2`
+    * :math:`E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)`
+    * :math:`\mbox{Var}\left(\sum_{i=1}^N g\left(X_i\right)\right) = N \mbox{Var}\left(g\left(X\right)\right)`
 
-    Demostració (exercici).
+Demostració (exercici). Recordeu:
 
-.. slide:: Caracterització dels estadístics mitjana i variança (III)
-   :level: 3
+* Linearitat de l'esperança
+* Covariança de v.a. independents
 
-    Observacions:
+.. nextslide::
+    :increment:
 
-    1. Els estadístics :math:`\bar{X}` i :math:`S^2` son **estimadors sense biaix** de :math:`\mu` i :math:`\sigma^2`
+Com a corolari del darrer Lemma, tenim:
 
-    2. Només hem assumit moments d'ordre 2!
+.. rst-class:: note
 
-    3. Sense el factor :math:`\frac{1}{N-1}`, :math:`S^2` tindria biaix
+    **Teorema 5.2.6:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb esperança :math:`\mu` i variança :math:`\sigma^2`
+    tenim:
 
+    * :math:`E\left(\bar{X}\right) = \mu`
+    * :math:`\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2`
+    * :math:`E\left(S^2\right) = \sigma^2`
 
-.. slide:: Caracterització dels estadístics mitjana i variança (IV)
-   :level: 3
+Demostració (exercici).
 
-    Finalment, podem aplicar la desigualtat de Txebixev:
+.. nextslide::
+    :increment:
 
-    .. math::
+Observacions:
 
-        P\left(g\left(x\right) \geq r\right)  \leq \frac{E g\left(x\right)}{r}
+1. Els estadístics :math:`\bar{X}` i :math:`S^2` son **estimadors sense biaix** de :math:`\mu` i :math:`\sigma^2`
 
-    amb :math:`g\left(\bar{X}\right) = \frac{\left(\bar{X} - \mu\right)^2}{\sigma^2}`,
+2. Només hem assumit moments d'ordre 2!
 
-    .. math::
-
-        P\left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \geq r \right)   & \leq  \frac{\mbox{Var}\left(\bar{X}\right)}{\sigma^2 r} \\
-                                                                              & = \frac{1}{ N r}
-
-    Per tant :math:`\lim_{N \to \infty} P\left(\left|\bar{X} - \mu\right| \geq r \right) = 0` (convergència en probabilitat)
-
-    .. rst-class:: note
-
-        Acabem de demostrar la Llei Feble dels Grans Nombres: "la mitja empírica convergeix a la mitja de la població"
+3. Sense el factor :math:`\frac{1}{N-1}`, :math:`S^2` tindria biaix
 
 
-.. slide:: Caracterització de la mitjana mitjantçant la funció generatriu de moments
-   :level: 3
+.. nextslide::
+    :increment:
 
-    En alguns casos, podem anar encara més enllà en la caracterització de la
-    distribució de :math:`\bar{X}`. El primer cas que tractarem és a través
-    de la funció generatriu de moments:
+Finalment, podem aplicar la desigualtat de Txebixev:
 
-    .. rst-class:: note
+.. math::
 
-        **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
-        generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
+    P\left(g\left(x\right) \geq r\right)  \leq \frac{E g\left(x\right)}{r}
 
-    Demostració:
+amb :math:`g\left(\bar{X}\right) = \frac{\left(\bar{X} - \mu\right)^2}{\sigma^2}`,
 
-    Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
-    amb f.g.m coneguda, per exemple:
+.. math::
 
-    * normal
-    * gamma
+    P\left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \geq r \right)   & \leq  \frac{\mbox{Var}\left(\bar{X}\right)}{\sigma^2 r} \\
+                                                                          & = \frac{1}{ N r}
 
-.. slide:: Caracterització de la mitjana per convolució
-   :level: 3
+Per tant :math:`\lim_{N \to \infty} P\left(\left|\bar{X} - \mu\right| \geq r \right) = 0` (convergència en probabilitat)
 
-    Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
-    només ens queda una eina teòrica per caracteritzar :math:`\bar{X}`,
-    i és la caracterització pel Jacobià d'una transformació
+.. rst-class:: note
 
-    .. rst-class:: note
+    Acabem de demostrar la Llei Feble dels Grans Nombres: "la mitja empírica convergeix a la mitja de la població"
 
-        **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
-        generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
 
-    Amb aquesta aproximació podem caracteritzar :math:`\bar{X}` per una població de Cauchy
+Caracterització de la mitjana mitjantçant la funció generatriu de moments
+------------------------------------------------------------
+
+En alguns casos, podem anar encara més enllà en la caracterització de la
+distribució de :math:`\bar{X}`. El primer cas que tractarem és a través
+de la funció generatriu de moments:
+
+.. rst-class:: note
+
+    **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
+    generatriu de moments :math:`M_X(x)`. La f.g.m de :math:`\bar{X}` és: :math:`M_X(x)^n`
+
+*Demostració*: Aplicació directa de la propietat que hem vist al Tema 1 per l'esperança del producte de v.a.'s independents.
+
+Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
+amb f.g.m coneguda, per exemple:
+
+* normal
+* gamma
+
+Caracterització de la mitjana per convolució
+------------------------------------------------------------
+
+Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
+només ens queda una eina teòrica per caracteritzar :math:`\bar{X}`,
+i és la caracterització pel Jacobià d'una transformació
+
+.. rst-class:: note
+
+    **Teorema 5.2.7:** Donades mostres iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
+    generatriu de moments :math:`M_X`. La f.g.m de :math:`\bar{X}` és:
+
+Amb aquesta aproximació podem caracteritzar :math:`\bar{X}` per una població de Cauchy

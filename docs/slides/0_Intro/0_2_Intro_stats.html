@@ -414,7 +414,7 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-probabilistica-d-estadistics slide level-2">
+<article class="slide level-2" id="caracteritzacio-probabilistica-d-estadistics">
 
 <h2>Caracterització probabilística d’estadístics</h2>
 
@@ -427,12 +427,11 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-d-un-estadistic slide level-3">
+<article class="slide level-3" id="caracteritzacio-d-un-estadistic">
 
 <h3>Caracterització d’un estadístic</h3>
 
-<blockquote>
-<div><p>La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
+<p>La definició genèrica d´un estadístic (funció de variables aleatòries i.i.d)
 no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 <p>Haurem de fer doncs asssumpcions addicionals:</p>
 <ul class="simple">
@@ -442,7 +441,6 @@ no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 </ul>
 <p>o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.</p>
 <p>Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança</p>
-</div></blockquote>
 
 
 
@@ -452,12 +450,11 @@ no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca slide level-3">
+<article class="slide level-3" id="caracteritzacio-dels-estadistics-mitjana-i-varianca">
 
 <h3>Caracterització dels estadístics mitjana i variança</h3>
 
-<blockquote>
-<div><p>Comencem per un resultat auxiliar important:</p>
+<p>Comencem per un resultat auxiliar important:</p>
 <p class="note"><strong>Lemma 5.2.5:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança finita, i una funció
 arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</p>
 <ul class="note simple">
@@ -469,7 +466,6 @@ arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</
 <li>Linearitat de l’esperança</li>
 <li>Covariança de v.a. independents</li>
 </ul>
-</div></blockquote>
 
 
 
@@ -479,12 +475,11 @@ arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-ii slide level-3">
+<article class="slide level-3" id="id7">
 
-<h3>Caracterització dels estadístics mitjana i variança (II)</h3>
+<h3>Caracterització dels estadístics mitjana i variança (2)</h3>
 
-<blockquote>
-<div><p>Com a corolari del darrer Lemma, tenim:</p>
+<p>Com a corolari del darrer Lemma, tenim:</p>
 <p class="note"><strong>Teorema 5.2.6:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança <span class="math notranslate nohighlight">\(\mu\)</span> i variança <span class="math notranslate nohighlight">\(\sigma^2\)</span>
 tenim:</p>
 <ul class="note simple">
@@ -493,7 +488,6 @@ tenim:</p>
 <li><span class="math notranslate nohighlight">\(E\left(S^2\right) = \sigma^2\)</span></li>
 </ul>
 <p>Demostració (exercici).</p>
-</div></blockquote>
 
 
 
@@ -503,18 +497,16 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iii slide level-3">
+<article class="slide level-3" id="id8">
 
-<h3>Caracterització dels estadístics mitjana i variança (III)</h3>
+<h3>Caracterització dels estadístics mitjana i variança (3)</h3>
 
-<blockquote>
-<div><p>Observacions:</p>
+<p>Observacions:</p>
 <ol class="arabic simple">
 <li>Els estadístics <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(S^2\)</span> son <strong>estimadors sense biaix</strong> de <span class="math notranslate nohighlight">\(\mu\)</span> i <span class="math notranslate nohighlight">\(\sigma^2\)</span></li>
 <li>Només hem assumit moments d’ordre 2!</li>
 <li>Sense el factor <span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span>, <span class="math notranslate nohighlight">\(S^2\)</span> tindria biaix</li>
 </ol>
-</div></blockquote>
 
 
 
@@ -524,12 +516,11 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-dels-estadistics-mitjana-i-varianca-iv slide level-3">
+<article class="slide level-3" id="id9">
 
-<h3>Caracterització dels estadístics mitjana i variança (IV)</h3>
+<h3>Caracterització dels estadístics mitjana i variança (4)</h3>
 
-<blockquote>
-<div><p>Finalment, podem aplicar la desigualtat de Txebixev:</p>
+<p>Finalment, podem aplicar la desigualtat de Txebixev:</p>
 <div class="math notranslate nohighlight">
 \[P\left(g\left(x\right) \geq r\right)  \leq \frac{E g\left(x\right)}{r}\]</div>
 <p>amb <span class="math notranslate nohighlight">\(g\left(\bar{X}\right) = \frac{\left(\bar{X} - \mu\right)^2}{\sigma^2}\)</span>,</p>
@@ -538,7 +529,6 @@ tenim:</p>
                                                                       &amp; = \frac{1}{ N r}\end{split}\]</div>
 <p>Per tant <span class="math notranslate nohighlight">\(\lim_{N \to \infty} P\left(\left|\bar{X} - \mu\right| \geq r \right) = 0\)</span> (convergència en probabilitat)</p>
 <p class="note">Acabem de demostrar la Llei Feble dels Grans Nombres: “la mitja empírica convergeix a la mitja de la població”</p>
-</div></blockquote>
 
 
 
@@ -548,24 +538,22 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments slide level-3">
+<article class="slide level-3" id="caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments">
 
 <h3>Caracterització de la mitjana mitjantçant la funció generatriu de moments</h3>
 
-<blockquote>
-<div><p>En alguns casos, podem anar encara més enllà en la caracterització de la
+<p>En alguns casos, podem anar encara més enllà en la caracterització de la
 distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span>. El primer cas que tractarem és a través
 de la funció generatriu de moments:</p>
 <p class="note"><strong>Teorema 5.2.7:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
-generatriu de moments <span class="math notranslate nohighlight">\(M_X\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és:</p>
-<p>Demostració:</p>
+generatriu de moments <span class="math notranslate nohighlight">\(M_X(x)\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és: <span class="math notranslate nohighlight">\(M_X(x)^n\)</span></p>
+<p><em>Demostració</em>: Aplicació directa de la propietat que hem vist al Tema 1 per l’esperança del producte de v.a.’s independents.</p>
 <p>Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
 amb f.g.m coneguda, per exemple:</p>
 <ul class="simple">
 <li>normal</li>
 <li>gamma</li>
 </ul>
-</div></blockquote>
 
 
 
@@ -575,18 +563,16 @@ amb f.g.m coneguda, per exemple:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="admonition-caracteritzacio-de-la-mitjana-per-convolucio slide level-3">
+<article class="slide level-3" id="caracteritzacio-de-la-mitjana-per-convolucio">
 
 <h3>Caracterització de la mitjana per convolució</h3>
 
-<blockquote>
-<div><p>Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
+<p>Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
 només ens queda una eina teòrica per caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span>,
 i és la caracterització pel Jacobià d’una transformació</p>
 <p class="note"><strong>Teorema 5.2.7:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
 generatriu de moments <span class="math notranslate nohighlight">\(M_X\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és:</p>
 <p>Amb aquesta aproximació podem caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> per una població de Cauchy</p>
-</div></blockquote>
 
 
 
