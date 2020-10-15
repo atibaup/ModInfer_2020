@@ -1,0 +1,106 @@
+---
+title: "Tema 2: Introducció a l'inferència estadística"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Mostreig aleatori en poblacions finites 
+
+Som inversors immobiliaris a Barcelona i volem tenir una estimació del preu mig de venta dels habitatges sense esperar
+a que l'ajuntament publiqui les dades de les compra-ventes registrades en l'[últim exercici](https://opendata-ajuntament.barcelona.cat/data/ca/dataset/est-mercat-immobiliari-compravenda-preu-total).
+
+Òbviament, fer una investigació per tal de conèixer els valors de totes les transaccions seria molt costós: hauriem de tenir contactes amb totes les agències immobiliaries i convencer-les de que ens facilitin aquesta informació.
+
+Un amic estadístic ens ha dit que en realitat no fa falta que sàpiguem el 
+valor de totes les transaccions, sino que podem fer servir la màgia de 
+l'estadística per caracteritzar-ne la mitja a través d'una **mostra aleatòria**.
+
+Més concretament, ens diu que només amb 25 mostres ja tindrem una estimació amb un error al voltant del 10%.
+ 
+Com que no ens el creiem massa, decidim fer alguns experiments per veure
+si el que diu és veritat. Per això, ens hem descarregat les dades
+dels preus de venta d'habitatges del primer trimestre de 2019:
+
+```{r}
+comp_vend_preu_trim <- read.csv("~/Downloads/2019_comp_vend_preu_trim.csv")
+
+# Considerem només les files corresponent als valors totals i convertim els preus a dades numèriques
+preus = as.numeric(subset(comp_vend_preu_trim, Preu_mitja_habitatge=="Total. Milers d'euros")$Valor)
+```
+
+La quantitat que volem aproximar és la mitjana del preu de venta:
+
+```{r}
+mu = mean(preus, na.rm = TRUE) # excloem alguns valors NaN que venen de les dades originals
+```
+Això és el que anomenarem el **paràmetre de la població** ($\mu$=`r mu` - en milers d'euros) o el moment de la població, que calculem a partir de **tots** els valors de la **població**, en aquest cas n'hi ha 272. Aquest és un exemple de **població
+ finita** (el conjunt de totes les ventes efectuades en un trimestre és finit).
+ 
+El nostre amic estadístic ens ha dit que en realitat en tindriem prou amb **estimar ** $\mu$ mitjantçant la mitjana aritmètica (que ell anomena un **estadístic**):
+
+$\hat{\mu} = \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$,
+
+amb n=30 mostres enlloc de 272. És una reducció d'un factor de 10!
+
+Concretament, ens diu que l'arrel quadrada de l'error quadràtic mitjà de l'**estimador** $\hat{\mu}$ del paràmetre d'interès $\mu$
+(la mitja de la població) construït a partir de la **mitjana aritmètica** de només 30 mostres, serà de l'ordre del 10%:
+
+$\sqrt{E(\bar{\mu} - \mu)^2} / \mu \approx 0.1$
+
+Com que no ens en fiem massa, decidim provar-ho computacionalment. Per fer-ho, repetirem $N=1000$ cops el següent experiment: agafarem una mostra de $n=30$
+elements de les nostres dades, en calcularem l'**estadístic mitja aritmètica** $\bar{\mu}$ i l'error quadràtic d'aquesta respecte a $\mu$. Finalment, estimarem l'error quadràtic mitjà com la mitjana aritmètica d'aquests errors quadràtics:
+
+```{r}
+N = 1000
+n = 30
+mu_bar = rep(0, N)
+error = rep(0, N)
+for (i in 1:N){
+	mu_bar[i] = mean(sample(preus, n), na.rm=TRUE)
+	error[i] = (mu_bar[i] - mu)^2
+}
+	
+sqrt(mean(error)) / mu
+```
+
+Vaja... doncs sembla que l'estadístic tenia raó... L'error típic dels nostres estimadors amb només 30 mostres és de 
+menys de l'11%... Però no només és l'error típic bastant petit, sino que els nostre estimador no tenen gairebé **biaix** :
+
+```{r}
+mean(mu_bar) - mu
+```
+
+I la seva desviació estàndard és gairebé igual a $\frac{\sigma}{\sqrt{n}}$,
+on $\sigma$ és la desviació estàndard de la població... coincidència?
+
+```{r}
+sigma = sd(preus, na.rm = TRUE)
+
+sd(mu_bar)
+sigma/sqrt(n)
+```
+
+Per acabar-ho d'adobar, el nostre amic estadístic, tot cofoi de la lliçó magistral que ens està donant (i dels diners que ens estalviarà), ens proposa que donguem un cop d'ull a l'histograma del nostre estimador i el comparem
+a la distribució Gaussiana de mitja $\mu$ i variança $\sigma^2$...
+
+```{r}
+hist(mu_bar, 20, prob=T)
+z = seq(200, 500, length=100)
+f = dnorm(z, mu, sigma/sqrt(n))
+lines(z, f)
+```
+
+## Conclusió
+
+Què son aquestes propietats tan curioses de la mitja aritmètica d'una mostra tan relativament petita? Com pot
+ser que la distribució d'aquest estadístic s'assembli tant a una Gaussiana? S'exténen aquestes propietats
+a d'altres estadístics com la mediana o el màxim/mínim?
+
+El que acabem de veure són exemples de l'importància dels primers resultats que veurem en inferència estadística: 
+hem pogut caracteritzar el **paràmetre d'una població** (el preu mitjà) a través d'un **estadístic** calculat
+a partir d'un nombre finit i petit de mostres! La teoria que veurem a continuació ens permetrà caracteritzar
+les propietats d'aquest i d'altres estadístics, per tal d'avaluar-ne, a priori, la seva capacitat de capturar
+les propietats d'una població.
+
+
