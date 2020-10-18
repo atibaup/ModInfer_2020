@@ -178,14 +178,14 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id2">
+<article class="slide level-3" id="id4">
 
-<h3>Exemple de mostres <em>iid</em>: Aplicació d’inferència</h3>
+<h3>Exemple de mostra <em>iid</em>: Aplicació d’inferència</h3>
 
 <p>[Kendall Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) <span class="math notranslate nohighlight">\(X_i\)</span> d’<span class="math notranslate nohighlight">\(n\)</span> circuits electrònics. Si
 <span class="math notranslate nohighlight">\(X_i \sim \mathbf{exponential}\left(\beta\right)\)</span>, quina és la probabilitat que tots els circuits mesurats durin més de 2 anys?</p>
 <p>Els esdeveniments <span class="math notranslate nohighlight">\(\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}\)</span> són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)</p>
-<p>Per independència, la <em>fdp</em> conjunta de <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_{N}\right\}\)</span> és <span class="math notranslate nohighlight">\(f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=0}^{n-1}f\left(x_i\right) = \frac{1}{\beta^n}\exp^{\frac{-\sum_i x_i}{\beta}}\)</span></p>
+<p>Per independència, la <em>fdp</em> conjunta de <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_{N}\right\}\)</span> és <span class="math notranslate nohighlight">\(f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=1}^{N}f\left(x_i\right) = \frac{1}{\beta^n} e^{\frac{-\sum_i x_i}{\beta}}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P\left(X_1 \geq 2, \cdots, X_N \geq 2\right) &amp;= \int_{2}^{\infty}\cdots\int_{2}^{\infty}\frac{1}{\beta^n}e^{\frac{-\sum_i x_i}{\beta}} dx_1\cdots dx_N \\
                                              &amp;= e^{-\frac{2n}{\beta}}\end{split}\]</div>
@@ -198,9 +198,9 @@ caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id3">
+<article class="slide level-3" id="id5">
 
-<h3>Exemple de mostres <strong>no-iid</strong>: Població finita</h3>
+<h3>Exemple de mostra <strong>no-iid</strong>: Població finita</h3>
 
 <p>Tenim una població de n=30 persones, representades per la seva alçada: <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
 <p><span class="math notranslate nohighlight">\(X_i\)</span>: alçada de la <span class="math notranslate nohighlight">\(i\)</span>-ena persona. Si <span class="math notranslate nohighlight">\(x_i\neq x_j, \forall i\neq j\)</span>, tenim:</p>
@@ -220,9 +220,9 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="exemple-de-mostres-no-iid-biaix-de-sel-leccio">
+<article class="slide level-3" id="exemple-de-mostra-no-iid-diferents-biaixos-de-sel-leccio">
 
-<h3>Exemple de mostres <strong>no-iid</strong>: Biaix de sel.lecció</h3>
+<h3>Exemple de mostra <strong>no-iid</strong>: Diferents biaixos de sel.lecció</h3>
 
 
 
@@ -253,7 +253,7 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 <p>Si ens donen un conjunt de dades i volem descriure’l abreviadament, el més comú es calcular-ne:</p>
 <ul class="simple">
 <li>La mitja: <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></li>
-<li>La variança: <span class="math notranslate nohighlight">\(S^2 = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2\)</span></li>
+<li>La variança: <span class="math notranslate nohighlight">\(S^2_X = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2\)</span></li>
 </ul>
 <p>Amb aquestes dues quantitats ja podem fer inferència:</p>
 <ul class="simple">
@@ -274,11 +274,12 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 
 <h3>Estadístics: definició</h3>
 
-<p class="note"><strong>Definició:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> d’un espai mostral <span class="math notranslate nohighlight">\(\Omega\)</span>,
+<p class="note"><strong>Definició:</strong> Donada una mostra iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> d’un espai mostral <span class="math notranslate nohighlight">\(\Omega\)</span>,
 un estadístic és una funció <span class="math notranslate nohighlight">\(T: \Omega^N \rightarrow \mathbb{R}^p\)</span>, amb <span class="math notranslate nohighlight">\(p \geq 1\)</span>.</p>
+<p><em>Exemples</em>:</p>
 <ul class="simple">
-<li>La mitja i la variança de mostres reals són estadístics amb p=1.</li>
-<li>La matriu de covariança de mostres formades per vectors de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d(d-1)/2\)</span></li>
+<li>La mitja i la variança d’una mostra reals són estadístics amb <span class="math notranslate nohighlight">\(p=1\)</span>.</li>
+<li>La matriu de covariança d’una mostra multivariades de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d(d-1)/2\)</span></li>
 </ul>
 <p>Com que <span class="math notranslate nohighlight">\(T\)</span> és una funció de variables o vectors aleatòries, <span class="math notranslate nohighlight">\(T\)</span> és també una variable o vector aleatori</p>
 <p><strong>Exercici</strong>: Altres exemples d’estadístics?</p>
@@ -291,18 +292,21 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id4">
+<article class="slide level-3" id="id6">
 
 <h3>Altres exemples d’estadístics</h3>
 
+<p><strong>Per una sola mostra :math:`left{X_1, cdots, X_Nright}`</strong>:</p>
 <ul class="simple">
-<li>Mediana</li>
-<li>Percentil</li>
-<li>Max/min (extrems)</li>
-<li>Coeficient de correlació</li>
-<li>Risc relatiu (<em>odds ratio</em>)</li>
-<li>Histograma</li>
-<li>Entropía</li>
+<li><em>Mediana</em>: el valor tal que 50% dels elements de la mostra són més petits</li>
+<li><em>Percentil</em> <span class="math notranslate nohighlight">\(p\)</span>: el valor tal que :math:<a href="#id2"><span class="problematic" id="id3">`</span></a>p`% dels elements de la mostra són més petits</li>
+<li><em>Max/min (extrems)</em>: el màxim i mínim de la mostra</li>
+<li><em>Histograma</em></li>
+</ul>
+<p><strong>Per dues mostres :math:`left{X_1, cdots, X_Nright}`</strong>:</p>
+<ul class="simple">
+<li><em>Coeficient de correlació</em>:  <span class="math notranslate nohighlight">\(\frac{\sum_{i}X_i Y_i}{\sqrt{S^2_X S^2_Y}}\)</span></li>
+<li><em>Risc relatiu</em>: <span class="math notranslate nohighlight">\(\frac{\bar{X}}{\bar{Y}}\)</span> (per mostres de Bernouilli)</li>
 </ul>
 
 
@@ -315,13 +319,18 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 </article>
 <article class="slide level-3" id="estimadors-i-parametres-exemple-en-poblacio-finita">
 
-<h3>Estimadors i paràmetres: Exemple en població finita</h3>
+<h3>Estimadors i paràmetres: Exemple en població <strong>finita</strong></h3>
 
-<p>Tenim una població de <span class="math notranslate nohighlight">\(n=47 \times 10ˆ6\)</span> persones, representades per la seva alçada:
+<p>Tornem a un exemple similar al que vem veure a la <a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704">primera classe del Tema 2 (Campus Virtual)</a>.</p>
+<p>Tenim una <strong>població</strong> de <span class="math notranslate nohighlight">\(n=47 \times 10^6\)</span> persones, representades per la seva alçada:
 <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_n\right\}, x_i\in \left(0, \infty\right)\)</span></p>
-<p>Podem definir un <strong>paràmetre</strong> que caracteritza la població, per exemple la seva mitja aritmètica:</p>
-<p><span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></p>
-<p>Aquesta és una quantitat <strong>determinista</strong>, però calcular-la requereix mesurar l’alçada de 47M de persones.</p>
+<p>Definim dos <strong>paràmetres</strong> que caracteritzen la població, per exemple:</p>
+<ul class="simple">
+<li>L’alçada mitja: <span class="math notranslate nohighlight">\(\mu = \frac{1}{n}\sum_{i=1}^n x_i\)</span></li>
+<li>La desviació estàndar de l’alçada: <span class="math notranslate nohighlight">\(\sigma = \sqrt{ \frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2}\)</span></li>
+</ul>
+<p>Aquestes dues són quantitats <strong>deterministes</strong>, però calcular-les requereix mesurar l’alçada de 47M de persones.
+(Això sense tenir en compte que l’alçada de les persones canvia en el temps…)</p>
 
 
 
@@ -331,18 +340,21 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id5">
+<article class="slide level-3" id="id7">
 
-<h3>Estimadors i paràmetres: Exemple en població finita (2)</h3>
+<h3>Estimadors i paràmetres: Exemple en població <strong>finita</strong> (2)</h3>
 
-<p>Enlloc d’això, podem construïr un <strong>estimador</strong> d’aquest <strong>paràmetre</strong>, a partir d’una mostra finita amb N=1000,
-per exemple, la mitjana empírica:</p>
-<p><span class="math notranslate nohighlight">\(\hat{\mu} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p>
-<p>Noteu que <span class="math notranslate nohighlight">\(X_i\)</span> representen la v.a. corresponent a mostrejar la població <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> (amb remplaçament)</p>
+<p>Com hem vist a la primera classe, enlloc de fer passar 47M de persones
+pels Centres d’Atenció Primària, podem construïr <strong>estimadors</strong> d’aquests <strong>paràmetres</strong>,
+a partir d’una mostra finita amb N=1000, per exemple:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu} = \bar{X}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hat{\sigma} = \sqrt{S^2_X}\)</span></p>
+<p>Noteu que <span class="math notranslate nohighlight">\(X_i\)</span> representen la v.a. corresponent a mostrejar la població
+<span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> (<strong>amb remplaçament</strong>) i per tant són una mostra <strong>iid</strong>.</p>
 <p>Questions d’inferència:</p>
 <ul class="simple">
-<li>Com de bé aproxima <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> a <span class="math notranslate nohighlight">\(\mu\)</span>?</li>
-<li><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> és una variable aleatòria… quina distribució té?</li>
+<li>Com de bé aproximen <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> a <span class="math notranslate nohighlight">\(\mu\)</span> i <span class="math notranslate nohighlight">\(\hat{\sigma}\)</span> a <span class="math notranslate nohighlight">\(\sigma\)</span>?</li>
+<li><span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, <span class="math notranslate nohighlight">\(\hat{\sigma}\)</span> són v.a.’s… quina distribució tenen?</li>
 </ul>
 
 
@@ -353,9 +365,9 @@ per exemple, la mitjana empírica:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id6">
+<article class="slide level-3" id="id8">
 
-<h3>Estimadors i paràmetres: Exemple en població infinita</h3>
+<h3>Estimadors i paràmetres: Exemple en població <strong>infinita</strong></h3>
 
 <p>En el cas d’una població infinita, normalment <strong>assumim</strong> que la mateixa
 està caracteritzada per una distribució de probabilitat parameteritzada per
@@ -363,9 +375,9 @@ una sèrie de paràmetres (a vegades als paràmetres genèrics s’els denota pe
 un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)</p>
 <p>Exemples:</p>
 <ul class="simple">
-<li>La vida útil d’un circuit estava carateritzada per una exponencial amb paràmetre <span class="math notranslate nohighlight">\(\beta\)</span></li>
-<li>Una mostra iid d’una població normal està caracteritzada per la mitja (<span class="math notranslate nohighlight">\(\mu\)</span>) i la variança (<span class="math notranslate nohighlight">\(\sigma^2\)</span>). Direm que <span class="math notranslate nohighlight">\(\mathbf{\theta}=\left[\mu, \sigma^2 \right]\)</span></li>
-<li>El nombre de cares al llençar una moneda N vegades són mostres d’una població binomial amb paràmetre <span class="math notranslate nohighlight">\(p\)</span></li>
+<li>La vida útil d’un circuit estava carateritzada per una <strong>població exponencial</strong> amb paràmetre <span class="math notranslate nohighlight">\(\beta\)</span></li>
+<li>Una mostra iid d’una <strong>població normal</strong> està caracteritzada per la mitja (<span class="math notranslate nohighlight">\(\mu\)</span>) i la variança (<span class="math notranslate nohighlight">\(\sigma^2\)</span>). Direm que <span class="math notranslate nohighlight">\(\mathbf{\theta}=\left[\mu, \sigma^2 \right]\)</span></li>
+<li>El nombre de cares al llençar una moneda N vegades és una mostra d’una <strong>població binomial</strong> amb paràmetre <span class="math notranslate nohighlight">\(p\)</span></li>
 </ul>
 
 
@@ -376,16 +388,17 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="estimadors-i-estadistics">
+<article class="slide level-3" id="breu-parentesis-estimadors-i-estadistics">
 
-<h3>Estimadors i estadístics</h3>
+<h3>(Breu parèntesis: Estimadors i estadístics)</h3>
 
 <ul class="simple">
-<li>En general els estimadors són estadístics</li>
+<li>En general tots els <strong>estimadors</strong> són <strong>estadístics</strong></li>
+<li>Quan parlem d’estimadors, ens referim a un <strong>paràmetre de la població</strong></li>
 <li>Fins ara em vist estimadors que són identitats d’estadístics (mitja, variança)</li>
-<li>Més endavant veurem com construïr estimadors que són funcions més complexes de les dades o d’estadístics de les dades</li>
+<li>Més endavant veurem com construïr estimadors que són funcions més complexes de les dades</li>
 </ul>
-<p>En tot cas ara ens interessarem en la caracterització probabilística dels estadístics.</p>
+<p>Ara ens interessarem en la caracterització probabilística dels estadístics que hem vist fins ara.</p>
 
 
 
@@ -402,8 +415,8 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <ol class="arabic simple">
 <li>Donada una mostra <span class="math notranslate nohighlight">\(\left\{x_1, \cdots, x_N\right\}\)</span>, és <span class="math notranslate nohighlight">\(T = \max_i x_i - \min_i x_i\)</span> un estadístic?</li>
 <li>Quina és la població corresponent a l’experiment de sel.leccionar 4 cartes de pòker d´una baralla de 48?</li>
-<li>Quan es fa una enquesta d’intenció de vot, quin tipus de població i mostres tenim?</li>
-<li>Quan es fa una enquesta d’intenció de vot, perquè no és vàlid agafar mostres només d’una zona geogràfica determinada?</li>
+<li>Quan es fa una enquesta d’intenció de vot, quin tipus de població i mostra tenim?</li>
+<li>Quan es fa una enquesta d’intenció de vot, perquè no és vàlid agafar una mostra només d’una zona geogràfica determinada?</li>
 </ol>
 
 
@@ -435,9 +448,9 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 <p>Haurem de fer doncs asssumpcions addicionals:</p>
 <ul class="simple">
-<li>tipus de funció (ex: mitja, variança, funció contínua i diferenciable)</li>
-<li>distribució de les mostres (ex: mostres normals)</li>
-<li>comportament asimptòtic (quan el nombre mostres tendeix a l’infinit)</li>
+<li><strong>tipus de funció</strong> (ex: mitja, variança, funció contínua i diferenciable)</li>
+<li><strong>distribució de la mostra</strong> (ex: mostra normals)</li>
+<li><strong>comportament asimptòtic</strong> (quan la talla de la mostra tendeix a l’infinit)</li>
 </ul>
 <p>o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.</p>
 <p>Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança</p>
@@ -455,7 +468,7 @@ no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 <h3>Caracterització dels estadístics mitjana i variança</h3>
 
 <p>Comencem per un resultat auxiliar important:</p>
-<p class="note"><strong>Lemma 5.2.5:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança finita, i una funció
+<p class="note"><strong>Lemma 5.2.5:</strong> Donada una mostra iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança finita, i una funció
 arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</p>
 <ul class="note simple">
 <li><span class="math notranslate nohighlight">\(E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)\)</span></li>
@@ -475,17 +488,17 @@ arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id7">
+<article class="slide level-3" id="id9">
 
 <h3>Caracterització dels estadístics mitjana i variança (2)</h3>
 
 <p>Com a corolari del darrer Lemma, tenim:</p>
-<p class="note"><strong>Teorema 5.2.6:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança <span class="math notranslate nohighlight">\(\mu\)</span> i variança <span class="math notranslate nohighlight">\(\sigma^2\)</span>
+<p class="note"><strong>Teorema 5.2.6:</strong> Donada una mostra iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb esperança <span class="math notranslate nohighlight">\(\mu\)</span> i variança <span class="math notranslate nohighlight">\(\sigma^2\)</span>
 tenim:</p>
 <ul class="note simple">
 <li><span class="math notranslate nohighlight">\(E\left(\bar{X}\right) = \mu\)</span></li>
 <li><span class="math notranslate nohighlight">\(\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2\)</span></li>
-<li><span class="math notranslate nohighlight">\(E\left(S^2\right) = \sigma^2\)</span></li>
+<li><span class="math notranslate nohighlight">\(E\left(S^2_X\right) = \sigma^2\)</span></li>
 </ul>
 <p>Demostració (exercici).</p>
 
@@ -497,14 +510,14 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id8">
+<article class="slide level-3" id="id10">
 
 <h3>Caracterització dels estadístics mitjana i variança (3)</h3>
 
 <p>Observacions:</p>
 <ol class="arabic simple">
 <li>Els estadístics <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(S^2\)</span> son <strong>estimadors sense biaix</strong> de <span class="math notranslate nohighlight">\(\mu\)</span> i <span class="math notranslate nohighlight">\(\sigma^2\)</span></li>
-<li>Només hem assumit moments d’ordre 2!</li>
+<li>Només hem assumit l’existència de moments d’ordre 2!</li>
 <li>Sense el factor <span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span>, <span class="math notranslate nohighlight">\(S^2\)</span> tindria biaix</li>
 </ol>
 
@@ -516,19 +529,17 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id9">
+<article class="slide level-3" id="id11">
 
 <h3>Caracterització dels estadístics mitjana i variança (4)</h3>
 
-<p>Finalment, podem aplicar la desigualtat de Txebixev:</p>
+<p>Només amb aquest resultat, podem aplicar la desigualtat de Txebixev:</p>
 <div class="math notranslate nohighlight">
-\[P\left(g\left(x\right) \geq r\right)  \leq \frac{E g\left(x\right)}{r}\]</div>
-<p>amb <span class="math notranslate nohighlight">\(g\left(\bar{X}\right) = \frac{\left(\bar{X} - \mu\right)^2}{\sigma^2}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}P\left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \geq r \right)   &amp; \leq  \frac{\mbox{Var}\left(\bar{X}\right)}{\sigma^2 r} \\
-                                                                      &amp; = \frac{1}{ N r}\end{split}\]</div>
+\[\begin{split}P\left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \geq r \right) &amp; \leq \frac{E \left(\frac{\left(\bar{X} - \mu\right)^2}{\sigma^2} \right)}{r} \\
+                                                                    &amp; =  \frac{\mbox{Var}\left(\bar{X}\right)}{\sigma^2 r} \\
+                                                                    &amp; = \frac{1}{ N r}\end{split}\]</div>
 <p>Per tant <span class="math notranslate nohighlight">\(\lim_{N \to \infty} P\left(\left|\bar{X} - \mu\right| \geq r \right) = 0\)</span> (convergència en probabilitat)</p>
-<p class="note">Acabem de demostrar la Llei Feble dels Grans Nombres: “la mitja empírica convergeix a la mitja de la població”</p>
+<p class="note">Acabem de demostrar la <strong>Llei Feble dels Grans Nombres</strong>: <span class="math notranslate nohighlight">\(\bar{X}\)</span> convergeix a <span class="math notranslate nohighlight">\(\mu\)</span> quan <span class="math notranslate nohighlight">\(N\)</span> tendeix a infinit.</p>
 
 
 
@@ -538,15 +549,15 @@ tenim:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="caracteritzacio-de-la-mitjana-mitjantcant-la-funcio-generatriu-de-moments">
+<article class="slide level-3" id="caracteritzacio-de-bar-x-mitjantcant-la-funcio-generatriu-de-moments">
 
-<h3>Caracterització de la mitjana mitjantçant la funció generatriu de moments</h3>
+<h3>Caracterització de <span class="math notranslate nohighlight">\(\bar{X}\)</span> mitjantçant la funció generatriu de moments</h3>
 
 <p>En alguns casos, podem anar encara més enllà en la caracterització de la
 distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span>. El primer cas que tractarem és a través
 de la funció generatriu de moments:</p>
-<p class="note"><strong>Teorema 5.2.7:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
-generatriu de moments <span class="math notranslate nohighlight">\(M_X(x)\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és: <span class="math notranslate nohighlight">\(M_X(x)^n\)</span></p>
+<p class="note"><strong>Teorema 5.2.7:</strong> Donada una mostra iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
+generatriu de moments <span class="math notranslate nohighlight">\(M_X(t)\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és: <span class="math notranslate nohighlight">\(M_{\bar{X}} = \left(M_{X}(\frac{t}{n})\right)^n\)</span></p>
 <p><em>Demostració</em>: Aplicació directa de la propietat que hem vist al Tema 1 per l’esperança del producte de v.a.’s independents.</p>
 <p>Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
 amb f.g.m coneguda, per exemple:</p>
@@ -563,20 +574,77 @@ amb f.g.m coneguda, per exemple:</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="caracteritzacio-de-la-mitjana-per-convolucio">
+<article class="slide level-3" id="id12">
 
-<h3>Caracterització de la mitjana per convolució</h3>
+<h3>Caracterització de <span class="math notranslate nohighlight">\(\bar{X}\)</span> mitjantçant la funció generatriu de moments (2)</h3>
 
-<p>Quan la F.G.M no existeix o no es correspon amb una F.G.M coneguda,
-només ens queda una eina teòrica per caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span>,
-i és la caracterització pel Jacobià d’una transformació</p>
-<p class="note"><strong>Teorema 5.2.7:</strong> Donades mostres iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
-generatriu de moments <span class="math notranslate nohighlight">\(M_X\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és:</p>
-<p>Amb aquesta aproximació podem caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> per una població de Cauchy</p>
+<p>Apliquem-ho a calcular la f.d.p. d’<span class="math notranslate nohighlight">\(\bar{X}\)</span> per una mostra iid Gaussiana.</p>
+<p>La f.g.m d’una Gaussiana <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span> és <span class="math notranslate nohighlight">\(M_X(t) = e^{\mu t + \frac{\sigma^2t^2}{2}}\)</span></p>
+<p>Per aplicació directa del resultat anterior, tenim que en aquest cas:</p>
+<p><span class="math notranslate nohighlight">\(M_{\bar{X}} = M_{X}(\frac{t}{n})^n = e^{\mu t + \frac{\sigma^2t^2}{2n}}\)</span></p>
+<p>que podem identificar amb la f.g.m d’una Gaussiana <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>.</p>
+<p>Per tant <span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span></p>
 
 
 
 <div class="slide-no">27</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="caracteritzacio-de-bar-x-a-traves-de-la-convolucio">
+
+<h3>Caracterització de <span class="math notranslate nohighlight">\(\bar{X}\)</span> a través de la convolució</h3>
+
+<p>Quan la f.g.m no existeix o no es correspon amb la f.g.m d’una distribució coneguda,
+només ens queda una eina teòrica per caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span>,
+i és la caracterització pel Jacobià d’una transformació, que citarem però no demostrarem:</p>
+<p class="note"><strong>Teorema 5.2.9:</strong> Si X, Y són v.a.’s independents amb f.d.p <span class="math notranslate nohighlight">\(f_X\)</span> i <span class="math notranslate nohighlight">\(f_Y\)</span>, respectivament,
+aleshores la f.d.p de <span class="math notranslate nohighlight">\(Z = X + Y\)</span> ve donada per <span class="math notranslate nohighlight">\(f_Z(x) = (f_X \ast f_Y)(x)\)</span></p>
+<p><strong>Esboç demostració</strong>: Definir la transformació <span class="math notranslate nohighlight">\((X, Y) \to (X, Z + Y)\)</span>, calcular-ne el Jacobià i
+aplicar la fórmula 4.3.2 de Casela &amp; Berger.</p>
+<p><strong>Exemple d’aplicació</strong>: Caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> per una població de Cauchy, [Casella &amp; Berger 5.2.10].</p>
+
+
+
+<div class="slide-no">28</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="mostra-iid-d-una-poblacio-normal">
+
+<h3>Mostra iid d’una població Normal</h3>
+
+<p>Acabem de veure que per una mostra iid d’una població <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>,
+<span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>. De fet, podem anar una mica més lluny
+i caracteritzar també la distribució de <span class="math notranslate nohighlight">\(S_X^2\)</span>:</p>
+<p class="note"><strong>Teorema 5.3.1:</strong> per una mostra iid d’una població <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>, tenim:</p>
+<ol class="note loweralpha simple">
+<li><span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span></li>
+<li><span class="math notranslate nohighlight">\(\bar{X}\)</span> i  <span class="math notranslate nohighlight">\(S_X^2\)</span> són independents</li>
+<li><span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2}S_X^2 \sim \chi^2_{n-1}\)</span></li>
+</ol>
+<p><strong>Esboç demostració</strong>: El punt (a) ja l’hem vist. Els (b), (c), a la “pisarra”.</p>
+
+
+
+<div class="slide-no">29</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="distribucio-de-bar-x-per-mostres-grans-teorema-del-limit-central">
+
+<h3>Distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span> per mostres grans: Teorema del Límit Central</h3>
+
+
+
+
+<div class="slide-no">30</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
