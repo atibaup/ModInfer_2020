@@ -396,11 +396,16 @@ i caracteritzar també la distribució de :math:`S_X^2`:
 .. nextslide::
     :increment:
 
-    Observacions:
+Observacions:
 
-    1. La variança de :math:`\bar{X}` és inversament proporcional al tamany de la mostra, com ja haviem vist en el Teorema 5.2.6 pel cas genèric
-    2. Per calcular :math:`S_X^2` es fa servir :math:`\bar{X}`... com pot ser que siguin v.a.'s independents!
-    3. Fixeu-vos que l'aplicació pràctica tal qual és limitada: només podem caracteritzar la distribució de :math:`\bar{X}`, :math:`S_X^2` si coneixem els paràmetres  :math:`\mu, \sigma^2`... que és el que volem estimar!
+1. La variança de :math:`\bar{X}` és inversament proporcional al tamany de la mostra, com ja haviem vist en el Teorema 5.2.6 pel cas genèric
+2. Per calcular :math:`S_X^2` es fa servir :math:`\bar{X}`... com pot ser que siguin v.a.'s independents!
+3. Fixeu-vos que l'aplicació pràctica tal qual és limitada: només podem caracteritzar la distribució de :math:`\bar{X}`, :math:`S_X^2` si coneixem els paràmetres  :math:`\mu, \sigma^2`... que és el que volem estimar!
+
+.. rst-class:: note
+
+    Més endavant veurem un parell de sol.lucions per aquestes mancances
+
 
 Distribució de :math:`\bar{X}` per mostres grans: Teorema del Límit Central
 ---------------------------------------------------------------------------
