@@ -28,7 +28,7 @@ compra-ventes registrades en l’últim exercici.
 Tenim:
 
 * :math:`\mu`: preu mig (*paràmetre*) calculat sobre totes les ventes (*població*)
-* :math:`\bar{x}`: preu mig calculat sobre una *mostra* aleatòria de :math:`n=30` mostres (*estadístic*)
+* :math:`\bar{x}`: preu mig calculat sobre una *mostra* aleatòria de :math:`N=30` mostres (*estadístic*)
 
 A l'`exemple complet (Campus Virtual) <https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704>`_
 hem vist que podem utilitzar :math:`\bar{x}` per estimar :math:`\mu`, amb un error de < 11%.
@@ -69,20 +69,24 @@ en la majoria de casos pràctics (exercici)
 
 .. rst-class:: note
 
-    **Definició**: Les variables aleatòries :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són una mostra aleatòria d'una població
-    caracteritzada per una *fdp* :math:`f_X(x)`, si :math:`\left\{X_0, \cdots, X_{n-1}\right\}` són **mutualment independents** i :math:`X_i \sim f_X(x)`.
+    **Definició**: Les variables aleatòries :math:`\left\{X_1, \cdots, X_N\right\}` són una mostra aleatòria d'una població
+    caracteritzada per una *fdp* :math:`f_X(x)`, si :math:`\left\{X_1, \cdots, X_N\right\}` són **mutualment independents** i :math:`X_i \sim f_X(x)`.
 
-Alternativament :math:`\left\{X_0, \cdots, X_{n-1}\right\}` s'anomenen **independents i idènticament distribuïdes** (abreviat **iid**)
+Alternativament :math:`\left\{X_1, \cdots, X_N\right\}` s'anomenen **independents i idènticament distribuïdes** (abreviat **iid**)
+
+Una mostra *iid* és més fàcil de modelar probabilísticament, ja que la f.d.p. (o la f.m.p.) conjunta:
+
+:math:`f_{X_1, \cdots, X_{N}}(x_1, \cdots, x_N) = \Pi_{i=1}^N f_X(x_i)`
 
 .. nextslide:: Exemple de mostra *iid*: Aplicació d'inferència
     :increment:
 
-[Kendall Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) :math:`X_i` d':math:`n` circuits electrònics. Si
+[Casella & Berger Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) :math:`X_i` d':math:`n` circuits electrònics. Si
 :math:`X_i \sim \mathbf{exponential}\left(\beta\right)`, quina és la probabilitat que tots els circuits mesurats durin més de 2 anys?
 
 Els esdeveniments :math:`\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}` són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)
 
-Per independència, la *fdp* conjunta de :math:`\left\{X_1, \cdots, X_{N}\right\}` és :math:`f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=1}^{N}f\left(x_i\right) = \frac{1}{\beta^n} e^{\frac{-\sum_i x_i}{\beta}}`
+Per la propietat *iid*, la *fdp* conjunta de :math:`\left\{X_1, \cdots, X_{N}\right\}` és :math:`f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=1}^{N}f\left(x_i\right) = \frac{1}{\beta^n} e^{\frac{-\sum_i x_i}{\beta}}`
 
 .. math::
 
@@ -125,14 +129,14 @@ Estadístics: mitja i variança
 
 Si ens donen un conjunt de dades i volem descriure'l abreviadament, el més comú es calcular-ne:
 
-* La mitja: :math:`\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i`
+* La mitjana: :math:`\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i`
 
-* La variança: :math:`S^2_X = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2`
+* La variança mostral o variança empírica: :math:`S^2_X = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2`
 
 Amb aquestes dues quantitats ja podem fer inferència:
 
-* Podem predir el valor d'una nova observació
-* Podem estimar com de rara és una nova observació
+* Podem utilitzar :math:`\bar{X}` com a predictor d'una nova observació
+* Podem utilitzar :math:`\bar{X} +/- 2 \sqrt{S^2_X}` per evaluar com de rara és una nova observació
 
 La mitja i la variança són dos exemples d'un **estadístic**.
 
@@ -148,25 +152,28 @@ Estadístics: definició
 *Exemples*:
 
 * La mitja i la variança d'una mostra reals són estadístics amb :math:`p=1`.
-* La matriu de covariança d'una mostra multivariades de dimensió :math:`d` és un estadístic amb :math:`p=d(d-1)/2`
+* La matriu de covariança :math:`\mathbf{S}` d'una mostra multivariada de dimensió :math:`d` és un estadístic amb :math:`p=d + d(d-1)/2`:
 
-Com que :math:`T` és una funció de variables o vectors aleatòries, :math:`T` és també una variable o vector aleatori
+:math:`\mathbf{S} = \frac{1}{N-1} \sum_{i=1}^N (\mathbf{X}_i - \bar{\mathbf{X}})(\mathbf{X}_i - \bar{\mathbf{X}})^T`
+
+Com que un estadístic :math:`T` és una funció de variables o vectors aleatòries,
+:math:`T` és també una variable o vector aleatori
 
 **Exercici**: Altres exemples d'estadístics?
 
 .. nextslide:: Altres exemples d'estadístics
     :increment:
 
-**Per una sola mostra :math:`\left\{X_1, \cdots, X_N\right\}`**:
+**Per una sola mostra** :math:`\left\{X_1, \cdots, X_N\right\}`:
 
 * *Mediana*: el valor tal que 50% dels elements de la mostra són més petits
-* *Percentil* :math:`p`: el valor tal que :math:`p`% dels elements de la mostra són més petits
+* *Percentil* :math:`p`: el valor tal que :math:`p` %% dels elements de la mostra són més petits
 * *Max/min (extrems)*: el màxim i mínim de la mostra
 * *Histograma*
 
-**Per dues mostres :math:`\left\{X_1, \cdots, X_N\right\}`**:
+**Per dues mostres** :math:`\left\{X_1, \cdots, X_N\right\}`, :math:`\left\{Y_1, \cdots, Y_N\right\}`:
 
-* *Coeficient de correlació*:  :math:`\frac{\sum_{i}X_i Y_i}{\sqrt{S^2_X S^2_Y}}`
+* *Coeficient de correlació*:  :math:`R = \frac{\sum_{i}X_i Y_i}{\sqrt{S^2_X S^2_Y}}`
 * *Risc relatiu*: :math:`\frac{\bar{X}}{\bar{Y}}` (per mostres de Bernouilli)
 
 Estimadors i paràmetres: Exemple en població **finita**
@@ -218,7 +225,7 @@ Exemples:
 
 * Una mostra iid d'una **població normal** està caracteritzada per la mitja (:math:`\mu`) i la variança (:math:`\sigma^2`). Direm que :math:`\mathbf{\theta}=\left[\mu, \sigma^2 \right]`
 
-* El nombre de cares al llençar una moneda N vegades és una mostra d'una **població binomial** amb paràmetre :math:`p`
+* El nombre de cares al llençar una moneda N vegades és una mostra d'una **població binomial** amb paràmetres :math:`p, N`
 
 
 (Breu parèntesis: Estimadors i estadístics)
@@ -334,7 +341,7 @@ de la funció generatriu de moments:
 .. rst-class:: note
 
     **Teorema 5.2.7:** Donada una mostra iid :math:`\left\{X_1, \cdots, X_N\right\}` amb funció
-    generatriu de moments :math:`M_X(t)`. La f.g.m de :math:`\bar{X}` és: :math:`M_{\bar{X}} = \left(M_{X}(\frac{t}{n})\right)^n`
+    generatriu de moments :math:`M_X(t)`. La f.g.m de :math:`\bar{X}` és: :math:`M_{\bar{X}} = \left(M_{X}(\frac{t}{N})\right)^N`
 
 *Demostració*: Aplicació directa de la propietat que hem vist al Tema 1 per l'esperança del producte de v.a.'s independents.
 
@@ -353,11 +360,11 @@ La f.g.m d'una Gaussiana :math:`\mathcal{N}(\mu, \sigma^2)` és :math:`M_X(t) = 
 
 Per aplicació directa del resultat anterior, tenim que en aquest cas:
 
-:math:`M_{\bar{X}} = M_{X}(\frac{t}{n})^n = e^{\mu t + \frac{\sigma^2t^2}{2n}}`
+:math:`M_{\bar{X}} = M_{X}(\frac{t}{N})^N = e^{\mu t + \frac{\sigma^2t^2}{2N}}`
 
-que podem identificar amb la f.g.m d'una Gaussiana :math:`\mathcal{N}(\mu, \frac{\sigma^2}{n})`.
+que podem identificar amb la f.g.m d'una Gaussiana :math:`\mathcal{N}(\mu, \frac{\sigma^2}{N})`.
 
-Per tant :math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})`
+Per tant :math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})`
 
 Caracterització de :math:`\bar{X}` a través de la convolució
 ------------------------------------------------------------
@@ -380,16 +387,16 @@ Mostra iid d'una població Normal
 ------------------------------------------------------------
 
 Acabem de veure que per una mostra iid d'una població :math:`\mathcal{N}(\mu, \sigma^2)`,
-:math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})`. De fet, podem anar una mica més lluny
+:math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})`. De fet, podem anar una mica més lluny
 i caracteritzar també la distribució de :math:`S_X^2`:
 
 .. rst-class:: note
 
-    **Teorema 5.3.1:** per una mostra iid d'una població :math:`\mathcal{N}(\mu, \sigma^2)`, tenim:
+    **[Casella & Berger 5.3.1]** per una mostra iid d'una població :math:`\mathcal{N}(\mu, \sigma^2)`, tenim:
 
-    a. :math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})`
+    a. :math:`\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})`
     b. :math:`\bar{X}` i  :math:`S_X^2` són independents
-    c. :math:`\frac{n-1}{\sigma^2}S_X^2 \sim \chi^2_{n-1}`
+    c. :math:`\frac{N-1}{\sigma^2}S_X^2 \sim \chi^2_{N-1}`
 
 **Esboç demostració**: El punt (a) ja l'hem vist. Els (b), (c), a la "pisarra".
 
@@ -410,4 +417,125 @@ Observacions:
 Distribució de :math:`\bar{X}` per mostres grans: Teorema del Límit Central
 ---------------------------------------------------------------------------
 
+Fins ara hem vist com caracteritzar :math:`\bar{X}` i :math:`S_X^2` més enllà dels seus moments
+és bastant complicat a no ser que fem suposicions bastant fortes sobre
+la distribució de la població.
 
+Per sort, en el règim asimptòtic quan el tamany de la mostra :math:`N \to \infty`,
+tenim un resultat absolutament sorprenent sobre la distribució de :math:`\bar{X}`
+**sense cap suposició sobre la distribució d'**:math:`X_i`!
+
+.. rst-class:: note
+
+    **[Teorema del Límit Central, Casella & Berger 5.5.15]** La mitjana :math:`\bar{X}` de mostres iid
+    amb :math:`E(X_i) =\mu` i :math:`\mbox{Var}(X_i)=\sigma^2` és tal que quan :math:`N \to \infty`,
+    :math:`\sqrt{N}\left(\frac{\bar{X} - \mu}{\sigma}\right) \Rightarrow \mathcal{N}(0, 1)`
+
+(el símbol :math:`\Rightarrow` denota convergència en distribució. Ho interpretarem
+com que :math:`\sqrt{N}\left(\frac{\bar{X} - \mu}{\sigma}\right)` es comporta com :math:`\mathcal{N}(0, 1)`
+a mesura que :math:`N \to \infty`)
+
+
+Juguem amb el Teorema del Límit Central!
+-----------------------------------------
+
+A l'`exemple de l'inici del Tema 2 <https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704>`_
+ja vem acabar veient que la distribució de :math:`\bar{X}`, al re-mostrejar amb remplaçament
+:math:`N=1000` vegades la nostra població, s'assemblava bastant a una normal:
+
+.. figure::  /_static/0_Intro/clt.png
+    :height: 400px
+    :align: center
+
+.. nextslide::
+    :increment:
+
+Experimentem una mica:
+
+1. Generem N=1000 mostres de :math:`\bar{X}_n` per mostres de tamany :math:`n=10,100,500,1000` d'una distribució amb variança finita. Podeu provar distribucions discretes (binomial negativa, poisson) i contínues (exponencial).
+2. Ara repetim l'experiment però amb alguna distribució amb variança no finita (per exemple, Cauchy)
+
+Què observeu? Com de ràpid respecte a :math:`n` s'assembla la distribució de :math:`\bar{X}` a :math:`\mathcal{N}(\mu, \frac{\sigma^2}{n})`?
+
+.. nextslide::
+    :increment:
+
+Similar al que passava amb el resultat de [Casella & Berger 5.3.1] per una població normal,
+l'utilitat pràctica del Teorema del Límit Central requereix a priori el coneixement
+de :math:`\sigma^2`...
+
+Per sort, hi ha un resultat (Teorema de Slutsky, [Casella & Berger 5.5.17]) que ens permet
+remplaçar :math:`\sigma^2` per :math:`S^2_X`:
+
+:math:`\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \Rightarrow \mathcal{N}(0, 1)`
+
+cosa que ens permet fer inferència aproximada sobre :math:`\mu`
+a partir de :math:`\bar{X}` i :math:`\sqrt{S^2_X}`, com veurem tot seguit:
+
+.. nextslide:: Interval de confiança per :math:`\mu`
+
+Com que sabem que, per :math:`N` suficientment gran,
+
+:math:`\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \sim \mathcal{N}(0, 1)`
+
+podem trobar un interval :math:`[-z_{\alpha}, z_{\alpha}]` tal que, per qualsevol :math:`\alpha`,
+
+:math:`P(-z \leq \sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \leq z) = 1 - \alpha`
+
+*Exercici:* Per quin :math:`N` tindrem que l'error d'estimació és inferior a 5% amb probabilitat 95%?
+
+Estadístics d'Ordre
+===================
+
+Estadístics d'Ordre: definició i exemples
+-----------------------------------------
+
+* A vegades no ens interessa caracteritzar el comportament "típic" d'una població, sino el **comportament extrem**, per exemple: saber quin es el cabal màxim d'un riu és molt més útil a l'hora de dimensionar un pont que saber-ne el cabal mitjà.
+
+* D'altres vegades la mitjana pot ser massa sensible a valors grans per distribucions amb "cues" llargues i donar una impressió equivocada, sent més interessant utilitzar els percentils o mitjana. Per exemple: el retorn mig d'una inversió de capital risc pot ser molt gran si vens un "unicorni", mentres que la mediana molt petita.
+
+.. rst-class:: note
+
+    [casella & Berger 5.4.1] Els estadístics d'ordre d'una mostra :math:`\left\{X_1, \cdots, X_N\right\}`
+    són els valors de la mostra ordenats en ordre ascendent, que identificarem per :math:`\left\{X_{(1)}, \cdots, X_{(N)}\right\}`
+
+
+.. nextslide::
+    :increment:
+
+Per exemple:
+
+* El mínim mostral: :math:`X_{(1)}`
+* El rang mostral: :math:`R = X_{(N)} - X_{(1)}`
+* La mediana: :math:`M = X_{(N+1)/2}` si :math:`N` és senar, :math:`M = \frac{1}{2}(X_{N/2} + X_{N/2 + 1})` si parell.
+* Els quartils...
+
+.. rst-class:: note
+
+    Com hem vist abans per la mitjana i la variança empírica, els estadístics d'ordre son també funcions de variables aleatòries i per tant una v.a. en sí mateixos
+
+
+Distribució dels estadístics d'ordre en el cas discret
+------------------------------------------------------------
+
+
+Distribució dels estadístics d'ordre en el cas continuu
+------------------------------------------------------------
+
+La mediana
+-----------------
+
+Altres descriptius importants
+==============================
+
+L'histograma
+-----------------
+
+La distribució cumulativa empírica
+----------------------------------
+
+El boxplot
+-----------------
+
+L'scatterplot
+-----------------

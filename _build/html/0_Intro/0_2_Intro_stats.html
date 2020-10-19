@@ -60,7 +60,7 @@ compra-ventes registrades en l’últim exercici.</p>
 <p>Tenim:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mu\)</span>: preu mig (<em>paràmetre</em>) calculat sobre totes les ventes (<em>població</em>)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\bar{x}\)</span>: preu mig calculat sobre una <em>mostra</em> aleatòria de <span class="math notranslate nohighlight">\(n=30\)</span> mostres (<em>estadístic</em>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{x}\)</span>: preu mig calculat sobre una <em>mostra</em> aleatòria de <span class="math notranslate nohighlight">\(N=30\)</span> mostres (<em>estadístic</em>)</p></li>
 </ul>
 <p>A l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704">exemple complet (Campus Virtual)</a>
 hem vist que podem utilitzar <span class="math notranslate nohighlight">\(\bar{x}\)</span> per estimar <span class="math notranslate nohighlight">\(\mu\)</span>, amb un error de &lt; 11%.</p>
@@ -87,13 +87,15 @@ subsegüents (vegeu exemple a continuació)</p>
 <h3><span class="section-number">3.1.5. </span>Mostra <em>iid</em>: Definició<a class="headerlink" href="#mostra-iid-definicio" title="Permalink to this headline">¶</a></h3>
 <p>En la resta del curs, ens centrarem en <strong>mostres aleatòries de poblacions infinites</strong>. És una prou bona aproximació
 en la majoria de casos pràctics (exercici)</p>
-<p class="note"><strong>Definició</strong>: Les variables aleatòries <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> són una mostra aleatòria d’una població
-caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\(f_X(x)\)</span>, si <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> són <strong>mutualment independents</strong> i <span class="math notranslate nohighlight">\(X_i \sim f_X(x)\)</span>.</p>
-<p>Alternativament <span class="math notranslate nohighlight">\(\left\{X_0, \cdots, X_{n-1}\right\}\)</span> s’anomenen <strong>independents i idènticament distribuïdes</strong> (abreviat <strong>iid</strong>)</p>
-<p>[Kendall Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) <span class="math notranslate nohighlight">\(X_i\)</span> d’<span class="math notranslate nohighlight">\(n\)</span> circuits electrònics. Si
+<p class="note"><strong>Definició</strong>: Les variables aleatòries <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> són una mostra aleatòria d’una població
+caracteritzada per una <em>fdp</em> <span class="math notranslate nohighlight">\(f_X(x)\)</span>, si <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> són <strong>mutualment independents</strong> i <span class="math notranslate nohighlight">\(X_i \sim f_X(x)\)</span>.</p>
+<p>Alternativament <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> s’anomenen <strong>independents i idènticament distribuïdes</strong> (abreviat <strong>iid</strong>)</p>
+<p>Una mostra <em>iid</em> és més fàcil de modelar probabilísticament, ja que la f.d.p. (o la f.m.p.) conjunta:</p>
+<p><span class="math notranslate nohighlight">\(f_{X_1, \cdots, X_{N}}(x_1, \cdots, x_N) = \Pi_{i=1}^N f_X(x_i)\)</span></p>
+<p>[Casella &amp; Berger Exemple: 5.1.2] Volem caracteritzar la vida útil (en anys) <span class="math notranslate nohighlight">\(X_i\)</span> d’<span class="math notranslate nohighlight">\(n\)</span> circuits electrònics. Si
 <span class="math notranslate nohighlight">\(X_i \sim \mathbf{exponential}\left(\beta\right)\)</span>, quina és la probabilitat que tots els circuits mesurats durin més de 2 anys?</p>
 <p>Els esdeveniments <span class="math notranslate nohighlight">\(\left\{X_1 \leq x_1, \cdots, X_{N} \leq x_{N}\right\}\)</span> són mutualment independents (el fet de mesurar un subconjunt de circuits no té cap impacte en la mesura dels altres)</p>
-<p>Per independència, la <em>fdp</em> conjunta de <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_{N}\right\}\)</span> és <span class="math notranslate nohighlight">\(f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=1}^{N}f\left(x_i\right) = \frac{1}{\beta^n} e^{\frac{-\sum_i x_i}{\beta}}\)</span></p>
+<p>Per la propietat <em>iid</em>, la <em>fdp</em> conjunta de <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_{N}\right\}\)</span> és <span class="math notranslate nohighlight">\(f\left(x_1, \cdots, x_{N}\right) = \Pi_{i=1}^{N}f\left(x_i\right) = \frac{1}{\beta^n} e^{\frac{-\sum_i x_i}{\beta}}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P\left(X_1 \geq 2, \cdots, X_N \geq 2\right) &amp;= \int_{2}^{\infty}\cdots\int_{2}^{\infty}\frac{1}{\beta^n}e^{\frac{-\sum_i x_i}{\beta}} dx_1\cdots dx_N \\
                                              &amp;= e^{-\frac{2n}{\beta}}\end{split}\]</div>
@@ -117,13 +119,13 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 <h3><span class="section-number">3.2.1. </span>Estadístics: mitja i variança<a class="headerlink" href="#estadistics-mitja-i-varianca" title="Permalink to this headline">¶</a></h3>
 <p>Si ens donen un conjunt de dades i volem descriure’l abreviadament, el més comú es calcular-ne:</p>
 <ul class="simple">
-<li><p>La mitja: <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p></li>
-<li><p>La variança: <span class="math notranslate nohighlight">\(S^2_X = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2\)</span></p></li>
+<li><p>La mitjana: <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i\)</span></p></li>
+<li><p>La variança mostral o variança empírica: <span class="math notranslate nohighlight">\(S^2_X = \frac{1}{N-1}\sum_{i=1}^N \left(X_i -  \bar{X}\right)^2\)</span></p></li>
 </ul>
 <p>Amb aquestes dues quantitats ja podem fer inferència:</p>
 <ul class="simple">
-<li><p>Podem predir el valor d’una nova observació</p></li>
-<li><p>Podem estimar com de rara és una nova observació</p></li>
+<li><p>Podem utilitzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> com a predictor d’una nova observació</p></li>
+<li><p>Podem utilitzar <span class="math notranslate nohighlight">\(\bar{X} +/- 2 \sqrt{S^2_X}\)</span> per evaluar com de rara és una nova observació</p></li>
 </ul>
 <p>La mitja i la variança són dos exemples d’un <strong>estadístic</strong>.</p>
 </div>
@@ -134,20 +136,22 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <p><em>Exemples</em>:</p>
 <ul class="simple">
 <li><p>La mitja i la variança d’una mostra reals són estadístics amb <span class="math notranslate nohighlight">\(p=1\)</span>.</p></li>
-<li><p>La matriu de covariança d’una mostra multivariades de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d(d-1)/2\)</span></p></li>
+<li><p>La matriu de covariança <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> d’una mostra multivariada de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d + d(d-1)/2\)</span>:</p></li>
 </ul>
-<p>Com que <span class="math notranslate nohighlight">\(T\)</span> és una funció de variables o vectors aleatòries, <span class="math notranslate nohighlight">\(T\)</span> és també una variable o vector aleatori</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{S} = \frac{1}{N-1} \sum_{i=1}^N (\mathbf{X}_i - \bar{\mathbf{X}})(\mathbf{X}_i - \bar{\mathbf{X}})^T\)</span></p>
+<p>Com que un estadístic <span class="math notranslate nohighlight">\(T\)</span> és una funció de variables o vectors aleatòries,
+<span class="math notranslate nohighlight">\(T\)</span> és també una variable o vector aleatori</p>
 <p><strong>Exercici</strong>: Altres exemples d’estadístics?</p>
-<p><strong>Per una sola mostra :math:`left{X_1, cdots, X_Nright}`</strong>:</p>
+<p><strong>Per una sola mostra</strong> <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span>:</p>
 <ul class="simple">
 <li><p><em>Mediana</em>: el valor tal que 50% dels elements de la mostra són més petits</p></li>
-<li><p><em>Percentil</em> <span class="math notranslate nohighlight">\(p\)</span>: el valor tal que :math:<a href="#id2"><span class="problematic" id="id3">`</span></a>p`% dels elements de la mostra són més petits</p></li>
+<li><p><em>Percentil</em> <span class="math notranslate nohighlight">\(p\)</span>: el valor tal que <span class="math notranslate nohighlight">\(p\)</span> %% dels elements de la mostra són més petits</p></li>
 <li><p><em>Max/min (extrems)</em>: el màxim i mínim de la mostra</p></li>
 <li><p><em>Histograma</em></p></li>
 </ul>
-<p><strong>Per dues mostres :math:`left{X_1, cdots, X_Nright}`</strong>:</p>
+<p><strong>Per dues mostres</strong> <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span>, <span class="math notranslate nohighlight">\(\left\{Y_1, \cdots, Y_N\right\}\)</span>:</p>
 <ul class="simple">
-<li><p><em>Coeficient de correlació</em>:  <span class="math notranslate nohighlight">\(\frac{\sum_{i}X_i Y_i}{\sqrt{S^2_X S^2_Y}}\)</span></p></li>
+<li><p><em>Coeficient de correlació</em>:  <span class="math notranslate nohighlight">\(R = \frac{\sum_{i}X_i Y_i}{\sqrt{S^2_X S^2_Y}}\)</span></p></li>
 <li><p><em>Risc relatiu</em>: <span class="math notranslate nohighlight">\(\frac{\bar{X}}{\bar{Y}}\)</span> (per mostres de Bernouilli)</p></li>
 </ul>
 </div>
@@ -183,7 +187,7 @@ un vector <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span>)
 <ul class="simple">
 <li><p>La vida útil d’un circuit estava carateritzada per una <strong>població exponencial</strong> amb paràmetre <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
 <li><p>Una mostra iid d’una <strong>població normal</strong> està caracteritzada per la mitja (<span class="math notranslate nohighlight">\(\mu\)</span>) i la variança (<span class="math notranslate nohighlight">\(\sigma^2\)</span>). Direm que <span class="math notranslate nohighlight">\(\mathbf{\theta}=\left[\mu, \sigma^2 \right]\)</span></p></li>
-<li><p>El nombre de cares al llençar una moneda N vegades és una mostra d’una <strong>població binomial</strong> amb paràmetre <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>El nombre de cares al llençar una moneda N vegades és una mostra d’una <strong>població binomial</strong> amb paràmetres <span class="math notranslate nohighlight">\(p, N\)</span></p></li>
 </ul>
 </div>
 <div class="section" id="breu-parentesis-estimadors-i-estadistics">
@@ -264,7 +268,7 @@ tenim:</p>
 distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span>. El primer cas que tractarem és a través
 de la funció generatriu de moments:</p>
 <p class="note"><strong>Teorema 5.2.7:</strong> Donada una mostra iid <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span> amb funció
-generatriu de moments <span class="math notranslate nohighlight">\(M_X(t)\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és: <span class="math notranslate nohighlight">\(M_{\bar{X}} = \left(M_{X}(\frac{t}{n})\right)^n\)</span></p>
+generatriu de moments <span class="math notranslate nohighlight">\(M_X(t)\)</span>. La f.g.m de <span class="math notranslate nohighlight">\(\bar{X}\)</span> és: <span class="math notranslate nohighlight">\(M_{\bar{X}} = \left(M_{X}(\frac{t}{N})\right)^N\)</span></p>
 <p><em>Demostració</em>: Aplicació directa de la propietat que hem vist al Tema 1 per l’esperança del producte de v.a.’s independents.</p>
 <p>Aquest resultat ens permet caracteritzar facilment la mitja de poblacions
 amb f.g.m coneguda, per exemple:</p>
@@ -275,9 +279,9 @@ amb f.g.m coneguda, per exemple:</p>
 <p>Apliquem-ho a calcular la f.d.p. d’<span class="math notranslate nohighlight">\(\bar{X}\)</span> per una mostra iid Gaussiana.</p>
 <p>La f.g.m d’una Gaussiana <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span> és <span class="math notranslate nohighlight">\(M_X(t) = e^{\mu t + \frac{\sigma^2t^2}{2}}\)</span></p>
 <p>Per aplicació directa del resultat anterior, tenim que en aquest cas:</p>
-<p><span class="math notranslate nohighlight">\(M_{\bar{X}} = M_{X}(\frac{t}{n})^n = e^{\mu t + \frac{\sigma^2t^2}{2n}}\)</span></p>
-<p>que podem identificar amb la f.g.m d’una Gaussiana <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>.</p>
-<p>Per tant <span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span></p>
+<p><span class="math notranslate nohighlight">\(M_{\bar{X}} = M_{X}(\frac{t}{N})^N = e^{\mu t + \frac{\sigma^2t^2}{2N}}\)</span></p>
+<p>que podem identificar amb la f.g.m d’una Gaussiana <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \frac{\sigma^2}{N})\)</span>.</p>
+<p>Per tant <span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})\)</span></p>
 </div>
 <div class="section" id="caracteritzacio-de-bar-x-a-traves-de-la-convolucio">
 <h3><span class="section-number">3.3.4. </span>Caracterització de <span class="math notranslate nohighlight">\(\bar{X}\)</span> a través de la convolució<a class="headerlink" href="#caracteritzacio-de-bar-x-a-traves-de-la-convolucio" title="Permalink to this headline">¶</a></h3>
@@ -293,13 +297,13 @@ aplicar la fórmula 4.3.2 de Casela &amp; Berger.</p>
 <div class="section" id="mostra-iid-d-una-poblacio-normal">
 <h3><span class="section-number">3.3.5. </span>Mostra iid d’una població Normal<a class="headerlink" href="#mostra-iid-d-una-poblacio-normal" title="Permalink to this headline">¶</a></h3>
 <p>Acabem de veure que per una mostra iid d’una població <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>,
-<span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>. De fet, podem anar una mica més lluny
+<span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})\)</span>. De fet, podem anar una mica més lluny
 i caracteritzar també la distribució de <span class="math notranslate nohighlight">\(S_X^2\)</span>:</p>
-<p class="note"><strong>Teorema 5.3.1:</strong> per una mostra iid d’una població <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>, tenim:</p>
+<p class="note"><strong>[Casella &amp; Berger 5.3.1]</strong> per una mostra iid d’una població <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>, tenim:</p>
 <ol class="note loweralpha simple">
-<li><p><span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{N})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\bar{X}\)</span> i  <span class="math notranslate nohighlight">\(S_X^2\)</span> són independents</p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2}S_X^2 \sim \chi^2_{n-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{N-1}{\sigma^2}S_X^2 \sim \chi^2_{N-1}\)</span></p></li>
 </ol>
 <p><strong>Esboç demostració</strong>: El punt (a) ja l’hem vist. Els (b), (c), a la “pisarra”.</p>
 <p>Observacions:</p>
@@ -312,6 +316,90 @@ i caracteritzar també la distribució de <span class="math notranslate nohighli
 </div>
 <div class="section" id="distribucio-de-bar-x-per-mostres-grans-teorema-del-limit-central">
 <h3><span class="section-number">3.3.6. </span>Distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span> per mostres grans: Teorema del Límit Central<a class="headerlink" href="#distribucio-de-bar-x-per-mostres-grans-teorema-del-limit-central" title="Permalink to this headline">¶</a></h3>
+<p>Fins ara hem vist com caracteritzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(S_X^2\)</span> més enllà dels seus moments
+és bastant complicat a no ser que fem suposicions bastant fortes sobre
+la distribució de la població.</p>
+<p>Per sort, en el règim asimptòtic quan el tamany de la mostra <span class="math notranslate nohighlight">\(N \to \infty\)</span>,
+tenim un resultat absolutament sorprenent sobre la distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span>
+<strong>sense cap suposició sobre la distribució d’</strong><span class="math notranslate nohighlight">\(X_i\)</span>!</p>
+<p class="note"><strong>[Teorema del Límit Central, Casella &amp; Berger 5.5.15]</strong> La mitjana <span class="math notranslate nohighlight">\(\bar{X}\)</span> de mostres iid
+amb <span class="math notranslate nohighlight">\(E(X_i) =\mu\)</span> i <span class="math notranslate nohighlight">\(\mbox{Var}(X_i)=\sigma^2\)</span> és tal que quan <span class="math notranslate nohighlight">\(N \to \infty\)</span>,
+<span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sigma}\right) \Rightarrow \mathcal{N}(0, 1)\)</span></p>
+<p>(el símbol <span class="math notranslate nohighlight">\(\Rightarrow\)</span> denota convergència en distribució. Ho interpretarem
+com que <span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sigma}\right)\)</span> es comporta com <span class="math notranslate nohighlight">\(\mathcal{N}(0, 1)\)</span>
+a mesura que <span class="math notranslate nohighlight">\(N \to \infty\)</span>)</p>
+</div>
+<div class="section" id="juguem-amb-el-teorema-del-limit-central">
+<h3><span class="section-number">3.3.7. </span>Juguem amb el Teorema del Límit Central!<a class="headerlink" href="#juguem-amb-el-teorema-del-limit-central" title="Permalink to this headline">¶</a></h3>
+<p>A l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/resource/view.php?id=156704">exemple de l’inici del Tema 2</a>
+ja vem acabar veient que la distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span>, al re-mostrejar amb remplaçament
+<span class="math notranslate nohighlight">\(N=1000\)</span> vegades la nostra població, s’assemblava bastant a una normal:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/clt.png"><img alt="../_images/clt.png" src="../_images/clt.png" style="height: 400px;" /></a>
+</div>
+<p>Experimentem una mica:</p>
+<ol class="arabic simple">
+<li><p>Generem N=1000 mostres de <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> per mostres de tamany <span class="math notranslate nohighlight">\(n=10,100,500,1000\)</span> d’una distribució amb variança finita. Podeu provar distribucions discretes (binomial negativa, poisson) i contínues (exponencial).</p></li>
+<li><p>Ara repetim l’experiment però amb alguna distribució amb variança no finita (per exemple, Cauchy)</p></li>
+</ol>
+<p>Què observeu? Com de ràpid respecte a <span class="math notranslate nohighlight">\(n\)</span> s’assembla la distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span> a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>?</p>
+<p>Similar al que passava amb el resultat de [Casella &amp; Berger 5.3.1] per una població normal,
+l’utilitat pràctica del Teorema del Límit Central requereix a priori el coneixement
+de <span class="math notranslate nohighlight">\(\sigma^2\)</span>…</p>
+<p>Per sort, hi ha un resultat (Teorema de Slutsky, [Casella &amp; Berger 5.5.17]) que ens permet
+remplaçar <span class="math notranslate nohighlight">\(\sigma^2\)</span> per <span class="math notranslate nohighlight">\(S^2_X\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \Rightarrow \mathcal{N}(0, 1)\)</span></p>
+<p>cosa que ens permet fer inferència aproximada sobre <span class="math notranslate nohighlight">\(\mu\)</span>
+a partir de <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(\sqrt{S^2_X}\)</span>, com veurem tot seguit:</p>
+<p>Com que sabem que, per <span class="math notranslate nohighlight">\(N\)</span> suficientment gran,</p>
+<p><span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \sim \mathcal{N}(0, 1)\)</span></p>
+<p>podem trobar un interval <span class="math notranslate nohighlight">\([-z_{\alpha}, z_{\alpha}]\)</span> tal que, per qualsevol <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(P(-z \leq \sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \leq z) = 1 - \alpha\)</span></p>
+<p><em>Exercici:</em> Per quin <span class="math notranslate nohighlight">\(N\)</span> tindrem que l’error d’estimació és inferior a 5% amb probabilitat 95%?</p>
+</div>
+</div>
+<div class="section" id="estadistics-d-ordre">
+<h2><span class="section-number">3.4. </span>Estadístics d’Ordre<a class="headerlink" href="#estadistics-d-ordre" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="estadistics-d-ordre-definicio-i-exemples">
+<h3><span class="section-number">3.4.1. </span>Estadístics d’Ordre: definició i exemples<a class="headerlink" href="#estadistics-d-ordre-definicio-i-exemples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A vegades no ens interessa caracteritzar el comportament “típic” d’una població, sino el <strong>comportament extrem</strong>, per exemple: saber quin es el cabal màxim d’un riu és molt més útil a l’hora de dimensionar un pont que saber-ne el cabal mitjà.</p></li>
+<li><p>D’altres vegades la mitjana pot ser massa sensible a valors grans per distribucions amb “cues” llargues i donar una impressió equivocada, sent més interessant utilitzar els percentils o mitjana. Per exemple: el retorn mig d’una inversió de capital risc pot ser molt gran si vens un “unicorni”, mentres que la mediana molt petita.</p></li>
+</ul>
+<p class="note">[casella &amp; Berger 5.4.1] Els estadístics d’ordre d’una mostra <span class="math notranslate nohighlight">\(\left\{X_1, \cdots, X_N\right\}\)</span>
+són els valors de la mostra ordenats en ordre ascendent, que identificarem per <span class="math notranslate nohighlight">\(\left\{X_{(1)}, \cdots, X_{(N)}\right\}\)</span></p>
+<p>Per exemple:</p>
+<ul class="simple">
+<li><p>El mínim mostral: <span class="math notranslate nohighlight">\(X_{(1)}\)</span></p></li>
+<li><p>El rang mostral: <span class="math notranslate nohighlight">\(R = X_{(N)} - X_{(1)}\)</span></p></li>
+<li><p>La mediana: <span class="math notranslate nohighlight">\(M = X_{(N+1)/2}\)</span> si <span class="math notranslate nohighlight">\(N\)</span> és senar, <span class="math notranslate nohighlight">\(M = \frac{1}{2}(X_{N/2} + X_{N/2 + 1})\)</span> si parell.</p></li>
+<li><p>Els quartils…</p></li>
+</ul>
+<p class="note">Com hem vist abans per la mitjana i la variança empírica, els estadístics d’ordre son també funcions de variables aleatòries i per tant una v.a. en sí mateixos</p>
+</div>
+<div class="section" id="distribucio-dels-estadistics-d-ordre-en-el-cas-discret">
+<h3><span class="section-number">3.4.2. </span>Distribució dels estadístics d’ordre en el cas discret<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="distribucio-dels-estadistics-d-ordre-en-el-cas-continuu">
+<h3><span class="section-number">3.4.3. </span>Distribució dels estadístics d’ordre en el cas continuu<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="la-mediana">
+<h3><span class="section-number">3.4.4. </span>La mediana<a class="headerlink" href="#la-mediana" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="altres-descriptius-importants">
+<h2><span class="section-number">3.5. </span>Altres descriptius importants<a class="headerlink" href="#altres-descriptius-importants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="l-histograma">
+<h3><span class="section-number">3.5.1. </span>L’histograma<a class="headerlink" href="#l-histograma" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="la-distribucio-cumulativa-empirica">
+<h3><span class="section-number">3.5.2. </span>La distribució cumulativa empírica<a class="headerlink" href="#la-distribucio-cumulativa-empirica" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="el-boxplot">
+<h3><span class="section-number">3.5.3. </span>El boxplot<a class="headerlink" href="#el-boxplot" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="l-scatterplot">
+<h3><span class="section-number">3.5.4. </span>L’scatterplot<a class="headerlink" href="#l-scatterplot" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -350,6 +438,21 @@ i caracteritzar també la distribució de <span class="math notranslate nohighli
 <li><a class="reference internal" href="#caracteritzacio-de-bar-x-a-traves-de-la-convolucio">3.3.4. Caracterització de <span class="math notranslate nohighlight">\(\bar{X}\)</span> a través de la convolució</a></li>
 <li><a class="reference internal" href="#mostra-iid-d-una-poblacio-normal">3.3.5. Mostra iid d’una població Normal</a></li>
 <li><a class="reference internal" href="#distribucio-de-bar-x-per-mostres-grans-teorema-del-limit-central">3.3.6. Distribució de <span class="math notranslate nohighlight">\(\bar{X}\)</span> per mostres grans: Teorema del Límit Central</a></li>
+<li><a class="reference internal" href="#juguem-amb-el-teorema-del-limit-central">3.3.7. Juguem amb el Teorema del Límit Central!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estadistics-d-ordre">3.4. Estadístics d’Ordre</a><ul>
+<li><a class="reference internal" href="#estadistics-d-ordre-definicio-i-exemples">3.4.1. Estadístics d’Ordre: definició i exemples</a></li>
+<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret">3.4.2. Distribució dels estadístics d’ordre en el cas discret</a></li>
+<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu">3.4.3. Distribució dels estadístics d’ordre en el cas continuu</a></li>
+<li><a class="reference internal" href="#la-mediana">3.4.4. La mediana</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#altres-descriptius-importants">3.5. Altres descriptius importants</a><ul>
+<li><a class="reference internal" href="#l-histograma">3.5.1. L’histograma</a></li>
+<li><a class="reference internal" href="#la-distribucio-cumulativa-empirica">3.5.2. La distribució cumulativa empírica</a></li>
+<li><a class="reference internal" href="#el-boxplot">3.5.3. El boxplot</a></li>
+<li><a class="reference internal" href="#l-scatterplot">3.5.4. L’scatterplot</a></li>
 </ul>
 </li>
 </ul>
