@@ -136,7 +136,7 @@ Si ens donen un conjunt de dades i volem descriure'l abreviadament, el més com�
 Amb aquestes dues quantitats ja podem fer inferència:
 
 * Podem utilitzar :math:`\bar{X}` com a predictor d'una nova observació
-* Podem utilitzar :math:`\bar{X} +/- 2 \sqrt{S^2_X}` per evaluar com de rara és una nova observació
+* Podem utilitzar :math:`\bar{X} \pm 2 \sqrt{S^2_X}` per evaluar com de rara és una nova observació
 
 La mitja i la variança són dos exemples d'un **estadístic**.
 
@@ -152,7 +152,7 @@ Estadístics: definició
 *Exemples*:
 
 * La mitja i la variança d'una mostra reals són estadístics amb :math:`p=1`.
-* La matriu de covariança :math:`\mathbf{S}` d'una mostra multivariada de dimensió :math:`d` és un estadístic amb :math:`p=d + d(d-1)/2`:
+* La matriu de covariança :math:`\mathbf{S}` d'una mostra multivariada de dimensió :math:`d` és un estadístic amb :math:`p=d + d(d-1)/2` (graus de llibertat d'una matriu simètrica):
 
 :math:`\mathbf{S} = \frac{1}{N-1} \sum_{i=1}^N (\mathbf{X}_i - \bar{\mathbf{X}})(\mathbf{X}_i - \bar{\mathbf{X}})^T`
 
@@ -260,7 +260,7 @@ Haurem de fer doncs asssumpcions addicionals:
 
 * **tipus de funció** (ex: mitja, variança, funció contínua i diferenciable)
 * **distribució de la mostra** (ex: mostra normals)
-* **comportament asimptòtic** (quan la talla de la mostra tendeix a l'infinit)
+* **comportament asimptòtic** (quan el tamany de la mostra tendeix a l'infinit)
 
 o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.
 
@@ -280,7 +280,7 @@ Comencem per un resultat auxiliar important:
     * :math:`E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)`
     * :math:`\mbox{Var}\left(\sum_{i=1}^N g\left(X_i\right)\right) = N \mbox{Var}\left(g\left(X\right)\right)`
 
-Demostració (exercici). Recordeu:
+Demostració (feta a la "pissarra"). Recordeu:
 
 * Linearitat de l'esperança
 * Covariança de v.a. independents
@@ -299,7 +299,8 @@ Com a corolari del darrer Lemma, tenim:
     * :math:`\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2`
     * :math:`E\left(S^2_X\right) = \sigma^2`
 
-Demostració (exercici).
+Demostració (exercici). Aplicació quasi directa del Lemma anterior. Per calcular
+:math:`E\left(S^2_X\right)` convé fer servir la identitat :math:`S^2_X = \frac{1}{N -1}(\sum X_i^2 - \bar{X}^2)`
 
 .. nextslide::
     :increment:
@@ -474,13 +475,13 @@ a partir de :math:`\bar{X}` i :math:`\sqrt{S^2_X}`, com veurem tot seguit:
 
 .. nextslide:: Interval de confiança per :math:`\mu`
 
-Com que sabem que, per :math:`N` suficientment gran,
+Identificant :math:`\mbox{Var}(\bar{X}) = \frac{\sigma^2}{N}`, sabem que, per :math:`N` suficientment gran,
 
-:math:`\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \sim \mathcal{N}(0, 1)`
+:math:`\frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \sim \mathcal{N}(0, 1)`
 
 podem trobar un interval :math:`[-z_{\alpha}, z_{\alpha}]` tal que, per qualsevol :math:`\alpha`,
 
-:math:`P(-z \leq \sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \leq z) = 1 - \alpha`
+:math:`P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq z_{\alpha}) = 1 - \alpha`
 
 *Exercici:* Per quin :math:`N` tindrem que l'error d'estimació és inferior a 5% amb probabilitat 95%?
 
@@ -505,7 +506,7 @@ Estadístics d'Ordre: definició i exemples
 
 Per exemple:
 
-* El mínim mostral: :math:`X_{(1)}`
+* El mínim/màxim mostral: :math:`X_{(1)}, X_{(N)}`
 * El rang mostral: :math:`R = X_{(N)} - X_{(1)}`
 * La mediana: :math:`M = X_{(N+1)/2}` si :math:`N` és senar, :math:`M = \frac{1}{2}(X_{N/2} + X_{N/2 + 1})` si parell.
 * Els quartils...
@@ -515,15 +516,168 @@ Per exemple:
     Com hem vist abans per la mitjana i la variança empírica, els estadístics d'ordre son també funcions de variables aleatòries i per tant una v.a. en sí mateixos
 
 
+Distribució dels extrems
+------------------------------------------------------------
+
+Sorprenentment, la distribució dels extrems (:math:`X_{(1)}, X_{(N)}`)
+d'una mostra iid és bastant fàcil d'obtenir a través de la f.d.c.
+
+Denotem per :math:`U = \min_i X_i = X_{(1)}`, amb :math:`X_i \sim F_X`. Aleshores:
+
+.. math::
+
+    F_U(u) = P(U \leq u) &= P(\min_i X_i \leq u) \\
+                         &= 1 - P(\min_i X_i > u) \\
+                         &= 1 - P(\cap_i X_i > u) \\
+                         &= 1 - \Pi_i P(X_i > u) \\
+                         &= 1 - \left(1 - F_X(u)\right)^N
+
+Per tant, si :math:`X_i` son v.a. contínues amb f.d.p :math:`f_X`:
+
+.. math::
+    f_U(u) = \frac{d F_X(u)}{du} = N\left(1 - F_X(u)\right)^{N-1}f_X(u)
+
+.. nextslide::
+    :increment:
+
+Un raonament similar ens permet obtenir la f.d.p del màxim :math:`V = \max_i X_i = X_{(N)}`:
+
+.. math::
+    f_V(u) =  N\left(F_X(u)\right)^{N-1}f_X(u)
+
+*Exemple d'aplicació*: Màxim d'una mostra iid d'una població uniforme entre [0,1]:
+
+La f.d.p d'una uniforme és :math:`f_X(x) = 1` per :math:`0 \leq x \leq 1`. Per tant :math:`F_X(x) = x` per :math:`0 \leq x \leq 1`.
+
+Aplicant la fórmula anterior, trobem que la distribució del màxim entre N mostres és:
+
+.. math::
+    f_{\max_i X_i}(u) = \left\{\begin{array}{cc} N x^{N-1} & 0 \leq x \leq 1 \\ 0 & \mbox{ altrament} \end{array}\right.
+
+.. nextslide::
+    :increment:
+
+Per exemple, :math:`f_{\max_i X_i}(u)` per una mostra de :math:`N=10, 100, 1000`:
+
+.. image::  /_static/0_Intro/max_uniforme.png
+    :height: 200px
+    :align: center
+
+.. code-block:: R
+
+    u = seq(0, 1, length=100)
+    Ns = c(10, 100, 1000)
+    colors = c('red', 'green', 'blue')
+    for (i in 1:length(Ns)){
+      if (i == 1){
+        plot(u, Ns[i]*(u^(Ns[i]-1)), type = 'l', ylab = 'f_U', col=colors[i])
+      } else {
+        lines(u, Ns[i]*(u^(Ns[i]-1)), ylab = 'f_U',  col=colors[i])
+      }
+    }
+    legend(0, 9, legend=Ns, col=colors, lty=1)
+
 Distribució dels estadístics d'ordre en el cas discret
 ------------------------------------------------------------
 
+Considerem :math:`X` discreta prenent valors :math:`x_1 < x_2 < \cdots < x_k`:
+
+:math:`p_X(x_i) = p_i`
+
+Per una mostra iid d':math:`X` de talla N, definim:
+
+:math:`Y_i`: nombre de :math:`X_j` tals que :math:`X_j \geq x_i`, per :math:`i>1`
+
+Com que la mostra és independent i :math:`P(X_j \geq x_i) = \sum_{k=1}^i p_i := P_i`,
+tenim que:
+
+:math:`Y_i \sim \mbox{Binomial}(P_i, N)`
+
+.. nextslide::
+    :increment:
+
+Ara només cal observar que l'esdeveniment :math:`X_{(j)} \leq x_i`
+és equivalent a que hi hagi :math:`j` de les observacions
+més grans que :math:`x_i`, que és exactament la definició de
+:math:`Y_i \geq j`, i per tant:
+
+:math:`P(X_{(j)} \leq x_i) = P(Y_i \geq j)`
+
+és a dir:
+
+:math:`F_{X_{(j)}}(x_i) = \sum_{k=j}^N {n \choose k} P_i^k(1-P_i)^{N-k}`
+
+que és el resultat que trobarem a [Casella & Berger 5.4.3]. Per obtenir
+:math:`p_{X_{(j)}}(x_i)` "només" cal calcular :math:`F_{X_{(j)}}(x_i) - F_{X_{(j)}}(x_i-1)`
 
 Distribució dels estadístics d'ordre en el cas continuu
 ------------------------------------------------------------
 
-La mediana
------------------
+La derivació formal de la distribució de l'estadístic d'ordre :math:`X_{(i)}`
+en el cas continuu utilitza la mateixa idea que en el
+cas concret però és bastant tediosa (veure [Casella & Berger 5.4.4]).
+
+Aquí farem un raonament heurístic: l'esdeveniment
+:math:`x \leq X_{(i)} \leq x + dx` per un :math:`dx` petit
+és equivalent a que:
+
+* :math:`i-1` de les mostres són més petites que :math:`x`
+* 1 de les mostres està entre :math:`x` i :math:`x + dx`
+* :math:`N-i` de les mostres són més grans que :math:`x + dx`
+
+.. nextslide::
+    :increment:
+
+Hi ha :math:`\frac{N!}{(k-1)!(N-k)!}` maneres de que es dongui
+aquesta situació, i cada manera succeeix amb probabilitat
+:math:`f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}`,
+per tant:
+
+:math:`f_{X_{(i)}}(x) = \frac{N!}{(k-1)!(N-k)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}`
+
+.. rst-class:: note
+
+    A diferència dels moments mostrals (ex: mitjana, variança empírica),
+    podeu veure que la caracterització dels estadístics d'ordre
+    requereix un coneixement explícit de la f.d.p (o la f.m.p) de la població,
+    cosa que en limita la utilitat...
+
+.. nextslide::
+    :increment:
+
+*Exemple*: f.d.p de la mediana d'una mostra iid uniforme entre [0,1]:
+
+Apliquem la formula de la diapo anterior amb :math:`f_X(x) = 1` i :math:`F_X(x) = x` per :math:`0 \leq x \leq 1`,
+i suposant N és senar:
+
+:math:`f_{M}(x) = \frac{N!}{(\frac{N+1}{2}-1)!(N-\frac{N+1}{2})!} x^{\frac{N+1}{2}-1}\left(1 - x\right)^{N-\frac{N+1}{2}}`
+
+(això és una distribució :math:`\mbox{Beta}(\frac{N+1}{2}, N - \frac{N+1}{2} + 1)`
+
+Comparem la distribució d':math:`M`, la mediana empírica, amb:
+
+1. el que coneixem com la mediana de la població, que pel cas d'una uniforme entre 0 i 1 és 1/2.
+2. l'histograma d':math:`M` per n=100 repeticions de mostres de tamany :math:`N=100`
+
+.. nextslide:: Distribució empírica i teòrica de la mediana empírica
+
+.. image::  /_static/0_Intro/uniform_median.png
+    :height: 250px
+    :align: center
+
+.. code-block:: R
+
+    N = 101
+    n = 100
+    median_hat = rep(0, N)
+    for (i in 1:n){
+        median_hat[i] = median(runif(N))
+    }
+    hist(median_hat, 50, prob=T)
+    z = seq(0, 1, length=100)
+    f = dbeta(z, (N+1)/2, N - (N+1)/2 + 1)
+    lines(z, f)
+
 
 Altres descriptius importants
 ==============================

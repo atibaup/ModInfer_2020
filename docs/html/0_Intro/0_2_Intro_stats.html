@@ -125,7 +125,7 @@ P\left(X_2 = x_l | X_1 = x_k\right) &amp;= \left\{\begin{array}{cc} 0 &amp; l=k 
 <p>Amb aquestes dues quantitats ja podem fer inferència:</p>
 <ul class="simple">
 <li><p>Podem utilitzar <span class="math notranslate nohighlight">\(\bar{X}\)</span> com a predictor d’una nova observació</p></li>
-<li><p>Podem utilitzar <span class="math notranslate nohighlight">\(\bar{X} +/- 2 \sqrt{S^2_X}\)</span> per evaluar com de rara és una nova observació</p></li>
+<li><p>Podem utilitzar <span class="math notranslate nohighlight">\(\bar{X} \pm 2 \sqrt{S^2_X}\)</span> per evaluar com de rara és una nova observació</p></li>
 </ul>
 <p>La mitja i la variança són dos exemples d’un <strong>estadístic</strong>.</p>
 </div>
@@ -136,7 +136,7 @@ un estadístic és una funció <span class="math notranslate nohighlight">\(T: \
 <p><em>Exemples</em>:</p>
 <ul class="simple">
 <li><p>La mitja i la variança d’una mostra reals són estadístics amb <span class="math notranslate nohighlight">\(p=1\)</span>.</p></li>
-<li><p>La matriu de covariança <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> d’una mostra multivariada de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d + d(d-1)/2\)</span>:</p></li>
+<li><p>La matriu de covariança <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> d’una mostra multivariada de dimensió <span class="math notranslate nohighlight">\(d\)</span> és un estadístic amb <span class="math notranslate nohighlight">\(p=d + d(d-1)/2\)</span> (graus de llibertat d’una matriu simètrica):</p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(\mathbf{S} = \frac{1}{N-1} \sum_{i=1}^N (\mathbf{X}_i - \bar{\mathbf{X}})(\mathbf{X}_i - \bar{\mathbf{X}})^T\)</span></p>
 <p>Com que un estadístic <span class="math notranslate nohighlight">\(T\)</span> és una funció de variables o vectors aleatòries,
@@ -220,7 +220,7 @@ no ens aporta masses pistes sobre com caracteritzar-lo probabilísticament</p>
 <ul class="simple">
 <li><p><strong>tipus de funció</strong> (ex: mitja, variança, funció contínua i diferenciable)</p></li>
 <li><p><strong>distribució de la mostra</strong> (ex: mostra normals)</p></li>
-<li><p><strong>comportament asimptòtic</strong> (quan la talla de la mostra tendeix a l’infinit)</p></li>
+<li><p><strong>comportament asimptòtic</strong> (quan el tamany de la mostra tendeix a l’infinit)</p></li>
 </ul>
 <p>o bé utilitzar eines computacionals (bootstrap, simulació) que veureu amb més detall en un altre curs.</p>
 <p>Comencem doncs pels casos més senzills: la mitjana aritmètica i la variança</p>
@@ -234,7 +234,7 @@ arbitrària <span class="math notranslate nohighlight">\(g\)</span> tenim que:</
 <li><p><span class="math notranslate nohighlight">\(E\left(\sum_{i=1}^N g\left(X_i\right)\right) = N E\left(g\left(X\right)\right)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mbox{Var}\left(\sum_{i=1}^N g\left(X_i\right)\right) = N \mbox{Var}\left(g\left(X\right)\right)\)</span></p></li>
 </ul>
-<p>Demostració (exercici). Recordeu:</p>
+<p>Demostració (feta a la “pissarra”). Recordeu:</p>
 <ul class="simple">
 <li><p>Linearitat de l’esperança</p></li>
 <li><p>Covariança de v.a. independents</p></li>
@@ -247,7 +247,8 @@ tenim:</p>
 <li><p><span class="math notranslate nohighlight">\(\mbox{Var}\left(\bar{X}\right) = \frac{1}{N}\sigma^2\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(E\left(S^2_X\right) = \sigma^2\)</span></p></li>
 </ul>
-<p>Demostració (exercici).</p>
+<p>Demostració (exercici). Aplicació quasi directa del Lemma anterior. Per calcular
+<span class="math notranslate nohighlight">\(E\left(S^2_X\right)\)</span> convé fer servir la identitat <span class="math notranslate nohighlight">\(S^2_X = \frac{1}{N -1}(\sum X_i^2 - \bar{X}^2)\)</span></p>
 <p>Observacions:</p>
 <ol class="arabic simple">
 <li><p>Els estadístics <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(S^2\)</span> son <strong>estimadors sense biaix</strong> de <span class="math notranslate nohighlight">\(\mu\)</span> i <span class="math notranslate nohighlight">\(\sigma^2\)</span></p></li>
@@ -351,10 +352,10 @@ remplaçar <span class="math notranslate nohighlight">\(\sigma^2\)</span> per <s
 <p><span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \Rightarrow \mathcal{N}(0, 1)\)</span></p>
 <p>cosa que ens permet fer inferència aproximada sobre <span class="math notranslate nohighlight">\(\mu\)</span>
 a partir de <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(\sqrt{S^2_X}\)</span>, com veurem tot seguit:</p>
-<p>Com que sabem que, per <span class="math notranslate nohighlight">\(N\)</span> suficientment gran,</p>
-<p><span class="math notranslate nohighlight">\(\sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \sim \mathcal{N}(0, 1)\)</span></p>
+<p>Identificant <span class="math notranslate nohighlight">\(\mbox{Var}(\bar{X}) = \frac{\sigma^2}{N}\)</span>, sabem que, per <span class="math notranslate nohighlight">\(N\)</span> suficientment gran,</p>
+<p><span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \sim \mathcal{N}(0, 1)\)</span></p>
 <p>podem trobar un interval <span class="math notranslate nohighlight">\([-z_{\alpha}, z_{\alpha}]\)</span> tal que, per qualsevol <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
-<p><span class="math notranslate nohighlight">\(P(-z \leq \sqrt{N}\left(\frac{\bar{X} - \mu}{\sqrt{S^2_X}}\right) \leq z) = 1 - \alpha\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq z_{\alpha}) = 1 - \alpha\)</span></p>
 <p><em>Exercici:</em> Per quin <span class="math notranslate nohighlight">\(N\)</span> tindrem que l’error d’estimació és inferior a 5% amb probabilitat 95%?</p>
 </div>
 </div>
@@ -370,21 +371,115 @@ a partir de <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <spa
 són els valors de la mostra ordenats en ordre ascendent, que identificarem per <span class="math notranslate nohighlight">\(\left\{X_{(1)}, \cdots, X_{(N)}\right\}\)</span></p>
 <p>Per exemple:</p>
 <ul class="simple">
-<li><p>El mínim mostral: <span class="math notranslate nohighlight">\(X_{(1)}\)</span></p></li>
+<li><p>El mínim/màxim mostral: <span class="math notranslate nohighlight">\(X_{(1)}, X_{(N)}\)</span></p></li>
 <li><p>El rang mostral: <span class="math notranslate nohighlight">\(R = X_{(N)} - X_{(1)}\)</span></p></li>
 <li><p>La mediana: <span class="math notranslate nohighlight">\(M = X_{(N+1)/2}\)</span> si <span class="math notranslate nohighlight">\(N\)</span> és senar, <span class="math notranslate nohighlight">\(M = \frac{1}{2}(X_{N/2} + X_{N/2 + 1})\)</span> si parell.</p></li>
 <li><p>Els quartils…</p></li>
 </ul>
 <p class="note">Com hem vist abans per la mitjana i la variança empírica, els estadístics d’ordre son també funcions de variables aleatòries i per tant una v.a. en sí mateixos</p>
 </div>
+<div class="section" id="distribucio-dels-extrems">
+<h3><span class="section-number">3.4.2. </span>Distribució dels extrems<a class="headerlink" href="#distribucio-dels-extrems" title="Permalink to this headline">¶</a></h3>
+<p>Sorprenentment, la distribució dels extrems (<span class="math notranslate nohighlight">\(X_{(1)}, X_{(N)}\)</span>)
+d’una mostra iid és bastant fàcil d’obtenir a través de la f.d.c.</p>
+<p>Denotem per <span class="math notranslate nohighlight">\(U = \min_i X_i = X_{(1)}\)</span>, amb <span class="math notranslate nohighlight">\(X_i \sim F_X\)</span>. Aleshores:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_U(u) = P(U \leq u) &amp;= P(\min_i X_i \leq u) \\
+                     &amp;= 1 - P(\min_i X_i &gt; u) \\
+                     &amp;= 1 - P(\cap_i X_i &gt; u) \\
+                     &amp;= 1 - \Pi_i P(X_i &gt; u) \\
+                     &amp;= 1 - \left(1 - F_X(u)\right)^N\end{split}\]</div>
+<p>Per tant, si <span class="math notranslate nohighlight">\(X_i\)</span> son v.a. contínues amb f.d.p <span class="math notranslate nohighlight">\(f_X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f_U(u) = \frac{d F_X(u)}{du} = N\left(1 - F_X(u)\right)^{N-1}f_X(u)\]</div>
+<p>Un raonament similar ens permet obtenir la f.d.p del màxim <span class="math notranslate nohighlight">\(V = \max_i X_i = X_{(N)}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f_V(u) =  N\left(F_X(u)\right)^{N-1}f_X(u)\]</div>
+<p><em>Exemple d’aplicació</em>: Màxim d’una mostra iid d’una població uniforme entre [0,1]:</p>
+<p>La f.d.p d’una uniforme és <span class="math notranslate nohighlight">\(f_X(x) = 1\)</span> per <span class="math notranslate nohighlight">\(0 \leq x \leq 1\)</span>. Per tant <span class="math notranslate nohighlight">\(F_X(x) = x\)</span> per <span class="math notranslate nohighlight">\(0 \leq x \leq 1\)</span>.</p>
+<p>Aplicant la fórmula anterior, trobem que la distribució del màxim entre N mostres és:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_{\max_i X_i}(u) = \left\{\begin{array}{cc} N x^{N-1} &amp; 0 \leq x \leq 1 \\ 0 &amp; \mbox{ altrament} \end{array}\right.\end{split}\]</div>
+<p>Per exemple, <span class="math notranslate nohighlight">\(f_{\max_i X_i}(u)\)</span> per una mostra de <span class="math notranslate nohighlight">\(N=10, 100, 1000\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/max_uniforme.png"><img alt="../_images/max_uniforme.png" class="align-center" src="../_images/max_uniforme.png" style="height: 200px;" /></a>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="m">100</span><span class="p">)</span>
+<span class="n">Ns</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">Ns</span><span class="p">)){</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="m">1</span><span class="p">){</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">Ns[i]</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="nf">^</span><span class="p">(</span><span class="n">Ns[i]</span><span class="m">-1</span><span class="p">)),</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#39;l&#39;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&#39;f_U&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">colors[i]</span><span class="p">)</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="nf">lines</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">Ns[i]</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="nf">^</span><span class="p">(</span><span class="n">Ns[i]</span><span class="m">-1</span><span class="p">)),</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&#39;f_U&#39;</span><span class="p">,</span>  <span class="n">col</span><span class="o">=</span><span class="n">colors[i]</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nf">legend</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">Ns</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="distribucio-dels-estadistics-d-ordre-en-el-cas-discret">
-<h3><span class="section-number">3.4.2. </span>Distribució dels estadístics d’ordre en el cas discret<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.3. </span>Distribució dels estadístics d’ordre en el cas discret<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret" title="Permalink to this headline">¶</a></h3>
+<p>Considerem <span class="math notranslate nohighlight">\(X\)</span> discreta prenent valors <span class="math notranslate nohighlight">\(x_1 &lt; x_2 &lt; \cdots &lt; x_k\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(p_X(x_i) = p_i\)</span></p>
+<p>Per una mostra iid d’<span class="math notranslate nohighlight">\(X\)</span> de talla N, definim:</p>
+<p><span class="math notranslate nohighlight">\(Y_i\)</span>: nombre de <span class="math notranslate nohighlight">\(X_j\)</span> tals que <span class="math notranslate nohighlight">\(X_j \geq x_i\)</span>, per <span class="math notranslate nohighlight">\(i&gt;1\)</span></p>
+<p>Com que la mostra és independent i <span class="math notranslate nohighlight">\(P(X_j \geq x_i) = \sum_{k=1}^i p_i := P_i\)</span>,
+tenim que:</p>
+<p><span class="math notranslate nohighlight">\(Y_i \sim \mbox{Binomial}(P_i, N)\)</span></p>
+<p>Ara només cal observar que l’esdeveniment <span class="math notranslate nohighlight">\(X_{(j)} \leq x_i\)</span>
+és equivalent a que hi hagi <span class="math notranslate nohighlight">\(j\)</span> de les observacions
+més grans que <span class="math notranslate nohighlight">\(x_i\)</span>, que és exactament la definició de
+<span class="math notranslate nohighlight">\(Y_i \geq j\)</span>, i per tant:</p>
+<p><span class="math notranslate nohighlight">\(P(X_{(j)} \leq x_i) = P(Y_i \geq j)\)</span></p>
+<p>és a dir:</p>
+<p><span class="math notranslate nohighlight">\(F_{X_{(j)}}(x_i) = \sum_{k=j}^N {n \choose k} P_i^k(1-P_i)^{N-k}\)</span></p>
+<p>que és el resultat que trobarem a [Casella &amp; Berger 5.4.3]. Per obtenir
+<span class="math notranslate nohighlight">\(p_{X_{(j)}}(x_i)\)</span> “només” cal calcular <span class="math notranslate nohighlight">\(F_{X_{(j)}}(x_i) - F_{X_{(j)}}(x_i-1)\)</span></p>
 </div>
 <div class="section" id="distribucio-dels-estadistics-d-ordre-en-el-cas-continuu">
-<h3><span class="section-number">3.4.3. </span>Distribució dels estadístics d’ordre en el cas continuu<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.4. </span>Distribució dels estadístics d’ordre en el cas continuu<a class="headerlink" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu" title="Permalink to this headline">¶</a></h3>
+<p>La derivació formal de la distribució de l’estadístic d’ordre <span class="math notranslate nohighlight">\(X_{(i)}\)</span>
+en el cas continuu utilitza la mateixa idea que en el
+cas concret però és bastant tediosa (veure [Casella &amp; Berger 5.4.4]).</p>
+<p>Aquí farem un raonament heurístic: l’esdeveniment
+<span class="math notranslate nohighlight">\(x \leq X_{(i)} \leq x + dx\)</span> per un <span class="math notranslate nohighlight">\(dx\)</span> petit
+és equivalent a que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i-1\)</span> de les mostres són més petites que <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>1 de les mostres està entre <span class="math notranslate nohighlight">\(x\)</span> i <span class="math notranslate nohighlight">\(x + dx\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(N-i\)</span> de les mostres són més grans que <span class="math notranslate nohighlight">\(x + dx\)</span></p></li>
+</ul>
+<p>Hi ha <span class="math notranslate nohighlight">\(\frac{N!}{(k-1)!(N-k)!}\)</span> maneres de que es dongui
+aquesta situació, i cada manera succeeix amb probabilitat
+<span class="math notranslate nohighlight">\(f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}\)</span>,
+per tant:</p>
+<p><span class="math notranslate nohighlight">\(f_{X_{(i)}}(x) = \frac{N!}{(k-1)!(N-k)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}\)</span></p>
+<p class="note">A diferència dels moments mostrals (ex: mitjana, variança empírica),
+podeu veure que la caracterització dels estadístics d’ordre
+requereix un coneixement explícit de la f.d.p (o la f.m.p) de la població,
+cosa que en limita la utilitat…</p>
+<p><em>Exemple</em>: f.d.p de la mediana d’una mostra iid uniforme entre [0,1]:</p>
+<p>Apliquem la formula de la diapo anterior amb <span class="math notranslate nohighlight">\(f_X(x) = 1\)</span> i <span class="math notranslate nohighlight">\(F_X(x) = x\)</span> per <span class="math notranslate nohighlight">\(0 \leq x \leq 1\)</span>,
+i suposant N és senar:</p>
+<p><span class="math notranslate nohighlight">\(f_{M}(x) = \frac{N!}{(\frac{N+1}{2}-1)!(N-\frac{N+1}{2})!} x^{\frac{N+1}{2}-1}\left(1 - x\right)^{N-\frac{N+1}{2}}\)</span></p>
+<p>(això és una distribució <span class="math notranslate nohighlight">\(\mbox{Beta}(\frac{N+1}{2}, N - \frac{N+1}{2} + 1)\)</span></p>
+<p>Comparem la distribució d’<span class="math notranslate nohighlight">\(M\)</span>, la mediana empírica, amb:</p>
+<ol class="arabic simple">
+<li><p>el que coneixem com la mediana de la població, que pel cas d’una uniforme entre 0 i 1 és 1/2.</p></li>
+<li><p>l’histograma d’<span class="math notranslate nohighlight">\(M\)</span> per n=100 repeticions de mostres de tamany <span class="math notranslate nohighlight">\(N=100\)</span></p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/uniform_median.png"><img alt="../_images/uniform_median.png" class="align-center" src="../_images/uniform_median.png" style="height: 250px;" /></a>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="m">101</span>
+<span class="n">n</span> <span class="o">=</span> <span class="m">100</span>
+<span class="n">median_hat</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">){</span>
+    <span class="n">median_hat[i]</span> <span class="o">=</span> <span class="nf">median</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+<span class="p">}</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">median_hat</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="m">100</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nf">dbeta</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="m">+1</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="p">(</span><span class="n">N</span><span class="m">+1</span><span class="p">)</span><span class="o">/</span><span class="m">2</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="la-mediana">
-<h3><span class="section-number">3.4.4. </span>La mediana<a class="headerlink" href="#la-mediana" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="altres-descriptius-importants">
@@ -443,9 +538,9 @@ són els valors de la mostra ordenats en ordre ascendent, que identificarem per 
 </li>
 <li><a class="reference internal" href="#estadistics-d-ordre">3.4. Estadístics d’Ordre</a><ul>
 <li><a class="reference internal" href="#estadistics-d-ordre-definicio-i-exemples">3.4.1. Estadístics d’Ordre: definició i exemples</a></li>
-<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret">3.4.2. Distribució dels estadístics d’ordre en el cas discret</a></li>
-<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu">3.4.3. Distribució dels estadístics d’ordre en el cas continuu</a></li>
-<li><a class="reference internal" href="#la-mediana">3.4.4. La mediana</a></li>
+<li><a class="reference internal" href="#distribucio-dels-extrems">3.4.2. Distribució dels extrems</a></li>
+<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-discret">3.4.3. Distribució dels estadístics d’ordre en el cas discret</a></li>
+<li><a class="reference internal" href="#distribucio-dels-estadistics-d-ordre-en-el-cas-continuu">3.4.4. Distribució dels estadístics d’ordre en el cas continuu</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#altres-descriptius-importants">3.5. Altres descriptius importants</a><ul>
