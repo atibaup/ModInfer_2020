@@ -557,10 +557,8 @@ Aplicant la fórmula anterior, trobem que la distribució del màxim entre N mos
 .. nextslide::
     :increment:
 
-Per exemple, :math:`f_{\max_i X_i}(u)` per una mostra de :math:`N=10, 100, 1000`:
-
 .. image::  /_static/0_Intro/max_uniforme.png
-    :height: 200px
+    :height: 250px
     :align: center
 
 .. code-block:: R
