@@ -584,7 +584,7 @@ Considerem :math:`X` discreta prenent valors :math:`x_1 < x_2 < \cdots < x_k`:
 
 Per una mostra iid d':math:`X` de talla N, definim:
 
-:math:`Y_i`: nombre de :math:`X_j` tals que :math:`X_j \geq x_i`, per :math:`i>1`
+:math:`Y_i`: nombre de :math:`X_j` tals que :math:`X_j \leq x_i`, per :math:`i>1`
 
 Com que la mostra és independent i :math:`P(X_j \geq x_i) = \sum_{k=1}^i p_i := P_i`,
 tenim que:
@@ -595,8 +595,8 @@ tenim que:
     :increment:
 
 Ara només cal observar que l'esdeveniment :math:`X_{(j)} \leq x_i`
-és equivalent a que hi hagi :math:`j` de les observacions
-més grans que :math:`x_i`, que és exactament la definició de
+és equivalent a que hi hagi al menys :math:`j` de les observacions
+més petites o iguals a :math:`x_i`, que és exactament la definició de
 :math:`Y_i \geq j`, i per tant:
 
 :math:`P(X_{(j)} \leq x_i) = P(Y_i \geq j)`
@@ -619,9 +619,9 @@ Aquí farem un raonament heurístic: l'esdeveniment
 :math:`x \leq X_{(i)} \leq x + dx` per un :math:`dx` petit
 és equivalent a que:
 
-* :math:`i-1` de les mostres són més petites que :math:`x`
+* :math:`i-1` de les mostres són estrictament més petites que :math:`x`
 * 1 de les mostres està entre :math:`x` i :math:`x + dx`
-* :math:`N-i` de les mostres són més grans que :math:`x + dx`
+* :math:`N-i` de les mostres són estríctament més grans que :math:`x`
 
 .. nextslide::
     :increment:

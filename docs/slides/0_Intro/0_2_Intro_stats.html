@@ -897,7 +897,7 @@ d’una mostra iid és bastant fàcil d’obtenir a través de la f.d.c.</p>
 <p>Considerem <span class="math notranslate nohighlight">\(X\)</span> discreta prenent valors <span class="math notranslate nohighlight">\(x_1 &lt; x_2 &lt; \cdots &lt; x_k\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(p_X(x_i) = p_i\)</span></p>
 <p>Per una mostra iid d’<span class="math notranslate nohighlight">\(X\)</span> de talla N, definim:</p>
-<p><span class="math notranslate nohighlight">\(Y_i\)</span>: nombre de <span class="math notranslate nohighlight">\(X_j\)</span> tals que <span class="math notranslate nohighlight">\(X_j \geq x_i\)</span>, per <span class="math notranslate nohighlight">\(i&gt;1\)</span></p>
+<p><span class="math notranslate nohighlight">\(Y_i\)</span>: nombre de <span class="math notranslate nohighlight">\(X_j\)</span> tals que <span class="math notranslate nohighlight">\(X_j \leq x_i\)</span>, per <span class="math notranslate nohighlight">\(i&gt;1\)</span></p>
 <p>Com que la mostra és independent i <span class="math notranslate nohighlight">\(P(X_j \geq x_i) = \sum_{k=1}^i p_i := P_i\)</span>,
 tenim que:</p>
 <p><span class="math notranslate nohighlight">\(Y_i \sim \mbox{Binomial}(P_i, N)\)</span></p>
@@ -915,8 +915,8 @@ tenim que:</p>
 <h3>Distribució dels estadístics d’ordre en el cas discret (2)</h3>
 
 <p>Ara només cal observar que l’esdeveniment <span class="math notranslate nohighlight">\(X_{(j)} \leq x_i\)</span>
-és equivalent a que hi hagi <span class="math notranslate nohighlight">\(j\)</span> de les observacions
-més grans que <span class="math notranslate nohighlight">\(x_i\)</span>, que és exactament la definició de
+és equivalent a que hi hagi al menys <span class="math notranslate nohighlight">\(j\)</span> de les observacions
+més petites o iguals a <span class="math notranslate nohighlight">\(x_i\)</span>, que és exactament la definició de
 <span class="math notranslate nohighlight">\(Y_i \geq j\)</span>, i per tant:</p>
 <p><span class="math notranslate nohighlight">\(P(X_{(j)} \leq x_i) = P(Y_i \geq j)\)</span></p>
 <p>és a dir:</p>
@@ -943,9 +943,9 @@ cas concret però és bastant tediosa (veure [Casella &amp; Berger 5.4.4]).</p>
 <span class="math notranslate nohighlight">\(x \leq X_{(i)} \leq x + dx\)</span> per un <span class="math notranslate nohighlight">\(dx\)</span> petit
 és equivalent a que:</p>
 <ul class="simple">
-<li><span class="math notranslate nohighlight">\(i-1\)</span> de les mostres són més petites que <span class="math notranslate nohighlight">\(x\)</span></li>
+<li><span class="math notranslate nohighlight">\(i-1\)</span> de les mostres són estrictament més petites que <span class="math notranslate nohighlight">\(x\)</span></li>
 <li>1 de les mostres està entre <span class="math notranslate nohighlight">\(x\)</span> i <span class="math notranslate nohighlight">\(x + dx\)</span></li>
-<li><span class="math notranslate nohighlight">\(N-i\)</span> de les mostres són més grans que <span class="math notranslate nohighlight">\(x + dx\)</span></li>
+<li><span class="math notranslate nohighlight">\(N-i\)</span> de les mostres són estríctament més grans que <span class="math notranslate nohighlight">\(x\)</span></li>
 </ul>
 
 
