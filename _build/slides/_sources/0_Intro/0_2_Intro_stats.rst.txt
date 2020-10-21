@@ -483,7 +483,50 @@ podem trobar un interval :math:`[-z_{\alpha}, z_{\alpha}]` tal que, per qualsevo
 
 :math:`P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq z_{\alpha}) = 1 - \alpha`
 
-*Exercici:* Per quin :math:`N` tindrem que l'error d'estimació és inferior a 5% amb probabilitat 95%?
+*Exercicis:*
+
+1. Trobem un interval **aleatori** :math:`[\hat{\mu}_1, \hat{\mu}_2]` calculat a partir de la mostra tal que :math:`P(\mu \in [\hat{\mu}_1, \hat{\mu}_2]) = 0.95` (noteu que aquí la quantitat aleatòria és l'interval, no :math:`\mu`!)
+2. Si tenim una idea del ratio :math:`\frac{\mu}{\sigma}` (el que se sol anomenar relació senyal-soroll en tractament estadístic del senyal), per quin :math:`N` tindrem que l'error d'estimació és inferior a 5% amb probabilitat 95%?
+
+.. nextslide::
+    :increment:
+
+Solució Exercici (1):  Escollint :math:`\alpha=0.05`, i fent servir
+l'aproximació del TLC
+
+:math:`\frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \sim \mathcal{N}(0, 1)`
+
+tenim que :math:`P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq z_{\alpha}) = 0.95`
+
+per :math:`z_{\alpha} = \phi^{-1}\left(\alpha/2\right) = 1.96` (on :math:`\phi^{-1}` és la
+f.d.c inversa d'una normal estàndard).
+
+Per tant, re-organitzant els termes:
+
+:math:`P(\bar{X} -1.96\sqrt{\mbox{Var}(\bar{X})} \leq  \mu \leq \bar{X} + 1.96\sqrt{\mbox{Var}(\bar{X})}) \approx 0.95`
+
+o, el que és el mateix:
+
+:math:`P(\mu \in \left[\bar{X} -1.96\sqrt{\mbox{Var}(\bar{X})}, \bar{X} + 1.96\sqrt{\mbox{Var}(\bar{X})}\right]) \approx 0.95`
+
+.. nextslide::
+    :increment:
+
+Solució Exercici (2): Com en la sol.lució anterior, fem servir l'aproximació del TLC per obtenir:
+
+:math:`P(-1.96 \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq 1.96) \approx 0.95`
+
+Dividint cada element per :math:`\mu`, remplaçant :math:`\mbox{Var}(\bar{X}) = \frac{\sigma^2}{N}`, i reordenant:
+
+:math:`P( \left|\frac{\bar{X} - \mu}{\mu}\right| \leq 1.96 \frac{\sigma}{\mu\sqrt{N}}) = 0.95`
+
+Per tant si escollim :math:`N \geq \left(\frac{1.96}{0.05}\frac{\sigma}{\mu}\right)^2 \approx 1536 \times \left(\frac{\sigma}{\mu}\right)^2` tindrem la precisió desitjada amb una confiança del 95%.
+
+Per exemple si creiem que la desviació estàndard és de l'ordre de la meitat que la mitja,
+això ens donaria :math:`N \approx 400`.
+
+
+
 
 Estadístics d'Ordre
 ===================
