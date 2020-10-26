@@ -492,22 +492,20 @@ podem trobar un interval :math:`[-z_{\alpha}, z_{\alpha}]` tal que, per qualsevo
     :increment:
 
 Solució Exercici (1):  Escollint :math:`\alpha=0.05`, i fent servir
-l'aproximació del TLC
+l'aproximació del TLC amb l'aproximació :math:`\mbox{Var}\left(\bar{X}\right) \to \frac{S^2_X}{N}`
 
-:math:`\frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \sim \mathcal{N}(0, 1)`
+:math:`\frac{\bar{X} - \mu}{\sqrt{\frac{S^2_X}{N}}} \sim \mathcal{N}(0, 1)`
 
-tenim que :math:`P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\mbox{Var}(\bar{X})}} \leq z_{\alpha}) = 0.95`
+tenim que :math:`P(-z_{\alpha} \leq \frac{\bar{X} - \mu}{\sqrt{\frac{S^2_X}{N}}} \leq z_{\alpha}) = 0.95`
 
-per :math:`z_{\alpha} = \phi^{-1}\left(\alpha/2\right) = 1.96` (on :math:`\phi^{-1}` és la
-f.d.c inversa d'una normal estàndard).
+per :math:`z_{\alpha} = \phi^{-1}\left(1 - \alpha/2\right) = 1.96` (on :math:`\phi^{-1}` és la
+f.d.c inversa d'una normal estàndard). Re-organitzant els termes:
 
-Per tant, re-organitzant els termes:
-
-:math:`P(\bar{X} -1.96\sqrt{\mbox{Var}(\bar{X})} \leq  \mu \leq \bar{X} + 1.96\sqrt{\mbox{Var}(\bar{X})}) \approx 0.95`
+:math:`P(\bar{X} -1.96\sqrt{\frac{S^2_X}{N}} \leq  \mu \leq \bar{X} + 1.96\sqrt{\frac{S^2_X}{N}}) \approx 0.95`
 
 o, el que és el mateix:
 
-:math:`P(\mu \in \left[\bar{X} -1.96\sqrt{\mbox{Var}(\bar{X})}, \bar{X} + 1.96\sqrt{\mbox{Var}(\bar{X})}\right]) \approx 0.95`
+:math:`P(\mu \in \left[\bar{X} -1.96\sqrt{\frac{S^2_X}{N}}, \bar{X} + 1.96\sqrt{\frac{S^2_X}{N}}\right]) \approx 0.95`
 
 .. nextslide::
     :increment:
@@ -518,7 +516,7 @@ Solució Exercici (2): Com en la sol.lució anterior, fem servir l'aproximació 
 
 Dividint cada element per :math:`\mu`, remplaçant :math:`\mbox{Var}(\bar{X}) = \frac{\sigma^2}{N}`, i reordenant:
 
-:math:`P( \left|\frac{\bar{X} - \mu}{\mu}\right| \leq 1.96 \frac{\sigma}{\mu\sqrt{N}}) = 0.95`
+:math:`P( \left|\frac{\bar{X} - \mu}{\mu}\right| \leq 1.96 \frac{\sigma}{\mu\sqrt{N}}) \approx 0.95`
 
 Per tant si escollim :math:`N \geq \left(\frac{1.96}{0.05}\frac{\sigma}{\mu}\right)^2 \approx 1536 \times \left(\frac{\sigma}{\mu}\right)^2` tindrem la precisió desitjada amb una confiança del 95%.
 
