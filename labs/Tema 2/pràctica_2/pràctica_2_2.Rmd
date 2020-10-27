@@ -1,0 +1,30 @@
+---
+title: 'Pràctica #3: 28/10/2020'
+output:
+  html_document:
+    df_print: paged
+---
+
+L'objectiu d'aquesta pràctica no és tant el d'aprofundir en les eines
+d'inferència estadística que hem vist durant el Tema 2, sino familiaritzar-nos amb eines per descriure un conjunt de dades més enllà de la mitja, la variança i els estadístics d'ordre que hem vist fins ara.
+
+En particular, treballarem amb eines
+típiques de l'estadística descriptiva i l'anàlisis de dades com:
+
+- histogrames
+- distribució cumulativa empírica
+- boxplots
+- scatterplots
+
+Aquestes eines ens permeten entendre ràpidament les característiques principals d'un conjunt de dades, abans d'endinsar-nos en tasques més complexes d'estimació o d'inferència que normalment requereixen partir d'un model probabilístic generador de les dades observades.
+
+Considerarem el conjunt de dades següents:
+
+
+Preguntes:
+
+1. Quina és la mitja i variança de X? Creieu que és un bon indicador de centralitat per aquestes dades?
+
+
+2. Una manera de trobar relacions entre dades contínues i categòriques és graficar els boxplots condicionals. PEr exemple, bla bla bla
+

@@ -1,0 +1,148 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Arnau Tibau Puig}
+\title{Problemes final Tema 1 i principi Tema 2}
+
+\begin{document}
+\maketitle
+
+A entregar a través del Campus Virtual \textbf{abans del dia 2/11/2020 a les 9:00 del matí}. Les trameses posteriors a aquesta data i hora no s’avaluaran.
+
+Aquests problemes s'han d'entregar per parelles (aquí sí que podeu repetir parelles respecte les pràctiques). Podeu (i us encoratjo a) discutir les solucions entre vosaltres. Si-us-plau, \textbf{per cada parella feu només una tramesa al Campus Virtual, tot indicant els integrants de la parella clarament en el document tramès}.
+
+Si teniu alguna pregunta, si-us-plau formuleu-la al fòrum del Campus Virtual a fi de que tothom en vegi la resposta.
+
+\section{Problema 1: Distribució normal bivariada [4 punts]} 
+
+Una de les distribucions multivariades més importants és la Gaussiana o Normal
+multivariada. En aquest exercici ens centrarem en la versió bivariada (dimensió 2),
+l'extensió a més dimensions és directa però requereix una mica més d'àlgebra matricial.
+
+La normal multivariada de dimensió finita $d$ arbitrària ve donada per la següent f.d.p,:
+
+\begin{equation}
+\label{mvn}
+f(\mathbf{x})=\frac{1}{\left(2\pi\right)^{\frac{d}{2}} \sqrt{\det\left(\Sigma\right)}} \exp\left(-\frac{1}{2} \left(\mathbf{x} - \mathbf{\mu}\right)^T \Sigma^{-1}\left(\mathbf{x} - \mathbf{\mu} \right)\right)
+\end{equation}
+
+on els paràmetres són el vector de mitja $\mathbf{\mu}$ i la matriu de covariança $\Sigma$.
+
+En el cas bivariat ($d=2$), tindrem:
+
+\begin{eqnarray}
+\label{bivariate}
+\mathbf{\mu} &= [\mu_1, \mu_2]^T \nonumber \\
+\Sigma &= \left( \begin{array}{cc} \sigma_1^2 & \rho  \sigma_1  \sigma_2 \\ \rho  \sigma_1  \sigma_2 & \sigma_2^2 \end{array}\right) 
+\end{eqnarray} 
+
+i per tant tenim:
+
+\begin{eqnarray}
+f_{X_1, X_2}(x_1, x_2) =& \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1 - \rho^2}}
+\exp\left(-\frac{1}{2(1-\rho^2)}\left[\frac{(x_1 - \mu_1)^2}{\sigma_1^2} + \frac{(x_2 - \mu_2)^2}{\sigma_2^2}  - \right.\right.\\
+& \left.\left.- 2 \frac{\rho}{\sigma_1\sigma_2}(x_1 - \mu_1) (x_2 - \mu_2)\right]\right)\nonumber
+\end{eqnarray}
+
+(noteu que la matriu de covariança, els elements de la qual són $\Sigma_{i,j} = E(X_i X_j)$ se sol expressar
+en funció de les variançes de cada component ($\sigma_1^2,  \sigma_2^2$) i de la seva correlació $\rho$.
+
+\subsection{Contorns d'equiprobabilitat}
+
+Pel cas bivariat ($d=2$), definim el contorn d'equiprobabilitat de nivell $k$ com el conjunt d'$x_1, x_2$ tal que:
+
+$f(x_1, x_2) = k$
+
+Demostreu que els contorns d'equiprobabilitat de la normal bivariada són elipses 
+centrades en $[\mu_1, \mu_2]$. Dibuixeu un esboç (a mà o computacionalment) d'aquests contorns per $[\mu_1, \mu_2] = [0,0]$ i:
+\begin{itemize}
+\item $\sigma_1^2 =1,  \sigma_2^2 =1 , \rho=0$
+\item $\sigma_1^2 =1,  \sigma_2^2 =1 , \rho=1$
+\item$\sigma_1^2 =1,  \sigma_2^2 =1 , \rho=-1$
+\end{itemize}
+
+\subsection{f.d.p. marginals}
+
+Les f.d.p's marginals d'una Gaussiana multivariada són també Gaussianes. 
+
+Considereu el cas (\ref{bivariate}) prenent $[\mu_1, \mu_2] = [0,0]$ i $\sigma_1^2 =1,  \sigma_2^2 =1 , \rho=0$, per tant la f.d.p. conjunta seria:
+
+\begin{equation}
+f(x_1, x_2) = \frac{1}{2\pi} \exp\left(-\frac{1}{2}\left(x_1^2 + x_2^2 \right)\right)
+\end{equation}
+
+Demostreu que en aquest cas la f.d.p  marginal de $x_1$ és també una Gaussiana de mitja 0 i variança 1. 
+
+(Opcional: Si us atreviu, podeu intentar demostrar el mateix en el cas genèric per qualsevol $[\mu_1, \mu_2], \sigma_1^2,  \sigma_2^2 , \rho$.)
+
+\subsection{f.d.p. condicional i predicció de Miním Error Quadràtic Mitjà}
+
+En cas que us hagueu atrevit a demostrar-ho, haureu trobat que la f.d.p. marginal d'$X_1$ 
+segons el model Normal bivariat (\ref{mvn})-(\ref{bivariate}) és simplement:
+
+\begin{equation}
+f_{X_1}(x_1) = \int f_{X_1, X_2}(x_1, x_2) dx_2 = \frac{1}{\sigma_1 \sqrt{2\pi}}\exp\left(-\frac{\left(x_1 - \mu_1\right)^2}{2\sigma_1^2}\right),
+\end{equation}
+és a dir $X_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)$.
+
+\begin{enumerate}
+\item Utilitzeu aquesta expressió amb la fórmula de la f.d.p condicional de $X_2$ donat $X_1$:
+
+\begin{equation}
+f_{X_2 | X_1} (x) = \frac{f_{X_1,X_2}(x_1, x_2)}{f_{X_1}(x_1)}
+\end{equation}
+
+per demostrar que $X_2 | X_1$ és també una Gaussiana, és a dir: $X_2 | X_1 \sim \mathcal{N}(\mu_{x_2|x_1}, \sigma_{x_2|x_1}^2 )$ i trobeu-ne els paràmetres  $\mu_{x_2|x_1} $ i  $\sigma_{x_2|x_1}$ en funció de
+$\mu_1, \mu_2, \sigma_1, \sigma_2, \rho$.
+
+\item Utilitzeu el resultat anterior i la teoria que hem vist a classe per trobar el predictor de $X_2$ donat $X_1=x_1$ que minimitza l'Error Quadràtic Mitjà. Quina interpretació en feu? Què passa amb la nostra predicció per $X_2$ quan fem variar $x_1$?
+\end{enumerate}
+
+\subsection{Transformació lineal}
+
+Demostreu que si $(X_1, X_2)$ són una Gaussiana bivariada amb paràmetres $\mathbf{\mu}_X$ i $\Sigma_X$, aleshores qualsevol
+transformació afí no síngular:
+
+\begin{eqnarray}
+Y_1 &= \alpha_1 + \beta_{11} X_1 + \beta_{12} X_2 \\
+Y_2 &= \alpha_2 + \beta_{21} X_1 + \beta_{22} X_2 
+\end{eqnarray}
+
+també és una Gaussiana bivariada, $(Y_1, Y_2) \sim \mathcal{N}(\mathbf{\mu}_Y, \Sigma_Y)$, i trobeu-ne els paràmeters $\mathbf{\mu}_Y$ i $\Sigma_Y$ en funció de 
+$\mathbf{\mu}_X$, $\Sigma_X$, $\alpha_1, \alpha_2, \beta_{11}, \beta_{12}, \beta_{21}, \beta_{22}$.
+
+
+\section{Problema 2: Mostreig d'una població finita [3 punts]}
+
+Suposeu que tenim una població finita $\mathcal{X}=\left\{x_1, \cdots, x_K\right\}$ amb $K$ elements.
+
+Definim les v.a.'s $X_i$, $i=1, \cdots, N$ com els valors resultants d'agafar una mostra de tamany $N$ d'aquest conjunt de les dues maneres següents:
+
+\begin{enumerate}
+\item \emph{Sense remplaçament}: Procedim seqüencialment: agafem un element a l'atzar del conjunt, i l'assignem a $X_0$, l'excluïm, i agafem un altre element a l'atzar del conjunt restant $\mathcal{X} \backslash X_0$, i així successivament fins a $N$ elements.
+\item \emph{Amb remplaçament}: Agafem un element a l'atzar, l'assignem a $X_i$, i el retornem al conjunt, i així repetidament per $i=1, \cdots, N$.
+\end{enumerate}
+
+Per \textbf{cada un d'aquests casos}, responeu si-us-plau:
+
+\begin{enumerate}
+\item Quina és la funció de massa de probabilitat de $X_{i+1}$ donat $X_i$?
+\item Segons l'expressió anterior, són les mostres $i$, $i+1$ independents? Són totes les mostres mutualment independents?
+\item Podem calcular la funció de massa de probabilitat marginal de $X_i$ per qualsevol $i$? 
+\item Segons l'expressió anterior, són les mostres $X_i$ idènticament distribuïdes?
+\item Què passa amb totes les respostes anteriors si considerem que $K \to \infty$ mentre $N$ roman fixe?
+\end{enumerate}
+
+\section{Problema 4: Covariança [3 punts]}
+ 
+Calculeu la covariança entre $X$ i $Y$ en els següents casos, i utilitzeu R o python per dibuixar-ne 100 realitzacions en el pla (x, y) (és a dir un scatterplot de les realitzacions generades):
+ 
+\begin{enumerate}
+\item $X \sim \mathcal{N}(0, 1)$ i $Y = a + b X$, amb $a=1, b=-2$
+\item $X \sim \mathcal{N}(0, 1)$ i $Y = a + b X$, amb $a=1, b=3$
+\item $X \sim \mathcal{N}(0, 1)$ i $Y = \cos X$
+\item $X \sim \mbox{uniforme}[0, 1]$ $Y \sim \mbox{uniforme}[0, 1]$
+\end{enumerate}
+\end{document}
