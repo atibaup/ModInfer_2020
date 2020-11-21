@@ -1670,6 +1670,7 @@ summary {
 <p>Com que seria una mica lent anar a recollir dades per una enquesta de veritat, per la resta de la pràctica treballarem amb dades sintètiques i <strong>suposarem que <span class="math inline">\(p = 0.3\)</span></strong>.</p>
 <p><strong>Pregunta 4</strong>: Definiu una funció <code>bernouilli.sample</code> que pregui con arguments <span class="math inline">\(p\)</span> i <span class="math inline">\(N\)</span> i retorni una mostra iid d’una <span class="math inline">\(\mbox{Ber}(p)\)</span> de talla N. <em>Pista</em>: Si <span class="math inline">\(U \sim \mbox{uniforme}(0, 1)\)</span>, quina f.m.p té la variable <span class="math inline">\(X\)</span> definida a partir d’<span class="math inline">\(U\)</span> tal que <span class="math inline">\(X=1\)</span> si <span class="math inline">\(U \geq \alpha\)</span> i <span class="math inline">\(X=0\)</span> si <span class="math inline">\(U &lt; \alpha\)</span>.</p>
 <pre class="r"><code>bernouilli.sample &lt;-function(p, N) {
+  (runif(N) &lt;= p) * 1
 }</code></pre>
 <p><strong>Pregunta 5</strong>: Genereu <span class="math inline">\(n=100\)</span> mostres de talla <span class="math inline">\(N\)</span> (on <span class="math inline">\(N\)</span> és el valor que heu trobat a la Pregunta 3). Per cada mostra <span class="math inline">\(i=1,\cdots, n\)</span>, calculeu <span class="math inline">\(\hat{p}_i\)</span>. Quina és la variança empírica i el biaix empíric de <span class="math inline">\(\hat{p}\)</span>? És consistent amb el que heu trobat a les Pregunta 1 i 3?</p>
 </div>
