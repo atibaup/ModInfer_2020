@@ -8,22 +8,33 @@ Estimació per Màxima Versemblança
 Ajust de distribucions de probabilitat
 ---------------------------------------
 
-Recordem de l'exemple que `vam veure
-a la primera classe <https://e-aules.uab.cat/2020-21/pluginfile.php/695686/mod_page/content/2/motivacio_tema_3.pdf>`_
-que en molts problemes de modelització estadística,
+A l'exemple de `la primera classe del Tema 3 <https://e-aules.uab.cat/2020-21/pluginfile.php/695686/mod_page/content/2/motivacio_tema_3.pdf>`_
+vem veure un exemple de modelització estadística on
 partim d'un conjunt de dades que podem modelar com
-una mostra iid. d'una població:
+una mostra i.i.d. d'una població:
 
-:math:`X_i \sim f_X(x,\theta), i=1,\cdots,N`
+:math:`X_i \sim f_X(x;\theta), i=1,\cdots,N`
 
-on :math:`f_X` és una f.d.p. d'una família de distribucions
+on :math:`f_X` és la f.d.p. d'una família de distribucions
 i :math:`\theta` són els paràmetres de la mateixa (vector o escalar), també anomenats
 *paràmetres de la població*.
 
 .. rst-class:: note
 
-    El problema d'*estimació dels paramètres* o d'*ajust de la distribució* a partir de les dades
+    El problema d'*estimació de paràmetres* o d'*ajust de la distribució* a partir de les dades
     consisteix en estimar :math:`\theta` a partir de :math:`X_1, \cdots, X_N`.
+
+.. nextslide::
+    :increment:
+
+En la mateixa classe vem veure un procediment heurístic
+per trobar :math:`\theta` donades les dades:
+
+bla bla
+
+.. rst-class:: note
+
+    Aquest procés de prova-i-error és ineficient i ens
 
 .. nextslide::
     :increment:
@@ -40,7 +51,7 @@ Per començar, definim la *log-versemblança*:
 on :math:`f_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)` és la
 f.d.p. conjunta de la mostra.
 
-En el cas d'una mostra iid, la log-versemblança es simplifica:
+En el cas d'una mostra iid, la log-versemblança es simplifica a:
 
 .. math::
 
@@ -49,19 +60,18 @@ En el cas d'una mostra iid, la log-versemblança es simplifica:
 
 .. rst-class:: note
 
-    Per mostres discretes, la log-versemblança es calcula a partir de la f.m.p. conjunta :math:`p_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)`
+    Per mostres de v.a. discretes, la log-versemblança es calcula a partir de la f.m.p. conjunta :math:`p_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)`
     enlloc de la f.d.c.
-`
 
 .. nextslide::
     :increment:
 
-Fixeu-vos que donada una mostra en particular :math:`X_1=x_1, \cdots, X_N=x_n`,
-:math:`L(\theta; x_1, \cdots, x_N)` és un funció de :math:`\theta \in \Theta \to \mathbb{R}`.
+Algunes propietats de la log-versemblança:
 
-Com vam veure als exemples de la primera classe, aquesta funció es pot interpretar com una mesura de la
-qualitat de :math:`\theta` a l'hora d'*explicar* les dades
-observades.
+* :math:`L(\theta; x_1, \cdots, x_N)` és un funció :math:`\Theta \times \mathbb{R}^N \to \mathbb{R}`.
+* Donada una mostra en particular :math:`X_1=x_1, \cdots, X_N=x_n`, :math:`L(\theta; x_1, \cdots, x_N)` és un funció de :math:`\theta \in \Theta \to \mathbb{R}`.
+* Com que la mostra és una v.a., :math:`L(\theta; X_1, \cdots, X_N)` és una v.a. per cada valor de :math:`\theta`!
+* Com vem veure a la primera classe, aquesta funció es pot interpretar com un criteri de qualitat de :math:`\theta` a l'hora d'*explicar* les dades observades (quan més gran, millor explicades).
 
 Per tant, sembla raonable definir un estimador del(s)
 paràmetre(s) :math:`\theta` com:
@@ -123,7 +133,7 @@ d'on podem concloure que l'EMV és:
 
 .. rst-class:: note
 
-    Malgrat aquestes limitacions, s'ha de reconèixer que la Màxima Versemblança
+    Malgrat aquestes limitacions, el mètdode de la Màxima Versemblança
     ens proporciona un mètode bastant genèric per trobar estimadors.
 
 
@@ -139,16 +149,20 @@ l'incidència d'una malaltia per regió geogràfica, etc.
 
 En tots aquests casos, es poden resumir les N observacions d'una mostra en un
 vector :math:`X_1, \cdots, X_M` on :math:`X_i` es correspon amb el nombre d'observacions dins la casella :math:`i`,
-i hi ha M caselles i :math:`\sum_i X_i = N`. **Important**: Noteu que en aquest cas :math:`X_i` no és iid!
+i hi ha M caselles i :math:`\sum_i X_i = N`.
 
-El model *multinomial* assumeix que la f.d.m. conjunta de :math:`X_1, \cdots, X_M`
-vé donada per:
+**Important**: Noteu que en aquest cas :math:`X_i` no és iid!
+
+.. nextslide:: Exemple: EMV d'una multinomial (2)
+
+El model *multinomial* suposa que la f.d.m. conjunta de :math:`X_1, \cdots, X_M` vé donada per:
 
 .. math::
 
     p(x_1, \cdots, x_m; p_1, \cdots, p_M) = \frac{N!}{\Pi_i {x_i!}}\Pi_i p_i^{x_i}
 
-on :math:`p_1, \cdots, p_M` són els paràmetres de la població, tals que :math:`\sum_i p_i = 1`.
+on :math:`p_1, \cdots, p_M` són els paràmetres de la població, tals que :math:`\sum_i p_i = 1`,
+i per construcció :math:`\sum_i X_i = N`.
 
 .. nextslide::
     :increment:
@@ -160,7 +174,7 @@ podem calcular la log-versemblança:
 
     L( p_1, \cdots, p_M; x_1, \cdots, x_m) \propto - \sum_i \log (x_i!) + \sum_i x_i \log p_i
 
-(on ignorem els termes que no depènen d':math:`x_i` o :math:`p_i`.
+(on ignorem els termes que no depènen d':math:`x_i` o :math:`p_i`.)
 
 Com que sabem que :math:`\sum_i p_i = 1` , podem imposar la restricció que :math:`p_M = 1 - \sum_{i=1}^{M-1} p_i`,
 i tindrem:
@@ -211,15 +225,16 @@ si algú ens hagués "censurat" les dades, en aquest cas l'univers).
     :increment:
 
 Anomenem :math:`\mathcal{M}` el subconjunt
-de pacients morts (i que per tant hem pogut observar-ne l'edat de defunció)
-i :math:`\bar{\mathcal{M}}` el subconjunt de pacients vius.
+de pacients morts (i que per tant dels que hem pogut observar-ne l'edat de defunció)
+i :math:`\bar{\mathcal{M}}` el subconjunt de pacients vius (dels que només sabem q
+que :math:`X_i \geq e_i`).
 
 La funció de log-versemblança
 que utilitzarem en aquest cas és:
 
 .. math::
 
-    L(\theta) = \log P\left( \cap_{i: \mathcal{M}}{ X_i=x_i} \cap \cap_{i: \bar{\mathcal{M}}}{ X_i \geq e_i} \right)
+    L(\theta) = \log P\left(\left( \cap_{i: \mathcal{M}}{ X_i=x_i} \right) \cap \left(\cap_{i: \bar{\mathcal{M}}}{ X_i \geq e_i}\right); \theta \right)
 
 Si la mostra és iid, això es simplificarà a:
 
@@ -238,61 +253,199 @@ Suposem que modelem l'edat de defunció dels pacients segons una llei geomètric
 
     p_X(x; \rho) = (1 - \rho)^{x - 1} \rho
 
-on :math:`\rho` és el paràmetre de la població. La f.d.c. és :math:`F_x(x ;\rho) = 1 - (1 -\rho)^x `
+on :math:`\rho \in [0, 1]` és el paràmetre de la població.
+La f.d.c. és :math:`F_x(x ;\rho) = 1 - (1 -\rho)^x`
 i per tant podem calcular la log-versemblança com:
 
 .. math::
 
-    L(\rho) =
+    L(\rho) = \left|\mathcal{M}\right| \log \rho + \sum_{i: \mathcal{M}}(x_i -1) \log(1 -\rho) + \sum_{i: \bar{\mathcal{M}}}e_i \log(1 -  \rho)
 
-Exercici: Calcular :math:`\hat{\rho} = \arg \max  L(\rho)`
+**Exercici**: Acabar de calcular :math:`\hat{\rho} = \arg \max  L(\rho)`
 
 
 Propietats asimptòtiques de l'EMV
 =================================================
 
-Biaix, Variança, EQM, Consistència
+Biaix, Variança, EQM...
 ---------------------------------------
 
-Recordem del Tema 2 que els estimadors solen
-ser funcions d'una mostra aleatòria, i que per tant
-son en ells mateixos v.a.´s.
+Recordem que la log-versemblança :math:`L(\theta; X_1, \cdots, X_N)`
+és una v.a. per cada :math:`\theta` (i.e. una "funció aleatòria")
+i per tant l'EMV :math:`\hat{\theta}` també és una v.a.! Per caracteritzar-lo
+haurem de fer servir les eines que vem desenvolupar al Tema 2:
 
-Per caracteritzar-los, doncs, haurem de fer servir
-les eines que vem desenvolupar al Tema 2:
+- **Biaix**: :math:`b(\hat{\theta}) := E(\hat{\theta} - \theta_0)`
+- **Variança**: :math:`\mbox{Var}(\hat{\theta}) = E((\hat{\theta} - E(\hat{\theta}))^2)`
+- **Error Quadràtic Mitjà**: :math:`\mbox{MSE}(\hat{\theta}) = E((\hat{\theta} - \theta_0)^2)`
+- **La seva f.d.p.**: :math:`f_{\hat{\theta}}(x)`
 
-- **Biaix**: :math:`E`
-- Variança
-- Error Quadràtic Mitjà
 
 .. rst-class:: note
 
-    Quan l'EMV es correspon amb algun dels moments mostrals, com és el cas
-    dels EMVs per una família Gaussiana, de Poisson o Multinomial, podem
-    fer servir la teoria que vem derivar al Tema 2 per calcular-ne les propietats.
-
+    **IMPORTANT**: Tot el que segueix **suposa** una mostra i.i.d. generada segons un
+    model :math:`X_i \sim f_X(x;\theta_0); i=1,\cdots,N`, on :math:`\theta_0`
+    és el valor **real però desconegut** del paràmetre a estimar. Per tant totes les esperances
+    que tractem són relatives a aquesta :math:`f_X(x;\theta_0)`!
 
 .. nextslide::
     :increment:
 
-En general, però, l'EMV no tindra una forma analítica coneguda,
-i serà difícil calcular-ne l'esperança, i molt més difícil
+En general l'EMV no tindrà una forma analítica que es presti a
+calcular-ne el biaix, variança o MSE, i molt menys a
 caracteritzar-ne la distribució.
 
 La gran avantatge dels EMV és que, asimptòticament,
-es poden caracteritzar bastant fàcilment.
+es poden caracteritzar relativament fàcilment. Primer definim
+què és el que volem dir per "asimptòtic". Explicitant la dependència
+de l'EMV amb el tamany de la mostra:
 
-Primer definim què és el que volem dir per "asimptòtic".
+:math:`\hat{\theta}^N = \arg \max  L(\theta; X_1, \cdots, X_N)`
 
+el que ens interessarà és caracteritzar el biaix, variança i
+f.d.p de :math:`\hat{\theta}^N` a mesura que :math:`N \to \infty`
 
 .. nextslide::
     :increment:
 
+Començarem aquesta caracterització amb el següent resultat,
+que provarem de manera informal:
+
+.. rst-class:: note
+
+    **Teorema 3.1**: Donada una mostra iid, i per :math:`f(x; \theta)` prou "suaus",
+    :math:`\frac{1}{N}L(\theta; X_1, \cdots, X_N) = \frac{1}{N}\sum_i \log f(X_i; \theta)`
+    convergeix en probabilitat a :math:`E(\log f_X(x; \theta))`.
+
+*"Demostració"*: Resulta de l'aplicació de la `LLei Feble dels Grans Nombres <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#25>`_
+que vem veure al Tema 2. Per tant només hauriem de comprovar que podem aplicar-la, és a dir que:
+
+* :math:`E(\log f(X_i; \theta))` existeix i que
+* :math:`\mbox{Var}(\log f(X_i; \theta))` és finita
+
+que dóna lloc a la condició "prou "suaus"" de la proposició.
+
+Consistència
+---------------------------------------
+
+**Definició**: Un estimador és consistent si, a mesura
+que el tamany de la mostra augmenta, l'estimador
+convergeix en probabilitat al paràmetre d'interès:
+
+.. math::
+
+    \lim_{N\to \infty} P(|\hat{\theta}^N - \theta_0|>\epsilon) = 0
+
+
+.. rst-class:: note
+
+    **Teorema 3.2**: L'EMV és un estimador consistent.
+
+*"Demostració"*: Pel **Teorema 3.1** hem vist que
+:math:`\frac{1}{N}L(\theta; X_1, \cdots, X_N)  \to E(\log f_X(x; \theta))`
+en probabilitat. No podrem demostrar-ho en aquest curs,
+però sembla raonable esperar que, sota algunes condicions,
+el :math:`\hat{\theta}^N` que maximitza l'expressió de l'esquerra
+hauria de maximitzar l'expressió de la dreta i viceversa.
+
+.. nextslide::
+    :increment:
+
+Sota aquest supòsit, només ens cal verificar que :math:`\theta_0` maximitza
+:math:`E(\log f_X(x; \theta))` per concloure que :math:`\hat{\theta}^N \to \theta_0`.
+Fem-ho:
+
+.. math::
+
+    \frac{\partial}{\partial \theta} E(\log f_X(x; \theta)) & = \frac{\partial}{\partial \theta} \int_x  \log f(x; \theta) f(x; \theta_0) dx \\
+    & =  \int_x  \frac{\partial}{\partial \theta}\log f(x; \theta) f(x; \theta_0) dx \\
+    & = \int_x  \frac{1}{f(x; \theta)} \frac{\partial}{\partial \theta} f(x; \theta) f(x; \theta_0) dx
+
+.. rst-class:: note
+
+    Estem cometent bastants sacrilegis intercanviant l'ordre dels operadors integrals i diferencials...
+    però ens haurem de creure que és possible per la majoria de :math:`f_X` d'interès.
+
+.. nextslide::
+    :increment:
+
+Noteu que per :math:`\theta = \theta_0`, aquesta última expressió resulta:
+
+.. math::
+
+    \int_x  \frac{1}{f(x; \theta_0)} \left.\frac{\partial}{\partial \theta} f(x; \theta) \right|_{\theta=\theta_0} f(x; \theta_0) dx & =  \int_x  \left. \frac{\partial}{\partial \theta} f(x; \theta_0) \right|_{\theta=\theta_0} dx\\
+    & =  \frac{\partial}{\partial \theta} \int_x   f(x; \theta_0)dx \\
+    & = 0
+
+per tant :math:`\theta = \theta_0` és tal que :math:`\frac{\partial}{\partial \theta} E(\log f_X(x; \theta))=0`
+i si :math:`\log f_X(x; \theta)` és concava, n'és un màxim. Amb això
+podem "concloure" que :math:`\hat{\theta}^N \to \theta_0`.
+
+
+Distribució asimptòtica de l'EMV
+---------------------------------------
+
+Per ara hem vist que l'EMV té una propietat bona: quan el tamany
+de la mostra augmenta, l'estimador convergeix al valor del
+paràmetre de la població.
+
+La caracterització asimptòtica de l'EMV no s'acaba aquí però... de fet,
+tot seguit veurem que la distribució de l'EMV és Gaussiana,
+centrada en el paràmetre d'interès :math:`\theta_0` (asimptòticament
+sense biaix!) i amb una variança que decreix amb N.
+
+.. nextslide:: Distribució asimptòtica de l'EMV (2)
+    :increment:
+
+.. rst-class:: note
+
+    **Teorema 3.3**: Sota algunes condicions de "suavitat" de
+    :math:`f_X`, :math:`\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)`, on
+    :math:`{I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
+    és la "matriu" d'Informació de Fisher.
+
+Abans de donar un esboç de la prova d'aquest resultat, mirem d'entendre'l.
+Aquest resultat implica:
+
+1. L'EMV és asimptòticament sense biaix.
+2. La seva variança és inversament proporcional a N, i per tant l'EMV és consistent
+3. Al límit, i independentment de la distribució de la mostra, **l'EMV es comporta com una Gaussiana!**
+4. La seva variança depèn d'aquesta quantitat un pèl esotèrica :math:`{I}(\theta)`...
+
+.. nextslide:: Distribució asimptòtica de l'EMV (3)
+    :increment:
+
+Mirem de desenvolupar una mica d'intuició sobre el significat de
+:math:`{I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
+
+
+.. nextslide:: Exemple d'aplicació: EMV d'una Poisson
+
+Ara comprovarem computacionalment el resultat per un cas en particular,
+quan :math:`X \sim \mbox{Poisson}(\lambda)`. Tenim que
+
+.. math::
+
+    \log f_X(x;\lambda) = x\log \lambda - \lambda - \log x!
+
+i per tant:
+
+.. math::
+
+   \frac{\partial^2}{\partial \theta^2} \log f_X(x;\lambda) = -\frac{x}{\lambda^2}
+
+aleshores: :math:`{I}(\theta)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}`.
+
+Per altra banda, l'EMV d'una mostra
+iid de Poisson és simplement el moment mostral (Exercici!):
+
+:math:`\hat{\lambda}^N = \bar{x}`
+
+Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})`
 
 
 Eficiència i Cota de Cramer-Rao
 ---------------------------------------
-
 
 Intervals de confiança per EMVs
 =================================================

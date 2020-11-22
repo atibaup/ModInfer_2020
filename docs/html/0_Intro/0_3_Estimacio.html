@@ -43,17 +43,20 @@
 <h2><span class="section-number">4.1. </span>Estimació per Màxima Versemblança<a class="headerlink" href="#estimacio-per-maxima-versemblanca" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ajust-de-distribucions-de-probabilitat">
 <h3><span class="section-number">4.1.1. </span>Ajust de distribucions de probabilitat<a class="headerlink" href="#ajust-de-distribucions-de-probabilitat" title="Permalink to this headline">¶</a></h3>
-<p>Recordem de l’exemple que <a class="reference external" href="https://e-aules.uab.cat/2020-21/pluginfile.php/695686/mod_page/content/2/motivacio_tema_3.pdf">vam veure
-a la primera classe</a>
-que en molts problemes de modelització estadística,
+<p>A l’exemple de <a class="reference external" href="https://e-aules.uab.cat/2020-21/pluginfile.php/695686/mod_page/content/2/motivacio_tema_3.pdf">la primera classe del Tema 3</a>
+vem veure un exemple de modelització estadística on
 partim d’un conjunt de dades que podem modelar com
-una mostra iid. d’una població:</p>
-<p><span class="math notranslate nohighlight">\(X_i \sim f_X(x,\theta), i=1,\cdots,N\)</span></p>
-<p>on <span class="math notranslate nohighlight">\(f_X\)</span> és una f.d.p. d’una família de distribucions
+una mostra i.i.d. d’una població:</p>
+<p><span class="math notranslate nohighlight">\(X_i \sim f_X(x;\theta), i=1,\cdots,N\)</span></p>
+<p>on <span class="math notranslate nohighlight">\(f_X\)</span> és la f.d.p. d’una família de distribucions
 i <span class="math notranslate nohighlight">\(\theta\)</span> són els paràmetres de la mateixa (vector o escalar), també anomenats
 <em>paràmetres de la població</em>.</p>
-<p class="note">El problema d’<em>estimació dels paramètres</em> o d’<em>ajust de la distribució</em> a partir de les dades
+<p class="note">El problema d’<em>estimació de paràmetres</em> o d’<em>ajust de la distribució</em> a partir de les dades
 consisteix en estimar <span class="math notranslate nohighlight">\(\theta\)</span> a partir de <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span>.</p>
+<p>En la mateixa classe vem veure un procediment heurístic
+per trobar <span class="math notranslate nohighlight">\(\theta\)</span> donades les dades:</p>
+<p>bla bla</p>
+<p class="note">Aquest procés de prova-i-error és ineficient i ens</p>
 <p>Tal i com vam veure a la primera classe, un mètode
 d’estimació molt versàtil és el de <strong>Màxima Versemblança</strong>.</p>
 <p>Per començar, definim la <em>log-versemblança</em>:</p>
@@ -61,17 +64,18 @@ d’estimació molt versàtil és el de <strong>Màxima Versemblança</strong>.<
 \[L(\theta; x_1, \cdots, x_N) = \log \left(f_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta) \right)\]</div>
 <p>on <span class="math notranslate nohighlight">\(f_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)\)</span> és la
 f.d.p. conjunta de la mostra.</p>
-<p>En el cas d’una mostra iid, la log-versemblança es simplifica:</p>
+<p>En el cas d’una mostra iid, la log-versemblança es simplifica a:</p>
 <div class="math notranslate nohighlight">
 \[L(\theta; x_1, \cdots, x_N) = \sum_{i=1}^N \log f_X(x_i;\theta)\]</div>
-<p class="note">Per mostres discretes, la log-versemblança es calcula a partir de la f.m.p. conjunta <span class="math notranslate nohighlight">\(p_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)\)</span>
+<p class="note">Per mostres de v.a. discretes, la log-versemblança es calcula a partir de la f.m.p. conjunta <span class="math notranslate nohighlight">\(p_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta)\)</span>
 enlloc de la f.d.c.</p>
-<p><a href="#id1"><span class="problematic" id="id2">`</span></a></p>
-<p>Fixeu-vos que donada una mostra en particular <span class="math notranslate nohighlight">\(X_1=x_1, \cdots, X_N=x_n\)</span>,
-<span class="math notranslate nohighlight">\(L(\theta; x_1, \cdots, x_N)\)</span> és un funció de <span class="math notranslate nohighlight">\(\theta \in \Theta \to \mathbb{R}\)</span>.</p>
-<p>Com vam veure als exemples de la primera classe, aquesta funció es pot interpretar com una mesura de la
-qualitat de <span class="math notranslate nohighlight">\(\theta\)</span> a l’hora d’<em>explicar</em> les dades
-observades.</p>
+<p>Algunes propietats de la log-versemblança:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L(\theta; x_1, \cdots, x_N)\)</span> és un funció <span class="math notranslate nohighlight">\(\Theta \times \mathbb{R}^N \to \mathbb{R}\)</span>.</p></li>
+<li><p>Donada una mostra en particular <span class="math notranslate nohighlight">\(X_1=x_1, \cdots, X_N=x_n\)</span>, <span class="math notranslate nohighlight">\(L(\theta; x_1, \cdots, x_N)\)</span> és un funció de <span class="math notranslate nohighlight">\(\theta \in \Theta \to \mathbb{R}\)</span>.</p></li>
+<li><p>Com que la mostra és una v.a., <span class="math notranslate nohighlight">\(L(\theta; X_1, \cdots, X_N)\)</span> és una v.a. per cada valor de <span class="math notranslate nohighlight">\(\theta\)</span>!</p></li>
+<li><p>Com vem veure a la primera classe, aquesta funció es pot interpretar com un criteri de qualitat de <span class="math notranslate nohighlight">\(\theta\)</span> a l’hora d’<em>explicar</em> les dades observades (quan més gran, millor explicades).</p></li>
+</ul>
 <p>Per tant, sembla raonable definir un estimador del(s)
 paràmetre(s) <span class="math notranslate nohighlight">\(\theta\)</span> com:</p>
 <div class="math notranslate nohighlight">
@@ -106,7 +110,7 @@ per tant el seu màxim existeix i haurà de verificar la <strong>condició d’o
 <li><p>En alguns casos, l’EMV no serà únic (i.e. la log-versemblança tindrà més d’un màxim)</p></li>
 <li><p>En molts casos la log-versemblança no serà concava, o diferenciable, per tant l’EMV pot ser computacionalment molt difícil de calcular</p></li>
 </ol>
-<p class="note">Malgrat aquestes limitacions, s’ha de reconèixer que la Màxima Versemblança
+<p class="note">Malgrat aquestes limitacions, el mètdode de la Màxima Versemblança
 ens proporciona un mètode bastant genèric per trobar estimadors.</p>
 </div>
 <div class="section" id="exemple-emv-d-una-multinomial">
@@ -118,17 +122,18 @@ el nombre de respostes d’un qüestionari per edat de l’entrevistat,
 l’incidència d’una malaltia per regió geogràfica, etc.</p>
 <p>En tots aquests casos, es poden resumir les N observacions d’una mostra en un
 vector <span class="math notranslate nohighlight">\(X_1, \cdots, X_M\)</span> on <span class="math notranslate nohighlight">\(X_i\)</span> es correspon amb el nombre d’observacions dins la casella <span class="math notranslate nohighlight">\(i\)</span>,
-i hi ha M caselles i <span class="math notranslate nohighlight">\(\sum_i X_i = N\)</span>. <strong>Important</strong>: Noteu que en aquest cas <span class="math notranslate nohighlight">\(X_i\)</span> no és iid!</p>
-<p>El model <em>multinomial</em> assumeix que la f.d.m. conjunta de <span class="math notranslate nohighlight">\(X_1, \cdots, X_M\)</span>
-vé donada per:</p>
+i hi ha M caselles i <span class="math notranslate nohighlight">\(\sum_i X_i = N\)</span>.</p>
+<p><strong>Important</strong>: Noteu que en aquest cas <span class="math notranslate nohighlight">\(X_i\)</span> no és iid!</p>
+<p>El model <em>multinomial</em> suposa que la f.d.m. conjunta de <span class="math notranslate nohighlight">\(X_1, \cdots, X_M\)</span> vé donada per:</p>
 <div class="math notranslate nohighlight">
 \[p(x_1, \cdots, x_m; p_1, \cdots, p_M) = \frac{N!}{\Pi_i {x_i!}}\Pi_i p_i^{x_i}\]</div>
-<p>on <span class="math notranslate nohighlight">\(p_1, \cdots, p_M\)</span> són els paràmetres de la població, tals que <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>.</p>
+<p>on <span class="math notranslate nohighlight">\(p_1, \cdots, p_M\)</span> són els paràmetres de la població, tals que <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>,
+i per construcció <span class="math notranslate nohighlight">\(\sum_i X_i = N\)</span>.</p>
 <p>A partir d’aquesta f.d.m conjunta, i una mostra <span class="math notranslate nohighlight">\(X_1=x_1, \cdots, X_M=x_m\)</span>
 podem calcular la log-versemblança:</p>
 <div class="math notranslate nohighlight">
 \[L( p_1, \cdots, p_M; x_1, \cdots, x_m) \propto - \sum_i \log (x_i!) + \sum_i x_i \log p_i\]</div>
-<p>(on ignorem els termes que no depènen d’<span class="math notranslate nohighlight">\(x_i\)</span> o <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
+<p>(on ignorem els termes que no depènen d’<span class="math notranslate nohighlight">\(x_i\)</span> o <span class="math notranslate nohighlight">\(p_i\)</span>.)</p>
 <p>Com que sabem que <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span> , podem imposar la restricció que <span class="math notranslate nohighlight">\(p_M = 1 - \sum_{i=1}^{M-1} p_i\)</span>,
 i tindrem:</p>
 <div class="math notranslate nohighlight">
@@ -158,12 +163,13 @@ mixta d’observacions <span class="math notranslate nohighlight">\(X_i\)</span>
 on aquestes últimes s’anomenen “observacions censurades” (com
 si algú ens hagués “censurat” les dades, en aquest cas l’univers).</p>
 <p>Anomenem <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> el subconjunt
-de pacients morts (i que per tant hem pogut observar-ne l’edat de defunció)
-i <span class="math notranslate nohighlight">\(\bar{\mathcal{M}}\)</span> el subconjunt de pacients vius.</p>
+de pacients morts (i que per tant dels que hem pogut observar-ne l’edat de defunció)
+i <span class="math notranslate nohighlight">\(\bar{\mathcal{M}}\)</span> el subconjunt de pacients vius (dels que només sabem q
+que <span class="math notranslate nohighlight">\(X_i \geq e_i\)</span>).</p>
 <p>La funció de log-versemblança
 que utilitzarem en aquest cas és:</p>
 <div class="math notranslate nohighlight">
-\[L(\theta) = \log P\left( \cap_{i: \mathcal{M}}{ X_i=x_i} \cap \cap_{i: \bar{\mathcal{M}}}{ X_i \geq e_i} \right)\]</div>
+\[L(\theta) = \log P\left(\left( \cap_{i: \mathcal{M}}{ X_i=x_i} \right) \cap \left(\cap_{i: \bar{\mathcal{M}}}{ X_i \geq e_i}\right); \theta \right)\]</div>
 <p>Si la mostra és iid, això es simplificarà a:</p>
 <div class="math notranslate nohighlight">
 \[L(\theta) = \sum_{i: \mathcal{M}}\log p_X(x_i; \theta) + \sum_{i: \bar{\mathcal{M}}} \log(1 -  F_X(e_i; \theta))\]</div>
@@ -171,39 +177,125 @@ que utilitzarem en aquest cas és:</p>
 <p>Suposem que modelem l’edat de defunció dels pacients segons una llei geomètrica:</p>
 <div class="math notranslate nohighlight">
 \[p_X(x; \rho) = (1 - \rho)^{x - 1} \rho\]</div>
-<p>on <span class="math notranslate nohighlight">\(\rho\)</span> és el paràmetre de la població. La f.d.c. és :math:<a href="#id3"><span class="problematic" id="id4">`</span></a>F_x(x ;rho) = 1 - (1 -rho)^x `
+<p>on <span class="math notranslate nohighlight">\(\rho \in [0, 1]\)</span> és el paràmetre de la població.
+La f.d.c. és <span class="math notranslate nohighlight">\(F_x(x ;\rho) = 1 - (1 -\rho)^x\)</span>
 i per tant podem calcular la log-versemblança com:</p>
 <div class="math notranslate nohighlight">
-\[L(\rho) =\]</div>
-<p>Exercici: Calcular <span class="math notranslate nohighlight">\(\hat{\rho} = \arg \max  L(\rho)\)</span></p>
+\[L(\rho) = \left|\mathcal{M}\right| \log \rho + \sum_{i: \mathcal{M}}(x_i -1) \log(1 -\rho) + \sum_{i: \bar{\mathcal{M}}}e_i \log(1 -  \rho)\]</div>
+<p><strong>Exercici</strong>: Acabar de calcular <span class="math notranslate nohighlight">\(\hat{\rho} = \arg \max  L(\rho)\)</span></p>
 </div>
 </div>
 <div class="section" id="propietats-asimptotiques-de-l-emv">
 <h2><span class="section-number">4.2. </span>Propietats asimptòtiques de l’EMV<a class="headerlink" href="#propietats-asimptotiques-de-l-emv" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="biaix-varianca-eqm-consistencia">
-<h3><span class="section-number">4.2.1. </span>Biaix, Variança, EQM, Consistència<a class="headerlink" href="#biaix-varianca-eqm-consistencia" title="Permalink to this headline">¶</a></h3>
-<p>Recordem del Tema 2 que els estimadors solen
-ser funcions d’una mostra aleatòria, i que per tant
-son en ells mateixos v.a.´s.</p>
-<p>Per caracteritzar-los, doncs, haurem de fer servir
-les eines que vem desenvolupar al Tema 2:</p>
+<div class="section" id="biaix-varianca-eqm">
+<h3><span class="section-number">4.2.1. </span>Biaix, Variança, EQM…<a class="headerlink" href="#biaix-varianca-eqm" title="Permalink to this headline">¶</a></h3>
+<p>Recordem que la log-versemblança <span class="math notranslate nohighlight">\(L(\theta; X_1, \cdots, X_N)\)</span>
+és una v.a. per cada <span class="math notranslate nohighlight">\(\theta\)</span> (i.e. una “funció aleatòria”)
+i per tant l’EMV <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> també és una v.a.! Per caracteritzar-lo
+haurem de fer servir les eines que vem desenvolupar al Tema 2:</p>
 <ul class="simple">
-<li><p><strong>Biaix</strong>: <span class="math notranslate nohighlight">\(E\)</span></p></li>
-<li><p>Variança</p></li>
-<li><p>Error Quadràtic Mitjà</p></li>
+<li><p><strong>Biaix</strong>: <span class="math notranslate nohighlight">\(b(\hat{\theta}) := E(\hat{\theta} - \theta_0)\)</span></p></li>
+<li><p><strong>Variança</strong>: <span class="math notranslate nohighlight">\(\mbox{Var}(\hat{\theta}) = E((\hat{\theta} - E(\hat{\theta}))^2)\)</span></p></li>
+<li><p><strong>Error Quadràtic Mitjà</strong>: <span class="math notranslate nohighlight">\(\mbox{MSE}(\hat{\theta}) = E((\hat{\theta} - \theta_0)^2)\)</span></p></li>
+<li><p><strong>La seva f.d.p.</strong>: <span class="math notranslate nohighlight">\(f_{\hat{\theta}}(x)\)</span></p></li>
 </ul>
-<p class="note">Quan l’EMV es correspon amb algun dels moments mostrals, com és el cas
-dels EMVs per una família Gaussiana, de Poisson o Multinomial, podem
-fer servir la teoria que vem derivar al Tema 2 per calcular-ne les propietats.</p>
-<p>En general, però, l’EMV no tindra una forma analítica coneguda,
-i serà difícil calcular-ne l’esperança, i molt més difícil
+<p class="note"><strong>IMPORTANT</strong>: Tot el que segueix <strong>suposa</strong> una mostra i.i.d. generada segons un
+model <span class="math notranslate nohighlight">\(X_i \sim f_X(x;\theta_0); i=1,\cdots,N\)</span>, on <span class="math notranslate nohighlight">\(\theta_0\)</span>
+és el valor <strong>real però desconegut</strong> del paràmetre a estimar. Per tant totes les esperances
+que tractem són relatives a aquesta <span class="math notranslate nohighlight">\(f_X(x;\theta_0)\)</span>!</p>
+<p>En general l’EMV no tindrà una forma analítica que es presti a
+calcular-ne el biaix, variança o MSE, i molt menys a
 caracteritzar-ne la distribució.</p>
 <p>La gran avantatge dels EMV és que, asimptòticament,
-es poden caracteritzar bastant fàcilment.</p>
-<p>Primer definim què és el que volem dir per “asimptòtic”.</p>
+es poden caracteritzar relativament fàcilment. Primer definim
+què és el que volem dir per “asimptòtic”. Explicitant la dependència
+de l’EMV amb el tamany de la mostra:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\theta}^N = \arg \max  L(\theta; X_1, \cdots, X_N)\)</span></p>
+<p>el que ens interessarà és caracteritzar el biaix, variança i
+f.d.p de <span class="math notranslate nohighlight">\(\hat{\theta}^N\)</span> a mesura que <span class="math notranslate nohighlight">\(N \to \infty\)</span></p>
+<p>Començarem aquesta caracterització amb el següent resultat,
+que provarem de manera informal:</p>
+<p class="note"><strong>Teorema 3.1</strong>: Donada una mostra iid, i per <span class="math notranslate nohighlight">\(f(x; \theta)\)</span> prou “suaus”,
+<span class="math notranslate nohighlight">\(\frac{1}{N}L(\theta; X_1, \cdots, X_N) = \frac{1}{N}\sum_i \log f(X_i; \theta)\)</span>
+convergeix en probabilitat a <span class="math notranslate nohighlight">\(E(\log f_X(x; \theta))\)</span>.</p>
+<p><em>“Demostració”</em>: Resulta de l’aplicació de la <a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#25">LLei Feble dels Grans Nombres</a>
+que vem veure al Tema 2. Per tant només hauriem de comprovar que podem aplicar-la, és a dir que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E(\log f(X_i; \theta))\)</span> existeix i que</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mbox{Var}(\log f(X_i; \theta))\)</span> és finita</p></li>
+</ul>
+<p>que dóna lloc a la condició “prou “suaus”” de la proposició.</p>
+</div>
+<div class="section" id="consistencia">
+<h3><span class="section-number">4.2.2. </span>Consistència<a class="headerlink" href="#consistencia" title="Permalink to this headline">¶</a></h3>
+<p><strong>Definició</strong>: Un estimador és consistent si, a mesura
+que el tamany de la mostra augmenta, l’estimador
+convergeix en probabilitat al paràmetre d’interès:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{N\to \infty} P(|\hat{\theta}^N - \theta_0|&gt;\epsilon) = 0\]</div>
+<p class="note"><strong>Teorema 3.2</strong>: L’EMV és un estimador consistent.</p>
+<p><em>“Demostració”</em>: Pel <strong>Teorema 3.1</strong> hem vist que
+<span class="math notranslate nohighlight">\(\frac{1}{N}L(\theta; X_1, \cdots, X_N)  \to E(\log f_X(x; \theta))\)</span>
+en probabilitat. No podrem demostrar-ho en aquest curs,
+però sembla raonable esperar que, sota algunes condicions,
+el <span class="math notranslate nohighlight">\(\hat{\theta}^N\)</span> que maximitza l’expressió de l’esquerra
+hauria de maximitzar l’expressió de la dreta i viceversa.</p>
+<p>Sota aquest supòsit, només ens cal verificar que <span class="math notranslate nohighlight">\(\theta_0\)</span> maximitza
+<span class="math notranslate nohighlight">\(E(\log f_X(x; \theta))\)</span> per concloure que <span class="math notranslate nohighlight">\(\hat{\theta}^N \to \theta_0\)</span>.
+Fem-ho:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial}{\partial \theta} E(\log f_X(x; \theta)) &amp; = \frac{\partial}{\partial \theta} \int_x  \log f(x; \theta) f(x; \theta_0) dx \\
+&amp; =  \int_x  \frac{\partial}{\partial \theta}\log f(x; \theta) f(x; \theta_0) dx \\
+&amp; = \int_x  \frac{1}{f(x; \theta)} \frac{\partial}{\partial \theta} f(x; \theta) f(x; \theta_0) dx\end{split}\]</div>
+<p class="note">Estem cometent bastants sacrilegis intercanviant l’ordre dels operadors integrals i diferencials…
+però ens haurem de creure que és possible per la majoria de <span class="math notranslate nohighlight">\(f_X\)</span> d’interès.</p>
+<p>Noteu que per <span class="math notranslate nohighlight">\(\theta = \theta_0\)</span>, aquesta última expressió resulta:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\int_x  \frac{1}{f(x; \theta_0)} \left.\frac{\partial}{\partial \theta} f(x; \theta) \right|_{\theta=\theta_0} f(x; \theta_0) dx &amp; =  \int_x  \left. \frac{\partial}{\partial \theta} f(x; \theta_0) \right|_{\theta=\theta_0} dx\\
+&amp; =  \frac{\partial}{\partial \theta} \int_x   f(x; \theta_0)dx \\
+&amp; = 0\end{split}\]</div>
+<p>per tant <span class="math notranslate nohighlight">\(\theta = \theta_0\)</span> és tal que <span class="math notranslate nohighlight">\(\frac{\partial}{\partial \theta} E(\log f_X(x; \theta))=0\)</span>
+i si <span class="math notranslate nohighlight">\(\log f_X(x; \theta)\)</span> és concava, n’és un màxim. Amb això
+podem “concloure” que <span class="math notranslate nohighlight">\(\hat{\theta}^N \to \theta_0\)</span>.</p>
+</div>
+<div class="section" id="distribucio-asimptotica-de-l-emv">
+<h3><span class="section-number">4.2.3. </span>Distribució asimptòtica de l’EMV<a class="headerlink" href="#distribucio-asimptotica-de-l-emv" title="Permalink to this headline">¶</a></h3>
+<p>Per ara hem vist que l’EMV té una propietat bona: quan el tamany
+de la mostra augmenta, l’estimador convergeix al valor del
+paràmetre de la població.</p>
+<p>La caracterització asimptòtica de l’EMV no s’acaba aquí però… de fet,
+tot seguit veurem que la distribució de l’EMV és Gaussiana,
+centrada en el paràmetre d’interès <span class="math notranslate nohighlight">\(\theta_0\)</span> (asimptòticament
+sense biaix!) i amb una variança que decreix amb N.</p>
+<p class="note"><strong>Teorema 3.3</strong>: Sota algunes condicions de “suavitat” de
+<span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)\)</span>, on
+<span class="math notranslate nohighlight">\({I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span>
+és la “matriu” d’Informació de Fisher.</p>
+<p>Abans de donar un esboç de la prova d’aquest resultat, mirem d’entendre’l.
+Aquest resultat implica:</p>
+<ol class="arabic simple">
+<li><p>L’EMV és asimptòticament sense biaix.</p></li>
+<li><p>La seva variança és inversament proporcional a N, i per tant l’EMV és consistent</p></li>
+<li><p>Al límit, i independentment de la distribució de la mostra, <strong>l’EMV es comporta com una Gaussiana!</strong></p></li>
+<li><p>La seva variança depèn d’aquesta quantitat un pèl esotèrica <span class="math notranslate nohighlight">\({I}(\theta)\)</span>…</p></li>
+</ol>
+<p>Mirem de desenvolupar una mica d’intuició sobre el significat de
+<span class="math notranslate nohighlight">\({I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span></p>
+<p>Ara comprovarem computacionalment el resultat per un cas en particular,
+quan <span class="math notranslate nohighlight">\(X \sim \mbox{Poisson}(\lambda)\)</span>. Tenim que</p>
+<div class="math notranslate nohighlight">
+\[\log f_X(x;\lambda) = x\log \lambda - \lambda - \log x!\]</div>
+<p>i per tant:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2}{\partial \theta^2} \log f_X(x;\lambda) = -\frac{x}{\lambda^2}\]</div>
+<p>aleshores: <span class="math notranslate nohighlight">\({I}(\theta)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}\)</span>.</p>
+<p>Per altra banda, l’EMV d’una mostra
+iid de Poisson és simplement el moment mostral (Exercici!):</p>
+<p><span class="math notranslate nohighlight">\(\hat{\lambda}^N = \bar{x}\)</span></p>
+<p>Per tant, asimptòticament: <span class="math notranslate nohighlight">\(\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})\)</span></p>
 </div>
 <div class="section" id="eficiencia-i-cota-de-cramer-rao">
-<h3><span class="section-number">4.2.2. </span>Eficiència i Cota de Cramer-Rao<a class="headerlink" href="#eficiencia-i-cota-de-cramer-rao" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.4. </span>Eficiència i Cota de Cramer-Rao<a class="headerlink" href="#eficiencia-i-cota-de-cramer-rao" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="intervals-de-confianca-per-emvs">
@@ -235,8 +327,10 @@ es poden caracteritzar bastant fàcilment.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#propietats-asimptotiques-de-l-emv">4.2. Propietats asimptòtiques de l’EMV</a><ul>
-<li><a class="reference internal" href="#biaix-varianca-eqm-consistencia">4.2.1. Biaix, Variança, EQM, Consistència</a></li>
-<li><a class="reference internal" href="#eficiencia-i-cota-de-cramer-rao">4.2.2. Eficiència i Cota de Cramer-Rao</a></li>
+<li><a class="reference internal" href="#biaix-varianca-eqm">4.2.1. Biaix, Variança, EQM…</a></li>
+<li><a class="reference internal" href="#consistencia">4.2.2. Consistència</a></li>
+<li><a class="reference internal" href="#distribucio-asimptotica-de-l-emv">4.2.3. Distribució asimptòtica de l’EMV</a></li>
+<li><a class="reference internal" href="#eficiencia-i-cota-de-cramer-rao">4.2.4. Eficiència i Cota de Cramer-Rao</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#intervals-de-confianca-per-emvs">4.3. Intervals de confiança per EMVs</a><ul>
