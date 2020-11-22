@@ -443,6 +443,25 @@ iid de Poisson és simplement el moment mostral (Exercici!):
 
 Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})`
 
+.. nextslide::
+    :increment:
+
+.. code-block:: R
+
+    N = 100 # Tamany de cada mostra
+    n = 1000 # Nombre de repeticions
+    lambda = 15 # Paràmetre de la població
+
+    emv_poisson <-rep(0, n)
+    for (i in 1:n){
+      sample = rpois(N, lambda)
+      emv_poisson[i] = mean(sample)
+    }
+
+    x = seq(min(emv_poisson), max(emv_poisson), 0.1)
+    hist(emv_poisson, 20, freq = F)
+    lines(x, dnorm(x, lambda, sqrt(lambda/N)), col='green')
+
 
 Eficiència i Cota de Cramer-Rao
 ---------------------------------------

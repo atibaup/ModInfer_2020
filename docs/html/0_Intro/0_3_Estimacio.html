@@ -293,6 +293,21 @@ quan <span class="math notranslate nohighlight">\(X \sim \mbox{Poisson}(\lambda)
 iid de Poisson és simplement el moment mostral (Exercici!):</p>
 <p><span class="math notranslate nohighlight">\(\hat{\lambda}^N = \bar{x}\)</span></p>
 <p>Per tant, asimptòticament: <span class="math notranslate nohighlight">\(\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})\)</span></p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="m">100</span> <span class="c1"># Tamany de cada mostra</span>
+<span class="n">n</span> <span class="o">=</span> <span class="m">1000</span> <span class="c1"># Nombre de repeticions</span>
+<span class="n">lambda</span> <span class="o">=</span> <span class="m">15</span> <span class="c1"># Paràmetre de la població</span>
+
+<span class="n">emv_poisson</span> <span class="o">&lt;-</span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">){</span>
+  <span class="n">sample</span> <span class="o">=</span> <span class="nf">rpois</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">lambda</span><span class="p">)</span>
+  <span class="n">emv_poisson[i]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">emv_poisson</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">emv_poisson</span><span class="p">),</span> <span class="m">0.1</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">emv_poisson</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lambda</span><span class="p">,</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">lambda</span><span class="o">/</span><span class="n">N</span><span class="p">)),</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;green&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="eficiencia-i-cota-de-cramer-rao">
 <h3><span class="section-number">4.2.4. </span>Eficiència i Cota de Cramer-Rao<a class="headerlink" href="#eficiencia-i-cota-de-cramer-rao" title="Permalink to this headline">¶</a></h3>
