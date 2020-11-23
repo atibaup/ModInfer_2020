@@ -15,9 +15,10 @@ una mostra i.i.d. d'una població:
 
 :math:`X_i \sim f_X(x;\theta), i=1,\cdots,N`
 
-on :math:`f_X` és la f.d.p. d'una família de distribucions
-i :math:`\theta` són els paràmetres de la mateixa (vector o escalar), també anomenats
-*paràmetres de la població*.
+on:
+
+* :math:`f_X` és la f.d.p. d'una família de distribucions i
+* :math:`\theta` són els paràmetres de la mateixa (vector o escalar), també anomenats *paràmetres de la població*.
 
 .. rst-class:: note
 
@@ -27,20 +28,39 @@ i :math:`\theta` són els paràmetres de la mateixa (vector o escalar), també a
 .. nextslide::
     :increment:
 
-En la mateixa classe vem veure un procediment heurístic
-per trobar :math:`\theta` donades les dades:
+Normalment se segueix la següent recepta:
 
-bla bla
+1. Explorar dades (estadístics descriptius, gràfics)
+2. Hipòtesi: Escollir familia (paramètrica) :math:`f_X(x;\theta)`
+3. Àjustar paràmetre :math:`\theta` segons algun criteri
+4. Comprovar l'hipòtesi: **bondat d'ajust** (Tema 4)
 
 .. rst-class:: note
 
-    Aquest procés de prova-i-error és ineficient i ens
+    A la darrera classe vem veure un exemple d'aplicació d'aquesta recepta
+    on el criteri d'ajust era **heurístic**: visualitzar l'histograma conjuntament
+    amb :math:`f_X(x;\theta)` per diversos valors de :math:`\theta`.
+
 
 .. nextslide::
     :increment:
 
-Tal i com vam veure a la primera classe, un mètode
-d'estimació molt versàtil és el de **Màxima Versemblança**.
+.. figure::  /_static/0_Intro/heuristic_fit.png
+    :height: 400px
+    :align: center
+
+
+.. rst-class:: note
+
+    Aquest procés de prova-i-error és (1) ineficient i (2) difícil de justificar
+    quantitativament
+
+.. nextslide::
+    :increment:
+
+Un altre mètode
+d'estimació molt versàtil i millor fonamentat
+és el de **Màxima Versemblança**.
 
 Per començar, definim la *log-versemblança*:
 
@@ -418,6 +438,7 @@ Aquest resultat implica:
 Mirem de desenvolupar una mica d'intuició sobre el significat de
 :math:`{I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
 
+1.
 
 .. nextslide:: Exemple d'aplicació: EMV d'una Poisson
 

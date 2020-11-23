@@ -48,17 +48,31 @@ vem veure un exemple de modelització estadística on
 partim d’un conjunt de dades que podem modelar com
 una mostra i.i.d. d’una població:</p>
 <p><span class="math notranslate nohighlight">\(X_i \sim f_X(x;\theta), i=1,\cdots,N\)</span></p>
-<p>on <span class="math notranslate nohighlight">\(f_X\)</span> és la f.d.p. d’una família de distribucions
-i <span class="math notranslate nohighlight">\(\theta\)</span> són els paràmetres de la mateixa (vector o escalar), també anomenats
-<em>paràmetres de la població</em>.</p>
+<p>on:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f_X\)</span> és la f.d.p. d’una família de distribucions i</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> són els paràmetres de la mateixa (vector o escalar), també anomenats <em>paràmetres de la població</em>.</p></li>
+</ul>
 <p class="note">El problema d’<em>estimació de paràmetres</em> o d’<em>ajust de la distribució</em> a partir de les dades
 consisteix en estimar <span class="math notranslate nohighlight">\(\theta\)</span> a partir de <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span>.</p>
-<p>En la mateixa classe vem veure un procediment heurístic
-per trobar <span class="math notranslate nohighlight">\(\theta\)</span> donades les dades:</p>
-<p>bla bla</p>
-<p class="note">Aquest procés de prova-i-error és ineficient i ens</p>
-<p>Tal i com vam veure a la primera classe, un mètode
-d’estimació molt versàtil és el de <strong>Màxima Versemblança</strong>.</p>
+<p>Normalment se segueix la següent recepta:</p>
+<ol class="arabic simple">
+<li><p>Explorar dades (estadístics descriptius, gràfics)</p></li>
+<li><p>Hipòtesi: Escollir familia (paramètrica) <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span></p></li>
+<li><p>Àjustar paràmetre <span class="math notranslate nohighlight">\(\theta\)</span> segons algun criteri</p></li>
+<li><p>Comprovar l’hipòtesi: <strong>bondat d’ajust</strong> (Tema 4)</p></li>
+</ol>
+<p class="note">A la darrera classe vem veure un exemple d’aplicació d’aquesta recepta
+on el criteri d’ajust era <strong>heurístic</strong>: visualitzar l’histograma conjuntament
+amb <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span> per diversos valors de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/heuristic_fit.png"><img alt="../_images/heuristic_fit.png" src="../_images/heuristic_fit.png" style="height: 400px;" /></a>
+</div>
+<p class="note">Aquest procés de prova-i-error és (1) ineficient i (2) difícil de justificar
+quantitativament</p>
+<p>Un altre mètode
+d’estimació molt versàtil i millor fonamentat
+és el de <strong>Màxima Versemblança</strong>.</p>
 <p>Per començar, definim la <em>log-versemblança</em>:</p>
 <div class="math notranslate nohighlight">
 \[L(\theta; x_1, \cdots, x_N) = \log \left(f_{X_1, \cdots, X_N}(x_1, \cdots, x_N; \theta) \right)\]</div>
@@ -281,6 +295,9 @@ Aquest resultat implica:</p>
 </ol>
 <p>Mirem de desenvolupar una mica d’intuició sobre el significat de
 <span class="math notranslate nohighlight">\({I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span></p>
+<ol class="arabic simple">
+<li></li>
+</ol>
 <p>Ara comprovarem computacionalment el resultat per un cas en particular,
 quan <span class="math notranslate nohighlight">\(X \sim \mbox{Poisson}(\lambda)\)</span>. Tenim que</p>
 <div class="math notranslate nohighlight">
