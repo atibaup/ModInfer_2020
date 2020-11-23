@@ -46,13 +46,13 @@ Normalment se segueix la següent recepta:
     :increment:
 
 .. figure::  /_static/0_Intro/heuristic_fit.png
-    :height: 400px
+    :height: 350px
     :align: center
 
 
 .. rst-class:: note
 
-    Aquest procés de prova-i-error és (1) ineficient i (2) difícil de justificar
+    Aquest procés heurístic de prova-i-error és (1) ineficient i (2) difícil de justificar
     quantitativament
 
 .. nextslide::
@@ -422,7 +422,7 @@ sense biaix!) i amb una variança que decreix amb N.
     **Teorema 3.3**: Sota algunes condicions de "suavitat" de
     :math:`f_X`, :math:`\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)`, on
     :math:`{I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
-    és la "matriu" d'Informació de Fisher.
+    és la ("matriu") d'Informació de Fisher.
 
 Abans de donar un esboç de la prova d'aquest resultat, mirem d'entendre'l.
 Aquest resultat implica:
