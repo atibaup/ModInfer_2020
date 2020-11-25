@@ -359,7 +359,8 @@ convergeix en probabilitat al paràmetre d'interès:
 
 .. rst-class:: note
 
-    **Teorema 3.2**: L'EMV és un estimador consistent.
+    **Teorema 3.2**: Sota algunes condicions de regularitat per :math:`f_X(x; \theta)`,
+    l'EMV és un estimador consistent.
 
 *"Demostració"*: Pel **Teorema 3.1** hem vist que
 :math:`\frac{1}{N}L(\theta; X_1, \cdots, X_N)  \to E(\log f_X(x; \theta))`
@@ -383,8 +384,9 @@ Fem-ho:
 
 .. rst-class:: note
 
-    Estem cometent bastants sacrilegis intercanviant l'ordre dels operadors integrals i diferencials...
-    però ens haurem de creure que és possible per la majoria de :math:`f_X` d'interès.
+    Estem cometent bastants sacrilegis intercanviant l'ordre dels operadors
+    integrals i diferencials sense donar explicacions... però ens haurem de
+    creure que és possible per la majoria de :math:`f_X` d'interès.
 
 .. nextslide::
     :increment:
@@ -398,37 +400,38 @@ Noteu que per :math:`\theta = \theta_0`, aquesta última expressió resulta:
     & = 0
 
 per tant :math:`\theta = \theta_0` és tal que :math:`\frac{\partial}{\partial \theta} E(\log f_X(x; \theta))=0`
-i si :math:`\log f_X(x; \theta)` és concava, n'és un màxim. Amb això
+i si :math:`E(\log f_X(x; \theta))` és concava, n'és un màxim. Amb això
 podem "concloure" que :math:`\hat{\theta}^N \to \theta_0`.
 
 
 Distribució asimptòtica de l'EMV
 ---------------------------------------
 
-Per ara hem vist que l'EMV té una propietat bona: quan el tamany
+Per ara hem vist que l'EMV té una propietat bona, la consistència: quan el tamany
 de la mostra augmenta, l'estimador convergeix al valor del
 paràmetre de la població.
 
-La caracterització asimptòtica de l'EMV no s'acaba aquí però... de fet,
-tot seguit veurem que la distribució de l'EMV és Gaussiana,
+La caracterització asimptòtica de l'EMV no s'acaba aquí: de fet,
+tot seguit veurem que **la distribució de l'EMV és Gaussiana,
 centrada en el paràmetre d'interès :math:`\theta_0` (asimptòticament
-sense biaix!) i amb una variança que decreix amb N.
+sense biaix!) i amb una variança que decreix amb N**.
+
 
 .. nextslide:: Distribució asimptòtica de l'EMV (2)
     :increment:
 
 .. rst-class:: note
 
-    **Teorema 3.3**: Sota algunes condicions de "suavitat" de
+    **Teorema 3.3**: Sota algunes condicions de regularitat de
     :math:`f_X`, :math:`\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)`, on
     :math:`{I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
-    és la ("matriu") d'Informació de Fisher.
+    és la ("matriu d'") Informació de Fisher.
 
 Abans de donar un esboç de la prova d'aquest resultat, mirem d'entendre'l.
 Aquest resultat implica:
 
-1. L'EMV és asimptòticament sense biaix.
-2. La seva variança és inversament proporcional a N, i per tant l'EMV és consistent
+1. L'EMV és **asimptòticament sense biaix**, :math:`\lim_{N \to \infty} E(\hat{\theta}^N - \theta_0) =0`.
+2. La seva variança és inversament proporcional a N, i per tant l'EMV és **consistent**
 3. Al límit, i independentment de la distribució de la mostra, **l'EMV es comporta com una Gaussiana!**
 4. La seva variança depèn d'aquesta quantitat un pèl esotèrica :math:`{I}(\theta)`...
 
@@ -483,12 +486,89 @@ Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \f
     hist(emv_poisson, 20, freq = F)
     lines(x, dnorm(x, lambda, sqrt(lambda/N)), col='green')
 
+.. image::  /_static/0_Intro/ex_asimptotic.png
+    :height: 250px
+    :align: center
+
 
 Eficiència i Cota de Cramer-Rao
 ---------------------------------------
 
+L'últim concepte teòric que considerarem en aquest tema
+és el de l'eficiència.
+
+En aquest curs no ho hem vist, però hi ha altres metodologies
+per obtenir estimadors com el `Mètode dels Moments <https://en.wikipedia.org/wiki/Method_of_moments_(statistics)>`_,
+els estimadors de `James-Stein <https://en.wikipedia.org/wiki/James%E2%80%93Stein_estimator>`_,
+o els `estimadors Bayesians <https://en.wikipedia.org/wiki/Bayes_estimator>`_.
+
+Per tant, per un mateix paràmetre, podem trobar-nos amb diferents
+"receptes" per construir-ne un estimador.
+
+
+.. rst-class:: note
+
+    La pregunta que ens ocupa és: Donats diferents estimadors d'un mateix paràmetre, com n'escollim el millor?
+
+
+.. nextslide::
+    :increment:
+
+La resposta a aquesta pregunta és: "depèn".
+
+Dependrà del que volguem
+fer a posteriori amb aquest estimador, però un criteri bastant acceptat
+és el de comparar-los segons el seu Error Quadràtic Mitjà (denominat MSE per les sigles en anglès), que
+com sabem es pot descomposar com la suma de la Variança de l'Estimador
+i del quadrat del seu biaix:
+
+.. math::
+
+    \mbox{MSE}(\hat{\theta}) & = E(\hat{\theta}^N - \theta_0)^2 \\
+                             & = \mbox{Var}(\hat{\theta}) + b(\hat{\theta})^2
+
+Si ens restringim a estimadors sense biaix, comparar-ne l'MSE és
+equivalent a comparar-ne les variànces, cosa que dona lloc a la definició
+d'eficiència:
+
+.. rst-class:: note
+
+    Un estimador sense biaix és **eficient** si té menys o igual variança que
+    qualsevol altre estimador
+
+.. nextslide::
+    :increment:
+
+Aquesta definició no és massa constructiva: per trobar l'estimador eficient,
+hauriem de construïr tots els estimadors possibles (infinits!), calcular-ne
+la variança, i finalment escollir el que en té menys.
+
+Per sort, un dels resultats més importants de l'estadística,
+desenvolupat als anys 40 del s. XX per Harald Crámer i C.R. Rao,
+ens diu:
+
+.. rst-class:: note
+
+    Teorema 3.4: Sigui X1, .., XN una mostra iid amb X ~ f_X. bla bla
+
+
+.. nextslide:: Interpretació de la cota de Crámer-Rao
+    :increment:
+
+aaa
+
+.. nextslide:: Derivació de la cota de Crámer-Rao
+    :increment:
+
+
+bbb
+
 Intervals de confiança per EMVs
 =================================================
+
+Intervals exactes
+---------------------------------------
+
 
 Intervals asimptòtics
 ---------------------------------------

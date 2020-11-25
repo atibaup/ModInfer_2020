@@ -247,7 +247,8 @@ que el tamany de la mostra augmenta, l’estimador
 convergeix en probabilitat al paràmetre d’interès:</p>
 <div class="math notranslate nohighlight">
 \[\lim_{N\to \infty} P(|\hat{\theta}^N - \theta_0|&gt;\epsilon) = 0\]</div>
-<p class="note"><strong>Teorema 3.2</strong>: L’EMV és un estimador consistent.</p>
+<p class="note"><strong>Teorema 3.2</strong>: Sota algunes condicions de regularitat per <span class="math notranslate nohighlight">\(f_X(x; \theta)\)</span>,
+l’EMV és un estimador consistent.</p>
 <p><em>“Demostració”</em>: Pel <strong>Teorema 3.1</strong> hem vist que
 <span class="math notranslate nohighlight">\(\frac{1}{N}L(\theta; X_1, \cdots, X_N)  \to E(\log f_X(x; \theta))\)</span>
 en probabilitat. No podrem demostrar-ho en aquest curs,
@@ -261,35 +262,36 @@ Fem-ho:</p>
 \[\begin{split}\frac{\partial}{\partial \theta} E(\log f_X(x; \theta)) &amp; = \frac{\partial}{\partial \theta} \int_x  \log f(x; \theta) f(x; \theta_0) dx \\
 &amp; =  \int_x  \frac{\partial}{\partial \theta}\log f(x; \theta) f(x; \theta_0) dx \\
 &amp; = \int_x  \frac{1}{f(x; \theta)} \frac{\partial}{\partial \theta} f(x; \theta) f(x; \theta_0) dx\end{split}\]</div>
-<p class="note">Estem cometent bastants sacrilegis intercanviant l’ordre dels operadors integrals i diferencials…
-però ens haurem de creure que és possible per la majoria de <span class="math notranslate nohighlight">\(f_X\)</span> d’interès.</p>
+<p class="note">Estem cometent bastants sacrilegis intercanviant l’ordre dels operadors
+integrals i diferencials sense donar explicacions… però ens haurem de
+creure que és possible per la majoria de <span class="math notranslate nohighlight">\(f_X\)</span> d’interès.</p>
 <p>Noteu que per <span class="math notranslate nohighlight">\(\theta = \theta_0\)</span>, aquesta última expressió resulta:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\int_x  \frac{1}{f(x; \theta_0)} \left.\frac{\partial}{\partial \theta} f(x; \theta) \right|_{\theta=\theta_0} f(x; \theta_0) dx &amp; =  \int_x  \left. \frac{\partial}{\partial \theta} f(x; \theta_0) \right|_{\theta=\theta_0} dx\\
 &amp; =  \frac{\partial}{\partial \theta} \int_x   f(x; \theta_0)dx \\
 &amp; = 0\end{split}\]</div>
 <p>per tant <span class="math notranslate nohighlight">\(\theta = \theta_0\)</span> és tal que <span class="math notranslate nohighlight">\(\frac{\partial}{\partial \theta} E(\log f_X(x; \theta))=0\)</span>
-i si <span class="math notranslate nohighlight">\(\log f_X(x; \theta)\)</span> és concava, n’és un màxim. Amb això
+i si <span class="math notranslate nohighlight">\(E(\log f_X(x; \theta))\)</span> és concava, n’és un màxim. Amb això
 podem “concloure” que <span class="math notranslate nohighlight">\(\hat{\theta}^N \to \theta_0\)</span>.</p>
 </div>
 <div class="section" id="distribucio-asimptotica-de-l-emv">
 <h3><span class="section-number">4.2.3. </span>Distribució asimptòtica de l’EMV<a class="headerlink" href="#distribucio-asimptotica-de-l-emv" title="Permalink to this headline">¶</a></h3>
-<p>Per ara hem vist que l’EMV té una propietat bona: quan el tamany
+<p>Per ara hem vist que l’EMV té una propietat bona, la consistència: quan el tamany
 de la mostra augmenta, l’estimador convergeix al valor del
 paràmetre de la població.</p>
-<p>La caracterització asimptòtica de l’EMV no s’acaba aquí però… de fet,
-tot seguit veurem que la distribució de l’EMV és Gaussiana,
-centrada en el paràmetre d’interès <span class="math notranslate nohighlight">\(\theta_0\)</span> (asimptòticament
-sense biaix!) i amb una variança que decreix amb N.</p>
-<p class="note"><strong>Teorema 3.3</strong>: Sota algunes condicions de “suavitat” de
+<p>La caracterització asimptòtica de l’EMV no s’acaba aquí: de fet,
+tot seguit veurem que <strong>la distribució de l’EMV és Gaussiana,
+centrada en el paràmetre d’interès :math:`theta_0` (asimptòticament
+sense biaix!) i amb una variança que decreix amb N</strong>.</p>
+<p class="note"><strong>Teorema 3.3</strong>: Sota algunes condicions de regularitat de
 <span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)\)</span>, on
 <span class="math notranslate nohighlight">\({I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span>
-és la (“matriu”) d’Informació de Fisher.</p>
+és la (“matriu d’”) Informació de Fisher.</p>
 <p>Abans de donar un esboç de la prova d’aquest resultat, mirem d’entendre’l.
 Aquest resultat implica:</p>
 <ol class="arabic simple">
-<li><p>L’EMV és asimptòticament sense biaix.</p></li>
-<li><p>La seva variança és inversament proporcional a N, i per tant l’EMV és consistent</p></li>
+<li><p>L’EMV és <strong>asimptòticament sense biaix</strong>, <span class="math notranslate nohighlight">\(\lim_{N \to \infty} E(\hat{\theta}^N - \theta_0) =0\)</span>.</p></li>
+<li><p>La seva variança és inversament proporcional a N, i per tant l’EMV és <strong>consistent</strong></p></li>
 <li><p>Al límit, i independentment de la distribució de la mostra, <strong>l’EMV es comporta com una Gaussiana!</strong></p></li>
 <li><p>La seva variança depèn d’aquesta quantitat un pèl esotèrica <span class="math notranslate nohighlight">\({I}(\theta)\)</span>…</p></li>
 </ol>
@@ -325,18 +327,54 @@ iid de Poisson és simplement el moment mostral (Exercici!):</p>
 <span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lambda</span><span class="p">,</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">lambda</span><span class="o">/</span><span class="n">N</span><span class="p">)),</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;green&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/ex_asimptotic.png"><img alt="../_images/ex_asimptotic.png" class="align-center" src="../_images/ex_asimptotic.png" style="height: 250px;" /></a>
 </div>
 <div class="section" id="eficiencia-i-cota-de-cramer-rao">
 <h3><span class="section-number">4.2.4. </span>Eficiència i Cota de Cramer-Rao<a class="headerlink" href="#eficiencia-i-cota-de-cramer-rao" title="Permalink to this headline">¶</a></h3>
+<p>L’últim concepte teòric que considerarem en aquest tema
+és el de l’eficiència.</p>
+<p>En aquest curs no ho hem vist, però hi ha altres metodologies
+per obtenir estimadors com el <a class="reference external" href="https://en.wikipedia.org/wiki/Method_of_moments_(statistics)">Mètode dels Moments</a>,
+els estimadors de <a class="reference external" href="https://en.wikipedia.org/wiki/James%E2%80%93Stein_estimator">James-Stein</a>,
+o els <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes_estimator">estimadors Bayesians</a>.</p>
+<p>Per tant, per un mateix paràmetre, podem trobar-nos amb diferents
+“receptes” per construir-ne un estimador.</p>
+<p class="note">La pregunta que ens ocupa és: Donats diferents estimadors d’un mateix paràmetre, com n’escollim el millor?</p>
+<p>La resposta a aquesta pregunta és: “depèn”.</p>
+<p>Dependrà del que volguem
+fer a posteriori amb aquest estimador, però un criteri bastant acceptat
+és el de comparar-los segons el seu Error Quadràtic Mitjà (denominat MSE per les sigles en anglès), que
+com sabem es pot descomposar com la suma de la Variança de l’Estimador
+i del quadrat del seu biaix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mbox{MSE}(\hat{\theta}) &amp; = E(\hat{\theta}^N - \theta_0)^2 \\
+                         &amp; = \mbox{Var}(\hat{\theta}) + b(\hat{\theta})^2\end{split}\]</div>
+<p>Si ens restringim a estimadors sense biaix, comparar-ne l’MSE és
+equivalent a comparar-ne les variànces, cosa que dona lloc a la definició
+d’eficiència:</p>
+<p class="note">Un estimador sense biaix és <strong>eficient</strong> si té menys o igual variança que
+qualsevol altre estimador</p>
+<p>Aquesta definició no és massa constructiva: per trobar l’estimador eficient,
+hauriem de construïr tots els estimadors possibles (infinits!), calcular-ne
+la variança, i finalment escollir el que en té menys.</p>
+<p>Per sort, un dels resultats més importants de l’estadística,
+desenvolupat als anys 40 del s. XX per Harald Crámer i C.R. Rao,
+ens diu:</p>
+<p class="note">Teorema 3.4: Sigui X1, .., XN una mostra iid amb X ~ f_X. bla bla</p>
+<p>aaa</p>
+<p>bbb</p>
 </div>
 </div>
 <div class="section" id="intervals-de-confianca-per-emvs">
 <h2><span class="section-number">4.3. </span>Intervals de confiança per EMVs<a class="headerlink" href="#intervals-de-confianca-per-emvs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="intervals-exactes">
+<h3><span class="section-number">4.3.1. </span>Intervals exactes<a class="headerlink" href="#intervals-exactes" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="intervals-asimptotics">
-<h3><span class="section-number">4.3.1. </span>Intervals asimptòtics<a class="headerlink" href="#intervals-asimptotics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Intervals asimptòtics<a class="headerlink" href="#intervals-asimptotics" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="bootstrap-parametric">
-<h3><span class="section-number">4.3.2. </span>Bootstrap paramètric<a class="headerlink" href="#bootstrap-parametric" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.3. </span>Bootstrap paramètric<a class="headerlink" href="#bootstrap-parametric" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -366,8 +404,9 @@ iid de Poisson és simplement el moment mostral (Exercici!):</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#intervals-de-confianca-per-emvs">4.3. Intervals de confiança per EMVs</a><ul>
-<li><a class="reference internal" href="#intervals-asimptotics">4.3.1. Intervals asimptòtics</a></li>
-<li><a class="reference internal" href="#bootstrap-parametric">4.3.2. Bootstrap paramètric</a></li>
+<li><a class="reference internal" href="#intervals-exactes">4.3.1. Intervals exactes</a></li>
+<li><a class="reference internal" href="#intervals-asimptotics">4.3.2. Intervals asimptòtics</a></li>
+<li><a class="reference internal" href="#bootstrap-parametric">4.3.3. Bootstrap paramètric</a></li>
 </ul>
 </li>
 </ul>
