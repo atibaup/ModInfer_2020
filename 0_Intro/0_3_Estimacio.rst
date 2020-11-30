@@ -413,7 +413,7 @@ paràmetre de la població.
 
 La caracterització asimptòtica de l'EMV no s'acaba aquí: de fet,
 tot seguit veurem que **la distribució de l'EMV és Gaussiana,
-centrada en el paràmetre d'interès :math:`\theta_0` (asimptòticament
+centrada en el paràmetre d'interès** :math:`\theta_0` **(asimptòticament
 sense biaix!) i amb una variança que decreix amb N**.
 
 
@@ -425,28 +425,20 @@ sense biaix!) i amb una variança que decreix amb N**.
     **Teorema 3.3**: Sota algunes condicions de regularitat de
     :math:`f_X`, :math:`\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)`, on
     :math:`{I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
-    és la ("matriu d'") Informació de Fisher.
+    és la **Informació de Fisher**.
 
 Abans de donar un esboç de la prova d'aquest resultat, mirem d'entendre'l.
 Aquest resultat implica:
 
 1. L'EMV és **asimptòticament sense biaix**, :math:`\lim_{N \to \infty} E(\hat{\theta}^N - \theta_0) =0`.
-2. La seva variança és inversament proporcional a N, i per tant l'EMV és **consistent**
+2. La seva **variança asimptòtica** és inversament proporcional a N, i per tant l'EMV és **consistent**
 3. Al límit, i independentment de la distribució de la mostra, **l'EMV es comporta com una Gaussiana!**
-4. La seva variança depèn d'aquesta quantitat un pèl esotèrica :math:`{I}(\theta)`...
-
-.. nextslide:: Distribució asimptòtica de l'EMV (3)
-    :increment:
-
-Mirem de desenvolupar una mica d'intuició sobre el significat de
-:math:`{I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)`
-
-1.
+4. La **variança asimptòtica** depèn d'aquesta quantitat un pèl esotèrica :math:`{I}(\theta)`...
 
 .. nextslide:: Exemple d'aplicació: EMV d'una Poisson
 
 Ara comprovarem computacionalment el resultat per un cas en particular,
-quan :math:`X \sim \mbox{Poisson}(\lambda)`. Tenim que
+quan :math:`X \sim \mbox{Poisson}(\lambda_0)`. Tenim que
 
 .. math::
 
@@ -458,14 +450,14 @@ i per tant:
 
    \frac{\partial^2}{\partial \theta^2} \log f_X(x;\lambda) = -\frac{x}{\lambda^2}
 
-aleshores: :math:`{I}(\theta)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}`.
+aleshores: :math:`{I}(\lambda)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}`.
 
 Per altra banda, l'EMV d'una mostra
 iid de Poisson és simplement el moment mostral (Exercici!):
 
 :math:`\hat{\lambda}^N = \bar{x}`
 
-Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})`
+Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda_0}{N})`
 
 .. nextslide::
     :increment:
@@ -490,6 +482,149 @@ Per tant, asimptòticament: :math:`\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \f
     :height: 250px
     :align: center
 
+Justificació de la distribució asimptòtica de l'EMV
+-----------------------------------------------------
+
+Ara procedirem a justificar el Teorema 3.3, sense arribar a provar-lo, cosa
+que requeriria tècniques molt més avançades que les d'aquest curs.
+
+Primer de tot, alleugerirem la notació establint, com ja hem fet servir
+en exemples anteriors:
+
+:math:`L(\theta) := L( \theta; x_1, \cdots, x_m)`
+
+Imaginem-nos una :math:`L(\theta)` "simpàtica" al voltant de :math:`\theta_0`:
+
+.. image::  /_static/0_Intro/likelihood_ex.png
+    :height: 300px
+    :align: center
+
+.. nextslide::
+    :increment:
+
+Recordeu de càlcul que l'expansió de Taylor de segon ordre d'una funció "suau"
+:math:`f(x)` al voltant d'un punt :math:`x_0` és:
+
+.. math::
+
+    f(x) \approx f(x_0) + (x - x_0) f'(x_0)
+
+Aleshores suposant que :math:`L'(\theta)` és "suau", tindrem que:
+
+.. math::
+
+    L'(\theta) \approx L'(\theta_0) + (x - x_0) L''(\theta_0)
+
+i per tant, per :math:`\hat{\theta}` que maximitza :math:`L(\theta)`,
+haurà de verificar la condició d'optimalitat:
+
+.. math::
+
+    0 = L'(\hat{\theta}) \approx L'(\theta_0) + (\hat{\theta} - \theta_0) L''(\theta_0)
+
+Cosa que ens permet concloure que:
+
+.. math::
+
+    (\theta - \theta_0) \approx \frac{L'(\theta_0)}{L''(\theta_0)}
+
+.. nextslide:: Justificació de la distribució asimptòtica de l'EMV (3)
+    :increment:
+
+Gràficament:
+
+.. figure::  /_static/0_Intro/likelihood_ex_2.png
+    :height: 500px
+    :align: center
+
+.. nextslide::  Justificació de la distribució asimptòtica de l'EMV (4)
+    :increment:
+
+.. figure::  /_static/0_Intro/likelihood_ex_3.png
+    :height: 500px
+    :align: center
+
+.. nextslide::  Justificació de la distribució asimptòtica de l'EMV (5)
+    :increment:
+
+Abans de continuar, farem un petit escalat de la darrera equació:
+
+.. math::
+
+    \sqrt{N}(\theta - \theta_0) \approx \frac{\frac{1}{\sqrt{N}} L'(\theta_0)}{ \frac{1}{N} L''(\theta_0)}
+
+Ara, fixem-nos que en el cas iid, el numerador:
+
+.. math::
+
+    \frac{1}{\sqrt{N}} L'(\theta_0) =\frac{1}{\sqrt{N}} \sum_{i=1}^{N} \frac{\partial}{\partial \theta} \log f_X(x_i;\theta_0)
+
+és una suma de v.a. iid (:math:`\log f_X(x_i;\theta_0)`) amb mitja 0, per la raó que hem vist
+en el Teorema 3.1, i variança:
+
+.. math::
+
+    \mbox{Var}(\frac{1}{\sqrt{N}} L'(\theta_0)) =E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2
+
+per propietats de la variança de la suma de v.a. iid.
+
+.. nextslide::  Justificació de la distribució asimptòtica de l'EMV (6)
+    :increment:
+
+Per continuar, necessitarem un resultat auxiliar:
+
+.. rst-class:: note
+
+    Lema 3.4: Sota algunes condicions de regularitat de
+    :math:`f_X`, :math:`E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta_0)) = I(\theta)`
+
+*Justificació*: Com que :math:`\int f_X(x;\theta)dx = 1`,
+
+.. math::
+
+    0 & = \frac{\partial}{\partial \theta} \int f_X(x;\theta)dx = \int  \frac{\partial}{\partial \theta} f_X(x;\theta) dx\\
+    0 & = \int  (\frac{\partial}{\partial \theta} \log f_X(X;\theta))  f_X(x;\theta) dx = \frac{\partial}{\partial \theta} \int  (\frac{\partial}{\partial \theta} \log f_X(X;\theta))  f_X(x;\theta) dx \\
+    0 & = \int  (\frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta))  f_X(x;\theta)dx + \\
+      & + \int (\frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 f_X(x;\theta)dx
+
+.. nextslide::  Justificació de la distribució asimptòtica de l'EMV (7)
+    :increment:
+
+Combinant aquest últim resultat amb l'aplicació del TLC, podem concloure que
+
+.. math::
+
+    \frac{1}{\sqrt{N}} L'(\theta_0) \Rightarrow \mathcal{N}(0, I(\theta_0))
+
+Per altra banda, pel denominador tenim:
+
+.. math::
+
+     \frac{1}{N} L''(\theta) = \frac{1}{N} \sum_i \frac{\partial^2}{\partial \theta^2} \log f_X(x_i;\theta)
+
+que, per la Llei dels Grans Nombres:
+
+.. math::
+
+     \frac{1}{N} L''(\theta) \to E(\frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)) = -I(\theta)
+
+.. nextslide::  Justificació de la distribució asimptòtica de l'EMV (8)
+    :increment:
+
+Combinant aquests dos resultats, veiem que
+
+.. math::
+
+    \frac{\frac{1}{\sqrt{N}} L'(\theta_0)}{ \frac{1}{N} L''(\theta_0)} \Rightarrow  \mathcal{N}(0, I^{-1}(\theta_0))
+
+que és el resultat que buscàvem justificar.
+
+**Interpretació de la Informació de Fisher** (:math:`I(\theta)`):
+
+* Fixeu-vos que  :math:`L''(\theta_0)` és asimptòticament proporcional a :math:`I(\theta)`
+* :math:`L''(\theta_0)` mesura la corvatura de :math:`L(\theta)` al voltant de :math:`\theta_0`
+* Quan més corbatura, menys variança, quan més "plana" més variança.
+* => La "forma" de la nostra distribució determina la variança asimptòtica de l'estimador
 
 Eficiència i Cota de Cramer-Rao
 ---------------------------------------
@@ -549,19 +684,17 @@ ens diu:
 
 .. rst-class:: note
 
-    Teorema 3.4: Sigui X1, .., XN una mostra iid amb X ~ f_X. bla bla
+    **Teorema 3.5**: Sigui :math:`X_1, \cdots, X_N` una mostra iid
+    amb :math:`X \sim f_X(x;\theta_0)` i :math:`\tilde{\theta}` un estimador
+    sense biaix de :math:`\theta_0`. Aleshores, sota certes condicions
+    de regularitat de :math:`f_X(x;\theta)`,
+    :math:`\mbox{Var}(\tilde{\theta}) \geq \frac{1}{N I(\theta_0)}`.
+
+Fixeu-vos-hi que per tant, **l'EMV és asimptòticament eficient**
+ja que :math:`\mbox{Var}(\hat{\theta}) \to \frac{1}{N I(\theta_0)}`.
 
 
-.. nextslide:: Interpretació de la cota de Crámer-Rao
-    :increment:
 
-aaa
-
-.. nextslide:: Derivació de la cota de Crámer-Rao
-    :increment:
-
-
-bbb
 
 Intervals de confiança per EMVs
 =================================================
