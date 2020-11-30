@@ -585,7 +585,7 @@ de la mostra augmenta, l’estimador convergeix al valor del
 paràmetre de la població.</p>
 <p>La caracterització asimptòtica de l’EMV no s’acaba aquí: de fet,
 tot seguit veurem que <strong>la distribució de l’EMV és Gaussiana,
-centrada en el paràmetre d’interès :math:`theta_0` (asimptòticament
+centrada en el paràmetre d’interès</strong> <span class="math notranslate nohighlight">\(\theta_0\)</span> <strong>(asimptòticament
 sense biaix!) i amb una variança que decreix amb N</strong>.</p>
 
 
@@ -603,14 +603,14 @@ sense biaix!) i amb una variança que decreix amb N</strong>.</p>
 <p class="note"><strong>Teorema 3.3</strong>: Sota algunes condicions de regularitat de
 <span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(\sqrt{N {I}(\theta_0)}(\hat{\theta}^N - \theta_0) \Rightarrow \mathcal{N}(0, 1)\)</span>, on
 <span class="math notranslate nohighlight">\({I}(\theta) = - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span>
-és la (“matriu d’”) Informació de Fisher.</p>
+és la <strong>Informació de Fisher</strong>.</p>
 <p>Abans de donar un esboç de la prova d’aquest resultat, mirem d’entendre’l.
 Aquest resultat implica:</p>
 <ol class="arabic simple">
 <li>L’EMV és <strong>asimptòticament sense biaix</strong>, <span class="math notranslate nohighlight">\(\lim_{N \to \infty} E(\hat{\theta}^N - \theta_0) =0\)</span>.</li>
-<li>La seva variança és inversament proporcional a N, i per tant l’EMV és <strong>consistent</strong></li>
+<li>La seva <strong>variança asimptòtica</strong> és inversament proporcional a N, i per tant l’EMV és <strong>consistent</strong></li>
 <li>Al límit, i independentment de la distribució de la mostra, <strong>l’EMV es comporta com una Gaussiana!</strong></li>
-<li>La seva variança depèn d’aquesta quantitat un pèl esotèrica <span class="math notranslate nohighlight">\({I}(\theta)\)</span>…</li>
+<li>La <strong>variança asimptòtica</strong> depèn d’aquesta quantitat un pèl esotèrica <span class="math notranslate nohighlight">\({I}(\theta)\)</span>…</li>
 </ol>
 
 
@@ -623,13 +623,20 @@ Aquest resultat implica:</p>
 </article>
 <article class="slide level-3" id="id17">
 
-<h3>Distribució asimptòtica de l’EMV (3)</h3>
+<h3>Exemple d’aplicació: EMV d’una Poisson</h3>
 
-<p>Mirem de desenvolupar una mica d’intuició sobre el significat de
-<span class="math notranslate nohighlight">\({I}(\theta)= - E\left(\frac{\partial^2}{\partial \theta^2}\log f(X; \theta) \right)\)</span></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
+<p>Ara comprovarem computacionalment el resultat per un cas en particular,
+quan <span class="math notranslate nohighlight">\(X \sim \mbox{Poisson}(\lambda_0)\)</span>. Tenim que</p>
+<div class="math notranslate nohighlight">
+\[\log f_X(x;\lambda) = x\log \lambda - \lambda - \log x!\]</div>
+<p>i per tant:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2}{\partial \theta^2} \log f_X(x;\lambda) = -\frac{x}{\lambda^2}\]</div>
+<p>aleshores: <span class="math notranslate nohighlight">\({I}(\lambda)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}\)</span>.</p>
+<p>Per altra banda, l’EMV d’una mostra
+iid de Poisson és simplement el moment mostral (Exercici!):</p>
+<p><span class="math notranslate nohighlight">\(\hat{\lambda}^N = \bar{x}\)</span></p>
+<p>Per tant, asimptòticament: <span class="math notranslate nohighlight">\(\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda_0}{N})\)</span></p>
 
 
 
@@ -641,32 +648,7 @@ Aquest resultat implica:</p>
 </article>
 <article class="slide level-3" id="id18">
 
-<h3>Exemple d’aplicació: EMV d’una Poisson</h3>
-
-<p>Ara comprovarem computacionalment el resultat per un cas en particular,
-quan <span class="math notranslate nohighlight">\(X \sim \mbox{Poisson}(\lambda)\)</span>. Tenim que</p>
-<div class="math notranslate nohighlight">
-\[\log f_X(x;\lambda) = x\log \lambda - \lambda - \log x!\]</div>
-<p>i per tant:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial^2}{\partial \theta^2} \log f_X(x;\lambda) = -\frac{x}{\lambda^2}\]</div>
-<p>aleshores: <span class="math notranslate nohighlight">\({I}(\theta)= - E\left(-\frac{X}{\lambda^2} \right)=\frac{1}{\lambda}\)</span>.</p>
-<p>Per altra banda, l’EMV d’una mostra
-iid de Poisson és simplement el moment mostral (Exercici!):</p>
-<p><span class="math notranslate nohighlight">\(\hat{\lambda}^N = \bar{x}\)</span></p>
-<p>Per tant, asimptòticament: <span class="math notranslate nohighlight">\(\hat{\lambda}^N \sim \mathcal{N}(\theta_0, \frac{\lambda}{N})\)</span></p>
-
-
-
-<div class="slide-no">28</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="slide level-3" id="id19">
-
-<h3>Distribució asimptòtica de l’EMV (5)</h3>
+<h3>Distribució asimptòtica de l’EMV (4)</h3>
 
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="m">100</span> <span class="c1"># Tamany de cada mostra</span>
 <span class="n">n</span> <span class="o">=</span> <span class="m">1000</span> <span class="c1"># Nombre de repeticions</span>
@@ -687,7 +669,179 @@ iid de Poisson és simplement el moment mostral (Exercici!):</p>
 
 
 
+<div class="slide-no">28</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="justificacio-de-la-distribucio-asimptotica-de-l-emv">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV</h3>
+
+<p>Ara procedirem a justificar el Teorema 3.3, sense arribar a provar-lo, cosa
+que requeriria tècniques molt més avançades que les d’aquest curs.</p>
+<p>Primer de tot, alleugerirem la notació establint, com ja hem fet servir
+en exemples anteriors:</p>
+<p><span class="math notranslate nohighlight">\(L(\theta) := L( \theta; x_1, \cdots, x_m)\)</span></p>
+<p>Imaginem-nos una <span class="math notranslate nohighlight">\(L(\theta)\)</span> “simpàtica” al voltant de <span class="math notranslate nohighlight">\(\theta_0\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/likelihood_ex.png"><img alt="../_images/likelihood_ex.png" class="align-center" src="../_images/likelihood_ex.png" style="height: 300px;" /></a>
+
+
+
 <div class="slide-no">29</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id19">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (2)</h3>
+
+<p>Recordeu de càlcul que l’expansió de Taylor de segon ordre d’una funció “suau”
+<span class="math notranslate nohighlight">\(f(x)\)</span> al voltant d’un punt <span class="math notranslate nohighlight">\(x_0\)</span> és:</p>
+<div class="math notranslate nohighlight">
+\[f(x) \approx f(x_0) + (x - x_0) f'(x_0)\]</div>
+<p>Aleshores suposant que <span class="math notranslate nohighlight">\(L'(\theta)\)</span> és “suau”, tindrem que:</p>
+<div class="math notranslate nohighlight">
+\[L'(\theta) \approx L'(\theta_0) + (x - x_0) L''(\theta_0)\]</div>
+<p>i per tant, per <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> que maximitza <span class="math notranslate nohighlight">\(L(\theta)\)</span>,
+haurà de verificar la condició d’optimalitat:</p>
+<div class="math notranslate nohighlight">
+\[0 = L'(\hat{\theta}) \approx L'(\theta_0) + (\hat{\theta} - \theta_0) L''(\theta_0)\]</div>
+<p>Cosa que ens permet concloure que:</p>
+<div class="math notranslate nohighlight">
+\[(\theta - \theta_0) \approx \frac{L'(\theta_0)}{L''(\theta_0)}\]</div>
+
+
+
+<div class="slide-no">30</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id20">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (3)</h3>
+
+<p>Gràficament:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/likelihood_ex_2.png"><img alt="../_images/likelihood_ex_2.png" src="../_images/likelihood_ex_2.png" style="height: 500px;" /></a>
+</div>
+
+
+
+<div class="slide-no">31</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id21">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (4)</h3>
+
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/likelihood_ex_3.png"><img alt="../_images/likelihood_ex_3.png" src="../_images/likelihood_ex_3.png" style="height: 500px;" /></a>
+</div>
+
+
+
+<div class="slide-no">32</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id22">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (5)</h3>
+
+<p>Abans de continuar, farem un petit escalat de la darrera equació:</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{N}(\theta - \theta_0) \approx \frac{\frac{1}{\sqrt{N}} L'(\theta_0)}{ \frac{1}{N} L''(\theta_0)}\]</div>
+<p>Ara, fixem-nos que en el cas iid, el numerador:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sqrt{N}} L'(\theta_0) =\frac{1}{\sqrt{N}} \sum_{i=1}^{N} \frac{\partial}{\partial \theta} \log f_X(x_i;\theta_0)\]</div>
+<p>és una suma de v.a. iid (<span class="math notranslate nohighlight">\(\log f_X(x_i;\theta_0)\)</span>) amb mitja 0, per la raó que hem vist
+en el Teorema 3.1, i variança:</p>
+<div class="math notranslate nohighlight">
+\[\mbox{Var}(\frac{1}{\sqrt{N}} L'(\theta_0)) =E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2\]</div>
+<p>per propietats de la variança de la suma de v.a. iid.</p>
+
+
+
+<div class="slide-no">33</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id23">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (6)</h3>
+
+<p>Per continuar, necessitarem un resultat auxiliar:</p>
+<p class="note">Lema 3.4: Sota algunes condicions de regularitat de
+<span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta_0)) = I(\theta)\)</span></p>
+<p><em>Justificació</em>: Com que <span class="math notranslate nohighlight">\(\int f_X(x;\theta)dx = 1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0 &amp; = \frac{\partial}{\partial \theta} \int f_X(x;\theta)dx = \int  \frac{\partial}{\partial \theta} f_X(x;\theta) dx\\
+0 &amp; = \int  (\frac{\partial}{\partial \theta} \log f_X(X;\theta))  f_X(x;\theta) dx = \frac{\partial}{\partial \theta} \int  (\frac{\partial}{\partial \theta} \log f_X(X;\theta))  f_X(x;\theta) dx \\
+0 &amp; = \int  (\frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta))  f_X(x;\theta)dx + \\
+  &amp; + \int (\frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 f_X(x;\theta)dx\end{split}\]</div>
+
+
+
+<div class="slide-no">34</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id24">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (7)</h3>
+
+<p>Combinant aquest últim resultat amb l’aplicació del TLC, podem concloure que</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sqrt{N}} L'(\theta_0) \Rightarrow \mathcal{N}(0, I(\theta_0))\]</div>
+<p>Per altra banda, pel denominador tenim:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{N} L''(\theta) = \frac{1}{N} \sum_i \frac{\partial^2}{\partial \theta^2} \log f_X(x_i;\theta)\]</div>
+<p>que, per la Llei dels Grans Nombres:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{N} L''(\theta) \to E(\frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)) = -I(\theta)\]</div>
+
+
+
+<div class="slide-no">35</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id25">
+
+<h3>Justificació de la distribució asimptòtica de l’EMV (8)</h3>
+
+<p>Combinant aquests dos resultats, veiem que</p>
+<div class="math notranslate nohighlight">
+\[\frac{\frac{1}{\sqrt{N}} L'(\theta_0)}{ \frac{1}{N} L''(\theta_0)} \Rightarrow  \mathcal{N}(0, I^{-1}(\theta_0))\]</div>
+<p>que és el resultat que buscàvem justificar.</p>
+<p><strong>Interpretació de la Informació de Fisher</strong> (<span class="math notranslate nohighlight">\(I(\theta)\)</span>):</p>
+<ul class="simple">
+<li>Fixeu-vos que  <span class="math notranslate nohighlight">\(L''(\theta_0)\)</span> és asimptòticament proporcional a <span class="math notranslate nohighlight">\(I(\theta)\)</span></li>
+<li><span class="math notranslate nohighlight">\(L''(\theta_0)\)</span> mesura la corvatura de <span class="math notranslate nohighlight">\(L(\theta)\)</span> al voltant de <span class="math notranslate nohighlight">\(\theta_0\)</span></li>
+<li>Quan més corbatura, menys variança, quan més “plana” més variança.</li>
+<li>=&gt; La “forma” de la nostra distribució determina la variança asimptòtica de l’estimador</li>
+</ul>
+
+
+
+<div class="slide-no">36</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -709,13 +863,13 @@ o els <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes_es
 
 
 
-<div class="slide-no">30</div>
+<div class="slide-no">37</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id20">
+<article class="slide level-3" id="id26">
 
 <h3>Eficiència i Cota de Cramer-Rao (2)</h3>
 
@@ -736,13 +890,13 @@ qualsevol altre estimador</p>
 
 
 
-<div class="slide-no">31</div>
+<div class="slide-no">38</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id21">
+<article class="slide level-3" id="id27">
 
 <h3>Eficiència i Cota de Cramer-Rao (3)</h3>
 
@@ -752,39 +906,17 @@ la variança, i finalment escollir el que en té menys.</p>
 <p>Per sort, un dels resultats més importants de l’estadística,
 desenvolupat als anys 40 del s. XX per Harald Crámer i C.R. Rao,
 ens diu:</p>
-<p class="note">Teorema 3.4: Sigui X1, .., XN una mostra iid amb X ~ f_X. bla bla</p>
+<p class="note"><strong>Teorema 3.5</strong>: Sigui <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> una mostra iid
+amb <span class="math notranslate nohighlight">\(X \sim f_X(x;\theta_0)\)</span> i <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> un estimador
+sense biaix de <span class="math notranslate nohighlight">\(\theta_0\)</span>. Aleshores, sota certes condicions
+de regularitat de <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span>,
+<span class="math notranslate nohighlight">\(\mbox{Var}(\tilde{\theta}) \geq \frac{1}{N I(\theta_0)}\)</span>.</p>
+<p>Fixeu-vos-hi que per tant, <strong>l’EMV és asimptòticament eficient</strong>
+ja que <span class="math notranslate nohighlight">\(\mbox{Var}(\hat{\theta}) \to \frac{1}{N I(\theta_0)}\)</span>.</p>
 
 
 
-<div class="slide-no">32</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="slide level-3" id="id22">
-
-<h3>Interpretació de la cota de Crámer-Rao</h3>
-
-<p>aaa</p>
-
-
-
-<div class="slide-no">33</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
-<article class="slide level-3" id="id23">
-
-<h3>Derivació de la cota de Crámer-Rao</h3>
-
-<p>bbb</p>
-
-
-
-<div class="slide-no">34</div>
+<div class="slide-no">39</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -797,7 +929,7 @@ ens diu:</p>
 
 
 
-<div class="slide-no">35</div>
+<div class="slide-no">40</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -810,7 +942,7 @@ ens diu:</p>
 
 
 
-<div class="slide-no">36</div>
+<div class="slide-no">41</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -823,7 +955,7 @@ ens diu:</p>
 
 
 
-<div class="slide-no">37</div>
+<div class="slide-no">42</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -836,7 +968,7 @@ ens diu:</p>
 
 
 
-<div class="slide-no">38</div>
+<div class="slide-no">43</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
