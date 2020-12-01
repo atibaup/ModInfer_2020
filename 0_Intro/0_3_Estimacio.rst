@@ -694,17 +694,149 @@ Fixeu-vos-hi que per tant, **l'EMV és asimptòticament eficient**
 ja que :math:`\mbox{Var}(\hat{\theta}) \to \frac{1}{N I(\theta_0)}`.
 
 
-
-
 Intervals de confiança per EMVs
 =================================================
+
+Intervals de confiança
+---------------------------------------
+
+Durant el curs ja hem treballat diverses vegades amb Intervals de Confiança,
+que vam introduïr per primer cop a la Pràctica #2.
+
+Un **interval de confiança** de nivell :math:`1-\alpha` (a la Pràctica #2
+parlàvem de nivell :math:`\alpha` enlloc de :math:`1-\alpha` però aquesta darrera convenció
+és més comuna) per un paràmetre :math:`\mu` és un estadístic
+(per tant una v.a. que és una funció de la mostra)
+format per dos nombres :math:`L` i :math:`U` tals que:
+
+
+.. math::
+
+    P([L, U] \ni \mu) = 1 - \alpha
+
+.. rst-class:: note
+
+    És important entendre que la quantitat aleatòria aquí és el conjunt :math:`[L, U]`
+    i no :math:`\mu`. L'interpretació d'aquesta probabilitat és que, si agaféssim M mostres
+    (cada una de tamany N) i calculéssim M intervals (un per cada mostra), hauriem
+    d'esperar que una fracció :math:`1 - \alpha` dels mateixos contenen :math:`\mu`.
+
+
+.. nextslide::
+    :increment:
+
+Tornem per un moment a la situació de l'`Exercici 1 dels problemes de
+pràctica que vam resoldre fa dues classes <https://e-aules.uab.cat/2020-21/pluginfile.php/695669/mod_page/content/2/Exercicis%20pra%CC%80ctica%20-%20Tema%202%20i%203%20-%20solucions.pdf>`_.
+Recordeu que en aquell problema vam trobar dos I.C.'s de nivell 95%, un per
+cada paràmetre d'interès:
+
+.. math::
+
+    \lambda_1 &\in [10.47, 13.03] \\
+    \lambda_2 &\in [8.89, 11.18]
+
+I al solapar-se, vem concloure que no podiem afirmar amb certesa que :math:`\lambda_1 \neq \lambda_2`.
+
 
 Intervals exactes
 ---------------------------------------
 
+En alguns casos específics, podrem calcular I.C's de manera "exacta",
+és a dir, calculant la f.d.p. :math:`f_{\hat{\theta}}` de l'estimador
+del paràmetre d'interès, i utilitzant-la per calcular un I.C.
 
-Intervals asimptòtics
+Aquest és el cas, per exemple, de l'EMV de la mitja i variança d'una mostra Gaussiana,
+on, com vam veure a la `Pràctica 2 <https://e-aules.uab.cat/2020-21/mod/assign/view.php?id=178383>`_:
+
+.. math::
+
+    \frac{\sqrt{N}(\hat{\mu} - \mu)}{\hat{\sigma}} \sim t_{N-1}
+
+ja que l'EMV per la mitja i variança Gaussiana és
+:math:`\hat{\mu}=\bar{x}` i :math:`\hat{\sigma}^2 = \frac{N-1}{N}S_X^2`.
+Per altra banda, un dels resultats que vam veure al Tema 2 és que:
+
+.. math::
+
+    \frac{(N-1)S_X^2}{\sigma^2} \sim \chi_{N-1}^2
+
+
+.. nextslide::
+    :increment:
+
+Podem fer servir aquests dos resultats per
+calcular IC's per :math:`\hat{\mu}, \hat{\sigma}` com segueix:
+
+1) Com que la distribució :math:`t_{N-1}` és simètrica
+al voltant de 0, i denotant per :math:`\phi_t(x)`
+la seva f.d.c. inversa, tindrem que:
+
+.. math::
+
+    P(-\phi_t(\frac{\alpha}{2}) \leq \frac{\sqrt{N}(\hat{\mu} - \mu)}{\hat{\sigma}} \leq \phi_t(\frac{\alpha}{2}))
+
+d'aquí podem concloure que l'interval de confiança de nivell :math:`1 - \alpha`
+per :math:`\mu` és:
+
+.. math::
+
+    \hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})
+
+.. note::
+
+    Noteu la similitud i les diferències respecte l'interval de confiança que obtindriem pel TLC.
+
+
+.. nextslide::
+    :increment:
+
+
+2) Per altra banda com que
+
+.. math::
+
+    \frac{N \hat{\sigma}^2}{\sigma^2} = \frac{(N-1)S_X^2}{\sigma} \sim \chi_{N-1}^2
+
+i denotant per :math:`\phi_{\chi_{N-1}^2}(x)` la f.d.c. inversa
+d'una :math:`\chi_{N-1}^2`, tindrem:
+
+.. math::
+
+    P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right)
+
+i per tant, l'IC de nivell :math:`1-\alpha`:
+
+.. math::
+
+    \left[\frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(\frac{\alpha}{2})}, \frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2})}\right]
+
+que com podeu observar no és simètric com en el cas anterior.
+
+
+Intervals aproximats asimptòtics
 ---------------------------------------
 
-Bootstrap paramètric
+En general serà difícil caracteritzar la f.d.p. dels nostres estimadors, i
+per tant haurem de recórrer a aproximacions, com la que vam veure
+en la teoria asimptòtica de l'EMV (Teorema 3.3 d'aquestes diapos):
+
+.. math::
+
+    \sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \Rightarrow \mathcal{N}(0, 1)
+
+cosa que justifica el següent IC aproximat per l'EMV d'una mostra iid d'una
+població :math:`f_X(x;\theta)`:
+
+.. math::
+
+    \hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\hat{\theta})}}
+
+on :math:`\phi` és la f.d.c. inversa d'una Normal estàndard i :math:`I(\theta)` és
+la Informació de Fisher.
+
+Intervals aproximats per Bootstrap
 ---------------------------------------
+
+
+L'última tècnica que veurem per calcular Intervals de Confiança
+és la més potent.

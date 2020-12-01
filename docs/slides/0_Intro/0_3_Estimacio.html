@@ -935,10 +935,23 @@ ja que <span class="math notranslate nohighlight">\(\mbox{Var}(\hat{\theta}) \to
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="intervals-exactes">
+<article class="slide level-3" id="intervals-de-confianca">
 
-<h3>Intervals exactes</h3>
+<h3>Intervals de confiança</h3>
 
+<p>Durant el curs ja hem treballat diverses vegades amb Intervals de Confiança,
+que vam introduïr per primer cop a la Pràctica #2.</p>
+<p>Un <strong>interval de confiança</strong> de nivell <span class="math notranslate nohighlight">\(1-\alpha\)</span> (a la Pràctica #2
+parlàvem de nivell <span class="math notranslate nohighlight">\(\alpha\)</span> enlloc de <span class="math notranslate nohighlight">\(1-\alpha\)</span> però aquesta darrera convenció
+és més comuna) per un paràmetre <span class="math notranslate nohighlight">\(\mu\)</span> és un estadístic
+(per tant una v.a. que és una funció de la mostra)
+format per dos nombres <span class="math notranslate nohighlight">\(L\)</span> i <span class="math notranslate nohighlight">\(U\)</span> tals que:</p>
+<div class="math notranslate nohighlight">
+\[P([L, U] \ni \mu) = 1 - \alpha\]</div>
+<p class="note">És important entendre que la quantitat aleatòria aquí és el conjunt <span class="math notranslate nohighlight">\([L, U]\)</span>
+i no <span class="math notranslate nohighlight">\(\mu\)</span>. L’interpretació d’aquesta probabilitat és que, si agaféssim M mostres
+(cada una de tamany N) i calculéssim M intervals (un per cada mostra), hauriem
+d’esperar que una fracció <span class="math notranslate nohighlight">\(1 - \alpha\)</span> dels mateixos contenen <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 
 
 
@@ -948,10 +961,18 @@ ja que <span class="math notranslate nohighlight">\(\mbox{Var}(\hat{\theta}) \to
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="intervals-asimptotics">
+<article class="slide level-3" id="id28">
 
-<h3>Intervals asimptòtics</h3>
+<h3>Intervals de confiança (2)</h3>
 
+<p>Tornem per un moment a la situació de l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/pluginfile.php/695669/mod_page/content/2/Exercicis%20pra%CC%80ctica%20-%20Tema%202%20i%203%20-%20solucions.pdf">Exercici 1 dels problemes de
+pràctica que vam resoldre fa dues classes</a>.
+Recordeu que en aquell problema vam trobar dos I.C.’s de nivell 95%, un per
+cada paràmetre d’interès:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda_1 &amp;\in [10.47, 13.03] \\
+\lambda_2 &amp;\in [8.89, 11.18]\end{split}\]</div>
+<p>I al solapar-se, vem concloure que no podiem afirmar amb certesa que <span class="math notranslate nohighlight">\(\lambda_1 \neq \lambda_2\)</span>.</p>
 
 
 
@@ -961,14 +982,119 @@ ja que <span class="math notranslate nohighlight">\(\mbox{Var}(\hat{\theta}) \to
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="bootstrap-parametric">
+<article class="slide level-3" id="intervals-exactes">
 
-<h3>Bootstrap paramètric</h3>
+<h3>Intervals exactes</h3>
 
+<p>En alguns casos específics, podrem calcular I.C’s de manera “exacta”,
+és a dir, calculant la f.d.p. <span class="math notranslate nohighlight">\(f_{\hat{\theta}}\)</span> de l’estimador
+del paràmetre d’interès, i utilitzant-la per calcular un I.C.</p>
+<p>Aquest és el cas, per exemple, de l’EMV de la mitja i variança d’una mostra Gaussiana,
+on, com vam veure a la <a class="reference external" href="https://e-aules.uab.cat/2020-21/mod/assign/view.php?id=178383">Pràctica 2</a>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sqrt{N}(\hat{\mu} - \mu)}{\hat{\sigma}} \sim t_{N-1}\]</div>
+<p>ja que l’EMV per la mitja i variança Gaussiana és
+<span class="math notranslate nohighlight">\(\hat{\mu}=\bar{x}\)</span> i <span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{N-1}{N}S_X^2\)</span>.
+Per altra banda, un dels resultats que vam veure al Tema 2 és que:</p>
+<div class="math notranslate nohighlight">
+\[\frac{(N-1)S_X^2}{\sigma^2} \sim \chi_{N-1}^2\]</div>
 
 
 
 <div class="slide-no">43</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id29">
+
+<h3>Intervals exactes (2)</h3>
+
+<p>Podem fer servir aquests dos resultats per
+calcular IC’s per <span class="math notranslate nohighlight">\(\hat{\mu}, \hat{\sigma}\)</span> com segueix:</p>
+<p>1) Com que la distribució <span class="math notranslate nohighlight">\(t_{N-1}\)</span> és simètrica
+al voltant de 0, i denotant per <span class="math notranslate nohighlight">\(\phi_t(x)\)</span>
+la seva f.d.c. inversa, tindrem que:</p>
+<div class="math notranslate nohighlight">
+\[P(-\phi_t(\frac{\alpha}{2}) \leq \frac{\sqrt{N}(\hat{\mu} - \mu)}{\hat{\sigma}} \leq \phi_t(\frac{\alpha}{2}))\]</div>
+<p>d’aquí podem concloure que l’interval de confiança de nivell <span class="math notranslate nohighlight">\(1 - \alpha\)</span>
+per <span class="math notranslate nohighlight">\(\mu\)</span> és:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})\]</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Noteu la similitud i les diferències respecte l’interval de confiança que obtindriem pel TLC.</p>
+</div>
+
+
+
+<div class="slide-no">44</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id30">
+
+<h3>Intervals exactes (3)</h3>
+
+<ol class="arabic simple" start="2">
+<li>Per altra banda com que</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{N \hat{\sigma}^2}{\sigma^2} = \frac{(N-1)S_X^2}{\sigma} \sim \chi_{N-1}^2\]</div>
+<p>i denotant per <span class="math notranslate nohighlight">\(\phi_{\chi_{N-1}^2}(x)\)</span> la f.d.c. inversa
+d’una <span class="math notranslate nohighlight">\(\chi_{N-1}^2\)</span>, tindrem:</p>
+<div class="math notranslate nohighlight">
+\[P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right)\]</div>
+<p>i per tant, l’IC de nivell <span class="math notranslate nohighlight">\(1-\alpha\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\left[\frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(\frac{\alpha}{2})}, \frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2})}\right]\]</div>
+<p>que com podeu observar no és simètric com en el cas anterior.</p>
+
+
+
+<div class="slide-no">45</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="intervals-aproximats-asimptotics">
+
+<h3>Intervals aproximats asimptòtics</h3>
+
+<p>En general serà difícil caracteritzar la f.d.p. dels nostres estimadors, i
+per tant haurem de recórrer a aproximacions, com la que vam veure
+en la teoria asimptòtica de l’EMV (Teorema 3.3 d’aquestes diapos):</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \Rightarrow \mathcal{N}(0, 1)\]</div>
+<p>cosa que justifica el següent IC aproximat per l’EMV d’una mostra iid d’una
+població <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\hat{\theta})}}\]</div>
+<p>on <span class="math notranslate nohighlight">\(\phi\)</span> és la f.d.c. inversa d’una Normal estàndard i <span class="math notranslate nohighlight">\(I(\theta)\)</span> és
+la Informació de Fisher.</p>
+
+
+
+<div class="slide-no">46</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="intervals-aproximats-per-bootstrap">
+
+<h3>Intervals aproximats per Bootstrap</h3>
+
+<p>L’última tècnica que veurem per calcular Intervals de Confiança
+és la més potent.</p>
+
+
+
+<div class="slide-no">47</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
