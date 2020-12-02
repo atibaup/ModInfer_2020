@@ -472,7 +472,7 @@ on, com vam veure a la <a class="reference external" href="https://e-aules.uab.c
 \[\frac{\sqrt{N}(\hat{\mu} - \mu)}{\hat{\sigma}} \sim t_{N-1}\]</div>
 <p>ja que l’EMV per la mitja i variança Gaussiana és
 <span class="math notranslate nohighlight">\(\hat{\mu}=\bar{x}\)</span> i <span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{N-1}{N}S_X^2\)</span>.
-Per altra banda, un dels resultats que vam veure al Tema 2 és que:</p>
+Per altra banda, <a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29">un dels resultats que vam veure al Tema 2</a> és que:</p>
 <div class="math notranslate nohighlight">
 \[\frac{(N-1)S_X^2}{\sigma^2} \sim \chi_{N-1}^2\]</div>
 <p>Podem fer servir aquests dos resultats per
@@ -486,10 +486,7 @@ la seva f.d.c. inversa, tindrem que:</p>
 per <span class="math notranslate nohighlight">\(\mu\)</span> és:</p>
 <div class="math notranslate nohighlight">
 \[\hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Noteu la similitud i les diferències respecte l’interval de confiança que obtindriem pel TLC.</p>
-</div>
+<p class="note">Noteu la similitud i les diferències respecte l’interval de confiança que obtindriem pel TLC.</p>
 <ol class="arabic simple" start="2">
 <li><p>Per altra banda com que</p></li>
 </ol>
@@ -498,7 +495,7 @@ per <span class="math notranslate nohighlight">\(\mu\)</span> és:</p>
 <p>i denotant per <span class="math notranslate nohighlight">\(\phi_{\chi_{N-1}^2}(x)\)</span> la f.d.c. inversa
 d’una <span class="math notranslate nohighlight">\(\chi_{N-1}^2\)</span>, tindrem:</p>
 <div class="math notranslate nohighlight">
-\[P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right)\]</div>
+\[P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right) = 1- \alpha\]</div>
 <p>i per tant, l’IC de nivell <span class="math notranslate nohighlight">\(1-\alpha\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\left[\frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(\frac{\alpha}{2})}, \frac{N \hat{\sigma}^2}{\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2})}\right]\]</div>

@@ -754,7 +754,7 @@ on, com vam veure a la `Pràctica 2 <https://e-aules.uab.cat/2020-21/mod/assign/
 
 ja que l'EMV per la mitja i variança Gaussiana és
 :math:`\hat{\mu}=\bar{x}` i :math:`\hat{\sigma}^2 = \frac{N-1}{N}S_X^2`.
-Per altra banda, un dels resultats que vam veure al Tema 2 és que:
+Per altra banda, `un dels resultats que vam veure al Tema 2 <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29>`_ és que:
 
 .. math::
 
@@ -782,7 +782,7 @@ per :math:`\mu` és:
 
     \hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})
 
-.. note::
+.. rst-class:: note
 
     Noteu la similitud i les diferències respecte l'interval de confiança que obtindriem pel TLC.
 
@@ -802,7 +802,7 @@ d'una :math:`\chi_{N-1}^2`, tindrem:
 
 .. math::
 
-    P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right)
+    P\left(\phi_{\chi_{N-1}^2}(1 - \frac{\alpha}{2}) \leq \frac{N \hat{\sigma}}{\sigma} \leq \phi_{\chi_{N-1}^2}(\frac{\alpha}{2})\right) = 1- \alpha
 
 i per tant, l'IC de nivell :math:`1-\alpha`:
 
