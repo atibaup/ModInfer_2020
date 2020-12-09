@@ -576,7 +576,7 @@ Per continuar, necessitarem un resultat auxiliar:
 .. rst-class:: note
 
     Lema 3.4: Sota algunes condicions de regularitat de
-    :math:`f_X`, :math:`E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta_0)) = I(\theta)`
+    :math:`f_X`, :math:`E( \frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)) = I(\theta)`
 
 *Justificació*: Com que :math:`\int f_X(x;\theta)dx = 1`,
 
@@ -722,22 +722,6 @@ format per dos nombres :math:`L` i :math:`U` tals que:
     d'esperar que una fracció :math:`1 - \alpha` dels mateixos contenen :math:`\mu`.
 
 
-.. nextslide::
-    :increment:
-
-Tornem per un moment a la situació de l'`Exercici 1 dels problemes de
-pràctica que vam resoldre fa dues classes <https://e-aules.uab.cat/2020-21/pluginfile.php/695669/mod_page/content/2/Exercicis%20pra%CC%80ctica%20-%20Tema%202%20i%203%20-%20solucions.pdf>`_.
-Recordeu que en aquell problema vam trobar dos I.C.'s de nivell 95%, un per
-cada paràmetre d'interès:
-
-.. math::
-
-    \lambda_1 &\in [10.47, 13.03] \\
-    \lambda_2 &\in [8.89, 11.18]
-
-I al solapar-se, vem concloure que no podiem afirmar amb certesa que :math:`\lambda_1 \neq \lambda_2`.
-
-
 Intervals exactes
 ---------------------------------------
 
@@ -780,7 +764,7 @@ per :math:`\mu` és:
 
 .. math::
 
-    \hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})
+    \hat{\mu} \pm \phi_t(\frac{\alpha}{2})\sqrt{\frac{\hat{\sigma}^2}{N}}
 
 .. rst-class:: note
 
@@ -824,19 +808,177 @@ en la teoria asimptòtica de l'EMV (Teorema 3.3 d'aquestes diapos):
 
     \sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \Rightarrow \mathcal{N}(0, 1)
 
-cosa que justifica el següent IC aproximat per l'EMV d'una mostra iid d'una
+on :math:`I(\theta)` és
+la Informació de Fisher. Si sapiguéssim el valor de :math:`\theta_0`, podriem fer
+servir el desenvolupament que ja hem fet servir múltiples vegades
+per trobar un IC de nivell :math:`1  - \alpha`. Per N suficientment gran:
+
+.. math::
+
+    P\left(\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq \phi\left(1 - \frac{\alpha}{2}\right)\right) &\approx 1 - \frac{\alpha}{2} \\
+    P\left(\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq \phi\left(\frac{\alpha}{2}\right)\right) & \approx \frac{\alpha}{2}
+
+on :math:`\phi(x)` és la f.d.c. inversa (funció de quantils) d'una normal estàndard.
+
+.. nextslide::
+    :increment:
+
+Per tant, sabent que :math:`\phi\left(1 - \frac{\alpha}{2}\right)= -  \phi\left(\frac{\alpha}{2}\right)`,
+
+.. math::
+
+    P\left( \phi\left(\frac{\alpha}{2}\right) \leq \sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq -\phi\left(\frac{\alpha}{2}\right)\right) \approx 1 - \alpha
+
+cosa que justificaria el següent IC aproximat per l'EMV d'una mostra iid d'una
 població :math:`f_X(x;\theta)`:
+
+.. math::
+
+    \hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\theta_0)}}
+
+on :math:`\phi` és la f.d.c. inversa d'una Normal estàndard i :math:`I(\theta)` és
+la Informació de Fisher.
+
+.. nextslide::
+    :increment:
+
+Com que no coneixem :math:`\theta_0`, aquesta última expressió és inútil ja que depèn
+de :math:`I(\theta_0)`.
+
+Farem doncs servir el **principi de substitució** (plug-in principle),
+que ja hem fet servir altres vegades, i substituïrem :math:`I(\theta_0)` per :math:`I(\hat{\theta})`,
+sota el precepte de que per N suficientment gran :math:`\hat{\theta} \to \theta_0`.
+
+Per tant arribem a:
 
 .. math::
 
     \hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\hat{\theta})}}
 
-on :math:`\phi` és la f.d.c. inversa d'una Normal estàndard i :math:`I(\theta)` és
-la Informació de Fisher.
+.. rst-class:: note
+
+    Fixeu-vos en la similitud/diferències entre aquesta expressió i els Intervals de Confiança obtinguts
+    en el cas on podíem derivar intervals de confiança exactes.
+
+Unes notes sobre el càlcul de :math:`I(\hat{\theta})`
+-----------------------------------------------------
+
+A l'última entrega de problemes, he vist que hi havia una mica de confusió
+respecte el càlcul de la Informació de Fisher :math:`I(\theta)`.
+
+En molts casos, podrem calcular :math:`I(\theta)` analíticament,
+a través d'una de les seves dues definicions alternatives:
+
+.. math::
+
+    I(\theta) &= E( \frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 \\
+    I(\theta) &= - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta))
+
+(Podem escollir la que ens vagi millor per al problema.) Fixeu-vos que la v.a.
+aleatòria de la que volem calcular l'esperança aquí és una funció de
+:math:`\log f_X(X;\theta)` (la seva derivada al quadrat o la seva  segona derivada), que a la vegada és una funció de :math:`X`.
+L'esperança, per tant, es calcula respecte a :math:`X \sim f_X`.
+
+
+.. nextslide::
+    :increment:
+
+En alguns casos, calcular aquesta esperança serà massa difícil (com
+per exemple a l'Exercici 2 de l'entrega de Problemes), i haurem
+de calcular-la de manera aproximada. És aquí on podem recórrer de nou a la `Llei dels Grans Nombres <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#25>`_,
+que ens diu que per qualsevol funció :math:`g(x)` d'una variable aleatòria
+:math:`Y`, i sota algunes condicions de regularitat,
+
+.. math::
+
+    \frac{1}{N}\sum_i g(Y_i) \to E(g(Y))
+
+
+quan :math:`N \to \infty`. Per tant, si tenim una mostra gran
+de :math:`X \sim f_X` (o si la podem simular), podrem aproximar:
+
+.. math::
+
+    I(\theta) &\approx \frac{1}{N}\sum_i \left(\frac{\partial}{\partial \theta} \log f_X(X_i;\theta)\right)^2 \\
+    I(\theta) &\approx - \frac{1}{N}\sum_i \left( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)\right)
+
+.. nextslide::
+    :increment:
+
+Fixeu-vos que aquesta última expressió dóna lloc a l'aproximació
+que veu trobar alguns per Internet:
+
+.. math::
+
+    I(\theta) \approx - \frac{1}{N}\sum_i \left( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)\right) = \frac{1}{N}\frac{\partial^2}{\partial \theta^2} L(\theta)
+
+quan la mostra és iid, on simplement hem aplicat la definició de :math:`L(\theta)` i
+intercanviat l'ordre de l'operador suma i derivada.
+
 
 Intervals aproximats per Bootstrap
 ---------------------------------------
 
-
 L'última tècnica que veurem per calcular Intervals de Confiança
-és la més potent.
+és la més potent, ja que no requereix cap suposició
+pel que fa a la distribució de la mostra, i funciona en el règim no-asimptòtic.
+
+Fixeu-vos que en el desenvolupament anterior ens hem basat (implícitament)
+en que coneixiem la distribució de:
+
+.. math::
+
+    \Lambda = \hat{\theta} - \theta_0 \sim f_{\Lambda}(x;\theta_0)
+
+Si coneixem :math:`f_{\Lambda}`, vol dir que també coneixem la seva f.d.c.
+inversa, :math:`\phi_{\Lambda}` i per tant podem trobar Intervals
+de Confiança ja que:
+
+.. math::
+
+    P\left( \phi_{\Lambda}\left(\frac{\alpha}{2}\right)\leq \hat{\theta} - \theta_0 \leq \phi_{\Lambda}\left(1 - \frac{\alpha}{2}\right)\right) = 1 - \alpha
+
+En el cas asimptòtic que hem vist abans, teniem que :math:`\Lambda \approx \mathcal{N}\left(0, \frac{1}{N I(\hat{\theta})}\right)`.
+
+.. nextslide::
+    :increment:
+
+En general, no coneixem :math:`f_{\Lambda}(x;\theta_0)` i per tant
+ens quedem encallats.
+
+El mètode de Bootstrap paramètric, el que proposa és:
+
+1. Generar una mostra Bootstrap de talla M: :math:`\Lambda_i \sim f_{\Lambda}(x;\hat{\theta}), i=1, \cdots, M` (fixeu-vos que hem remplaçat :math:`\theta_0` per :math:`\hat{\theta}`)
+2. Estimar :math:`\phi_{\Lambda}\left(\frac{\alpha}{2}\right)` i :math:`\phi_{\Lambda}\left(1 - \frac{\alpha}{2}\right)` a partir dels quantils de la mostra :math:`\Lambda_1, \cdots, \Lambda_M`
+
+per trobar un interval de confiança aproximat:
+
+.. math::
+
+    P\left( \hat{\phi}_{\Lambda}\left(\frac{\alpha}{2}\right)\leq \hat{\theta} - \theta_0 \leq \hat{\phi}_{\Lambda}\left(1 - \frac{\alpha}{2}\right)\right) \approx 1 - \alpha
+
+.. rst-class:: note
+
+    Ens queda aclarir com generar :math:`\Lambda_i \sim f_{\Lambda}(x;\hat{\theta})`...
+
+
+.. nextslide::
+    :increment:
+
+Per generar :math:`\Lambda \sim f_{\Lambda}(x;\hat{\theta})`, ho farem
+de manera indirecta, ja que com hem dit en general no coneixem
+:math:`f_{\Lambda}`. El que sí que coneixem, en principi, és :math:`f_X(x;\theta)`,
+la f.d.p. o f.m.p de la nostra mostra.
+
+Per tant generarem :math:`\Lambda` indirectament. Per fer-ho, repetirem :math:`M` vegades
+el següent procés:
+
+1. Generar **una** mostra bootstrap de :math:`X \sim f_X(x;\hat{\theta})` de talla N, segons el valor
+:math:`\hat{\theta}` que hem trobat a partir de les nostres dades.
+
+2. Calcularem l'EMV sobre aquesta mostra bootstrap, i l'anomenarem :math:`\hat{\theta}^*`
+
+3. Calcularem :math:`\Lambda = \hat{\theta}^* - \hat{\theta}`
+
+Al final d'aquest procés haurem obtingut la mostra Bootstrap de :math:`\Lambda`de talla :math:`M` i
+podrem calcular-ne els quantils, per calcular l'IC aproximat que en vist en l'anterior diapo.

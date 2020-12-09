@@ -785,7 +785,7 @@ en el Teorema 3.1, i variança:</p>
 
 <p>Per continuar, necessitarem un resultat auxiliar:</p>
 <p class="note">Lema 3.4: Sota algunes condicions de regularitat de
-<span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(E( \frac{\partial}{\partial \theta} \log f_X(X;\theta_0))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta_0)) = I(\theta)\)</span></p>
+<span class="math notranslate nohighlight">\(f_X\)</span>, <span class="math notranslate nohighlight">\(E( \frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 = - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)) = I(\theta)\)</span></p>
 <p><em>Justificació</em>: Com que <span class="math notranslate nohighlight">\(\int f_X(x;\theta)dx = 1\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}0 &amp; = \frac{\partial}{\partial \theta} \int f_X(x;\theta)dx = \int  \frac{\partial}{\partial \theta} f_X(x;\theta) dx\\
@@ -961,27 +961,6 @@ d’esperar que una fracció <span class="math notranslate nohighlight">\(1 - \a
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id28">
-
-<h3>Intervals de confiança (2)</h3>
-
-<p>Tornem per un moment a la situació de l’<a class="reference external" href="https://e-aules.uab.cat/2020-21/pluginfile.php/695669/mod_page/content/2/Exercicis%20pra%CC%80ctica%20-%20Tema%202%20i%203%20-%20solucions.pdf">Exercici 1 dels problemes de
-pràctica que vam resoldre fa dues classes</a>.
-Recordeu que en aquell problema vam trobar dos I.C.’s de nivell 95%, un per
-cada paràmetre d’interès:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\lambda_1 &amp;\in [10.47, 13.03] \\
-\lambda_2 &amp;\in [8.89, 11.18]\end{split}\]</div>
-<p>I al solapar-se, vem concloure que no podiem afirmar amb certesa que <span class="math notranslate nohighlight">\(\lambda_1 \neq \lambda_2\)</span>.</p>
-
-
-
-<div class="slide-no">42</div>
-
-
-<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
-
-</article>
 <article class="slide level-3" id="intervals-exactes">
 
 <h3>Intervals exactes</h3>
@@ -1001,13 +980,13 @@ Per altra banda, <a class="reference external" href="https://atibaup.github.io/M
 
 
 
-<div class="slide-no">43</div>
+<div class="slide-no">42</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id29">
+<article class="slide level-3" id="id28">
 
 <h3>Intervals exactes (2)</h3>
 
@@ -1021,18 +1000,18 @@ la seva f.d.c. inversa, tindrem que:</p>
 <p>d’aquí podem concloure que l’interval de confiança de nivell <span class="math notranslate nohighlight">\(1 - \alpha\)</span>
 per <span class="math notranslate nohighlight">\(\mu\)</span> és:</p>
 <div class="math notranslate nohighlight">
-\[\hat{\mu} \pm \sqrt{\frac{\hat{\sigma}^2}{N}}\phi_t(\frac{\alpha}{2})\]</div>
+\[\hat{\mu} \pm \phi_t(\frac{\alpha}{2})\sqrt{\frac{\hat{\sigma}^2}{N}}\]</div>
 <p class="note">Noteu la similitud i les diferències respecte l’interval de confiança que obtindriem pel TLC.</p>
 
 
 
-<div class="slide-no">44</div>
+<div class="slide-no">43</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="id30">
+<article class="slide level-3" id="id29">
 
 <h3>Intervals exactes (3)</h3>
 
@@ -1052,7 +1031,7 @@ d’una <span class="math notranslate nohighlight">\(\chi_{N-1}^2\)</span>, tind
 
 
 
-<div class="slide-no">45</div>
+<div class="slide-no">44</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
@@ -1067,10 +1046,34 @@ per tant haurem de recórrer a aproximacions, com la que vam veure
 en la teoria asimptòtica de l’EMV (Teorema 3.3 d’aquestes diapos):</p>
 <div class="math notranslate nohighlight">
 \[\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \Rightarrow \mathcal{N}(0, 1)\]</div>
-<p>cosa que justifica el següent IC aproximat per l’EMV d’una mostra iid d’una
+<p>on <span class="math notranslate nohighlight">\(I(\theta)\)</span> és
+la Informació de Fisher. Si sapiguéssim el valor de <span class="math notranslate nohighlight">\(\theta_0\)</span>, podriem fer
+servir el desenvolupament que ja hem fet servir múltiples vegades
+per trobar un IC de nivell <span class="math notranslate nohighlight">\(1  - \alpha\)</span>. Per N suficientment gran:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq \phi\left(1 - \frac{\alpha}{2}\right)\right) &amp;\approx 1 - \frac{\alpha}{2} \\
+P\left(\sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq \phi\left(\frac{\alpha}{2}\right)\right) &amp; \approx \frac{\alpha}{2}\end{split}\]</div>
+<p>on <span class="math notranslate nohighlight">\(\phi(x)\)</span> és la f.d.c. inversa (funció de quantils) d’una normal estàndard.</p>
+
+
+
+<div class="slide-no">45</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id30">
+
+<h3>Intervals aproximats asimptòtics (2)</h3>
+
+<p>Per tant, sabent que <span class="math notranslate nohighlight">\(\phi\left(1 - \frac{\alpha}{2}\right)= -  \phi\left(\frac{\alpha}{2}\right)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[P\left( \phi\left(\frac{\alpha}{2}\right) \leq \sqrt{N {I}(\theta_0)}(\hat{\theta} - \theta_0) \leq -\phi\left(\frac{\alpha}{2}\right)\right) \approx 1 - \alpha\]</div>
+<p>cosa que justificaria el següent IC aproximat per l’EMV d’una mostra iid d’una
 població <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\hat{\theta})}}\]</div>
+\[\hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\theta_0)}}\]</div>
 <p>on <span class="math notranslate nohighlight">\(\phi\)</span> és la f.d.c. inversa d’una Normal estàndard i <span class="math notranslate nohighlight">\(I(\theta)\)</span> és
 la Informació de Fisher.</p>
 
@@ -1082,16 +1085,169 @@ la Informació de Fisher.</p>
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
+<article class="slide level-3" id="id31">
+
+<h3>Intervals aproximats asimptòtics (3)</h3>
+
+<p>Com que no coneixem <span class="math notranslate nohighlight">\(\theta_0\)</span>, aquesta última expressió és inútil ja que depèn
+de <span class="math notranslate nohighlight">\(I(\theta_0)\)</span>.</p>
+<p>Farem doncs servir el <strong>principi de substitució</strong> (plug-in principle),
+que ja hem fet servir altres vegades, i substituïrem <span class="math notranslate nohighlight">\(I(\theta_0)\)</span> per <span class="math notranslate nohighlight">\(I(\hat{\theta})\)</span>,
+sota el precepte de que per N suficientment gran <span class="math notranslate nohighlight">\(\hat{\theta} \to \theta_0\)</span>.</p>
+<p>Per tant arribem a:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\theta} \pm \phi\left(\frac{\alpha}{2}\right) \sqrt{\frac{1}{N I(\hat{\theta})}}\]</div>
+<p class="note">Fixeu-vos en la similitud/diferències entre aquesta expressió i els Intervals de Confiança obtinguts
+en el cas on podíem derivar intervals de confiança exactes.</p>
+
+
+
+<div class="slide-no">47</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="unes-notes-sobre-el-calcul-de-i-hat-theta">
+
+<h3>Unes notes sobre el càlcul de <span class="math notranslate nohighlight">\(I(\hat{\theta})\)</span></h3>
+
+<p>A l’última entrega de problemes, he vist que hi havia una mica de confusió
+respecte el càlcul de la Informació de Fisher <span class="math notranslate nohighlight">\(I(\theta)\)</span>.</p>
+<p>En molts casos, podrem calcular <span class="math notranslate nohighlight">\(I(\theta)\)</span> analíticament,
+a través d’una de les seves dues definicions alternatives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}I(\theta) &amp;= E( \frac{\partial}{\partial \theta} \log f_X(X;\theta))^2 \\
+I(\theta) &amp;= - E( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta))\end{split}\]</div>
+<p>(Podem escollir la que ens vagi millor per al problema.) Fixeu-vos que la v.a.
+aleatòria de la que volem calcular l’esperança aquí és una funció de
+<span class="math notranslate nohighlight">\(\log f_X(X;\theta)\)</span> (la seva derivada al quadrat o la seva  segona derivada), que a la vegada és una funció de <span class="math notranslate nohighlight">\(X\)</span>.
+L’esperança, per tant, es calcula respecte a <span class="math notranslate nohighlight">\(X \sim f_X\)</span>.</p>
+
+
+
+<div class="slide-no">48</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id32">
+
+<h3>Unes notes sobre el càlcul de <span class="math notranslate nohighlight">\(I(\hat{\theta})\)</span> (2)</h3>
+
+<p>En alguns casos, calcular aquesta esperança serà massa difícil (com
+per exemple a l’Exercici 2 de l’entrega de Problemes), i haurem
+de calcular-la de manera aproximada. És aquí on podem recórrer de nou a la <a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#25">Llei dels Grans Nombres</a>,
+que ens diu que per qualsevol funció <span class="math notranslate nohighlight">\(g(x)\)</span> d’una variable aleatòria
+<span class="math notranslate nohighlight">\(Y\)</span>, i sota algunes condicions de regularitat,</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{N}\sum_i g(Y_i) \to E(g(Y))\]</div>
+<p>quan <span class="math notranslate nohighlight">\(N \to \infty\)</span>. Per tant, si tenim una mostra gran
+de <span class="math notranslate nohighlight">\(X \sim f_X\)</span> (o si la podem simular), podrem aproximar:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}I(\theta) &amp;\approx \frac{1}{N}\sum_i \left(\frac{\partial}{\partial \theta} \log f_X(X_i;\theta)\right)^2 \\
+I(\theta) &amp;\approx - \frac{1}{N}\sum_i \left( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)\right)\end{split}\]</div>
+
+
+
+<div class="slide-no">49</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id33">
+
+<h3>Unes notes sobre el càlcul de <span class="math notranslate nohighlight">\(I(\hat{\theta})\)</span> (3)</h3>
+
+<p>Fixeu-vos que aquesta última expressió dóna lloc a l’aproximació
+que veu trobar alguns per Internet:</p>
+<div class="math notranslate nohighlight">
+\[I(\theta) \approx - \frac{1}{N}\sum_i \left( \frac{\partial^2}{\partial \theta^2} \log f_X(X;\theta)\right) = \frac{1}{N}\frac{\partial^2}{\partial \theta^2} L(\theta)\]</div>
+<p>quan la mostra és iid, on simplement hem aplicat la definició de <span class="math notranslate nohighlight">\(L(\theta)\)</span> i
+intercanviat l’ordre de l’operador suma i derivada.</p>
+
+
+
+<div class="slide-no">50</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
 <article class="slide level-3" id="intervals-aproximats-per-bootstrap">
 
 <h3>Intervals aproximats per Bootstrap</h3>
 
 <p>L’última tècnica que veurem per calcular Intervals de Confiança
-és la més potent.</p>
+és la més potent, ja que no requereix cap suposició
+pel que fa a la distribució de la mostra, i funciona en el règim no-asimptòtic.</p>
+<p>Fixeu-vos que en el desenvolupament anterior ens hem basat (implícitament)
+en que coneixiem la distribució de:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \hat{\theta} - \theta_0 \sim f_{\Lambda}(x;\theta_0)\]</div>
+<p>Si coneixem <span class="math notranslate nohighlight">\(f_{\Lambda}\)</span>, vol dir que també coneixem la seva f.d.c.
+inversa, <span class="math notranslate nohighlight">\(\phi_{\Lambda}\)</span> i per tant podem trobar Intervals
+de Confiança ja que:</p>
+<div class="math notranslate nohighlight">
+\[P\left( \phi_{\Lambda}\left(\frac{\alpha}{2}\right)\leq \hat{\theta} - \theta_0 \leq \phi_{\Lambda}\left(1 - \frac{\alpha}{2}\right)\right) = 1 - \alpha\]</div>
+<p>En el cas asimptòtic que hem vist abans, teniem que <span class="math notranslate nohighlight">\(\Lambda \approx \mathcal{N}\left(0, \frac{1}{N I(\hat{\theta})}\right)\)</span>.</p>
 
 
 
-<div class="slide-no">47</div>
+<div class="slide-no">51</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id34">
+
+<h3>Intervals aproximats per Bootstrap (2)</h3>
+
+<p>En general, no coneixem <span class="math notranslate nohighlight">\(f_{\Lambda}(x;\theta_0)\)</span> i per tant
+ens quedem encallats.</p>
+<p>El mètode de Bootstrap paramètric, el que proposa és:</p>
+<ol class="arabic simple">
+<li>Generar una mostra Bootstrap de talla M: <span class="math notranslate nohighlight">\(\Lambda_i \sim f_{\Lambda}(x;\hat{\theta}), i=1, \cdots, M\)</span> (fixeu-vos que hem remplaçat <span class="math notranslate nohighlight">\(\theta_0\)</span> per <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>)</li>
+<li>Estimar <span class="math notranslate nohighlight">\(\phi_{\Lambda}\left(\frac{\alpha}{2}\right)\)</span> i <span class="math notranslate nohighlight">\(\phi_{\Lambda}\left(1 - \frac{\alpha}{2}\right)\)</span> a partir dels quantils de la mostra <span class="math notranslate nohighlight">\(\Lambda_1, \cdots, \Lambda_M\)</span></li>
+</ol>
+<p>per trobar un interval de confiança aproximat:</p>
+<div class="math notranslate nohighlight">
+\[P\left( \hat{\phi}_{\Lambda}\left(\frac{\alpha}{2}\right)\leq \hat{\theta} - \theta_0 \leq \hat{\phi}_{\Lambda}\left(1 - \frac{\alpha}{2}\right)\right) \approx 1 - \alpha\]</div>
+<p class="note">Ens queda aclarir com generar <span class="math notranslate nohighlight">\(\Lambda_i \sim f_{\Lambda}(x;\hat{\theta})\)</span>…</p>
+
+
+
+<div class="slide-no">52</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id35">
+
+<h3>Intervals aproximats per Bootstrap (3)</h3>
+
+<p>Per generar <span class="math notranslate nohighlight">\(\Lambda \sim f_{\Lambda}(x;\hat{\theta})\)</span>, ho farem
+de manera indirecta, ja que com hem dit en general no coneixem
+<span class="math notranslate nohighlight">\(f_{\Lambda}\)</span>. El que sí que coneixem, en principi, és <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span>,
+la f.d.p. o f.m.p de la nostra mostra.</p>
+<p>Per tant generarem <span class="math notranslate nohighlight">\(\Lambda\)</span> indirectament. Per fer-ho, repetirem <span class="math notranslate nohighlight">\(M\)</span> vegades
+el següent procés:</p>
+<p>1. Generar <strong>una</strong> mostra bootstrap de <span class="math notranslate nohighlight">\(X \sim f_X(x;\hat{\theta})\)</span> de talla N, segons el valor
+<span class="math notranslate nohighlight">\(\hat{\theta}\)</span> que hem trobat a partir de les nostres dades.</p>
+<ol class="arabic simple" start="2">
+<li>Calcularem l’EMV sobre aquesta mostra bootstrap, i l’anomenarem <span class="math notranslate nohighlight">\(\hat{\theta}^*\)</span></li>
+<li>Calcularem <span class="math notranslate nohighlight">\(\Lambda = \hat{\theta}^* - \hat{\theta}\)</span></li>
+</ol>
+<p>Al final d’aquest procés haurem obtingut la mostra Bootstrap de <span class="math notranslate nohighlight">\(\Lambda\)</span> i
+podrem calcular-ne els quantils, per calcular l’IC aproximat que en vist en l’anterior diapo.</p>
+
+
+
+<div class="slide-no">53</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
