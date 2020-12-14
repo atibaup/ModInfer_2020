@@ -11,6 +11,7 @@
   0_Intro/0_1_Repas_probabilitat
   0_Intro/0_2_Intro_stats
   0_Intro/0_3_Estimacio
+  0_Intro/0_4_Tests
 
 © Arnau Tibau Puig, 2020 `LICENSE <https://github.com/atibaup/ModInfer_2020/blob/master/LICENSE>`_
 
