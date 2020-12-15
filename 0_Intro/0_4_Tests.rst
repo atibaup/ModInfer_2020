@@ -93,7 +93,7 @@ Ja podem definir alguns conceptes claus:
 
 * :math:`T` s'anomena **l'estadístic del test**, que calculem a partir de la mostra (en aquest exemple depèn de :math:`\hat{\rho}_X`)
 * El valor :math:`T_0` contra el que comparem :math:`T` per tal de prendre una decisió, s'anomena **valor crític**.
-* El conjunt  :math:`T \leq T_0` s'anomena **regió d'acceptació del test**, el complementari és la **regió crítica**.
+* En el nostre exemple, el conjunt :math:`T \leq T_0` és la **regió d'acceptació del test**, el complementari n'és la **regió crítica**.
 
 
 .. rst-class:: note
@@ -130,8 +130,8 @@ Per tant, per especificar un test i caracteritzar-lo, necessitarem especificar :
 
 .. nextslide:: Al nostre exemple inicial:
 
-* :math:`H_0`: :math:`\rho_X \leq 0.01`, és a dir el fabricant ens diu la veritat
-* :math:`H_1`: :math:`\rho_X > 0.01`, és a dir el fabricant ens ha mentit
+* :math:`H_0`: :math:`\rho_X - \rho_c \leq 0`, és a dir el fabricant ens diu la veritat (recordeu :math:`\rho_c:=0.01`)
+* :math:`H_1`: :math:`\rho_X - \rho_c > 0`, és a dir el fabricant ens ha mentit
 * **La regió crítica**: :math:`T > T_0` on rebutjem :math:`H_0`
 * **L'Error de Tipus I**: L'estadístic ens dona :math:`T > T_0` però :math:`\rho_X \leq 0.01`.
 * **L'Error de Tipus II**: L'estadístic ens dona :math:`T \leq T_0` però :math:`\rho_X > 0.01`.
@@ -147,7 +147,7 @@ Això determinarà implícitament la potència del test :math:`1 - \beta = P(T >
 
 .. rst-class:: note
 
-    Fixeu-vos que hi ha una "asimetria" entre l'hipòtesi nula i l'alternativa, i que això ho escull el practicant...
+    Fixeu-vos que hi ha una "asimetria" entre :math:`H_0` i :math:`H_1`, i que les escull el practicant...
 
 
 .. nextslide:: Al nostre exemple inicial (II):
@@ -158,14 +158,15 @@ i buscarem :math:`T_0` tal que :math:`P(T > T_0 ; H_0) = \alpha = 0.05`:
 
 
 .. image::  /_static/0_Intro/geom_at_alpha.png
-    :height: 300px
+    :height: 280px
     :align: center
 
 
 .. rst-class:: note
 
     Fixeu-vos que per tenir una significació de :math:`\alpha=0.05`, només podrem
-    rebutjar l'hipòtesi Nula si :math:`\hat{\rho}_x > 0.022`! (això és en part perquè en el nostre exemple N=10).
+    rebutjar l'hipòtesi Nula si :math:`\hat{\rho}_x > 0.022`!
+    (això és en part perquè en el nostre exemple N=10, i degut això la variança del nostre estimador és gran).
 
 .. nextslide:: Exercici contemporani:
 
@@ -185,12 +186,13 @@ Test de Raó de Versemblances
 
 El paradigma que hem explicat fins ara ens guia per escollir
 el valor crític :math:`T_0` quan ja tenim un estadístic de test :math:`T` (
-a l'exemple, :math:`\hat{\rho}_X - 0.01`)
+a l'exemple, :math:`T = \hat{\rho}_X - 0.01`)
 sobre el que treballar, i una idea sobre quina hauria de ser
 la regió crítica (a l'exemple :math:`T > T_0`).
 
 El següent Lemma estableix com construïr tests òptims per **hipòtesis simples**, és a dir
-hipòtesis definides a partir del paràmetre :math:`\theta` d'una població:
+hipòtesis definides a partir del paràmetre :math:`\theta` d'una població caracteritzada
+per una f.d.p o f.m.p  :math:`f_X(x;\theta)`:
 
 * :math:`H_0: \theta = \theta_0`
 * :math:`H_1: \theta = \theta_1`
@@ -198,46 +200,119 @@ hipòtesis definides a partir del paràmetre :math:`\theta` d'una població:
 .. rst-class:: note
 
     **Lema 4.1 (de Neyman-Pearson, 1933)**: Per una mostra :math:`X_1, \cdots, X_N` i :math:`H_0` i :math:`H_1`
-    hipòtesis simples, el test de raó de versemblances :math:`T = \frac{f_X(X_1, \cdots, X_N; \theta_0)}{f_X(X_1, \cdots, X_N; \theta_1)}`
-    amb regió crítica :math:`T < T_0` tal que la significació és :math:`\alpha`, és el test amb més potència amb nivell de significació :math:`\alpha`.
+    hipòtesis simples, el test basat en l'estadístic de raó de versemblances :math:`T = \frac{f(X_1, \cdots, X_N; \theta_0)}{f(X_1, \cdots, X_N; \theta_1)}`
+    amb regió crítica :math:`T < T_0` i significació :math:`\alpha`, és el test amb més potència amb nivell de significació :math:`\alpha`.
 
 
-.. nextslide:: Exemple d'aplicació: detecció per infra-rojos
+.. nextslide:: Interpretació de la raó de versemblances
+
+Fixeu-vos que la versemblança d'una mostra:
+
+.. math::
+
+    f(X_1, \cdots, X_N; \theta)
+
+és més gran quan més versemblant és que la mostra :math:`X_1, \cdots, X_N` hagi estat generada
+per el paràmetre :math:`\theta`. (Aquest és el mateix principi que vam fer servir per justificar
+el Mètode de Màxima Versemblança per estimar :math:`\theta` a partir de :math:`X_1, \cdots, X_N`).
+
+Per tant, si l'evaluem a dos valors diferents de :math:`\theta`, :math:`\theta_0` i :math:`\theta_1`,
+:math:`f_X(X_1, \cdots, X_N; \theta)` hauria de ser més gran per aquell valor
+que és més versemblant segons les dades. En conseqüència, l'estadístic
+
+.. math::
+
+    T = \frac{f(X_1, \cdots, X_N; \theta_0)}{f(X_1, \cdots, X_N; \theta_1)}
+
+serà gran quan :math:`\theta_0` és més versemblant que :math:`\theta_1` i petita
+en el cas contrari. Això justifica que refusem l'hipòtesi nula
+:math:`\theta=\theta_0` quan :math:`T < T_0` per algun :math:`T_0` a escollir.
+
+
+Exemple d'aplicació: detecció per infra-rojos
+-----------------------------------------------
 
 Considereu una mostra iid :math:`X_1, \cdots, X_N` **normal** i de variança coneguda :math:`\sigma_2`,
 obtinguda a partir de les mesures d'un sensor de detecció d'infra-rojos. Quan davant del sensor
 hi ha un objecte, es mesura una senyal amb mitja :math:`\mu_1`, quan no, amb :math:`\mu_0`.
+
 Volem determinar si durant el periode d'observació de la mostra, hi havia un objecte o no:
 
 * :math:`H_0`: no hi ha cap objecte, :math:`\mu = \mu_0`
 * :math:`H_1`: n'hi ha un, :math:`\mu = \mu_1`
 
-Com que es tracta d'hipòtesis simples, per Neyman-Pearson farem servir el test de raó de versemblances:
+(dibuixet)
+
+.. nextslide:: Exemple d'aplicació: detecció per infra-rojos (II)
+
+Com que es tracta d'hipòtesis simples, segons el Lema 4.1 de Neyman-Pearson
+és òptim fer servir el test de raó de versemblances. L'estadístic és:
 
 .. math::
 
-    T &= \frac{f_X(X_1, \cdots, X_N; \theta_0)}{f_X(X_1, \cdots, X_N; \theta_1)} \\
-      &= \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
+    T &= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
+      &= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
+      &= \exp\left(-\frac{N}{2\sigma^2}\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)
 
+.. rst-class:: note
 
-.. nextslide::
-    :increment:
+    Fixeu-vos doncs que :math:`T` depèn únicament de la mostra a través de :math:`\bar{X}`.
+    Per exemple, si :math:`\mu_0 > \mu_1`, :math:`T` és petit si :math:`\bar{X}` és petit,
+    per tant rebutjarem :math:`H_0` si :math:`\bar{X}` és petita.
 
-.. math::
-
-    T &= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
-      &= \exp\left(-\frac{1}{2\sigma^2}\left(2N\bar{X}(\mu_0 - \mu_1) + N \mu_1^2 - N \mu_0^2\right)\right)
+.. nextslide:: Exemple d'aplicació: detecció per infra-rojos (III)
 
 Ens queda només trobar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`.
-Com que :math:`T` només depèn de la mostra a través de :math:`\bar{X}`, la regió crítica
+Com que :math:`T` només depèn de la mostra a través d'una funció monotònica d' :math:`\bar{X}`, la regió crítica
 es pot expressar en funció d':math:`\bar{X}`:
 
 .. math::
 
-    \left\{T < T_0 \right\} &= \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 > \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
-   & = \left\{\bar{X}(\mu_0 - \mu_1) > X_0\right\}
+    \left\{T < T_0 \right\} &= \left\{ \log T < \log T_0 \right\} \\
+   & = \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 > \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
+   & = \left\{\bar{X} > X_0\right\} \mbox{ (si } \mu_0 > \mu_1 \mbox{ )}
 
-és a dir, enlloc de buscar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`,
-buscarem directament :math:`X_0` tal que :math:`P(\bar{X}(\mu_0 - \mu_1) > X_0; \mu_0) = \alpha`.
+per :math:`X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)`.
+Es a dir, enlloc de buscar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`,
+buscarem directament :math:`X_0` tal que :math:`P(\bar{X} > X_0; \mu_0) = \alpha`.
 
 
+.. nextslide:: Exemple d'aplicació: detecció per infra-rojos (IV)
+
+Per continuar, fixem-nos que sota
+:math:`H_0`, :math:`X_1, \cdots, X_N \sim \mathcal{N}(\mu_0, \sigma^2)` per tant
+[`Diapo 29, Tema 2 <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29>`_]:
+:math:`\bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N})`.
+
+Podem doncs trobar :math:`X_0` manipulant l'expressió de significació:
+
+.. math::
+
+    P(\bar{X} > X_0; \mu_0) &= \alpha \\
+    P(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} > \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}; \mu_0) &= \alpha
+
+on tenim que :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)`.
+
+
+.. nextslide:: Exemple d'aplicació: detecció per infra-rojos (V)
+
+
+Així doncs, només caldrà trobar :math:`X_0` tal que:
+
+.. math::
+
+     \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} = 1 - \phi\left(\alpha\right)
+
+on :math:`\phi(x)` és la f.d.c. inversa d'una normal estàndard. Finalment:
+
+.. math::
+
+    X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)
+
+i per tant (en el cas on :math:`\mu_0 > \mu_1`) rebutjarem
+l'hipòtesi nula quan :math:`\bar{X} < \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)`
+
+.. rst-class:: note
+
+    Exercici: Quin valor crític :math:`X_0` i regió crítica tindriem si
+    enlloc de :math:`\mu_0 > \mu_1` tenim que :math:`\mu_0 \leq \mu_1`?
