@@ -302,9 +302,9 @@ rebutjar l’hipòtesi Nula si <span class="math notranslate nohighlight">\(\hat
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
 
 </article>
-<article class="slide level-3" id="test-de-rao-de-versemblances">
+<article class="slide level-3" id="test-de-rao-de-versemblances-rv">
 
-<h3>Test de Raó de Versemblances</h3>
+<h3>Test de Raó de Versemblances (RV)</h3>
 
 <p>El paradigma que hem explicat fins ara ens guia per escollir
 el valor crític <span class="math notranslate nohighlight">\(T_0\)</span> quan ja tenim un estadístic de test <span class="math notranslate nohighlight">\(T\)</span> (
@@ -361,7 +361,7 @@ en el cas contrari. Això justifica que refusem l’hipòtesi nula
 
 <h3>Exemple d’aplicació: detecció per infra-rojos</h3>
 
-<p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i de variança coneguda <span class="math notranslate nohighlight">\(\sigma_2\)</span>,
+<p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i de variança coneguda <span class="math notranslate nohighlight">\(\sigma^2\)</span>,
 obtinguda a partir de les mesures d’un sensor de detecció d’infra-rojos. Quan davant del sensor
 hi ha un objecte, es mesura una senyal amb mitja <span class="math notranslate nohighlight">\(\mu_1\)</span>, quan no, amb <span class="math notranslate nohighlight">\(\mu_0\)</span>.</p>
 <p>Volem determinar si durant el periode d’observació de la mostra, hi havia un objecte o no:</p>
@@ -405,15 +405,15 @@ per tant rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> si
 
 <h3>Exemple d’aplicació: detecció per infra-rojos (III)</h3>
 
-<p>Ens queda només trobar <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T &lt; T_0; \mu_0) = \alpha\)</span>.
-Com que <span class="math notranslate nohighlight">\(T\)</span> només depèn de la mostra a través d’una funció monotònica d’ <span class="math notranslate nohighlight">\(\bar{X}\)</span>, la regió crítica
+<p>Ens queda només trobar el valor crític <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T &lt; T_0; \mu_0) = \alpha\)</span>.</p>
+<p>Com que <span class="math notranslate nohighlight">\(T\)</span> només depèn de la mostra a través d’una funció monotònica d’ <span class="math notranslate nohighlight">\(\bar{X}\)</span>, la regió crítica
 es pot expressar en funció d’<span class="math notranslate nohighlight">\(\bar{X}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left\{T &lt; T_0 \right\} &amp;= \left\{ \log T &lt; \log T_0 \right\} \\
 &amp; = \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 &gt; \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
 &amp; = \left\{\bar{X} &gt; X_0\right\} \mbox{ (si } \mu_0 &gt; \mu_1 \mbox{ )}\end{split}\]</div>
-<p>per <span class="math notranslate nohighlight">\(X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)\)</span>.
-Es a dir, enlloc de buscar <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T &lt; T_0; \mu_0) = \alpha\)</span>,
+<p>per <span class="math notranslate nohighlight">\(X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)\)</span>.</p>
+<p>Es a dir, enlloc de buscar <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T &lt; T_0; \mu_0) = \alpha\)</span>,
 buscarem directament <span class="math notranslate nohighlight">\(X_0\)</span> tal que <span class="math notranslate nohighlight">\(P(\bar{X} &gt; X_0; \mu_0) = \alpha\)</span>.</p>
 
 
@@ -430,8 +430,9 @@ buscarem directament <span class="math notranslate nohighlight">\(X_0\)</span> t
 
 <p>Per continuar, fixem-nos que sota
 <span class="math notranslate nohighlight">\(H_0\)</span>, <span class="math notranslate nohighlight">\(X_1, \cdots, X_N \sim \mathcal{N}(\mu_0, \sigma^2)\)</span> per tant
-[<a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29">Diapo 29, Tema 2</a>]:
-<span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N})\)</span>.</p>
+[<a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29">Diapo 29, Tema 2</a>]:</p>
+<div class="math notranslate nohighlight">
+\[\bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N}).\]</div>
 <p>Podem doncs trobar <span class="math notranslate nohighlight">\(X_0\)</span> manipulant l’expressió de significació:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P(\bar{X} &gt; X_0; \mu_0) &amp;= \alpha \\
@@ -458,12 +459,188 @@ P(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} &gt; \frac{X_0 - \mu_0}{\sqr
 \[X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)\]</div>
 <p>i per tant (en el cas on <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span>) rebutjarem
 l’hipòtesi nula quan <span class="math notranslate nohighlight">\(\bar{X} &lt; \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)\)</span></p>
-<p class="note">Exercici: Quin valor crític <span class="math notranslate nohighlight">\(X_0\)</span> i regió crítica tindriem si
+<p class="note"><strong>Exercici</strong>: Quin valor crític <span class="math notranslate nohighlight">\(X_0\)</span> i regió crítica tindriem si
 enlloc de <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span> tenim que <span class="math notranslate nohighlight">\(\mu_0 \leq \mu_1\)</span>?</p>
 
 
 
 <div class="slide-no">19</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="test-de-rao-de-versemblances-generalitzada-rvg">
+
+<h3>Test de Raó de Versemblances Generalitzada (RVG)</h3>
+
+<p>El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
+però és d’aplicació pràctica limitada, ja que en general, les nostres
+hipòtesis seràn compostes, és a dir, del tipus:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \theta \in \Theta_0\)</span></li>
+<li><span class="math notranslate nohighlight">\(H_1: \theta \in \Theta_1\)</span></li>
+</ul>
+<p>on <span class="math notranslate nohighlight">\(\Theta_0\)</span> i <span class="math notranslate nohighlight">\(\Theta_1\)</span> són subconjunts de <span class="math notranslate nohighlight">\(\Theta\)</span> i
+per tant el test de Raó de Versemblances no és aplicable.</p>
+<p>Per exemple, el nostre exemple inicial es tractava d’hipòtesis compostes:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Theta_0 = \left\{\rho_X \leq 0.01 \right\}\)</span></li>
+<li><span class="math notranslate nohighlight">\(\Theta_1 = \left\{\rho_X &gt; 0.01 \right\}\)</span></li>
+</ul>
+
+
+
+<div class="slide-no">20</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id14">
+
+<h3>Test de Raó de Versemblances Generalitzada (RVG) (2)</h3>
+
+<p>Donada una mostra <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span>
+d’una població amb f.d.p. <span class="math notranslate nohighlight">\(f_X\)</span>, i versemblança
+<span class="math notranslate nohighlight">\(f(X_1, \cdots, X_N; \theta)\)</span>, el Test de Raó de Versemblances Generalitzat, es basa en el següent estadístic:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{\max_{\theta \in \Theta_{0}} f(X_1, \cdots, X_N; \theta)}{\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)}\]</div>
+<p>amb regió crítica:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda \leq \lambda_0\]</div>
+<p>i <span class="math notranslate nohighlight">\(\lambda_0\)</span> tal que:</p>
+<div class="math notranslate nohighlight">
+\[P(\Lambda \in \lambda_0; \theta_0) = \alpha, \forall \theta_0 \in \Theta_0\]</div>
+<p class="note">Per evaluar l’estadístic del test d’RVG, cal doncs trobar l’EMV sota cada una de les hipòtesis</p>
+
+
+
+<div class="slide-no">21</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda</h3>
+
+<p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i
+de variança coneguda <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Volem testejar si la mitja de la població és un valor donat <span class="math notranslate nohighlight">\(\mu_0\)</span> o no.
+Les hipòtesis son doncs:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \mu= \mu_0\)</span> (simple)</li>
+<li><span class="math notranslate nohighlight">\(H_1: \mu \neq \mu_0\)</span> (composta)</li>
+</ul>
+<p class="note">Podeu pensar en una situació pràctica on voldriem testejar aquesta hipòtesi?</p>
+
+
+
+<div class="slide-no">22</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id15">
+
+<h3>Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança coneguda (2)</h3>
+
+<p>Com que l’hipòtesis nula és simple, en aquest exemple, l’estadístic del test RVG és:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{\max_{\mu \in \Theta} f(X_1, \cdots, X_N; \mu)}\]</div>
+<p>Per tant haurem de trobar l’EMV (<span class="math notranslate nohighlight">\(\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)\)</span>)
+per calcular-lo. Però al tractar-se d’una mostra normal, ja sabem que l’EMV
+de la mitja <span class="math notranslate nohighlight">\(\mu\)</span> és simplement la mitjana aritmètica de la mostra:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu} = \bar{X}\)</span></p>
+<p>Per tant en aquest exemple l’estadístic es simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{f(X_1, \cdots, X_N; \bar{X})} = \frac{\Pi_i f_X(X_i; \mu_0)}{\Pi_i f_X(X_i; \bar{X})}\]</div>
+<p>on <span class="math notranslate nohighlight">\(f_X\)</span> és la f.d.p d’una Gaussiana.</p>
+
+
+
+<div class="slide-no">23</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id16">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (III)</h3>
+
+<p>Al numerador tindrem</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \mu_0)^2 \right)\)</span></p>
+<p>i al denominador</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \bar{X})^2 \right)\)</span></p>
+<p>Per tant, trobarem:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \exp\left(-\frac{1}{2\sigma^2}\left[\sum_i(X_i - \mu_0)^2 - \sum_i(X_i - \bar{X})^2\right] \right)\]</div>
+
+
+
+<div class="slide-no">24</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id17">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (IV)</h3>
+
+<p>Amb una mica d’àlgebra, això es pot simplicar a</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right)\]</div>
+<p>per tant la regió crítica serà:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\Lambda: \Lambda \leq \lambda_0\right\} &amp;= \left\{\bar{X}: \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right) \leq \lambda_0 \right\} \\
+&amp; = \left\{\bar{X}: \left(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right)^2  &gt; - 2 \log \lambda_0\right\} \\\end{split}\]</div>
+
+
+
+<div class="slide-no">25</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id18">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (5)</h3>
+
+<p>arribem a:</p>
+<div class="math notranslate nohighlight">
+\[\left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right|  &gt; \sqrt{- 2 \log \lambda_0 } \right\}\]</div>
+<p>És a dir, rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> quan la diferència entre <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(\mu_0\)</span> sigui prou gran.</p>
+<p>De nou, com que la mostra es Gaussiana, <span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\)</span> i per tant
+podem trobar el valor crític <span class="math notranslate nohighlight">\(\lambda_0\)</span> com segueix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P(\Lambda \leq \lambda_0; \mu_0) &amp;= \alpha \\
+P(\sqrt{- 2 \log \lambda_0 } \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq  \sqrt{- 2 \log \lambda_0 }; \mu_0) &amp;= \alpha\end{split}\]</div>
+<p>Per tant:</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{- 2 \log \lambda_0 } = \phi(\frac{\alpha}{2})\]</div>
+
+
+
+<div class="slide-no">26</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança desconeguda</h3>
+
+
+
+
+<div class="slide-no">27</div>
 
 
 <div class="slide-footer">104392 - Modelització i Inferència - 2020</div>

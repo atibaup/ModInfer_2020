@@ -181,7 +181,7 @@ Considereu els tests PCR que es fan per detectar la COVID-19.
 * Què creieu que vol dir que els tests PCR tenen "alta sensibilitat"?
 
 
-Test de Raó de Versemblances
+Test de Raó de Versemblances (RV)
 ---------------------------------------
 
 El paradigma que hem explicat fins ara ens guia per escollir
@@ -232,7 +232,7 @@ en el cas contrari. Això justifica que refusem l'hipòtesi nula
 Exemple d'aplicació: detecció per infra-rojos
 -----------------------------------------------
 
-Considereu una mostra iid :math:`X_1, \cdots, X_N` **normal** i de variança coneguda :math:`\sigma_2`,
+Considereu una mostra iid :math:`X_1, \cdots, X_N` **normal** i de variança coneguda :math:`\sigma^2`,
 obtinguda a partir de les mesures d'un sensor de detecció d'infra-rojos. Quan davant del sensor
 hi ha un objecte, es mesura una senyal amb mitja :math:`\mu_1`, quan no, amb :math:`\mu_0`.
 
@@ -262,7 +262,8 @@ Com que es tracta d'hipòtesis simples, segons el Lema 4.1 de Neyman-Pearson
 
 .. nextslide:: Exemple d'aplicació: detecció per infra-rojos (III)
 
-Ens queda només trobar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`.
+Ens queda només trobar el valor crític :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`.
+
 Com que :math:`T` només depèn de la mostra a través d'una funció monotònica d' :math:`\bar{X}`, la regió crítica
 es pot expressar en funció d':math:`\bar{X}`:
 
@@ -273,6 +274,7 @@ es pot expressar en funció d':math:`\bar{X}`:
    & = \left\{\bar{X} > X_0\right\} \mbox{ (si } \mu_0 > \mu_1 \mbox{ )}
 
 per :math:`X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)`.
+
 Es a dir, enlloc de buscar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`,
 buscarem directament :math:`X_0` tal que :math:`P(\bar{X} > X_0; \mu_0) = \alpha`.
 
@@ -282,7 +284,10 @@ buscarem directament :math:`X_0` tal que :math:`P(\bar{X} > X_0; \mu_0) = \alpha
 Per continuar, fixem-nos que sota
 :math:`H_0`, :math:`X_1, \cdots, X_N \sim \mathcal{N}(\mu_0, \sigma^2)` per tant
 [`Diapo 29, Tema 2 <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29>`_]:
-:math:`\bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N})`.
+
+.. math::
+
+    \bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N}).
 
 Podem doncs trobar :math:`X_0` manipulant l'expressió de significació:
 
@@ -314,5 +319,163 @@ l'hipòtesi nula quan :math:`\bar{X} < \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 
 
 .. rst-class:: note
 
-    Exercici: Quin valor crític :math:`X_0` i regió crítica tindriem si
+    **Exercici**: Quin valor crític :math:`X_0` i regió crítica tindriem si
     enlloc de :math:`\mu_0 > \mu_1` tenim que :math:`\mu_0 \leq \mu_1`?
+
+
+Test de Raó de Versemblances Generalitzada (RVG)
+-----------------------------------------------
+
+El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
+però és d'aplicació pràctica limitada, ja que en general, les nostres
+hipòtesis seràn compostes, és a dir, del tipus:
+
+
+* :math:`H_0: \theta \in \Theta_0`
+* :math:`H_1: \theta \in \Theta_1`
+
+on :math:`\Theta_0` i :math:`\Theta_1` són subconjunts de :math:`\Theta` i
+per tant el test de Raó de Versemblances no és aplicable.
+
+Per exemple, el nostre exemple inicial es tractava d'hipòtesis compostes:
+
+* :math:`\Theta_0 = \left\{\rho_X \leq 0.01 \right\}`
+* :math:`\Theta_1 = \left\{\rho_X > 0.01 \right\}`
+
+
+.. nextslide::
+    :increment:
+
+Donada una mostra :math:`X_1, \cdots, X_N`
+d'una població amb f.d.p. :math:`f_X`, i versemblança
+:math:`f(X_1, \cdots, X_N; \theta)`, el Test de Raó de Versemblances Generalitzat, es basa en el següent estadístic:
+
+.. math::
+
+    \Lambda = \frac{\max_{\theta \in \Theta_{0}} f(X_1, \cdots, X_N; \theta)}{\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)}
+
+amb regió crítica:
+
+.. math::
+
+    \Lambda \leq \lambda_0
+
+i :math:`\lambda_0` tal que:
+
+.. math::
+
+    P(\Lambda \in \lambda_0; \theta_0) = \alpha, \forall \theta_0 \in \Theta_0
+
+
+.. rst-class:: note
+
+    Per evaluar l'estadístic del test d'RVG, cal doncs trobar l'EMV sota cada una de les hipòtesis
+
+
+Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança coneguda
+----------------------------------------------------------------------------------------
+
+Considereu una mostra iid :math:`X_1, \cdots, X_N` **normal** i
+de variança coneguda :math:`\sigma^2`.
+
+Volem testejar si la mitja de la població és un valor donat :math:`\mu_0` o no.
+Les hipòtesis son doncs:
+
+* :math:`H_0: \mu= \mu_0` (simple)
+* :math:`H_1: \mu \neq \mu_0` (composta)
+
+
+.. rst-class:: note
+
+    Podeu pensar en una situació pràctica on voldriem testejar aquesta hipòtesi?
+
+
+.. nextslide::
+    :increment:
+
+Com que l'hipòtesis nula és simple, en aquest exemple, l'estadístic del test RVG és:
+
+.. math::
+
+    \Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{\max_{\mu \in \Theta} f(X_1, \cdots, X_N; \mu)}
+
+
+Per tant haurem de trobar l'EMV (:math:`\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)`)
+per calcular-lo. Però al tractar-se d'una mostra normal, ja sabem que l'EMV
+de la mitja :math:`\mu` és simplement la mitjana aritmètica de la mostra:
+
+:math:`\hat{\mu} = \bar{X}`
+
+Per tant en aquest exemple l'estadístic es simplifica a:
+
+.. math::
+
+    \Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{f(X_1, \cdots, X_N; \bar{X})} = \frac{\Pi_i f_X(X_i; \mu_0)}{\Pi_i f_X(X_i; \bar{X})}
+
+on :math:`f_X` és la f.d.p d'una Gaussiana.
+
+.. nextslide:: Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança coneguda (III)
+
+
+Al numerador tindrem
+
+:math:`\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \mu_0)^2 \right)`
+
+i al denominador
+
+:math:`\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \bar{X})^2 \right)`
+
+Per tant, trobarem:
+
+.. math::
+
+    \Lambda = \exp\left(-\frac{1}{2\sigma^2}\left[\sum_i(X_i - \mu_0)^2 - \sum_i(X_i - \bar{X})^2\right] \right)
+
+
+.. nextslide:: Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança coneguda (IV)
+
+Amb una mica d'àlgebra, això es pot simplicar a
+
+.. math::
+
+    \Lambda = \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right)
+
+per tant la regió crítica serà:
+
+.. math::
+
+    \left\{\Lambda: \Lambda \leq \lambda_0\right\} &= \left\{\bar{X}: \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right) \leq \lambda_0 \right\} \\
+    & = \left\{\bar{X}: \left(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right)^2  > - 2 \log \lambda_0\right\} \\
+
+
+.. nextslide::
+    :increment:
+
+arribem a:
+
+.. math::
+
+    \left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right|  > \sqrt{- 2 \log \lambda_0 } \right\}
+
+És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran.
+
+De nou, com que la mostra es Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)` i per tant
+podem trobar el valor crític :math:`\lambda_0` com segueix:
+
+
+.. math::
+
+    P(\Lambda \leq \lambda_0; \mu_0) &= \alpha \\
+    P(\sqrt{- 2 \log \lambda_0 } \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq  \sqrt{- 2 \log \lambda_0 }; \mu_0) &= \alpha
+
+Per tant:
+
+
+.. math::
+
+    \sqrt{- 2 \log \lambda_0 } = \phi(\frac{\alpha}{2})
+
+
+Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança desconeguda
+----------------------------------------------------------------------------------------
+
