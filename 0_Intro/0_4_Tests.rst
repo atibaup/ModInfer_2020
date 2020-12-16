@@ -201,7 +201,7 @@ per una f.d.p o f.m.p  :math:`f_X(x;\theta)`:
 
     **Lema 4.1 (de Neyman-Pearson, 1933)**: Per una mostra :math:`X_1, \cdots, X_N` i :math:`H_0` i :math:`H_1`
     hipòtesis simples, el test basat en l'estadístic de raó de versemblances :math:`T = \frac{f(X_1, \cdots, X_N; \theta_0)}{f(X_1, \cdots, X_N; \theta_1)}`
-    amb regió crítica :math:`T < T_0` i significació :math:`\alpha`, és el test amb més potència amb nivell de significació :math:`\alpha`.
+    amb regió crítica :math:`T \leq T_0` i significació :math:`\alpha`, és el test amb més potència amb nivell de significació :math:`\alpha`.
 
 
 .. nextslide:: Interpretació de la raó de versemblances
@@ -226,7 +226,7 @@ que és més versemblant segons les dades. En conseqüència, l'estadístic
 
 serà gran quan :math:`\theta_0` és més versemblant que :math:`\theta_1` i petita
 en el cas contrari. Això justifica que refusem l'hipòtesi nula
-:math:`\theta=\theta_0` quan :math:`T < T_0` per algun :math:`T_0` a escollir.
+:math:`\theta=\theta_0` quan :math:`T \leq T_0` per algun :math:`T_0` a escollir.
 
 
 Exemple d'aplicació: detecció per infra-rojos
@@ -236,12 +236,13 @@ Considereu una mostra iid :math:`X_1, \cdots, X_N` **normal** i de variança con
 obtinguda a partir de les mesures d'un sensor de detecció d'infra-rojos. Quan davant del sensor
 hi ha un objecte, es mesura una senyal amb mitja :math:`\mu_1`, quan no, amb :math:`\mu_0`.
 
-Volem determinar si durant el periode d'observació de la mostra, hi havia un objecte o no:
-
 * :math:`H_0`: no hi ha cap objecte, :math:`\mu = \mu_0`
 * :math:`H_1`: n'hi ha un, :math:`\mu = \mu_1`
 
-(dibuixet)
+.. image::  /_static/0_Intro/exemple_ir.png
+    :height: 250px
+    :align: center
+
 
 .. nextslide:: Exemple d'aplicació: detecció per infra-rojos (II)
 
@@ -252,31 +253,32 @@ Com que es tracta d'hipòtesis simples, segons el Lema 4.1 de Neyman-Pearson
 
     T &= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
       &= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
-      &= \exp\left(-\frac{N}{2\sigma^2}\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)
+      &= \exp\left(N\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)
 
 .. rst-class:: note
 
     Fixeu-vos doncs que :math:`T` depèn únicament de la mostra a través de :math:`\bar{X}`.
     Per exemple, si :math:`\mu_0 > \mu_1`, :math:`T` és petit si :math:`\bar{X}` és petit,
-    per tant rebutjarem :math:`H_0` si :math:`\bar{X}` és petita.
+    per tant rebutjarem :math:`H_0` si :math:`\bar{X}` és petita. Per tant, per aquest test,
+    enlloc de fer servir :math:`T` com estadístic, podem fer servir directament :math:`\bar{X}`!
 
 .. nextslide:: Exemple d'aplicació: detecció per infra-rojos (III)
 
-Ens queda només trobar el valor crític :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`.
+Ens queda només trobar el valor crític :math:`T_0` tal que :math:`P(T \leq T_0; \mu_0) = \alpha`.
 
-Com que :math:`T` només depèn de la mostra a través d'una funció monotònica d' :math:`\bar{X}`, la regió crítica
+Com hem vist, :math:`T` només depèn de la mostra a través d'una funció monotònica d' :math:`\bar{X}`, per tant la regió crítica
 es pot expressar en funció d':math:`\bar{X}`:
 
 .. math::
 
-    \left\{T < T_0 \right\} &= \left\{ \log T < \log T_0 \right\} \\
-   & = \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 > \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
-   & = \left\{\bar{X} > X_0\right\} \mbox{ (si } \mu_0 > \mu_1 \mbox{ )}
+    \left\{T \leq T_0 \right\} &= \left\{ \log T \leq \log T_0 \right\} \\
+   & = \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 \leq \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
+   & = \left\{\bar{X} \leq X_0\right\} \mbox{ (si } \mu_0 > \mu_1 \mbox{ )}
 
 per :math:`X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)`.
 
-Es a dir, enlloc de buscar :math:`T_0` tal que :math:`P(T < T_0; \mu_0) = \alpha`,
-buscarem directament :math:`X_0` tal que :math:`P(\bar{X} > X_0; \mu_0) = \alpha`.
+Es a dir, enlloc de buscar :math:`T_0` tal que :math:`P(T \leq T_0; \mu_0) = \alpha`,
+buscarem directament :math:`X_0` tal que :math:`P(\bar{X} \leq X_0; \mu_0) = \alpha`.
 
 
 .. nextslide:: Exemple d'aplicació: detecció per infra-rojos (IV)
@@ -293,8 +295,8 @@ Podem doncs trobar :math:`X_0` manipulant l'expressió de significació:
 
 .. math::
 
-    P(\bar{X} > X_0; \mu_0) &= \alpha \\
-    P(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} > \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}; \mu_0) &= \alpha
+    P(\bar{X} \leq X_0; \mu_0) &= \alpha \\
+    P(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}; \mu_0) &= \alpha
 
 on tenim que :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)`.
 
@@ -315,7 +317,7 @@ on :math:`\phi(x)` és la f.d.c. inversa d'una normal estàndard. Finalment:
     X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)
 
 i per tant (en el cas on :math:`\mu_0 > \mu_1`) rebutjarem
-l'hipòtesi nula quan :math:`\bar{X} < \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)`
+l'hipòtesi nula quan :math:`\bar{X} \leq \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)`
 
 .. rst-class:: note
 
@@ -327,7 +329,7 @@ Test de Raó de Versemblances Generalitzada (RVG)
 -----------------------------------------------
 
 El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
-però és d'aplicació pràctica limitada, ja que en general, les nostres
+però és d'aplicació pràctica limitada, ja que sovint les nostres
 hipòtesis seràn compostes, és a dir, del tipus:
 
 
@@ -354,18 +356,14 @@ d'una població amb f.d.p. :math:`f_X`, i versemblança
 
     \Lambda = \frac{\max_{\theta \in \Theta_{0}} f(X_1, \cdots, X_N; \theta)}{\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)}
 
+(fixeu-vos que al denominador el max és respecte :math:`\Theta` no :math:`\Theta_1`
 amb regió crítica:
 
 .. math::
 
     \Lambda \leq \lambda_0
 
-i :math:`\lambda_0` tal que:
-
-.. math::
-
-    P(\Lambda \in \lambda_0; \theta_0) = \alpha, \forall \theta_0 \in \Theta_0
-
+i :math:`\lambda_0` tal que :math:`P(\Lambda \in \lambda_0; \theta_0) = \alpha, \forall \theta_0 \in \Theta_0`.
 
 .. rst-class:: note
 
@@ -457,7 +455,7 @@ arribem a:
 
     \left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right|  > \sqrt{- 2 \log \lambda_0 } \right\}
 
-És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran.
+És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran, relativa a la variança de :math:`\bar{X}`.
 
 De nou, com que la mostra es Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)` i per tant
 podem trobar el valor crític :math:`\lambda_0` com segueix:
@@ -475,7 +473,4 @@ Per tant:
 
     \sqrt{- 2 \log \lambda_0 } = \phi(\frac{\alpha}{2})
 
-
-Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança desconeguda
-----------------------------------------------------------------------------------------
 
