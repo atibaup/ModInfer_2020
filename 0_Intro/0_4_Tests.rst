@@ -308,16 +308,16 @@ Així doncs, només caldrà trobar :math:`X_0` tal que:
 
 .. math::
 
-     \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} = 1 - \phi\left(\alpha\right)
+     \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} = \phi\left(\alpha\right)
 
 on :math:`\phi(x)` és la f.d.c. inversa d'una normal estàndard. Finalment:
 
 .. math::
 
-    X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)
+    X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\phi\left(\alpha\right)
 
 i per tant (en el cas on :math:`\mu_0 > \mu_1`) rebutjarem
-l'hipòtesi nula quan :math:`\bar{X} \leq \mu_0 + \sqrt{\frac{\sigma^2}{N}}\left(1 - \phi(\alpha)\right)`
+l'hipòtesi nula quan :math:`\bar{X} \leq \mu_0 + \sqrt{\frac{\sigma^2}{N}}\phi\left(\alpha\right)`
 
 .. rst-class:: note
 
@@ -443,7 +443,7 @@ per tant la regió crítica serà:
 .. math::
 
     \left\{\Lambda: \Lambda \leq \lambda_0\right\} &= \left\{\bar{X}: \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right) \leq \lambda_0 \right\} \\
-    & = \left\{\bar{X}: \left(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right)^2  > - 2 \log \lambda_0\right\} \\
+    & = \left\{\bar{X}: \left(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right)^2  \geq - 2 \log \lambda_0\right\} \\
 
 
 .. nextslide::
@@ -453,24 +453,268 @@ arribem a:
 
 .. math::
 
-    \left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right|  > \sqrt{- 2 \log \lambda_0 } \right\}
+    \left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right| \geq X_0 \right\}
 
-És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran, relativa a la variança de :math:`\bar{X}`.
+Per :math:`X_0=\sqrt{- 2 \log \lambda_0 }`. És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran, relativa a la variança de :math:`\bar{X}`.
 
-De nou, com que la mostra es Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)` i per tant
-podem trobar el valor crític :math:`\lambda_0` com segueix:
-
-
-.. math::
-
-    P(\Lambda \leq \lambda_0; \mu_0) &= \alpha \\
-    P(\sqrt{- 2 \log \lambda_0 } \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq  \sqrt{- 2 \log \lambda_0 }; \mu_0) &= \alpha
-
-Per tant:
+De nou, com que la mostra es Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)`,
+podem buscar el valor crític :math:`X_0` com segueix:
 
 
 .. math::
 
-    \sqrt{- 2 \log \lambda_0 } = \phi(\frac{\alpha}{2})
+    P(\Lambda \leq \lambda_0; \mu_0) = 1 - P(-X_0 \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq X_0; \mu_0) = \alpha
 
 
+.. nextslide:: Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (6)
+
+que és el mateix que:
+
+.. math::
+
+    1 - (F_Z(X_0) - F_Z(-X_0)) = \alpha
+
+on :math:`F_Z` és la f.d.c. d'una normal estàndard. Com que :math:`F_Z(x) = 1 - F_Z(-x)`,
+concluïm que el valor crític serà tal que :math:`X_0`:
+
+.. math::
+
+    F_Z(X_0) &= \frac{\alpha}{2} \\
+    X_0 &= \phi\left(\frac{\alpha}{2}\right)
+
+i per tant rebutjarem :math:`H_0` quan:
+
+.. math::
+
+    X_0 \not \in \left[\mu_0 - \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}, \mu_0 + \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}\right]
+
+
+Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança **desconeguda**
+----------------------------------------------------------------------------------------
+
+En aquesta curs no ho desenvoluparem, però el que hem fet es pot generalitzar
+a una situació on volem testejar si la mitja d'una població Gaussiana és igual a
+un valor donat :math:`\mu_0` o no:
+
+* :math:`H_0: \mu= \mu_0` (simple)
+* :math:`H_1: \mu \neq \mu_0` (composta)
+
+**però la variança de la mateixa és desconeguda**. En aquest cas,
+el Test de RVG, dona lloc a  l'estadístic:
+
+.. math::
+
+    T = \frac{\bar{X} - \mu_0}{\sqrt{\frac{S_X^2}{N}}}
+
+Sota l'hipòtesi nula, :math:`\bar{X} \sim \mathcal{N}(\mu_0, \sigma^2)`
+i :math:`\frac{N-1}{\sigma^2}S_X^2 \sim \chi^2_{N-1}` (`Casella & Berger 5.3.1 <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29>`_),
+i com vam aprendre a `la Pràctica 2 del Tema 2 <https://e-aules.uab.cat/2020-21/pluginfile.php/609301/mod_assign/introattachment/0/pra%CC%80ctica_2.html>`_,
+aleshores T segueix una distribució *t de Student* amb :math:`N-1` graus de llibertat. La regió crítica
+es pot doncs calcular a partir de la f.d.c. inversa de la distribució *t de Student*.
+
+
+Distribució asimptòtica de la log-raó de versemblances sota :math:`H_0`
+-----------------------------------------------------------------------
+
+Als exemples anteriors, hem construït les regions crítiques a base de manipular
+la regió crítica del Test de RVG:
+
+.. math::
+
+    \left\{\Lambda: \Lambda \leq \lambda_0\right\}
+
+fins que trobàvem un conjunt equivalent, expressant en funció d'un estadístic diferent de
+:math:`\Lambda`, que anomenem :math:`T`:
+
+.. math::
+
+    \left\{T: T \leq T_0\right\}
+
+de manera que:
+
+.. math::
+
+    P(\Lambda \leq \lambda_0; H_0) = P( T \leq T_0 ; H_0) = \alpha
+
+Això ho feiem perquè sovint podiem caracteritzar la f.d.p de :math:`T` sota la hipòtesi nula,
+ja que trobar la de :math:`\Lambda` semblava massa difícil.
+
+.. nextslide::
+    :increment:
+
+Resulta que hi ha un resultat teòric molt important que amplia l'aplicació
+del test de RVG a moltes més situacions, sempre i quant la talla de la mostra sigui suficientment gran:
+
+.. rst-class:: note
+
+    **Teorema 4.1.**: Sota certes condicions de regularitat de les f.d.p. involucrades,
+    la distribució de :math:`-2\log\Lambda` sota l'hipòtesis nula tendeix a una distribució
+    de :math:`\chi^2_D` amb :math:`D = \mbox{dim}\Omega - \mbox{dim}\Omega_0` quan la talla
+    de la mostra tendeix a l'infinit.
+
+En les pròximes seccions veurem una aplicació pràctica d'aquest resultat en el contexte
+de tests per la Bondat d'Ajust.
+
+
+Tests de Bondat d'Ajust
+------------------------
+
+Recordeu del Tema 3 que un dels problemes que vam "esquivar" a l'ajustar
+lleis de probabilitat a les dades era el de determinar si la nostra hipòtesi sobre la família
+que generava les dades era adequada o no:
+
+
+.. figure::  /_static/0_Intro/ajust.png
+    :height: 300px
+    :align: center
+
+.. rst-class:: note
+
+    De les tres famílies (Gaussiana, Poisson, Gamma), quina té millor ajust?
+
+.. nextslide::
+    :increment:
+
+Intuitivament, si tenim dades discretes, sembla que el millor ajust seria el que
+minimitzaria les diferències entre les comptes observades (histograma) i les
+comptes que "esperaria" la f.d.p:
+
+
+.. rst-class:: note
+
+    Necessitem un criteri més objectiu per determinar què és poca o molta diferència
+    entre el que espera el model i el que observem.
+
+
+.. nextslide::
+    :increment:
+
+En el material que segueix, donarem dues alternatives per quantificar la *bondat d'ajust*,
+és a dir: donada una mostra i un ajust d'una f.d.p a les mateixes, com n'és de probable
+que les dades fóssin generades pel model estocàstic que hem ajustat.
+
+* Suposem que tenim una mostra de talla N d'una v.a. discreta no-negativa amb f.m.p. :math:`X \sim p_X(x;\theta)`
+* Construïm l'histograma de la mostra, amb M "compartiments" :math:`\left\{1, 2, \cdots, M\right\}`
+* El nombre d'elements en cada compartiment, :math:`Y_1, \cdots, Y_M` seguirà una distribució multinomial amb paràmetres :math:`[p_X(0;\theta), p_X(1;\theta), \cdots, p_X(M-1;\theta)]`
+
+Aleshores, la versemblança de :math:`Y_1, \cdots, Y_M` sota el model :math:`p_X(x;\theta)` és:
+
+.. math::
+
+    p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; \theta) = \left( \frac{N!}{y_1! \cdots y_M!} \right) p_X(0;\theta)^{y_1} \cdots p_X(M;\theta)^{y_M}
+
+
+.. nextslide:: Tests de Bondat d’Ajust (4)
+
+En canvi, si no tenim cap hipòtesi sobre el model generador de :math:`X`, la versemblança de
+:math:`Y_1, \cdots, Y_M` és:
+
+.. math::
+
+    p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; p_1, \cdots, p_M) = \left( \frac{N!}{y_1! \cdots y_M!} \right) p_1^{y_1} \cdots p_M^{y_M}
+
+on fixeu-vos que :math:`p_i, i=1,\cdots,M` són "lliures", és a dir :math:`p_i \neq p_X(i;\theta)`.
+
+Tenim per tant dues hipòtesis:
+
+* :math:`H_0`: :math:`Y_1, \cdots, Y_M \sim \mbox{Multinomial}\left(p_X(0;\theta), p_X(1;\theta), \cdots, p_X(M-1;\theta), N\right)`
+* :math:`H_1`: :math:`Y_1, \cdots, Y_M \sim \mbox{Multinomial}\left(p_1, \cdots, p_M, N\right)` amb :math:`\sum_i p_i =1`
+
+.. rst-class:: note
+
+    Es tracta d'una hipòtesis composta, i podem fer servir el test de RVG!
+
+.. nextslide:: Tests de Bondat d’Ajust (5)
+
+Recordem que el test de RVG demana el càlcul de:
+
+.. math::
+
+    \Lambda = \frac{\max_{\theta} p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; \theta)}{\max_{p_1, \cdots, p_M \in \mathcal{P}} p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; p_1, \cdots, p_M)}
+
+on :math:`\mathcal{P} := \left\{p_1, \cdots, p_M: \sum_i p_i =1 \right\}`.
+
+El màxim del numerador es troba per :math:`\theta` igual a l'EMV de :math:`\theta` donat
+:math:`X_1, \cdots, X_M` (l'EMV "habitual").
+
+El màxim del denominador es troba com l'EMV de :math:`p_1, \cdots, p_M` sense cap restricció
+(vist al `Tema 3, Diapo 11 <https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_3_Estimacio.html#11>`_):
+
+.. math::
+
+    \hat{p}_i = \frac{Y_i}{N}
+
+.. nextslide:: Tests de Bondat d’Ajust (6)
+
+Per tant el RVG es simplifica a:
+
+.. math::
+
+    \Lambda &= \frac{\left( \frac{N!}{y_1! \cdots y_M!} \right) p_X(0;\hat{\theta})^{y_1} \cdots p_X(M;\hat{\theta})^{y_M}}{ \left( \frac{N!}{y_1! \cdots y_M!} \right) \hat{p}_1^{y_1} \cdots \hat{p}_M^{y_M}} \\
+    &= \Pi_{i=1}^M \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)^{y_i}
+
+Com que coneixem la distribució sota :math:`H_0` de :math:`-2\log \Lambda`, aplicarem la transformació
+:math:`-2\log(\cdot)` a l'expressió anterior:
+
+.. math::
+
+    -2 \log\Lambda = \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)
+
+
+.. nextslide:: Tests de Bondat d’Ajust (7)
+
+Definint :math:`N p_X(i;\hat{\theta}) = \hat{y}_i` i tenint en compte que :math:`N \hat{p}_i = y_i`,
+obtindrem:
+
+.. math::
+
+    -2 \log\Lambda & = -2 \sum_i y_i \log \left(\frac{\hat{y}_i}{y_i} \right) \\
+    &= 2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)
+
+Suposant que :math:`N` és gran, invoquem el Teorema 4.1. amb :math:`\mbox{dim}\Omega = M-1` i :math:`\mbox{dim}\Omega_0 = 1`,
+sabem que :math:`-2 \log\Lambda \sim \chi^2_{M-2}` i podem refusar :math:`H_0` quan
+
+.. math::
+
+     2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)
+
+on :math:`\phi_{\chi^2_{M-2}}` és la f.d.c. inversa d'una llei :math:`\chi^2_{M-2}`.
+
+
+Test :math:`\chi^2` de Pearson
+--------------------------------
+
+L'expressió anterior:
+
+.. math::
+
+     2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)
+
+mesura com de gran és la discrepància entre :math:`\hat{y}_i` i :math:`y_i` (i per tant
+entre :math:`p_X(i;\hat{\theta})` i :math:`\hat{p}_i`), i està
+justificada per la teoria del Test de RVG.
+
+L'estadístic de Pearson, definit com:
+
+.. math::
+
+     X^2 = \sum_i \frac{\left(y_i - N p_X(i;\hat{\theta}) \right)^2}{ N p_X(i;\hat{\theta})} = \sum_i \frac{\left(y_i - \hat{y}_i\right)^2}{ \hat{y}_i}
+
+és un altre test habitual (i potser més comú) per assolir el mateix objectiu.
+
+Resulta que es pot demostrar (mitjantçant una expansió de Taylor), que sota l'hipòtesis
+nula, l'estadístic :math:`X^2` i l'estadístic :math:`-2\log\Lambda` son asimptòticament
+equivalents, i per tant, podem fer servir que :math:`X^2 \sim \chi^2_D` per trobar-ne la
+regió i valor crítics.
+
+Calendari fi de curs:
+--------------------------------
+
+
+1. El dia 8/01 haureu d'entregar els problemes que us posaré aquest Dimecres del Tema 4. Podeu fer els problemes i pràctiques en parelles i amb qui volgueu.
+
+2. El dia 11/01 farem una última pràctica: bondat d'ajust i tests de dues mostres (2-sample tests).
+
+3. El dia 13/01 farem una classe de repàs i resolució de problemes de pràctiques. Podem fer-ne una altra el dia 15/01 si hi ha demanda.
+
+4. El dia 18/01 farem l'exàmen final. Entra tot el que hem vist a teoria, pràctica i problemes excepte la secció 4.2.5. `dels apunts <https://atibaup.github.io/ModInfer_2020/html/index.html>`_. Però no patiu, centreu-vos en practicar i entendre els conceptes i us sortirà bé.
