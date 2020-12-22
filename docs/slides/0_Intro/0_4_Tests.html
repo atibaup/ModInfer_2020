@@ -715,7 +715,7 @@ ja que trobar la de <span class="math notranslate nohighlight">\(\Lambda\)</span
 del test de RVG a moltes més situacions, sempre i quant la talla de la mostra sigui suficientment gran:</p>
 <p class="note"><strong>Teorema 4.1.</strong>: Sota certes condicions de regularitat de les f.d.p. involucrades,
 la distribució de <span class="math notranslate nohighlight">\(-2\log\Lambda\)</span> sota l’hipòtesis nula tendeix a una distribució
-de <span class="math notranslate nohighlight">\(\chi^2_D\)</span> amb <span class="math notranslate nohighlight">\(D = \mbox{dim}\Omega - \mbox{dim}\Omega_0\)</span> quan la talla
+de <span class="math notranslate nohighlight">\(\chi^2_D\)</span> amb <span class="math notranslate nohighlight">\(D = \mbox{dim}\Theta - \mbox{dim}\Theta_0\)</span> quan la talla
 de la mostra tendeix a l’infinit.</p>
 <p>En les pròximes seccions veurem una aplicació pràctica d’aquest resultat en el contexte
 de tests per la Bondat d’Ajust.</p>
@@ -848,7 +848,7 @@ que les dades fóssin generades pel model estocàstic que hem ajustat.</p>
 <p>Com que coneixem la distribució sota <span class="math notranslate nohighlight">\(H_0\)</span> de <span class="math notranslate nohighlight">\(-2\log \Lambda\)</span>, aplicarem la transformació
 <span class="math notranslate nohighlight">\(-2\log(\cdot)\)</span> a l’expressió anterior:</p>
 <div class="math notranslate nohighlight">
-\[-2 \log\Lambda = \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)\]</div>
+\[-2 \log\Lambda = -2  \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)\]</div>
 
 
 
@@ -867,7 +867,7 @@ obtindrem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}-2 \log\Lambda &amp; = -2 \sum_i y_i \log \left(\frac{\hat{y}_i}{y_i} \right) \\
 &amp;= 2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)\end{split}\]</div>
-<p>Suposant que <span class="math notranslate nohighlight">\(N\)</span> és gran, invoquem el Teorema 4.1. amb <span class="math notranslate nohighlight">\(\mbox{dim}\Omega = M-1\)</span> i <span class="math notranslate nohighlight">\(\mbox{dim}\Omega_0 = 1\)</span>,
+<p>Suposant que <span class="math notranslate nohighlight">\(N\)</span> és gran, invoquem el Teorema 4.1. amb <span class="math notranslate nohighlight">\(\mbox{dim}\Theta = M-1\)</span> i <span class="math notranslate nohighlight">\(\mbox{dim}\Theta_0 = 1\)</span>,
 sabem que <span class="math notranslate nohighlight">\(-2 \log\Lambda \sim \chi^2_{M-2}\)</span> i podem refusar <span class="math notranslate nohighlight">\(H_0\)</span> quan</p>
 <div class="math notranslate nohighlight">
 \[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)\]</div>

@@ -549,7 +549,7 @@ del test de RVG a moltes més situacions, sempre i quant la talla de la mostra s
 
     **Teorema 4.1.**: Sota certes condicions de regularitat de les f.d.p. involucrades,
     la distribució de :math:`-2\log\Lambda` sota l'hipòtesis nula tendeix a una distribució
-    de :math:`\chi^2_D` amb :math:`D = \mbox{dim}\Omega - \mbox{dim}\Omega_0` quan la talla
+    de :math:`\chi^2_D` amb :math:`D = \mbox{dim}\Theta - \mbox{dim}\Theta_0` quan la talla
     de la mostra tendeix a l'infinit.
 
 En les pròximes seccions veurem una aplicació pràctica d'aquest resultat en el contexte
@@ -658,7 +658,7 @@ Com que coneixem la distribució sota :math:`H_0` de :math:`-2\log \Lambda`, apl
 
 .. math::
 
-    -2 \log\Lambda = \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)
+    -2 \log\Lambda = -2  \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)
 
 
 .. nextslide:: Tests de Bondat d’Ajust (7)
@@ -671,7 +671,7 @@ obtindrem:
     -2 \log\Lambda & = -2 \sum_i y_i \log \left(\frac{\hat{y}_i}{y_i} \right) \\
     &= 2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)
 
-Suposant que :math:`N` és gran, invoquem el Teorema 4.1. amb :math:`\mbox{dim}\Omega = M-1` i :math:`\mbox{dim}\Omega_0 = 1`,
+Suposant que :math:`N` és gran, invoquem el Teorema 4.1. amb :math:`\mbox{dim}\Theta = M-1` i :math:`\mbox{dim}\Theta_0 = 1`,
 sabem que :math:`-2 \log\Lambda \sim \chi^2_{M-2}` i podem refusar :math:`H_0` quan
 
 .. math::
