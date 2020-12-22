@@ -486,7 +486,7 @@ i per tant rebutjarem :math:`H_0` quan:
 
 .. math::
 
-    X_0 \not \in \left[\mu_0 - \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}, \mu_0 + \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}\right]
+    \bar{X} \not \in \left[\mu_0 - \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}, \mu_0 + \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}\right]
 
 
 Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança **desconeguda**
