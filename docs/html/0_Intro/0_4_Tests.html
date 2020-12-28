@@ -224,8 +224,11 @@ l’hipòtesi nula quan <span class="math notranslate nohighlight">\(\bar{X} \le
 <p class="note"><strong>Exercici</strong>: Quin valor crític <span class="math notranslate nohighlight">\(X_0\)</span> i regió crítica tindriem si
 enlloc de <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span> tenim que <span class="math notranslate nohighlight">\(\mu_0 \leq \mu_1\)</span>?</p>
 </div>
+</div>
 <div class="section" id="test-de-rao-de-versemblances-generalitzada-rvg">
-<h3><span class="section-number">5.1.5. </span>Test de Raó de Versemblances Generalitzada (RVG)<a class="headerlink" href="#test-de-rao-de-versemblances-generalitzada-rvg" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">5.2. </span>Test de Raó de Versemblances Generalitzada (RVG)<a class="headerlink" href="#test-de-rao-de-versemblances-generalitzada-rvg" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><span class="section-number">5.2.1. </span>Test de Raó de Versemblances Generalitzada (RVG)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
 però és d’aplicació pràctica limitada, ja que sovint les nostres
 hipòtesis seràn compostes, és a dir, del tipus:</p>
@@ -253,7 +256,7 @@ amb regió crítica:</p>
 <p class="note">Per evaluar l’estadístic del test d’RVG, cal doncs trobar l’EMV sota cada una de les hipòtesis</p>
 </div>
 <div class="section" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda">
-<h3><span class="section-number">5.1.6. </span>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda<a class="headerlink" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda<a class="headerlink" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda" title="Permalink to this headline">¶</a></h3>
 <p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i
 de variança coneguda <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <p>Volem testejar si la mitja de la població és un valor donat <span class="math notranslate nohighlight">\(\mu_0\)</span> o no.
@@ -309,7 +312,7 @@ X_0 &amp;= \phi\left(\frac{\alpha}{2}\right)\end{split}\]</div>
 \[\bar{X} \not \in \left[\mu_0 - \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}, \mu_0 + \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}\right]\]</div>
 </div>
 <div class="section" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda">
-<h3><span class="section-number">5.1.7. </span>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança <strong>desconeguda</strong><a class="headerlink" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança <strong>desconeguda</strong><a class="headerlink" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda" title="Permalink to this headline">¶</a></h3>
 <p>En aquesta curs no ho desenvoluparem, però el que hem fet es pot generalitzar
 a una situació on volem testejar si la mitja d’una població Gaussiana és igual a
 un valor donat <span class="math notranslate nohighlight">\(\mu_0\)</span> o no:</p>
@@ -328,7 +331,7 @@ aleshores T segueix una distribució <em>t de Student</em> amb <span class="math
 es pot doncs calcular a partir de la f.d.c. inversa de la distribució <em>t de Student</em>.</p>
 </div>
 <div class="section" id="distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0">
-<h3><span class="section-number">5.1.8. </span>Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span><a class="headerlink" href="#distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.4. </span>Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span><a class="headerlink" href="#distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0" title="Permalink to this headline">¶</a></h3>
 <p>Als exemples anteriors, hem construït les regions crítiques a base de manipular
 la regió crítica del Test de RVG:</p>
 <div class="math notranslate nohighlight">
@@ -351,8 +354,11 @@ de la mostra tendeix a l’infinit.</p>
 <p>En les pròximes seccions veurem una aplicació pràctica d’aquest resultat en el contexte
 de tests per la Bondat d’Ajust.</p>
 </div>
+<div class="section" id="aplicacio-del-trvg-bondat-d-ajust">
+<h3><span class="section-number">5.2.5. </span>Aplicació del TRVG: Bondat d’Ajust<a class="headerlink" href="#aplicacio-del-trvg-bondat-d-ajust" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="tests-de-bondat-d-ajust">
-<h3><span class="section-number">5.1.9. </span>Tests de Bondat d’Ajust<a class="headerlink" href="#tests-de-bondat-d-ajust" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.6. </span>Tests de Bondat d’Ajust<a class="headerlink" href="#tests-de-bondat-d-ajust" title="Permalink to this headline">¶</a></h3>
 <p>Recordeu del Tema 3 que un dels problemes que vam “esquivar” a l’ajustar
 lleis de probabilitat a les dades era el de determinar si la nostra hipòtesi sobre la família
 que generava les dades era adequada o no:</p>
@@ -417,7 +423,7 @@ sabem que <span class="math notranslate nohighlight">\(-2 \log\Lambda \sim \chi^
 <p>on <span class="math notranslate nohighlight">\(\phi_{\chi^2_{M-2}}\)</span> és la f.d.c. inversa d’una llei <span class="math notranslate nohighlight">\(\chi^2_{M-2}\)</span>.</p>
 </div>
 <div class="section" id="test-chi-2-de-pearson">
-<h3><span class="section-number">5.1.10. </span>Test <span class="math notranslate nohighlight">\(\chi^2\)</span> de Pearson<a class="headerlink" href="#test-chi-2-de-pearson" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.7. </span>Test <span class="math notranslate nohighlight">\(\chi^2\)</span> de Pearson<a class="headerlink" href="#test-chi-2-de-pearson" title="Permalink to this headline">¶</a></h3>
 <p>L’expressió anterior:</p>
 <div class="math notranslate nohighlight">
 \[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)\]</div>
@@ -434,7 +440,7 @@ equivalents, i per tant, podem fer servir que <span class="math notranslate nohi
 regió i valor crítics.</p>
 </div>
 <div class="section" id="calendari-fi-de-curs">
-<h3><span class="section-number">5.1.11. </span>Calendari fi de curs:<a class="headerlink" href="#calendari-fi-de-curs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.8. </span>Calendari fi de curs:<a class="headerlink" href="#calendari-fi-de-curs" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>El dia 8/01 haureu d’entregar els problemes que us posaré aquest Dimecres del Tema 4. Podeu fer els problemes i pràctiques en parelles i amb qui volgueu.</p></li>
 <li><p>El dia 11/01 farem una última pràctica: bondat d’ajust i tests de dues mostres (2-sample tests).</p></li>
@@ -460,13 +466,17 @@ regió i valor crítics.</p>
 <li><a class="reference internal" href="#el-paradigma-de-neyman-pearson-i-fisher">5.1.2. El paradigma de Neyman-Pearson i Fisher</a></li>
 <li><a class="reference internal" href="#test-de-rao-de-versemblances-rv">5.1.3. Test de Raó de Versemblances (RV)</a></li>
 <li><a class="reference internal" href="#exemple-d-aplicacio-deteccio-per-infra-rojos">5.1.4. Exemple d’aplicació: detecció per infra-rojos</a></li>
-<li><a class="reference internal" href="#test-de-rao-de-versemblances-generalitzada-rvg">5.1.5. Test de Raó de Versemblances Generalitzada (RVG)</a></li>
-<li><a class="reference internal" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda">5.1.6. Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda</a></li>
-<li><a class="reference internal" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda">5.1.7. Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança <strong>desconeguda</strong></a></li>
-<li><a class="reference internal" href="#distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0">5.1.8. Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span></a></li>
-<li><a class="reference internal" href="#tests-de-bondat-d-ajust">5.1.9. Tests de Bondat d’Ajust</a></li>
-<li><a class="reference internal" href="#test-chi-2-de-pearson">5.1.10. Test <span class="math notranslate nohighlight">\(\chi^2\)</span> de Pearson</a></li>
-<li><a class="reference internal" href="#calendari-fi-de-curs">5.1.11. Calendari fi de curs:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-de-rao-de-versemblances-generalitzada-rvg">5.2. Test de Raó de Versemblances Generalitzada (RVG)</a><ul>
+<li><a class="reference internal" href="#id1">5.2.1. Test de Raó de Versemblances Generalitzada (RVG)</a></li>
+<li><a class="reference internal" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda">5.2.2. Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda</a></li>
+<li><a class="reference internal" href="#exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda">5.2.3. Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança <strong>desconeguda</strong></a></li>
+<li><a class="reference internal" href="#distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0">5.2.4. Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span></a></li>
+<li><a class="reference internal" href="#aplicacio-del-trvg-bondat-d-ajust">5.2.5. Aplicació del TRVG: Bondat d’Ajust</a></li>
+<li><a class="reference internal" href="#tests-de-bondat-d-ajust">5.2.6. Tests de Bondat d’Ajust</a></li>
+<li><a class="reference internal" href="#test-chi-2-de-pearson">5.2.7. Test <span class="math notranslate nohighlight">\(\chi^2\)</span> de Pearson</a></li>
+<li><a class="reference internal" href="#calendari-fi-de-curs">5.2.8. Calendari fi de curs:</a></li>
 </ul>
 </li>
 </ul>

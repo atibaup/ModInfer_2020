@@ -326,6 +326,9 @@ l'hipòtesi nula quan :math:`\bar{X} \leq \mu_0 + \sqrt{\frac{\sigma^2}{N}}\phi\
 
 
 Test de Raó de Versemblances Generalitzada (RVG)
+================================================
+
+Test de Raó de Versemblances Generalitzada (RVG)
 -----------------------------------------------
 
 El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
@@ -555,6 +558,9 @@ del test de RVG a moltes més situacions, sempre i quant la talla de la mostra s
 En les pròximes seccions veurem una aplicació pràctica d'aquest resultat en el contexte
 de tests per la Bondat d'Ajust.
 
+
+Aplicació del TRVG: Bondat d'Ajust
+-------------------------------------
 
 Tests de Bondat d'Ajust
 ------------------------
