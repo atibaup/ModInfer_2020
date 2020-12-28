@@ -615,7 +615,7 @@ Vegem un exemple pràctic, el de l'**Experiment 2** (proves d'anticossos).
 
 2. El segon pas en **estadística paramètrica** és la definició d'un model probabilístic que caracteritzi les observacions. Com hem vist abans, un model raonable és que cada una de les 100 mostres és una v.a. de Bernouilli.
 
-3. Ara tenim una col.lecció de mostres, :math:`\left\{x_1, \cdots, x_{100}\right\}`, on cada :math:`x_i\in \left\{0, 1\right\}`, i un model: :math:`P_X\left(X_i=1\right) = p`. L'únic que ens falta per poder fer inferència és trobar el valor de :math:`p` que millor descriu les observacions (Tema 2). Per exemple un estimador raonable seria la mitjana aritmètica :math:`\hat{p}=\frac{1}{100}\sum_i x_i= \frac{\mbox{# de +}}{100}`. Posem que :math:`\hat{p}=0.1`.
+3. Ara tenim una col.lecció de mostres, :math:`\left\{x_1, \cdots, x_{100}\right\}`, on cada :math:`x_i\in \left\{0, 1\right\}`, i un model: :math:`P_X\left(X_i=1\right) = p`. L'únic que ens falta per poder fer inferència és trobar el valor de :math:`p` que millor descriu les observacions (Tema 2). Per exemple un estimador raonable seria la mitjana aritmètica :math:`\hat{p}=\frac{1}{100}\sum_i x_i= \frac{\mbox{N. de +}}{100}`. Posem que :math:`\hat{p}=0.1`.
 
 .. nextslide::
 
@@ -827,7 +827,7 @@ de la mitja que pot ser útil:
     :height: 330px
     :align: center
 
-Per tant :math:`\bar{X} = \sum_{i} c_i \frac{\mbox{#}\left\{x=c_i\right\}}{N} = \sum_{i} c_i \hat{P}\left(X = c_i\right)` (S'assembla a l'esperança, no?)
+Per tant :math:`\bar{X} = \sum_{i} c_i \frac{\mbox{card}\left\{x=c_i\right\}}{N} = \sum_{i} c_i \hat{P}\left(X = c_i\right)` (S'assembla a l'esperança, no?)
 
 .. nextslide:: Exemple de càlcul d'esperances: v.a. de Poisson
 

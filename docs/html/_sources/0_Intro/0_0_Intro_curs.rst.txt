@@ -255,7 +255,7 @@ Exàmens:
 
 Si l'alumne es presenta a un dels dos examens:
 
-:math:`N = 0.50 x \max\left(E_1, E_2\right) + 0.20 x C + 0.30 × P`
+:math:`N = 0.50 \times \max\left(E_1, E_2\right) + 0.20  \times C + 0.30 × P`
 
 (:math:`C, P, E_1, E_2, N \in \left[0, 10\right]`) i aprova si :math:`N \geq 5`.
 
