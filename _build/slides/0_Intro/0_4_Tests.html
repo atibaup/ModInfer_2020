@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. Tema 4: Tests d’hipòtesis &mdash; 104392 - Modelització i Inferència 2020.08.04 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/slides.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../_static/../../html/_static/sab-slides.css" type="text/css" />
+    
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2020.08.04',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/common.js"></script>
+    
+    <script type="text/javascript" src="../_static/slides.js"></script>
+    <script type="text/javascript" src="../_static/sync.js"></script>
+    <script type="text/javascript" src="../_static/controller.js"></script>
+    <script type="text/javascript" src="../_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="104392 - Modelització i Inferència 2020.08.04 documentation" href="../index.html" />
+    <link rel="prev" title="4. Tema 3: Estimació" href="0_3_Estimacio.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="tema-4-tests-d-hipotesis">
+
+<h1>Tema 4: Tests d’hipòtesis</h1>
+
+
+
+
+<div class="slide-no">1</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-2" id="rao-de-versemblances-i-neyman-pearson">
+
+<h2>Raó de Versemblances i Neyman-Pearson</h2>
+
+
+
+
+<div class="slide-no">2</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-de-motivacio">
+
+<h3>Exemple de motivació</h3>
+
+<p>Començarem considerant un dels exemples que
+vam veure al Tema 2:</p>
+<ul class="simple">
+<li>Tenim un circuit integrat per K components en sèrie</li>
+<li>El fabricant dels components ens assegura que cada component té una proba diària de fallar <span class="math notranslate nohighlight">\(\rho_X &lt; 0.01\)</span></li>
+</ul>
+<p>Durant els nostres experiments de control de qualitat, observem
+que el circuit falla després  de 57, 49, 8, 234, 4, 181, 153,22,  91,  11 dies.</p>
+<p class="note">Està respectant el fabricant de components la garantia?</p>
+
+
+
+<div class="slide-no">3</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id1">
+
+<h3>Exemple de motivació (2)</h3>
+
+<p>Al Tema 2, vem aprendre que <span class="math notranslate nohighlight">\(Y\)</span>, el temps de vida del circuit,
+seguia una distribució geomètrica amb paràmetre <span class="math notranslate nohighlight">\(\rho_Y = 1 - (1-\rho_X)^K\)</span>,
+i vem derivar-ne l’EMV:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\rho}_Y = \frac{N}{\sum_i y_i}\]</div>
+<p>Apartir d’això vam estimar:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\rho}_X = 1 - (1 - \hat{\rho}_Y)^\frac{1}{K} \approx 0.001\]</div>
+<p>i vam concloure que el fabricant estava respectant la garantia, ja que <span class="math notranslate nohighlight">\(\hat{\rho}_X \ll 0.01\)</span>.</p>
+<p class="note">Però què decidirieu si ens hagués sortit <span class="math notranslate nohighlight">\(\hat{\rho}_X \approx 0.01\)</span>? O <span class="math notranslate nohighlight">\(\hat{\rho}_X \approx 0.008\)</span>?</p>
+
+
+
+<div class="slide-no">4</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id2">
+
+<h3>Exemple de motivació (3)</h3>
+
+<p>De la teoria del Tema 2, sabem que l’EMV <span class="math notranslate nohighlight">\(\hat{\rho}_Y\)</span> és
+una quantitat aleatòria, i per tant <span class="math notranslate nohighlight">\(\hat{\rho}_X\)</span> també. Per
+exemple, vegem la distribució de <span class="math notranslate nohighlight">\(\hat{\rho}_X\)</span> quan <span class="math notranslate nohighlight">\(\rho_X=0.008\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/geom_null.png"><img alt="../_images/geom_null.png" class="align-center" src="../_images/geom_null.png" style="height: 250px;" /></a>
+<p class="note">Quan <span class="math notranslate nohighlight">\(\rho_X = 0.008\)</span>, <span class="math notranslate nohighlight">\(P(\hat{\rho}_X &gt; 0.01; \rho_X = 0.008) \approx 37\%\)</span>! Si
+<span class="math notranslate nohighlight">\(\rho_X = 0.0001\)</span>, aquesta probabilitat és més petita, però no és nula. Això és
+degut a l’error d’estimació (l’EMV és consistent asimptòticament, però estem treballant amb mostres finites!).
+Això s’anomena un <strong>Fals Positiu</strong>.</p>
+
+
+
+<div class="slide-no">5</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id3">
+
+<h3>Exemple de motivació (4)</h3>
+
+<p>Per altra banda, suposem que <span class="math notranslate nohighlight">\(\rho_X = 0.02\)</span> (2x més gran que 1%).
+Degut a l’aleatorietat de <span class="math notranslate nohighlight">\(\hat{\rho}_X\)</span>, també
+tindrem una probabilitat no nula de que <span class="math notranslate nohighlight">\(\hat{\rho}_X &lt; 0.01\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/geom_H1.png"><img alt="../_images/geom_H1.png" class="align-center" src="../_images/geom_H1.png" style="height: 250px;" /></a>
+<p class="note">Decidir que, en base a les observacions, <span class="math notranslate nohighlight">\(\rho_X &lt; 0.01\)</span> quan en realitat <span class="math notranslate nohighlight">\(\rho_X &gt; 0.01\)</span> s’anomena un <strong>Fals Negatiu</strong>.</p>
+
+
+
+<div class="slide-no">6</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id4">
+
+<h3>Exemple de motivació (5)</h3>
+
+<p>Malgrat aquestes dues observacions, la intuició ens diu que si
+<span class="math notranslate nohighlight">\(\hat{\rho}_X\)</span> és molt més petit que <span class="math notranslate nohighlight">\(\rho_c = 0.01\)</span>,
+o de manera equivalent, <span class="math notranslate nohighlight">\(T := \hat{\rho}_X - \rho_c\)</span> és prou
+petit, hauriem de poder afirmar que <span class="math notranslate nohighlight">\(\rho_X\)</span> és efectivament
+més petit que 0.01 i per tant el fabricant està complint la garantia.</p>
+<p>Ja podem definir alguns conceptes claus:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(T\)</span> s’anomena <strong>l’estadístic del test</strong>, que calculem a partir de la mostra (en aquest exemple depèn de <span class="math notranslate nohighlight">\(\hat{\rho}_X\)</span>)</li>
+<li>El valor <span class="math notranslate nohighlight">\(T_0\)</span> contra el que comparem <span class="math notranslate nohighlight">\(T\)</span> per tal de prendre una decisió, s’anomena <strong>valor crític</strong>.</li>
+<li>En el nostre exemple, el conjunt <span class="math notranslate nohighlight">\(T \leq T_0\)</span> és la <strong>regió d’acceptació del test</strong>, el complementari n’és la <strong>regió crítica</strong>.</li>
+</ul>
+<p class="note">Quan escollim <span class="math notranslate nohighlight">\(T_0\)</span>, determinem implícitament
+la quantitat de Falsos Positius i Falsos Negatius que tindrem. En <strong>aquest exemple</strong>, quan més gran <span class="math notranslate nohighlight">\(T_0\)</span>, menys
+“estricte” és el nostre criteri, i per tant més Falsos Positius i menys Falsos Negatius. Quan més petit, a l’inversa.</p>
+
+
+
+<div class="slide-no">7</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="el-paradigma-de-neyman-pearson-i-fisher">
+
+<h3>El paradigma de Neyman-Pearson i Fisher</h3>
+
+<p>La intuició que estem fent servir sembla raonable però ens falta una manera quantitativa
+d’escollir quan <span class="math notranslate nohighlight">\(T\)</span> és “prou petit” o no (és a dir, escollir el valor crític <span class="math notranslate nohighlight">\(T_0\)</span>.)
+El paradigma que utilitzarem ens permetrà fer això. Però primer haurem de definir una sèrie de conceptes:</p>
+<ul class="simple">
+<li><strong>L’Hipòtesis Nula</strong> (<span class="math notranslate nohighlight">\(H_0\)</span>): És l’hipòtesi sobre <strong>el model estadístic</strong> que volem contrastar/refutar</li>
+<li><strong>L’Hipòtesis Alternativa</strong> (<span class="math notranslate nohighlight">\(H_1\)</span>): És l’alternativa de l’hipòtesi nula (no necessàriament complementària!)</li>
+<li><strong>L’Error de Tipus I</strong> o Fals Positiu: Quan el nostre test refusa <span class="math notranslate nohighlight">\(H_0\)</span> quan aquesta és certa</li>
+<li><strong>L’Error de Tipus II</strong> o Fals Negatiu: Quan el nostre test accepta <span class="math notranslate nohighlight">\(H_0\)</span> quan <span class="math notranslate nohighlight">\(H_1\)</span> és certa</li>
+<li><span class="math notranslate nohighlight">\(\alpha = P(\mbox{refusar } H_0 ; H_0)\)</span>: el <strong>nivell de significació</strong> o probabilitat d’Error de Tipus I</li>
+<li><span class="math notranslate nohighlight">\(\beta = P(\mbox{acceptar } H_0 ; H_1)\)</span>: la probabilitat d’Error de Tipus II</li>
+<li><strong>La potència del test</strong> (<em>power</em>): <span class="math notranslate nohighlight">\(1 - \beta\)</span>, la probabilitat <span class="math notranslate nohighlight">\(P(\mbox{refusar } H_0 ; H_1)\)</span>.</li>
+</ul>
+
+
+
+<div class="slide-no">8</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id5">
+
+<h3>El paradigma de Neyman-Pearson i Fisher (2)</h3>
+
+<p>Per tant, per especificar un test i caracteritzar-lo, necessitarem especificar <span class="math notranslate nohighlight">\(H_0\)</span>,
+<span class="math notranslate nohighlight">\(H_1\)</span>, i la regió crítica…</p>
+<ul class="simple">
+<li>Fixeu-vos que, intuitivament, hi ha una tensió entre <span class="math notranslate nohighlight">\(\alpha\)</span> i <span class="math notranslate nohighlight">\(1- \beta\)</span>.</li>
+<li>En teoria, el test ideal és el que té <span class="math notranslate nohighlight">\(\alpha=0\)</span> i <span class="math notranslate nohighlight">\(1 - \beta = 1\)</span>, és a dir no fa cap fals positiu ni cap fals negatiu.</li>
+<li>A la pràctica el test ideal no existeix, i ens conformarem amb els tests que, donat <span class="math notranslate nohighlight">\(\alpha\)</span>, tenen millor potència.</li>
+</ul>
+
+
+
+<div class="slide-no">9</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id6">
+
+<h3>Al nostre exemple inicial:</h3>
+
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\rho_X - \rho_c \leq 0\)</span>, és a dir el fabricant ens diu la veritat (recordeu <span class="math notranslate nohighlight">\(\rho_c:=0.01\)</span>)</li>
+<li><span class="math notranslate nohighlight">\(H_1\)</span>: <span class="math notranslate nohighlight">\(\rho_X - \rho_c &gt; 0\)</span>, és a dir el fabricant ens ha mentit</li>
+<li><strong>La regió crítica</strong>: <span class="math notranslate nohighlight">\(T &gt; T_0\)</span> on rebutjem <span class="math notranslate nohighlight">\(H_0\)</span></li>
+<li><strong>L’Error de Tipus I</strong>: L’estadístic ens dona <span class="math notranslate nohighlight">\(T &gt; T_0\)</span> però <span class="math notranslate nohighlight">\(\rho_X \leq 0.01\)</span>.</li>
+<li><strong>L’Error de Tipus II</strong>: L’estadístic ens dona <span class="math notranslate nohighlight">\(T \leq T_0\)</span> però <span class="math notranslate nohighlight">\(\rho_X &gt; 0.01\)</span>.</li>
+</ul>
+<p>Normalment primer escollirem un nivell de significació <span class="math notranslate nohighlight">\(\alpha\)</span>, i a partir del mateix
+escollirem <span class="math notranslate nohighlight">\(T_0\)</span> de manera que:</p>
+<div class="math notranslate nohighlight">
+\[P(T &gt; T_0 ; H_0) = \alpha\]</div>
+<p>Això determinarà implícitament la potència del test <span class="math notranslate nohighlight">\(1 - \beta = P(T &gt; T_0 ; H_1)\)</span>.</p>
+<p class="note">Fixeu-vos que hi ha una “asimetria” entre <span class="math notranslate nohighlight">\(H_0\)</span> i <span class="math notranslate nohighlight">\(H_1\)</span>, i que les escull el practicant…</p>
+
+
+
+<div class="slide-no">10</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id7">
+
+<h3>Al nostre exemple inicial (II):</h3>
+
+<p>Per trobar el valor crític amb una significació de <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>,
+simularem <span class="math notranslate nohighlight">\(Y \sim \mbox{Geomètrica}(1 - (1-\rho_X)^K)\)</span> amb <span class="math notranslate nohighlight">\(\rho_X=0.01\)</span>,
+i buscarem <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T &gt; T_0 ; H_0) = \alpha = 0.05\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/geom_at_alpha.png"><img alt="../_images/geom_at_alpha.png" class="align-center" src="../_images/geom_at_alpha.png" style="height: 280px;" /></a>
+<p class="note">Fixeu-vos que per tenir una significació de <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, només podrem
+rebutjar l’hipòtesi Nula si <span class="math notranslate nohighlight">\(\hat{\rho}_x &gt; 0.022\)</span>!
+(això és en part perquè en el nostre exemple N=10, i degut això la variança del nostre estimador és gran).</p>
+
+
+
+<div class="slide-no">11</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id8">
+
+<h3>Exercici contemporani:</h3>
+
+<p>Considereu els tests PCR que es fan per detectar la COVID-19.</p>
+<ul class="simple">
+<li>Quina seria <span class="math notranslate nohighlight">\(H_0\)</span>? I <span class="math notranslate nohighlight">\(H_1\)</span>?</li>
+<li>Què és un fals positiu? I un fals negatiu?</li>
+<li>Què és pitjor, un fals positiu? o un fals negatiu?</li>
+<li>Quin és l’estadístic del test?</li>
+<li>Quina creieu que és la regió crítica del test?</li>
+<li>Què creieu que vol dir que els tests PCR tenen “alta sensibilitat”?</li>
+</ul>
+
+
+
+<div class="slide-no">12</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="test-de-rao-de-versemblances-rv">
+
+<h3>Test de Raó de Versemblances (RV)</h3>
+
+<p>El paradigma que hem explicat fins ara ens guia per escollir
+el valor crític <span class="math notranslate nohighlight">\(T_0\)</span> quan ja tenim un estadístic de test <span class="math notranslate nohighlight">\(T\)</span> (
+a l’exemple, <span class="math notranslate nohighlight">\(T = \hat{\rho}_X - 0.01\)</span>)
+sobre el que treballar, i una idea sobre quina hauria de ser
+la regió crítica (a l’exemple <span class="math notranslate nohighlight">\(T &gt; T_0\)</span>).</p>
+<p>El següent Lemma estableix com construïr tests òptims per <strong>hipòtesis simples</strong>, és a dir
+hipòtesis definides a partir del paràmetre <span class="math notranslate nohighlight">\(\theta\)</span> d’una població caracteritzada
+per una f.d.p o f.m.p  <span class="math notranslate nohighlight">\(f_X(x;\theta)\)</span>:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \theta = \theta_0\)</span></li>
+<li><span class="math notranslate nohighlight">\(H_1: \theta = \theta_1\)</span></li>
+</ul>
+<p class="note"><strong>Lema 4.1 (de Neyman-Pearson, 1933)</strong>: Per una mostra <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> i <span class="math notranslate nohighlight">\(H_0\)</span> i <span class="math notranslate nohighlight">\(H_1\)</span>
+hipòtesis simples, el test basat en l’estadístic de raó de versemblances <span class="math notranslate nohighlight">\(T = \frac{f(X_1, \cdots, X_N; \theta_0)}{f(X_1, \cdots, X_N; \theta_1)}\)</span>
+amb regió crítica <span class="math notranslate nohighlight">\(T \leq T_0\)</span> i significació <span class="math notranslate nohighlight">\(\alpha\)</span>, és el test amb més potència amb nivell de significació <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+
+
+
+<div class="slide-no">13</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id9">
+
+<h3>Interpretació de la raó de versemblances</h3>
+
+<p>Fixeu-vos que la versemblança d’una mostra:</p>
+<div class="math notranslate nohighlight">
+\[f(X_1, \cdots, X_N; \theta)\]</div>
+<p>és més gran quan més versemblant és que la mostra <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> hagi estat generada
+per el paràmetre <span class="math notranslate nohighlight">\(\theta\)</span>. (Aquest és el mateix principi que vam fer servir per justificar
+el Mètode de Màxima Versemblança per estimar <span class="math notranslate nohighlight">\(\theta\)</span> a partir de <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span>).</p>
+<p>Per tant, si l’evaluem a dos valors diferents de <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(\theta_0\)</span> i <span class="math notranslate nohighlight">\(\theta_1\)</span>,
+<span class="math notranslate nohighlight">\(f_X(X_1, \cdots, X_N; \theta)\)</span> hauria de ser més gran per aquell valor
+que és més versemblant segons les dades. En conseqüència, l’estadístic</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{f(X_1, \cdots, X_N; \theta_0)}{f(X_1, \cdots, X_N; \theta_1)}\]</div>
+<p>serà gran quan <span class="math notranslate nohighlight">\(\theta_0\)</span> és més versemblant que <span class="math notranslate nohighlight">\(\theta_1\)</span> i petita
+en el cas contrari. Això justifica que refusem l’hipòtesi nula
+<span class="math notranslate nohighlight">\(\theta=\theta_0\)</span> quan <span class="math notranslate nohighlight">\(T \leq T_0\)</span> per algun <span class="math notranslate nohighlight">\(T_0\)</span> a escollir.</p>
+
+
+
+<div class="slide-no">14</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-d-aplicacio-deteccio-per-infra-rojos">
+
+<h3>Exemple d’aplicació: detecció per infra-rojos</h3>
+
+<p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i de variança coneguda <span class="math notranslate nohighlight">\(\sigma^2\)</span>,
+obtinguda a partir de les mesures d’un sensor de detecció d’infra-rojos. Quan davant del sensor
+hi ha un objecte, es mesura una senyal amb mitja <span class="math notranslate nohighlight">\(\mu_1\)</span>, quan no, amb <span class="math notranslate nohighlight">\(\mu_0\)</span>.</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0\)</span>: no hi ha cap objecte, <span class="math notranslate nohighlight">\(\mu = \mu_0\)</span></li>
+<li><span class="math notranslate nohighlight">\(H_1\)</span>: n’hi ha un, <span class="math notranslate nohighlight">\(\mu = \mu_1\)</span></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/exemple_ir.png"><img alt="../_images/exemple_ir.png" class="align-center" src="../_images/exemple_ir.png" style="height: 250px;" /></a>
+
+
+
+<div class="slide-no">15</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id10">
+
+<h3>Exemple d’aplicació: detecció per infra-rojos (II)</h3>
+
+<p>Com que es tracta d’hipòtesis simples, segons el Lema 4.1 de Neyman-Pearson
+és òptim fer servir el test de raó de versemblances. L’estadístic és:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}T &amp;= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
+  &amp;= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
+  &amp;= \exp\left(N\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)\end{split}\]</div>
+<p class="note">Fixeu-vos doncs que <span class="math notranslate nohighlight">\(T\)</span> depèn únicament de la mostra a través de <span class="math notranslate nohighlight">\(\bar{X}\)</span>.
+Per exemple, si <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span>, <span class="math notranslate nohighlight">\(T\)</span> és petit si <span class="math notranslate nohighlight">\(\bar{X}\)</span> és petit,
+per tant rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> si <span class="math notranslate nohighlight">\(\bar{X}\)</span> és petita. Per tant, per aquest test,
+enlloc de fer servir <span class="math notranslate nohighlight">\(T\)</span> com estadístic, podem fer servir directament <span class="math notranslate nohighlight">\(\bar{X}\)</span>!</p>
+
+
+
+<div class="slide-no">16</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id11">
+
+<h3>Exemple d’aplicació: detecció per infra-rojos (III)</h3>
+
+<p>Ens queda només trobar el valor crític <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T \leq T_0; \mu_0) = \alpha\)</span>.</p>
+<p>Com hem vist, <span class="math notranslate nohighlight">\(T\)</span> només depèn de la mostra a través d’una funció monotònica d’ <span class="math notranslate nohighlight">\(\bar{X}\)</span>, per tant la regió crítica
+es pot expressar en funció d’<span class="math notranslate nohighlight">\(\bar{X}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left\{T \leq T_0 \right\} &amp;= \left\{ \log T \leq \log T_0 \right\} \\
+&amp; = \left\{2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2 \leq \frac{2 \sigma^2\log(T_0)}{N} \right\} \\
+&amp; = \left\{\bar{X} \leq X_0\right\} \mbox{ (si } \mu_0 &gt; \mu_1 \mbox{ )}\end{split}\]</div>
+<p>per <span class="math notranslate nohighlight">\(X_0 = \frac{1}{2\left(\mu_0 - \mu_1\right)}\left(\frac{2 \sigma^2\log(T_0)}{N} + \mu_0^2 - \mu_1^2 \right)\)</span>.</p>
+<p>Es a dir, enlloc de buscar <span class="math notranslate nohighlight">\(T_0\)</span> tal que <span class="math notranslate nohighlight">\(P(T \leq T_0; \mu_0) = \alpha\)</span>,
+buscarem directament <span class="math notranslate nohighlight">\(X_0\)</span> tal que <span class="math notranslate nohighlight">\(P(\bar{X} \leq X_0; \mu_0) = \alpha\)</span>.</p>
+
+
+
+<div class="slide-no">17</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id12">
+
+<h3>Exemple d’aplicació: detecció per infra-rojos (IV)</h3>
+
+<p>Per continuar, fixem-nos que sota
+<span class="math notranslate nohighlight">\(H_0\)</span>, <span class="math notranslate nohighlight">\(X_1, \cdots, X_N \sim \mathcal{N}(\mu_0, \sigma^2)\)</span> per tant
+[<a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29">Diapo 29, Tema 2</a>]:</p>
+<div class="math notranslate nohighlight">
+\[\bar{X} \sim \mathcal{N}(\mu_0, \frac{\sigma^2}{N}).\]</div>
+<p>Podem doncs trobar <span class="math notranslate nohighlight">\(X_0\)</span> manipulant l’expressió de significació:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P(\bar{X} \leq X_0; \mu_0) &amp;= \alpha \\
+P(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq \frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}; \mu_0) &amp;= \alpha\end{split}\]</div>
+<p>on tenim que <span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\)</span>.</p>
+
+
+
+<div class="slide-no">18</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id13">
+
+<h3>Exemple d’aplicació: detecció per infra-rojos (V)</h3>
+
+<p>Així doncs, només caldrà trobar <span class="math notranslate nohighlight">\(X_0\)</span> tal que:</p>
+<div class="math notranslate nohighlight">
+\[\frac{X_0 - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} = \phi\left(\alpha\right)\]</div>
+<p>on <span class="math notranslate nohighlight">\(\phi(x)\)</span> és la f.d.c. inversa d’una normal estàndard. Finalment:</p>
+<div class="math notranslate nohighlight">
+\[X_0 = \mu_0 + \sqrt{\frac{\sigma^2}{N}}\phi\left(\alpha\right)\]</div>
+<p>i per tant (en el cas on <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span>) rebutjarem
+l’hipòtesi nula quan <span class="math notranslate nohighlight">\(\bar{X} \leq \mu_0 + \sqrt{\frac{\sigma^2}{N}}\phi\left(\alpha\right)\)</span></p>
+<p class="note"><strong>Exercici</strong>: Quin valor crític <span class="math notranslate nohighlight">\(X_0\)</span> i regió crítica tindriem si
+enlloc de <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span> tenim que <span class="math notranslate nohighlight">\(\mu_0 \leq \mu_1\)</span>?</p>
+
+
+
+<div class="slide-no">19</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="test-de-rao-de-versemblances-generalitzada-rvg">
+
+<h3>Test de Raó de Versemblances Generalitzada (RVG)</h3>
+
+<p>El test de Raó de Versemblances té propietats teòriques interessants (Lema 4.1.)
+però és d’aplicació pràctica limitada, ja que sovint les nostres
+hipòtesis seràn compostes, és a dir, del tipus:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \theta \in \Theta_0\)</span></li>
+<li><span class="math notranslate nohighlight">\(H_1: \theta \in \Theta_1\)</span></li>
+</ul>
+<p>on <span class="math notranslate nohighlight">\(\Theta_0\)</span> i <span class="math notranslate nohighlight">\(\Theta_1\)</span> són subconjunts de <span class="math notranslate nohighlight">\(\Theta\)</span> i
+per tant el test de Raó de Versemblances no és aplicable.</p>
+<p>Per exemple, el nostre exemple inicial es tractava d’hipòtesis compostes:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\Theta_0 = \left\{\rho_X \leq 0.01 \right\}\)</span></li>
+<li><span class="math notranslate nohighlight">\(\Theta_1 = \left\{\rho_X &gt; 0.01 \right\}\)</span></li>
+</ul>
+
+
+
+<div class="slide-no">20</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id14">
+
+<h3>Test de Raó de Versemblances Generalitzada (RVG) (2)</h3>
+
+<p>Donada una mostra <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span>
+d’una població amb f.d.p. <span class="math notranslate nohighlight">\(f_X\)</span>, i versemblança
+<span class="math notranslate nohighlight">\(f(X_1, \cdots, X_N; \theta)\)</span>, el Test de Raó de Versemblances Generalitzat, es basa en el següent estadístic:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{\max_{\theta \in \Theta_{0}} f(X_1, \cdots, X_N; \theta)}{\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)}\]</div>
+<p>(fixeu-vos que al denominador el max és respecte <span class="math notranslate nohighlight">\(\Theta\)</span> no <span class="math notranslate nohighlight">\(\Theta_1\)</span>
+amb regió crítica:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda \leq \lambda_0\]</div>
+<p>i <span class="math notranslate nohighlight">\(\lambda_0\)</span> tal que <span class="math notranslate nohighlight">\(P(\Lambda \in \lambda_0; \theta_0) = \alpha, \forall \theta_0 \in \Theta_0\)</span>.</p>
+<p class="note">Per evaluar l’estadístic del test d’RVG, cal doncs trobar l’EMV sota cada una de les hipòtesis</p>
+
+
+
+<div class="slide-no">21</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-coneguda">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda</h3>
+
+<p>Considereu una mostra iid <span class="math notranslate nohighlight">\(X_1, \cdots, X_N\)</span> <strong>normal</strong> i
+de variança coneguda <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Volem testejar si la mitja de la població és un valor donat <span class="math notranslate nohighlight">\(\mu_0\)</span> o no.
+Les hipòtesis son doncs:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \mu= \mu_0\)</span> (simple)</li>
+<li><span class="math notranslate nohighlight">\(H_1: \mu \neq \mu_0\)</span> (composta)</li>
+</ul>
+<p class="note">Podeu pensar en una situació pràctica on voldriem testejar aquesta hipòtesi?</p>
+
+
+
+<div class="slide-no">22</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id15">
+
+<h3>Exemple d'aplicació: test sobre la mitja d'una Gaussiana amb variança coneguda (2)</h3>
+
+<p>Com que l’hipòtesis nula és simple, en aquest exemple, l’estadístic del test RVG és:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{\max_{\mu \in \Theta} f(X_1, \cdots, X_N; \mu)}\]</div>
+<p>Per tant haurem de trobar l’EMV (<span class="math notranslate nohighlight">\(\max_{\theta \in \Theta} f(X_1, \cdots, X_N; \theta)\)</span>)
+per calcular-lo. Però al tractar-se d’una mostra normal, ja sabem que l’EMV
+de la mitja <span class="math notranslate nohighlight">\(\mu\)</span> és simplement la mitjana aritmètica de la mostra:</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu} = \bar{X}\)</span></p>
+<p>Per tant en aquest exemple l’estadístic es simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{f(X_1, \cdots, X_N; \mu_0)}{f(X_1, \cdots, X_N; \bar{X})} = \frac{\Pi_i f_X(X_i; \mu_0)}{\Pi_i f_X(X_i; \bar{X})}\]</div>
+<p>on <span class="math notranslate nohighlight">\(f_X\)</span> és la f.d.p d’una Gaussiana.</p>
+
+
+
+<div class="slide-no">23</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id16">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (III)</h3>
+
+<p>Al numerador tindrem</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \mu_0)^2 \right)\)</span></p>
+<p>i al denominador</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\left(\sqrt{2\pi\sigma^2}\right)^N}\exp\left(-\frac{1}{2\sigma^2}\sum_i(X_i - \bar{X})^2 \right)\)</span></p>
+<p>Per tant, trobarem:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \exp\left(-\frac{1}{2\sigma^2}\left[\sum_i(X_i - \mu_0)^2 - \sum_i(X_i - \bar{X})^2\right] \right)\]</div>
+
+
+
+<div class="slide-no">24</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id17">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (IV)</h3>
+
+<p>Amb una mica d’àlgebra, això es pot simplicar a</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right)\]</div>
+<p>per tant la regió crítica serà:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\Lambda: \Lambda \leq \lambda_0\right\} &amp;= \left\{\bar{X}: \exp\left(-\frac{N}{2\sigma^2}\left(\bar{X} - \mu_0\right)^2  \right) \leq \lambda_0 \right\} \\
+&amp; = \left\{\bar{X}: \left(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right)^2  \geq - 2 \log \lambda_0\right\} \\\end{split}\]</div>
+
+
+
+<div class="slide-no">25</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id18">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (5)</h3>
+
+<p>arribem a:</p>
+<div class="math notranslate nohighlight">
+\[\left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right| \geq X_0 \right\}\]</div>
+<p>Per <span class="math notranslate nohighlight">\(X_0=\sqrt{- 2 \log \lambda_0 }\)</span>. És a dir, rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> quan la diferència entre <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(\mu_0\)</span> sigui prou gran, relativa a la variança de <span class="math notranslate nohighlight">\(\bar{X}\)</span>.</p>
+<p>De nou, com que la mostra es Gaussiana, <span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\)</span>,
+podem buscar el valor crític <span class="math notranslate nohighlight">\(X_0\)</span> com segueix:</p>
+<div class="math notranslate nohighlight">
+\[P(\Lambda \leq \lambda_0; \mu_0) = 1 - P(-X_0 \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq X_0; \mu_0) = \alpha\]</div>
+
+
+
+<div class="slide-no">26</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id19">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança coneguda (6)</h3>
+
+<p>que és el mateix que:</p>
+<div class="math notranslate nohighlight">
+\[1 - (F_Z(X_0) - F_Z(-X_0)) = \alpha\]</div>
+<p>on <span class="math notranslate nohighlight">\(F_Z\)</span> és la f.d.c. d’una normal estàndard. Com que <span class="math notranslate nohighlight">\(F_Z(x) = 1 - F_Z(-x)\)</span>,
+concluïm que el valor crític serà tal que <span class="math notranslate nohighlight">\(X_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_Z(X_0) &amp;= \frac{\alpha}{2} \\
+X_0 &amp;= \phi\left(\frac{\alpha}{2}\right)\end{split}\]</div>
+<p>i per tant rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> quan:</p>
+<div class="math notranslate nohighlight">
+\[\bar{X} \not \in \left[\mu_0 - \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}, \mu_0 + \phi\left(\frac{\alpha}{2}\right)\sqrt{\frac{\sigma^2}{N}}\right]\]</div>
+
+
+
+<div class="slide-no">27</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="exemple-d-aplicacio-test-sobre-la-mitja-d-una-gaussiana-amb-varianca-desconeguda">
+
+<h3>Exemple d’aplicació: test sobre la mitja d’una Gaussiana amb variança <strong>desconeguda</strong></h3>
+
+<p>En aquesta curs no ho desenvoluparem, però el que hem fet es pot generalitzar
+a una situació on volem testejar si la mitja d’una població Gaussiana és igual a
+un valor donat <span class="math notranslate nohighlight">\(\mu_0\)</span> o no:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0: \mu= \mu_0\)</span> (simple)</li>
+<li><span class="math notranslate nohighlight">\(H_1: \mu \neq \mu_0\)</span> (composta)</li>
+</ul>
+<p><strong>però la variança de la mateixa és desconeguda</strong>. En aquest cas,
+el Test de RVG, dona lloc a  l’estadístic:</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{\bar{X} - \mu_0}{\sqrt{\frac{S_X^2}{N}}}\]</div>
+<p>Sota l’hipòtesi nula, <span class="math notranslate nohighlight">\(\bar{X} \sim \mathcal{N}(\mu_0, \sigma^2)\)</span>
+i <span class="math notranslate nohighlight">\(\frac{N-1}{\sigma^2}S_X^2 \sim \chi^2_{N-1}\)</span> (<a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_2_Intro_stats.html#29">Casella &amp; Berger 5.3.1</a>),
+i com vam aprendre a <a class="reference external" href="https://e-aules.uab.cat/2020-21/pluginfile.php/609301/mod_assign/introattachment/0/pra%CC%80ctica_2.html">la Pràctica 2 del Tema 2</a>,
+aleshores T segueix una distribució <em>t de Student</em> amb <span class="math notranslate nohighlight">\(N-1\)</span> graus de llibertat. La regió crítica
+es pot doncs calcular a partir de la f.d.c. inversa de la distribució <em>t de Student</em>.</p>
+
+
+
+<div class="slide-no">28</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="distribucio-asimptotica-de-la-log-rao-de-versemblances-sota-h-0">
+
+<h3>Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span></h3>
+
+<p>Als exemples anteriors, hem construït les regions crítiques a base de manipular
+la regió crítica del Test de RVG:</p>
+<div class="math notranslate nohighlight">
+\[\left\{\Lambda: \Lambda \leq \lambda_0\right\}\]</div>
+<p>fins que trobàvem un conjunt equivalent, expressant en funció d’un estadístic diferent de
+<span class="math notranslate nohighlight">\(\Lambda\)</span>, que anomenem <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\left\{T: T \leq T_0\right\}\]</div>
+<p>de manera que:</p>
+<div class="math notranslate nohighlight">
+\[P(\Lambda \leq \lambda_0; H_0) = P( T \leq T_0 ; H_0) = \alpha\]</div>
+<p>Això ho feiem perquè sovint podiem caracteritzar la f.d.p de <span class="math notranslate nohighlight">\(T\)</span> sota la hipòtesi nula,
+ja que trobar la de <span class="math notranslate nohighlight">\(\Lambda\)</span> semblava massa difícil.</p>
+
+
+
+<div class="slide-no">29</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id20">
+
+<h3>Distribució asimptòtica de la log-raó de versemblances sota <span class="math notranslate nohighlight">\(H_0\)</span> (2)</h3>
+
+<p>Resulta que hi ha un resultat teòric molt important que amplia l’aplicació
+del test de RVG a moltes més situacions, sempre i quant la talla de la mostra sigui suficientment gran:</p>
+<p class="note"><strong>Teorema 4.1.</strong>: Sota certes condicions de regularitat de les f.d.p. involucrades,
+la distribució de <span class="math notranslate nohighlight">\(-2\log\Lambda\)</span> sota l’hipòtesis nula tendeix a una distribució
+de <span class="math notranslate nohighlight">\(\chi^2_D\)</span> amb <span class="math notranslate nohighlight">\(D = \mbox{dim}\Theta - \mbox{dim}\Theta_0\)</span> quan la talla
+de la mostra tendeix a l’infinit.</p>
+<p>En les pròximes seccions veurem una aplicació pràctica d’aquest resultat en el contexte
+de tests per la Bondat d’Ajust.</p>
+
+
+
+<div class="slide-no">30</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="tests-de-bondat-d-ajust">
+
+<h3>Tests de Bondat d’Ajust</h3>
+
+<p>Recordeu del Tema 3 que un dels problemes que vam “esquivar” a l’ajustar
+lleis de probabilitat a les dades era el de determinar si la nostra hipòtesi sobre la família
+que generava les dades era adequada o no:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/ajust.png"><img alt="../_images/ajust.png" src="../_images/ajust.png" style="height: 300px;" /></a>
+</div>
+<p class="note">De les tres famílies (Gaussiana, Poisson, Gamma), quina té millor ajust?</p>
+
+
+
+<div class="slide-no">31</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id21">
+
+<h3>Tests de Bondat d'Ajust (2)</h3>
+
+<p>Intuitivament, si tenim dades discretes, sembla que el millor ajust seria el que
+minimitzaria les diferències entre les comptes observades (histograma) i les
+comptes que “esperaria” la f.d.p:</p>
+<p class="note">Necessitem un criteri més objectiu per determinar què és poca o molta diferència
+entre el que espera el model i el que observem.</p>
+
+
+
+<div class="slide-no">32</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id22">
+
+<h3>Tests de Bondat d’Ajust (3)</h3>
+
+<p>En el material que segueix, donarem dues alternatives per quantificar la <em>bondat d’ajust</em>,
+és a dir: donada una mostra i un ajust d’una f.d.p a les mateixes, com n’és de probable
+que les dades fóssin generades pel model estocàstic que hem ajustat.</p>
+<ul class="simple">
+<li>Suposem que tenim una mostra de talla N d’una v.a. discreta no-negativa amb f.m.p. <span class="math notranslate nohighlight">\(X \sim p_X(x;\theta)\)</span></li>
+<li>Construïm l’histograma de la mostra, amb M “compartiments” <span class="math notranslate nohighlight">\(\left\{1, 2, \cdots, M\right\}\)</span></li>
+<li>El nombre d’elements en cada compartiment, <span class="math notranslate nohighlight">\(Y_1, \cdots, Y_M\)</span> seguirà una distribució multinomial amb paràmetres <span class="math notranslate nohighlight">\([p_X(0;\theta), p_X(1;\theta), \cdots, p_X(M-1;\theta)]\)</span></li>
+</ul>
+<p>Aleshores, la versemblança de <span class="math notranslate nohighlight">\(Y_1, \cdots, Y_M\)</span> sota el model <span class="math notranslate nohighlight">\(p_X(x;\theta)\)</span> és:</p>
+<div class="math notranslate nohighlight">
+\[p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; \theta) = \left( \frac{N!}{y_1! \cdots y_M!} \right) p_X(0;\theta)^{y_1} \cdots p_X(M;\theta)^{y_M}\]</div>
+
+
+
+<div class="slide-no">33</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id23">
+
+<h3>Tests de Bondat d’Ajust (4)</h3>
+
+<p>En canvi, si no tenim cap hipòtesi sobre el model generador de <span class="math notranslate nohighlight">\(X\)</span>, la versemblança de
+<span class="math notranslate nohighlight">\(Y_1, \cdots, Y_M\)</span> és:</p>
+<div class="math notranslate nohighlight">
+\[p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; p_1, \cdots, p_M) = \left( \frac{N!}{y_1! \cdots y_M!} \right) p_1^{y_1} \cdots p_M^{y_M}\]</div>
+<p>on fixeu-vos que <span class="math notranslate nohighlight">\(p_i, i=1,\cdots,M\)</span> són “lliures”, és a dir <span class="math notranslate nohighlight">\(p_i \neq p_X(i;\theta)\)</span>.</p>
+<p>Tenim per tant dues hipòtesis:</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(Y_1, \cdots, Y_M \sim \mbox{Multinomial}\left(p_X(0;\theta), p_X(1;\theta), \cdots, p_X(M-1;\theta), N\right)\)</span></li>
+<li><span class="math notranslate nohighlight">\(H_1\)</span>: <span class="math notranslate nohighlight">\(Y_1, \cdots, Y_M \sim \mbox{Multinomial}\left(p_1, \cdots, p_M, N\right)\)</span> amb <span class="math notranslate nohighlight">\(\sum_i p_i =1\)</span></li>
+</ul>
+<p class="note">Es tracta d’una hipòtesis composta, i podem fer servir el test de RVG!</p>
+
+
+
+<div class="slide-no">34</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id24">
+
+<h3>Tests de Bondat d’Ajust (5)</h3>
+
+<p>Recordem que el test de RVG demana el càlcul de:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = \frac{\max_{\theta} p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; \theta)}{\max_{p_1, \cdots, p_M \in \mathcal{P}} p_{Y_1, \cdots, Y_M}(y_1, \cdots, y_M; p_1, \cdots, p_M)}\]</div>
+<p>on <span class="math notranslate nohighlight">\(\mathcal{P} := \left\{p_1, \cdots, p_M: \sum_i p_i =1 \right\}\)</span>.</p>
+<p>El màxim del numerador es troba per <span class="math notranslate nohighlight">\(\theta\)</span> igual a l’EMV de <span class="math notranslate nohighlight">\(\theta\)</span> donat
+<span class="math notranslate nohighlight">\(X_1, \cdots, X_M\)</span> (l’EMV “habitual”).</p>
+<p>El màxim del denominador es troba com l’EMV de <span class="math notranslate nohighlight">\(p_1, \cdots, p_M\)</span> sense cap restricció
+(vist al <a class="reference external" href="https://atibaup.github.io/ModInfer_2020/slides/0_Intro/0_3_Estimacio.html#11">Tema 3, Diapo 11</a>):</p>
+<div class="math notranslate nohighlight">
+\[\hat{p}_i = \frac{Y_i}{N}\]</div>
+
+
+
+<div class="slide-no">35</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id25">
+
+<h3>Tests de Bondat d’Ajust (6)</h3>
+
+<p>Per tant el RVG es simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Lambda &amp;= \frac{\left( \frac{N!}{y_1! \cdots y_M!} \right) p_X(0;\hat{\theta})^{y_1} \cdots p_X(M;\hat{\theta})^{y_M}}{ \left( \frac{N!}{y_1! \cdots y_M!} \right) \hat{p}_1^{y_1} \cdots \hat{p}_M^{y_M}} \\
+&amp;= \Pi_{i=1}^M \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)^{y_i}\end{split}\]</div>
+<p>Com que coneixem la distribució sota <span class="math notranslate nohighlight">\(H_0\)</span> de <span class="math notranslate nohighlight">\(-2\log \Lambda\)</span>, aplicarem la transformació
+<span class="math notranslate nohighlight">\(-2\log(\cdot)\)</span> a l’expressió anterior:</p>
+<div class="math notranslate nohighlight">
+\[-2 \log\Lambda = -2  \sum_i y_i \log \left(\frac{p_X(i;\hat{\theta})}{p_i} \right)\]</div>
+
+
+
+<div class="slide-no">36</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="id26">
+
+<h3>Tests de Bondat d’Ajust (7)</h3>
+
+<p>Definint <span class="math notranslate nohighlight">\(N p_X(i;\hat{\theta}) = \hat{y}_i\)</span> i tenint en compte que <span class="math notranslate nohighlight">\(N \hat{p}_i = y_i\)</span>,
+obtindrem:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}-2 \log\Lambda &amp; = -2 \sum_i y_i \log \left(\frac{\hat{y}_i}{y_i} \right) \\
+&amp;= 2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)\end{split}\]</div>
+<p>Suposant que <span class="math notranslate nohighlight">\(N\)</span> és gran, invoquem el Teorema 4.1. amb <span class="math notranslate nohighlight">\(\mbox{dim}\Theta = M-1\)</span> i <span class="math notranslate nohighlight">\(\mbox{dim}\Theta_0 = 1\)</span>,
+sabem que <span class="math notranslate nohighlight">\(-2 \log\Lambda \sim \chi^2_{M-2}\)</span> i podem refusar <span class="math notranslate nohighlight">\(H_0\)</span> quan</p>
+<div class="math notranslate nohighlight">
+\[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)\]</div>
+<p>on <span class="math notranslate nohighlight">\(\phi_{\chi^2_{M-2}}\)</span> és la f.d.c. inversa d’una llei <span class="math notranslate nohighlight">\(\chi^2_{M-2}\)</span>.</p>
+
+
+
+<div class="slide-no">37</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="test-chi-2-de-pearson">
+
+<h3>Test <span class="math notranslate nohighlight">\(\chi^2\)</span> de Pearson</h3>
+
+<p>L’expressió anterior:</p>
+<div class="math notranslate nohighlight">
+\[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right)\]</div>
+<p>mesura com de gran és la discrepància entre <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> i <span class="math notranslate nohighlight">\(y_i\)</span> (i per tant
+entre <span class="math notranslate nohighlight">\(p_X(i;\hat{\theta})\)</span> i <span class="math notranslate nohighlight">\(\hat{p}_i\)</span>), i està
+justificada per la teoria del Test de RVG.</p>
+<p>L’estadístic de Pearson, definit com:</p>
+<div class="math notranslate nohighlight">
+\[X^2 = \sum_i \frac{\left(y_i - N p_X(i;\hat{\theta}) \right)^2}{ N p_X(i;\hat{\theta})} = \sum_i \frac{\left(y_i - \hat{y}_i\right)^2}{ \hat{y}_i}\]</div>
+<p>és un altre test habitual (i potser més comú) per assolir el mateix objectiu.</p>
+<p>Resulta que es pot demostrar (mitjantçant una expansió de Taylor), que sota l’hipòtesis
+nula, l’estadístic <span class="math notranslate nohighlight">\(X^2\)</span> i l’estadístic <span class="math notranslate nohighlight">\(-2\log\Lambda\)</span> son asimptòticament
+equivalents, i per tant, podem fer servir que <span class="math notranslate nohighlight">\(X^2 \sim \chi^2_D\)</span> per trobar-ne la
+regió i valor crítics.</p>
+
+
+
+<div class="slide-no">38</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+<article class="slide level-3" id="calendari-fi-de-curs">
+
+<h3>Calendari fi de curs:</h3>
+
+<ol class="arabic simple">
+<li>El dia 8/01 haureu d’entregar els problemes que us posaré aquest Dimecres del Tema 4. Podeu fer els problemes i pràctiques en parelles i amb qui volgueu.</li>
+<li>El dia 11/01 farem una última pràctica: bondat d’ajust i tests de dues mostres (2-sample tests).</li>
+<li>El dia 13/01 farem una classe de repàs i resolució de problemes de pràctiques. Podem fer-ne una altra el dia 15/01 si hi ha demanda.</li>
+<li>El dia 18/01 farem l’exàmen final. Entra tot el que hem vist a teoria, pràctica i problemes excepte la secció 4.2.5. <a class="reference external" href="https://atibaup.github.io/ModInfer_2020/html/index.html">dels apunts</a>. Però no patiu, centreu-vos en practicar i entendre els conceptes i us sortirà bé.</li>
+</ol>
+
+
+
+<div class="slide-no">39</div>
+
+
+<div class="slide-footer">104392 - Modelització i Inferència - 2020</div>
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
