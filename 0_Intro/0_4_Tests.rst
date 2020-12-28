@@ -560,7 +560,7 @@ de tests per la Bondat d'Ajust.
 
 
 Aplicació del TRVG: Bondat d'Ajust
--------------------------------------
+====================================
 
 Tests de Bondat d'Ajust
 ------------------------
