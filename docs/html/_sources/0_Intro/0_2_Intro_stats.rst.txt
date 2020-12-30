@@ -667,12 +667,12 @@ Aquí farem un raonament heurístic: l'esdeveniment
 .. nextslide::
     :increment:
 
-Hi ha :math:`\frac{N!}{(k-1)!(N-k)!}` maneres de que es dongui
+Hi ha :math:`\frac{N!}{(i-1)!(N-i)!}` maneres de que es dongui
 aquesta situació, i cada manera succeeix amb probabilitat
-:math:`f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}`,
+:math:`f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-i}`,
 per tant:
 
-:math:`f_{X_{(i)}}(x) = \frac{N!}{(k-1)!(N-k)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}`
+:math:`f_{X_{(i)}}(x) = \frac{N!}{(i-1)!(N-i)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-i}`
 
 .. rst-class:: note
 

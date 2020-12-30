@@ -73,7 +73,7 @@
 
 
 \title{104392 - Modelització i Inferència}
-\date{Dec 28, 2020}
+\date{Dec 30, 2020}
 \release{2020.12.28}
 \author{Arnau Tibau Puig}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2744,12 +2744,12 @@ Aquí farem un raonament heurístic: l’esdeveniment
 
 \end{itemize}
 
-Hi ha \(\frac{N!}{(k-1)!(N-k)!}\) maneres de que es dongui
+Hi ha \(\frac{N!}{(i-1)!(N-i)!}\) maneres de que es dongui
 aquesta situació, i cada manera succeeix amb probabilitat
-\(f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}\),
+\(f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-i}\),
 per tant:
 
-\(f_{X_{(i)}}(x) = \frac{N!}{(k-1)!(N-k)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-k}\)
+\(f_{X_{(i)}}(x) = \frac{N!}{(i-1)!(N-i)!} f_X(x)\left(F_X(x)\right)^{i-1}\left(1 - F_X(x)\right)^{N-i}\)
 
 A diferència dels moments mostrals (ex: mitjana, variança empírica),
 podeu veure que la caracterització dels estadístics d’ordre
