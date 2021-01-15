@@ -253,7 +253,7 @@ Com que es tracta d'hipòtesis simples, segons el Lema 4.1 de Neyman-Pearson
 
     T &= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
       &= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
-      &= \exp\left(N\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)
+      &= \exp\left(\frac{N}{2\sigma^2}\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)
 
 .. rst-class:: note
 
@@ -460,7 +460,7 @@ arribem a:
 
 Per :math:`X_0=\sqrt{- 2 \log \lambda_0 }`. És a dir, rebutjarem :math:`H_0` quan la diferència entre :math:`\bar{X}` i :math:`\mu_0` sigui prou gran, relativa a la variança de :math:`\bar{X}`.
 
-De nou, com que la mostra es Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)`,
+De nou, com que la mostra és Gaussiana, :math:`\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)`,
 podem buscar el valor crític :math:`X_0` com segueix:
 
 
@@ -682,7 +682,7 @@ sabem que :math:`-2 \log\Lambda \sim \chi^2_{M-2}` i podem refusar :math:`H_0` q
 
 .. math::
 
-     2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)
+     2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(1-\alpha)
 
 on :math:`\phi_{\chi^2_{M-2}}` és la f.d.c. inversa d'una llei :math:`\chi^2_{M-2}`.
 

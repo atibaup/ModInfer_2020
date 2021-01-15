@@ -188,7 +188,7 @@ hi ha un objecte, es mesura una senyal amb mitja <span class="math notranslate n
 <div class="math notranslate nohighlight">
 \[\begin{split}T &amp;= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
   &amp;= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
-  &amp;= \exp\left(N\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)\end{split}\]</div>
+  &amp;= \exp\left(\frac{N}{2\sigma^2}\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)\end{split}\]</div>
 <p class="note">Fixeu-vos doncs que <span class="math notranslate nohighlight">\(T\)</span> depèn únicament de la mostra a través de <span class="math notranslate nohighlight">\(\bar{X}\)</span>.
 Per exemple, si <span class="math notranslate nohighlight">\(\mu_0 &gt; \mu_1\)</span>, <span class="math notranslate nohighlight">\(T\)</span> és petit si <span class="math notranslate nohighlight">\(\bar{X}\)</span> és petit,
 per tant rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> si <span class="math notranslate nohighlight">\(\bar{X}\)</span> és petita. Per tant, per aquest test,
@@ -295,7 +295,7 @@ de la mitja <span class="math notranslate nohighlight">\(\mu\)</span> és simple
 <div class="math notranslate nohighlight">
 \[\left\{\Lambda: \Lambda \leq \lambda_0\right\}  = \left\{\bar{X}: \left| \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}}\right| \geq X_0 \right\}\]</div>
 <p>Per <span class="math notranslate nohighlight">\(X_0=\sqrt{- 2 \log \lambda_0 }\)</span>. És a dir, rebutjarem <span class="math notranslate nohighlight">\(H_0\)</span> quan la diferència entre <span class="math notranslate nohighlight">\(\bar{X}\)</span> i <span class="math notranslate nohighlight">\(\mu_0\)</span> sigui prou gran, relativa a la variança de <span class="math notranslate nohighlight">\(\bar{X}\)</span>.</p>
-<p>De nou, com que la mostra es Gaussiana, <span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\)</span>,
+<p>De nou, com que la mostra és Gaussiana, <span class="math notranslate nohighlight">\(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\)</span>,
 podem buscar el valor crític <span class="math notranslate nohighlight">\(X_0\)</span> com segueix:</p>
 <div class="math notranslate nohighlight">
 \[P(\Lambda \leq \lambda_0; \mu_0) = 1 - P(-X_0 \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq X_0; \mu_0) = \alpha\]</div>
@@ -419,7 +419,7 @@ obtindrem:</p>
 <p>Suposant que <span class="math notranslate nohighlight">\(N\)</span> és gran, invoquem el Teorema 4.1. amb <span class="math notranslate nohighlight">\(\mbox{dim}\Theta = M-1\)</span> i <span class="math notranslate nohighlight">\(\mbox{dim}\Theta_0 = 1\)</span>,
 sabem que <span class="math notranslate nohighlight">\(-2 \log\Lambda \sim \chi^2_{M-2}\)</span> i podem refusar <span class="math notranslate nohighlight">\(H_0\)</span> quan</p>
 <div class="math notranslate nohighlight">
-\[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)\]</div>
+\[2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(1-\alpha)\]</div>
 <p>on <span class="math notranslate nohighlight">\(\phi_{\chi^2_{M-2}}\)</span> és la f.d.c. inversa d’una llei <span class="math notranslate nohighlight">\(\chi^2_{M-2}\)</span>.</p>
 </div>
 <div class="section" id="test-chi-2-de-pearson">

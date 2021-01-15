@@ -73,7 +73,7 @@
 
 
 \title{104392 - Modelització i Inferència}
-\date{Dec 30, 2020}
+\date{Jan 15, 2021}
 \release{2020.12.28}
 \author{Arnau Tibau Puig}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -3852,7 +3852,7 @@ Com que es tracta d’hipòtesis simples, segons el Lema 4.1 de Neyman\sphinxhyp
 \begin{equation*}
 \begin{split}T &= \frac{f_X(X_1, \cdots, X_N; \mu_0)}{f_X(X_1, \cdots, X_N; \mu_1)} = \frac{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_0 \right)^2 \right)}{\exp\left(-\frac{1}{2\sigma^2}\sum_i \left(X_i - \mu_1 \right)^2 \right)} \\
   &= \exp\left(-\frac{1}{2\sigma^2}\left(\sum_i \left(X_i - \mu_0 \right)^2 - \sum_i \left(X_i - \mu_1 \right)^2 \right)\right) \\
-  &= \exp\left(N\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)\end{split}
+  &= \exp\left(\frac{N}{2\sigma^2}\left(2\bar{X}(\mu_0 - \mu_1) + \mu_1^2 - \mu_0^2\right)\right)\end{split}
 \end{equation*}
 Fixeu\sphinxhyphen{}vos doncs que \(T\) depèn únicament de la mostra a través de \(\bar{X}\).
 Per exemple, si \(\mu_0 > \mu_1\), \(T\) és petit si \(\bar{X}\) és petit,
@@ -4008,7 +4008,7 @@ arribem a:
 \end{equation*}
 Per \(X_0=\sqrt{- 2 \log \lambda_0 }\). És a dir, rebutjarem \(H_0\) quan la diferència entre \(\bar{X}\) i \(\mu_0\) sigui prou gran, relativa a la variança de \(\bar{X}\).
 
-De nou, com que la mostra es Gaussiana, \(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\),
+De nou, com que la mostra és Gaussiana, \(\frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \sim \mathcal{N}(0, 1)\),
 podem buscar el valor crític \(X_0\) com segueix:
 \begin{equation*}
 \begin{split}P(\Lambda \leq \lambda_0; \mu_0) = 1 - P(-X_0 \leq \frac{\bar{X} - \mu_0}{\sqrt{\frac{\sigma^2}{N}}} \leq X_0; \mu_0) = \alpha\end{split}
@@ -4180,7 +4180,7 @@ obtindrem:
 Suposant que \(N\) és gran, invoquem el Teorema 4.1. amb \(\mbox{dim}\Theta = M-1\) i \(\mbox{dim}\Theta_0 = 1\),
 sabem que \(-2 \log\Lambda \sim \chi^2_{M-2}\) i podem refusar \(H_0\) quan
 \begin{equation*}
-\begin{split}2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(\alpha)\end{split}
+\begin{split}2 \sum_i y_i \log \left(\frac{y_i}{\hat{y}_i} \right) \geq \phi_{\chi^2_{M-2}}(1-\alpha)\end{split}
 \end{equation*}
 on \(\phi_{\chi^2_{M-2}}\) és la f.d.c. inversa d’una llei \(\chi^2_{M-2}\).
 
